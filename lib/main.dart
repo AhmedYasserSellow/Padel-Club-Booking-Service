@@ -38,9 +38,9 @@ class MyApp extends StatelessWidget {
         listener: (context, state) {},
         builder: (context, state) {
           return MaterialApp(
-            theme: AppCubit.get(context).brightness == Brightness.light
-                ? ThemeData.light()
-                : ThemeData.dark(),
+            theme: AppCubit.get(context).isLightMode
+                ? ThemeData(brightness: Brightness.light, fontFamily: 'Cairo')
+                : ThemeData(brightness: Brightness.dark, fontFamily: 'Cairo'),
             debugShowCheckedModeBanner: false,
             routes: {
               Splash.id: (context) => const Splash(),

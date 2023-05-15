@@ -25,7 +25,7 @@ class ChooseRole extends StatelessWidget {
             Role(
               index: 1,
               image: 'assets/user.png',
-              role: 'USER',
+              role: 'User',
             ),
             SizedBox(
               width: 12,
@@ -34,7 +34,7 @@ class ChooseRole extends StatelessWidget {
             Role(
               index: 2,
               image: 'assets/manager.png',
-              role: 'MANAGER',
+              role: 'Manager',
             ),
           ],
         )
