@@ -61,8 +61,9 @@ class Role extends StatelessWidget {
         width: MediaQuery.of(context).size.width * 5 / 12,
         height: MediaQuery.of(context).size.width * 5 / 12,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(24),
-            border: Border.all(color: Colors.white, width: 3)),
+          borderRadius: BorderRadius.circular(24),
+          border: Border.all(color: Colors.white, width: 3),
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
