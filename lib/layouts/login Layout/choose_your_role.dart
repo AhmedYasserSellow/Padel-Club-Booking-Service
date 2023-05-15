@@ -24,7 +24,7 @@ class ChooseRole extends StatelessWidget {
           children: const [
             Role(
               index: 1,
-              image: Icons.account_circle_outlined,
+              image: 'assets/user.png',
               role: 'User',
             ),
             SizedBox(
@@ -33,7 +33,7 @@ class ChooseRole extends StatelessWidget {
             //Manager Role
             Role(
               index: 2,
-              image: Icons.manage_accounts_outlined,
+              image: 'assets/manager.png',
               role: 'Manager',
             ),
           ],
@@ -50,7 +50,7 @@ class Role extends StatelessWidget {
     required this.role,
     required this.index,
   });
-  final IconData image;
+  final String image;
   final String role;
   final int index;
   @override
@@ -70,10 +70,10 @@ class Role extends StatelessWidget {
             const Spacer(
               flex: 2,
             ),
-            Icon(
+            Image.asset(
               image,
-              size: 64,
-              color: Colors.white,
+              width: 64,
+              // color: Colors.white,
             ),
             const Spacer(
               flex: 1,
