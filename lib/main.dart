@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
               // DEV Mode --------------------------------------------------
               ControlPanel.id: (context) => const ControlPanel(),
             },
-            initialRoute: ControlPanel.id,
+            initialRoute: Splash.id,
           );
         },
       ),
