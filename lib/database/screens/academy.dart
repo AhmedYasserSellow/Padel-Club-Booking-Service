@@ -1,3 +1,4 @@
+import 'package:booking/components/widgets/default_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../bloc/cubit.dart';
@@ -30,100 +31,59 @@ class ControlAcademy extends StatelessWidget {
                 const SizedBox(
                   height: 12,
                 ),
-                myTextFormField(
-                  limit: 4,
-                  controller: yeasAcademy,
-                  type: TextInputType.phone,
-                  validate: (String? value) {
-                    if (value!.isEmpty) {
-                      return 'year is required';
-                    }
-                    if (value.length != 4) {
-                      return 'enter a valid year';
-                    }
-                    return null;
-                  },
-                  label: 'Years',
-                  prefix: Icons.numbers,
-                  context: context,
-                  color: AppCubit.get(context).iconAndTextColor,
-                  textStyleColor: AppCubit.get(context).iconAndTextColor,
-                ),
-                const SizedBox(
-                  height: 12,
-                ),
-                myTextFormField(
-                  limit: 2,
-                  controller: monthAcademy,
-                  type: TextInputType.phone,
-                  validate: (String? value) {
-                    if (value!.isEmpty) {
-                      return 'month is required';
-                    }
-                    if (int.tryParse(value)! > 12) {
-                      return 'enter a valid month';
-                    }
-                    return null;
-                  },
-                  label: 'Month',
-                  prefix: Icons.numbers,
-                  context: context,
-                  color: AppCubit.get(context).iconAndTextColor,
-                  textStyleColor: AppCubit.get(context).iconAndTextColor,
+                Row(
+                  children: [
+                    Expanded(
+                      child: myTextFormField(
+                        limit: 4,
+                        controller: yeasAcademy,
+                        type: TextInputType.phone,
+                        validate: (String? value) {
+                          if (value!.isEmpty) {
+                            return 'year is required';
+                          }
+                          if (value.length != 4) {
+                            return 'enter a valid year';
+                          }
+                          return null;
+                        },
+                        label: 'Year',
+                        prefix: Icons.numbers,
+                        context: context,
+                        color: AppCubit.get(context).iconAndTextColor,
+                        textStyleColor: AppCubit.get(context).iconAndTextColor,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 24,
+                    ),
+                    Expanded(
+                      child: myTextFormField(
+                        limit: 2,
+                        controller: monthAcademy,
+                        type: TextInputType.phone,
+                        validate: (String? value) {
+                          if (value!.isEmpty) {
+                            return 'month is required';
+                          }
+                          if (int.tryParse(value)! > 12) {
+                            return 'enter a valid month';
+                          }
+                          return null;
+                        },
+                        label: 'Month',
+                        prefix: Icons.numbers,
+                        context: context,
+                        color: AppCubit.get(context).iconAndTextColor,
+                        textStyleColor: AppCubit.get(context).iconAndTextColor,
+                      ),
+                    ),
+                  ],
                 ),
                 const SizedBox(
                   height: 12,
                 ),
                 const Text('Academy Time 24H Format'),
-                const SizedBox(
-                  height: 12,
-                ),
-                myTextFormField(
-                  limit: 2,
-                  controller: fromAcademy,
-                  type: TextInputType.phone,
-                  validate: (String? value) {
-                    if (value!.isEmpty) {
-                      return 'ending time is required';
-                    }
-
-                    if (int.tryParse(value)! > 23) {
-                      return 'enter a valid starting time';
-                    }
-                    return null;
-                  },
-                  label: 'From',
-                  prefix: Icons.numbers,
-                  context: context,
-                  color: AppCubit.get(context).iconAndTextColor,
-                  textStyleColor: AppCubit.get(context).iconAndTextColor,
-                ),
-                const SizedBox(
-                  height: 12,
-                ),
-                myTextFormField(
-                  limit: 2,
-                  controller: toAcademy,
-                  type: TextInputType.phone,
-                  validate: (String? value) {
-                    if (value!.isEmpty) {
-                      return 'ending time is required';
-                    }
-                    if (int.tryParse(value)! == 0) {
-                      return 'please enter 24 instead';
-                    }
-                    if (int.tryParse(value)! > 23 &&
-                        int.tryParse(value) != 24) {
-                      return 'enter a valid starting time';
-                    }
-                    return null;
-                  },
-                  label: 'To',
-                  prefix: Icons.numbers,
-                  context: context,
-                  color: AppCubit.get(context).iconAndTextColor,
-                  textStyleColor: AppCubit.get(context).iconAndTextColor,
-                ),
                 const SizedBox(
                   height: 12,
                 ),
@@ -151,6 +111,63 @@ class ControlAcademy extends StatelessWidget {
                   height: 12,
                 ),
                 Row(
+                  children: [
+                    Expanded(
+                      child: myTextFormField(
+                        limit: 2,
+                        controller: fromAcademy,
+                        type: TextInputType.phone,
+                        validate: (String? value) {
+                          if (value!.isEmpty) {
+                            return 'ending time is required';
+                          }
+
+                          if (int.tryParse(value)! > 23) {
+                            return 'enter a valid starting time';
+                          }
+                          return null;
+                        },
+                        label: 'From',
+                        prefix: Icons.numbers,
+                        context: context,
+                        color: AppCubit.get(context).iconAndTextColor,
+                        textStyleColor: AppCubit.get(context).iconAndTextColor,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 24,
+                    ),
+                    Expanded(
+                      child: myTextFormField(
+                        limit: 2,
+                        controller: toAcademy,
+                        type: TextInputType.phone,
+                        validate: (String? value) {
+                          if (value!.isEmpty) {
+                            return 'ending time is required';
+                          }
+                          if (int.tryParse(value)! == 0) {
+                            return 'please enter 24 instead';
+                          }
+                          if (int.tryParse(value)! > 23 &&
+                              int.tryParse(value) != 24) {
+                            return 'enter a valid starting time';
+                          }
+                          return null;
+                        },
+                        label: 'To',
+                        prefix: Icons.numbers,
+                        context: context,
+                        color: AppCubit.get(context).iconAndTextColor,
+                        textStyleColor: AppCubit.get(context).iconAndTextColor,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 12,
+                ),
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Text('1 : ${days[0]}'),
@@ -167,42 +184,49 @@ class ControlAcademy extends StatelessWidget {
                     Text('7 : ${days[6]}'),
                   ],
                 ),
+                const SizedBox(
+                  height: 12,
+                ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: availableColor),
-                      onPressed: () {
-                        if (formKey.currentState!.validate()) {
-                          addAcdemy(
-                              int.tryParse(yeasAcademy.text)!,
-                              int.tryParse(monthAcademy.text)!,
-                              int.tryParse(fromAcademy.text)!,
-                              int.tryParse(toAcademy.text)!,
-                              days[int.tryParse(dayIndex.text)! - 1],
-                              context);
-                          progressDialog(context);
-                        }
-                      },
-                      child: const Text('Add Selected Day'),
+                    Expanded(
+                      child: defaultButton(
+                        color: availableColor,
+                        onTap: () {
+                          if (formKey.currentState!.validate()) {
+                            addAcdemy(
+                                int.tryParse(yeasAcademy.text)!,
+                                int.tryParse(monthAcademy.text)!,
+                                int.tryParse(fromAcademy.text)!,
+                                int.tryParse(toAcademy.text)!,
+                                days[int.tryParse(dayIndex.text)! - 1],
+                                context);
+                            progressDialog(context);
+                          }
+                        },
+                        text: 'Add Selected Day',
+                      ),
                     ),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: bookedColor),
-                      onPressed: () {
-                        if (formKey.currentState!.validate()) {
-                          removeAcdemy(
-                              int.tryParse(yeasAcademy.text)!,
-                              int.tryParse(monthAcademy.text)!,
-                              int.tryParse(fromAcademy.text)!,
-                              int.tryParse(toAcademy.text)!,
-                              days[int.tryParse(dayIndex.text)! - 1],
-                              context);
-                          progressDialog(context);
-                        }
-                      },
-                      child: const Text('Remove Selected Day'),
+                    const SizedBox(
+                      width: 24,
+                    ),
+                    Expanded(
+                      child: defaultButton(
+                        color: bookedColor,
+                        onTap: () {
+                          if (formKey.currentState!.validate()) {
+                            removeAcdemy(
+                                int.tryParse(yeasAcademy.text)!,
+                                int.tryParse(monthAcademy.text)!,
+                                int.tryParse(fromAcademy.text)!,
+                                int.tryParse(toAcademy.text)!,
+                                days[int.tryParse(dayIndex.text)! - 1],
+                                context);
+                            progressDialog(context);
+                          }
+                        },
+                        text: 'Remove Selected Day',
+                      ),
                     ),
                   ],
                 ),

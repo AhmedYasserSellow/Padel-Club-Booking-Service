@@ -1,3 +1,5 @@
+import 'package:booking/components/theme.dart';
+import 'package:booking/components/widgets/default_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -38,7 +40,7 @@ class AddYearsToDB extends StatelessWidget {
                     }
                     return null;
                   },
-                  label: 'Years',
+                  label: 'Year',
                   prefix: Icons.numbers,
                   context: context,
                   color: AppCubit.get(context).iconAndTextColor,
@@ -47,36 +49,37 @@ class AddYearsToDB extends StatelessWidget {
                 const SizedBox(
                   height: 12,
                 ),
-                ElevatedButton(
-                    onPressed: () {
-                      if (formKey.currentState!.validate()) {
-                        createDatabase(yearDBField.text, context);
-                        showDialog(
-                          context: context,
-                          builder: (context) {
-                            return AlertDialog(
-                              content: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  const Center(
-                                    child: CircularProgressIndicator(
-                                      backgroundColor: Colors.grey,
-                                    ),
+                defaultButton(
+                  text: 'Add to Database',
+                  color: usersColor,
+                  onTap: () {
+                    if (formKey.currentState!.validate()) {
+                      createDatabase(yearDBField.text, context);
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            content: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                const Center(
+                                  child: CircularProgressIndicator(
+                                    backgroundColor: Colors.grey,
                                   ),
-                                  const SizedBox(height: 16),
-                                  const Text('Adding'),
-                                  Text(
-                                      'Month : ${AppCubit.get(context).monthDB}.....'),
-                                  Text(
-                                      'Day : ${AppCubit.get(context).dayDB}....')
-                                ],
-                              ),
-                            );
-                          },
-                        );
-                      }
-                    },
-                    child: const Text('Add to Database')),
+                                ),
+                                const SizedBox(height: 16),
+                                const Text('Adding'),
+                                Text(
+                                    'Month : ${AppCubit.get(context).monthDB}.....'),
+                                Text('Day : ${AppCubit.get(context).dayDB}....')
+                              ],
+                            ),
+                          );
+                        },
+                      );
+                    }
+                  },
+                )
               ],
             ),
           );

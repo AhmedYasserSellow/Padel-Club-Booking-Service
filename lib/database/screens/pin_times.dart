@@ -1,3 +1,4 @@
+import 'package:booking/components/widgets/default_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../bloc/cubit.dart';
@@ -76,99 +77,59 @@ class PinTimes extends StatelessWidget {
                 const SizedBox(
                   height: 12,
                 ),
-                myTextFormField(
-                  limit: 4,
-                  controller: yearsForPin,
-                  type: TextInputType.phone,
-                  validate: (String? value) {
-                    if (value!.isEmpty) {
-                      return 'year is required';
-                    }
-                    if (value.length != 4) {
-                      return 'enter a valid year';
-                    }
-                    return null;
-                  },
-                  label: 'Years',
-                  prefix: Icons.numbers,
-                  context: context,
-                  color: AppCubit.get(context).iconAndTextColor,
-                  textStyleColor: AppCubit.get(context).iconAndTextColor,
-                ),
-                const SizedBox(
-                  height: 12,
-                ),
-                myTextFormField(
-                  limit: 2,
-                  controller: monthForPin,
-                  type: TextInputType.phone,
-                  validate: (String? value) {
-                    if (value!.isEmpty) {
-                      return 'month is required';
-                    }
-                    if (int.tryParse(value)! > 12) {
-                      return 'enter a valid month';
-                    }
-                    return null;
-                  },
-                  label: 'Month',
-                  prefix: Icons.numbers,
-                  context: context,
-                  color: AppCubit.get(context).iconAndTextColor,
-                  textStyleColor: AppCubit.get(context).iconAndTextColor,
+                Row(
+                  children: [
+                    Expanded(
+                      child: myTextFormField(
+                        limit: 4,
+                        controller: yearsForPin,
+                        type: TextInputType.phone,
+                        validate: (String? value) {
+                          if (value!.isEmpty) {
+                            return 'year is required';
+                          }
+                          if (value.length != 4) {
+                            return 'enter a valid year';
+                          }
+                          return null;
+                        },
+                        label: 'Year',
+                        prefix: Icons.numbers,
+                        context: context,
+                        color: AppCubit.get(context).iconAndTextColor,
+                        textStyleColor: AppCubit.get(context).iconAndTextColor,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 24,
+                    ),
+                    Expanded(
+                      child: myTextFormField(
+                        limit: 2,
+                        controller: monthForPin,
+                        type: TextInputType.phone,
+                        validate: (String? value) {
+                          if (value!.isEmpty) {
+                            return 'month is required';
+                          }
+                          if (int.tryParse(value)! > 12) {
+                            return 'enter a valid month';
+                          }
+                          return null;
+                        },
+                        label: 'Month',
+                        prefix: Icons.numbers,
+                        context: context,
+                        color: AppCubit.get(context).iconAndTextColor,
+                        textStyleColor: AppCubit.get(context).iconAndTextColor,
+                      ),
+                    ),
+                  ],
                 ),
                 const SizedBox(
                   height: 12,
                 ),
                 const Text('Pinning Time 24H Format'),
-                const SizedBox(
-                  height: 12,
-                ),
-                myTextFormField(
-                  limit: 2,
-                  controller: startPin,
-                  type: TextInputType.phone,
-                  validate: (String? value) {
-                    if (value!.isEmpty) {
-                      return 'starting time is required';
-                    }
-                    if (int.tryParse(value)! > 23) {
-                      return 'enter a valid starting time';
-                    }
-                    return null;
-                  },
-                  label: 'From',
-                  prefix: Icons.numbers,
-                  context: context,
-                  color: AppCubit.get(context).iconAndTextColor,
-                  textStyleColor: AppCubit.get(context).iconAndTextColor,
-                ),
-                const SizedBox(
-                  height: 12,
-                ),
-                myTextFormField(
-                  limit: 2,
-                  controller: endPin,
-                  type: TextInputType.phone,
-                  validate: (String? value) {
-                    if (value!.isEmpty) {
-                      return 'ending time is required';
-                    }
-                    if (int.tryParse(value)! == 0) {
-                      return 'please enter 24 instead';
-                    }
-                    if (int.tryParse(value)! > 23 &&
-                        int.tryParse(value) != 24) {
-                      return 'enter a valid starting time';
-                    }
-                    return null;
-                  },
-                  label: 'To',
-                  prefix: Icons.numbers,
-                  context: context,
-                  color: AppCubit.get(context).iconAndTextColor,
-                  textStyleColor: AppCubit.get(context).iconAndTextColor,
-                ),
                 const SizedBox(
                   height: 12,
                 ),
@@ -196,6 +157,62 @@ class PinTimes extends StatelessWidget {
                   height: 12,
                 ),
                 Row(
+                  children: [
+                    Expanded(
+                      child: myTextFormField(
+                        limit: 2,
+                        controller: startPin,
+                        type: TextInputType.phone,
+                        validate: (String? value) {
+                          if (value!.isEmpty) {
+                            return 'starting time is required';
+                          }
+                          if (int.tryParse(value)! > 23) {
+                            return 'enter a valid starting time';
+                          }
+                          return null;
+                        },
+                        label: 'From',
+                        prefix: Icons.numbers,
+                        context: context,
+                        color: AppCubit.get(context).iconAndTextColor,
+                        textStyleColor: AppCubit.get(context).iconAndTextColor,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 24,
+                    ),
+                    Expanded(
+                      child: myTextFormField(
+                        limit: 2,
+                        controller: endPin,
+                        type: TextInputType.phone,
+                        validate: (String? value) {
+                          if (value!.isEmpty) {
+                            return 'ending time is required';
+                          }
+                          if (int.tryParse(value)! == 0) {
+                            return 'please enter 24 instead';
+                          }
+                          if (int.tryParse(value)! > 23 &&
+                              int.tryParse(value) != 24) {
+                            return 'enter a valid starting time';
+                          }
+                          return null;
+                        },
+                        label: 'To',
+                        prefix: Icons.numbers,
+                        context: context,
+                        color: AppCubit.get(context).iconAndTextColor,
+                        textStyleColor: AppCubit.get(context).iconAndTextColor,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 12,
+                ),
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Text('1 : ${days[0]}'),
@@ -212,46 +229,54 @@ class PinTimes extends StatelessWidget {
                     Text('7 : ${days[6]}'),
                   ],
                 ),
+                const SizedBox(
+                  height: 12,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: availableColor),
-                      onPressed: () {
-                        if (formKey.currentState!.validate()) {
-                          addPin(
-                              int.tryParse(yearsForPin.text)!,
-                              int.tryParse(monthForPin.text)!,
-                              int.tryParse(startPin.text)!,
-                              int.tryParse(endPin.text)!,
-                              days[int.tryParse(dayIndex.text)! - 1],
-                              name.text,
-                              phone.text,
-                              context);
-                          progressDialog(context);
-                        }
-                      },
-                      child: const Text('Add Pin'),
+                    Expanded(
+                      child: defaultButton(
+                        text: 'Pin',
+                        onTap: () {
+                          if (formKey.currentState!.validate()) {
+                            addPin(
+                                int.tryParse(yearsForPin.text)!,
+                                int.tryParse(monthForPin.text)!,
+                                int.tryParse(startPin.text)!,
+                                int.tryParse(endPin.text)!,
+                                days[int.tryParse(dayIndex.text)! - 1],
+                                name.text,
+                                phone.text,
+                                context);
+                            progressDialog(context);
+                          }
+                        },
+                        color: availableColor,
+                      ),
                     ),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: bookedColor),
-                      onPressed: () {
-                        if (formKey.currentState!.validate()) {
-                          removePin(
-                              int.tryParse(yearsForPin.text)!,
-                              int.tryParse(monthForPin.text)!,
-                              int.tryParse(startPin.text)!,
-                              int.tryParse(endPin.text)!,
-                              days[int.tryParse(dayIndex.text)! - 1],
-                              name.text,
-                              phone.text,
-                              context);
-                          progressDialog(context);
-                        }
-                      },
-                      child: const Text('Remove Pin'),
+                    const SizedBox(
+                      width: 24,
+                    ),
+                    Expanded(
+                      child: defaultButton(
+                        color: bookedColor,
+                        onTap: () {
+                          if (formKey.currentState!.validate()) {
+                            removePin(
+                                int.tryParse(yearsForPin.text)!,
+                                int.tryParse(monthForPin.text)!,
+                                int.tryParse(startPin.text)!,
+                                int.tryParse(endPin.text)!,
+                                days[int.tryParse(dayIndex.text)! - 1],
+                                name.text,
+                                phone.text,
+                                context);
+                            progressDialog(context);
+                          }
+                        },
+                        text: 'Unpin',
+                      ),
                     ),
                   ],
                 ),
