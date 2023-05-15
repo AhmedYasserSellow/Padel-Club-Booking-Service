@@ -73,7 +73,7 @@ class Role extends StatelessWidget {
             Image.asset(
               image,
               width: 64,
-              // color: Colors.white,
+              color: Colors.white,
             ),
             const Spacer(
               flex: 1,
