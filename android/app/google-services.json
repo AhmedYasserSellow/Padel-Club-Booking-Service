@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "27119695809",
+    "project_id": "padel-club-2023",
+    "storage_bucket": "padel-club-2023.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:27119695809:android:8c62f54a4650e4c548a140",
+        "android_client_info": {
+          "package_name": "com.example.padel_club"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "27119695809-72sr6nsaavq8pk7me3eqcfj089kmacau.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBC95HtDoW2XctVDwD5pnB_i8jnZw347TQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "27119695809-72sr6nsaavq8pk7me3eqcfj089kmacau.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "27119695809-jj8ljb1j8uce54pcr2g2rem1t9kv2ip1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.padelClub"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
