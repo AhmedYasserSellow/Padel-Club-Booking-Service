@@ -29,7 +29,10 @@ class PinTimes extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text('User Info'),
+                Text(
+                  'User Info',
+                  style: TextStyle(color: textColor),
+                ),
                 const SizedBox(
                   height: 12,
                 ),
@@ -45,8 +48,10 @@ class PinTimes extends StatelessWidget {
                   label: 'Name',
                   prefix: Icons.title,
                   context: context,
-                  color: AppCubit.get(context).iconAndTextColor,
-                  textStyleColor: AppCubit.get(context).iconAndTextColor,
+                  color: textColor,
+                  textStyleColor: textColor,
+                  labelColor: textColor,
+                  focusColor: textColor,
                 ),
                 const SizedBox(
                   height: 12,
@@ -67,13 +72,18 @@ class PinTimes extends StatelessWidget {
                   label: 'Phone Number',
                   prefix: Icons.phone,
                   context: context,
-                  color: AppCubit.get(context).iconAndTextColor,
-                  textStyleColor: AppCubit.get(context).iconAndTextColor,
+                  color: textColor,
+                  textStyleColor: textColor,
+                  labelColor: textColor,
+                  focusColor: textColor,
                 ),
                 const SizedBox(
                   height: 12,
                 ),
-                const Text('Pinning Time'),
+                Text(
+                  'Pinning Time',
+                  style: TextStyle(color: textColor),
+                ),
                 const SizedBox(
                   height: 12,
                 ),
@@ -96,8 +106,10 @@ class PinTimes extends StatelessWidget {
                         label: 'Year',
                         prefix: Icons.numbers,
                         context: context,
-                        color: AppCubit.get(context).iconAndTextColor,
-                        textStyleColor: AppCubit.get(context).iconAndTextColor,
+                        color: textColor,
+                        textStyleColor: textColor,
+                        labelColor: textColor,
+                        focusColor: textColor,
                       ),
                     ),
                     const SizedBox(
@@ -120,8 +132,10 @@ class PinTimes extends StatelessWidget {
                         label: 'Month',
                         prefix: Icons.numbers,
                         context: context,
-                        color: AppCubit.get(context).iconAndTextColor,
-                        textStyleColor: AppCubit.get(context).iconAndTextColor,
+                        color: textColor,
+                        textStyleColor: textColor,
+                        labelColor: textColor,
+                        focusColor: textColor,
                       ),
                     ),
                   ],
@@ -129,7 +143,12 @@ class PinTimes extends StatelessWidget {
                 const SizedBox(
                   height: 12,
                 ),
-                const Text('Pinning Time 24H Format'),
+                Text(
+                  'Pinning Time 24H Format',
+                  style: TextStyle(
+                    color: textColor,
+                  ),
+                ),
                 const SizedBox(
                   height: 12,
                 ),
@@ -150,8 +169,10 @@ class PinTimes extends StatelessWidget {
                   label: 'Day Number',
                   prefix: Icons.numbers,
                   context: context,
-                  color: AppCubit.get(context).iconAndTextColor,
-                  textStyleColor: AppCubit.get(context).iconAndTextColor,
+                  color: textColor,
+                  textStyleColor: textColor,
+                  labelColor: textColor,
+                  focusColor: textColor,
                 ),
                 const SizedBox(
                   height: 12,
@@ -175,8 +196,10 @@ class PinTimes extends StatelessWidget {
                         label: 'From',
                         prefix: Icons.numbers,
                         context: context,
-                        color: AppCubit.get(context).iconAndTextColor,
-                        textStyleColor: AppCubit.get(context).iconAndTextColor,
+                        color: textColor,
+                        textStyleColor: textColor,
+                        labelColor: textColor,
+                        focusColor: textColor,
                       ),
                     ),
                     const SizedBox(
@@ -203,8 +226,10 @@ class PinTimes extends StatelessWidget {
                         label: 'To',
                         prefix: Icons.numbers,
                         context: context,
-                        color: AppCubit.get(context).iconAndTextColor,
-                        textStyleColor: AppCubit.get(context).iconAndTextColor,
+                        color: textColor,
+                        textStyleColor: textColor,
+                        labelColor: textColor,
+                        focusColor: textColor,
                       ),
                     ),
                   ],
@@ -215,18 +240,39 @@ class PinTimes extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text('1 : ${days[0]}'),
-                    Text('2 : ${days[1]}'),
-                    Text('3 : ${days[2]}'),
-                    Text('4 : ${days[3]}'),
+                    Text(
+                      '1 : ${days[0]}',
+                      style: TextStyle(color: textColor),
+                    ),
+                    Text(
+                      '2 : ${days[1]}',
+                      style: TextStyle(color: textColor),
+                    ),
+                    Text(
+                      '3 : ${days[2]}',
+                      style: TextStyle(color: textColor),
+                    ),
+                    Text(
+                      '4 : ${days[3]}',
+                      style: TextStyle(color: textColor),
+                    ),
                   ],
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text('5 : ${days[4]}'),
-                    Text('6 : ${days[5]}'),
-                    Text('7 : ${days[6]}'),
+                    Text(
+                      '5 : ${days[4]}',
+                      style: TextStyle(color: textColor),
+                    ),
+                    Text(
+                      '6 : ${days[5]}',
+                      style: TextStyle(color: textColor),
+                    ),
+                    Text(
+                      '7 : ${days[6]}',
+                      style: TextStyle(color: textColor),
+                    ),
                   ],
                 ),
                 const SizedBox(

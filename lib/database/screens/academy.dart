@@ -27,7 +27,10 @@ class ControlAcademy extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text('Academy'),
+                Text(
+                  'Academy',
+                  style: TextStyle(color: textColor),
+                ),
                 const SizedBox(
                   height: 12,
                 ),
@@ -50,8 +53,10 @@ class ControlAcademy extends StatelessWidget {
                         label: 'Year',
                         prefix: Icons.numbers,
                         context: context,
-                        color: AppCubit.get(context).iconAndTextColor,
-                        textStyleColor: AppCubit.get(context).iconAndTextColor,
+                        color: textColor,
+                        textStyleColor: textColor,
+                        labelColor: textColor,
+                        focusColor: textColor,
                       ),
                     ),
                     const SizedBox(
@@ -74,8 +79,10 @@ class ControlAcademy extends StatelessWidget {
                         label: 'Month',
                         prefix: Icons.numbers,
                         context: context,
-                        color: AppCubit.get(context).iconAndTextColor,
-                        textStyleColor: AppCubit.get(context).iconAndTextColor,
+                        color: textColor,
+                        textStyleColor: textColor,
+                        labelColor: textColor,
+                        focusColor: textColor,
                       ),
                     ),
                   ],
@@ -83,7 +90,10 @@ class ControlAcademy extends StatelessWidget {
                 const SizedBox(
                   height: 12,
                 ),
-                const Text('Academy Time 24H Format'),
+                Text(
+                  'Academy Time 24H Format',
+                  style: TextStyle(color: textColor),
+                ),
                 const SizedBox(
                   height: 12,
                 ),
@@ -104,8 +114,10 @@ class ControlAcademy extends StatelessWidget {
                   label: 'Day Number',
                   prefix: Icons.numbers,
                   context: context,
-                  color: AppCubit.get(context).iconAndTextColor,
-                  textStyleColor: AppCubit.get(context).iconAndTextColor,
+                  color: textColor,
+                  textStyleColor: textColor,
+                  labelColor: textColor,
+                  focusColor: textColor,
                 ),
                 const SizedBox(
                   height: 12,
@@ -130,8 +142,10 @@ class ControlAcademy extends StatelessWidget {
                         label: 'From',
                         prefix: Icons.numbers,
                         context: context,
-                        color: AppCubit.get(context).iconAndTextColor,
-                        textStyleColor: AppCubit.get(context).iconAndTextColor,
+                        color: textColor,
+                        textStyleColor: textColor,
+                        labelColor: textColor,
+                        focusColor: textColor,
                       ),
                     ),
                     const SizedBox(
@@ -158,8 +172,10 @@ class ControlAcademy extends StatelessWidget {
                         label: 'To',
                         prefix: Icons.numbers,
                         context: context,
-                        color: AppCubit.get(context).iconAndTextColor,
-                        textStyleColor: AppCubit.get(context).iconAndTextColor,
+                        color: textColor,
+                        textStyleColor: textColor,
+                        labelColor: textColor,
+                        focusColor: textColor,
                       ),
                     ),
                   ],
@@ -170,18 +186,39 @@ class ControlAcademy extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text('1 : ${days[0]}'),
-                    Text('2 : ${days[1]}'),
-                    Text('3 : ${days[2]}'),
-                    Text('4 : ${days[3]}'),
+                    Text(
+                      '1 : ${days[0]}',
+                      style: TextStyle(color: textColor),
+                    ),
+                    Text(
+                      '2 : ${days[1]}',
+                      style: TextStyle(color: textColor),
+                    ),
+                    Text(
+                      '3 : ${days[2]}',
+                      style: TextStyle(color: textColor),
+                    ),
+                    Text(
+                      '4 : ${days[3]}',
+                      style: TextStyle(color: textColor),
+                    ),
                   ],
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text('5 : ${days[4]}'),
-                    Text('6 : ${days[5]}'),
-                    Text('7 : ${days[6]}'),
+                    Text(
+                      '5 : ${days[4]}',
+                      style: TextStyle(color: textColor),
+                    ),
+                    Text(
+                      '6 : ${days[5]}',
+                      style: TextStyle(color: textColor),
+                    ),
+                    Text(
+                      '7 : ${days[6]}',
+                      style: TextStyle(color: textColor),
+                    ),
                   ],
                 ),
                 const SizedBox(

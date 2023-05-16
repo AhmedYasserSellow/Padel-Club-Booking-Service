@@ -23,7 +23,10 @@ class AddYearsToDB extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text('Year'),
+                Text(
+                  'Year',
+                  style: TextStyle(color: textColor),
+                ),
                 const SizedBox(
                   height: 12,
                 ),
@@ -43,8 +46,10 @@ class AddYearsToDB extends StatelessWidget {
                   label: 'Year',
                   prefix: Icons.numbers,
                   context: context,
-                  color: AppCubit.get(context).iconAndTextColor,
-                  textStyleColor: AppCubit.get(context).iconAndTextColor,
+                  color: textColor,
+                  textStyleColor: textColor,
+                  focusColor: textColor,
+                  labelColor: textColor,
                 ),
                 const SizedBox(
                   height: 12,

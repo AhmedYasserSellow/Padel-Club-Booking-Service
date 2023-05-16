@@ -1,3 +1,4 @@
+import 'package:booking/components/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc/cubit.dart';
@@ -21,62 +22,74 @@ class ControlPanel extends StatelessWidget {
     return BlocConsumer<AppCubit, AppStates>(
       listener: (context, state) {},
       builder: (context, state) {
-        return Scaffold(
-          appBar: AppBar(
-            leading: BackButton(
-              color: AppCubit.get(context).iconAndTextColor,
-              onPressed: () {
-                Navigator.pop(context);
-              },
+        return Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                usersColor,
+                managersColor,
+              ],
             ),
-            title: Text(
-              'Control Panel',
-              style: TextStyle(color: AppCubit.get(context).iconAndTextColor),
-            ),
-            centerTitle: true,
-            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-            actions: [
-              IconButton(
+          ),
+          child: Scaffold(
+            appBar: AppBar(
+              leading: BackButton(
+                color: textColor,
                 onPressed: () {
-                  AppCubit.get(context).changeTheme();
+                  Navigator.pop(context);
                 },
-                icon: Icon(
-                  AppCubit.get(context).modeIcon,
+              ),
+              title: Text(
+                'Dashboard',
+                style: TextStyle(color: textColor),
+              ),
+              centerTitle: true,
+              backgroundColor: usersColor,
+            ),
+            bottomNavigationBar: BottomNavigationBar(
+              selectedItemColor: textColor,
+              unselectedItemColor: Colors.grey,
+              backgroundColor: managersColor,
+              onTap: (value) {
+                AppCubit.get(context).changeBottomNavIndexForDB(value);
+              },
+              items: const [
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.pin_drop),
+                  label: 'Pinning',
                 ),
-                color: AppCubit.get(context).iconAndTextColor,
-              ),
-              const SizedBox(
-                width: 8,
-              ),
-            ],
-          ),
-          bottomNavigationBar: BottomNavigationBar(
-            onTap: (value) {
-              AppCubit.get(context).changeBottomNavIndexForDB(value);
-            },
-            items: const [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.pin_drop),
-                label: 'Pinning',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.sports_tennis),
-                label: 'Academy',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.numbers),
-                label: 'Years',
-              ),
-            ],
-            showUnselectedLabels: false,
-            currentIndex: AppCubit.get(context).navIndexForDB,
-          ),
-          body: Center(
-            child: SingleChildScrollView(
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                child: screens[AppCubit.get(context).navIndexForDB],
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.sports_tennis),
+                  label: 'Academy',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.numbers),
+                  label: 'Years',
+                ),
+              ],
+              showUnselectedLabels: false,
+              currentIndex: AppCubit.get(context).navIndexForDB,
+            ),
+            body: Container(
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                colors: [
+                  usersColor,
+                  managersColor,
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              )),
+              child: Center(
+                child: SingleChildScrollView(
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                    child: screens[AppCubit.get(context).navIndexForDB],
+                  ),
+                ),
               ),
             ),
           ),
