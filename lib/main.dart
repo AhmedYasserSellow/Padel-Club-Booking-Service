@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
               LoginPage.id: (context) => const LoginPage(),
 
               // DEV Mode --------------------------------------------------
-              ControlPanel.id: (context) => const ControlPanel(),
+              DashBoard.id: (context) => const DashBoard(),
             },
             initialRoute: Splash.id,
           );

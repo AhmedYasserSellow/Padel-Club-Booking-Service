@@ -96,7 +96,7 @@ class _HomePageState extends State<HomePage> {
                                             IconButton(
                                               onPressed: () {
                                                 Navigator.pushNamed(
-                                                    context, ControlPanel.id);
+                                                    context, DashBoard.id);
                                               },
                                               icon: const Icon(
                                                   Icons.developer_board),

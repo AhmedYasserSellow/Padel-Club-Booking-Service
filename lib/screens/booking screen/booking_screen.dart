@@ -34,6 +34,7 @@ class _BookingScreenState extends State<BookingScreen> {
               children: [
                 // Calendar View
                 TableCalendar(
+                  rowHeight: 52,
                   weekendDays: const [],
                   locale: 'en_US',
                   startingDayOfWeek: StartingDayOfWeek.saturday,

@@ -13,8 +13,8 @@ List screens = [
   AddYearsToDB(),
 ];
 
-class ControlPanel extends StatelessWidget {
-  const ControlPanel({super.key});
+class DashBoard extends StatelessWidget {
+  const DashBoard({super.key});
   static String id = 'CMD';
 
   @override
