@@ -4,10 +4,10 @@ void progressDialog(BuildContext context) {
   showDialog(
     context: context,
     builder: (context) {
-      return AlertDialog(
+      return const AlertDialog(
         content: Column(
           mainAxisSize: MainAxisSize.min,
-          children: const [
+          children: [
             Center(
               child: CircularProgressIndicator(
                 backgroundColor: Colors.grey,

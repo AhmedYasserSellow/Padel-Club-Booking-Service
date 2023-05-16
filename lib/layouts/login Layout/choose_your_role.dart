@@ -20,8 +20,8 @@ class ChooseRole extends StatelessWidget {
           height: 24,
         ),
         // User Role
-        Row(
-          children: const [
+        const Row(
+          children: [
             Role(
               index: 1,
               image: 'assets/user.png',
