@@ -88,9 +88,6 @@ class _BookingScreenState extends State<BookingScreen> {
                     snapshot: dataBasesnapshot,
                   ),
                 ),
-                const SizedBox(
-                  height: 12,
-                ),
               ],
             );
           } else {

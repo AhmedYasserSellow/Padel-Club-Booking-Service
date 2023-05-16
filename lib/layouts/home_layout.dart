@@ -137,8 +137,10 @@ class _HomePageState extends State<HomePage> {
                                   ? AppCubit.get(context).navIndex == 0
                                       ? const BookingScreen()
                                       : const AboutUsScreen()
-                                  : const Center(
-                                      child: CircularProgressIndicator(),
+                                  : Center(
+                                      child: CircularProgressIndicator(
+                                        color: Theme.of(context).indicatorColor,
+                                      ),
                                     ));
                         },
                         listener: (context, state) {},
