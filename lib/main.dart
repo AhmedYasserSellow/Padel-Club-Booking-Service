@@ -1,3 +1,4 @@
+import 'package:booking/components/theme.dart';
 import 'package:booking/layouts/login%20Layout/login_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -39,8 +40,32 @@ class MyApp extends StatelessWidget {
         builder: (context, state) {
           return MaterialApp(
             theme: AppCubit.get(context).isLightMode
-                ? ThemeData(brightness: Brightness.light, fontFamily: 'Cairo')
-                : ThemeData(brightness: Brightness.dark, fontFamily: 'Cairo'),
+                ? ThemeData(
+                    dialogTheme: DialogTheme(
+                      backgroundColor: backgroundLight,
+                    ),
+                    appBarTheme: const AppBarTheme(scrolledUnderElevation: 0),
+                    useMaterial3: true,
+                    brightness: Brightness.light,
+                    scaffoldBackgroundColor: backgroundLight,
+                    indicatorColor: indicatorLight,
+                    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+                        selectedItemColor: indicatorLight),
+                    fontFamily: 'Cairo',
+                  )
+                : ThemeData(
+                    appBarTheme: const AppBarTheme(scrolledUnderElevation: 0),
+                    dialogTheme: DialogTheme(
+                      backgroundColor: backgroundDark,
+                    ),
+                    useMaterial3: true,
+                    brightness: Brightness.dark,
+                    scaffoldBackgroundColor: backgroundDark,
+                    indicatorColor: indiactorDark,
+                    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+                        selectedItemColor: indiactorDark),
+                    fontFamily: 'Cairo',
+                  ),
             debugShowCheckedModeBanner: false,
             routes: {
               Splash.id: (context) => const Splash(),

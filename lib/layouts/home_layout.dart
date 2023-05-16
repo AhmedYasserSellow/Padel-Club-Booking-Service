@@ -54,6 +54,7 @@ class _HomePageState extends State<HomePage> {
                         builder: (context, state) {
                           return Scaffold(
                               appBar: AppBar(
+                                scrolledUnderElevation: 0,
                                 leading: IconButton(
                                   icon: Icon(
                                     Icons.account_circle,

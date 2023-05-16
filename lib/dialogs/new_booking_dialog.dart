@@ -113,9 +113,13 @@ void bookingDialog(
           ),
           actions: [
             const MyBackButton(),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: availableColor,
+            TextButton(
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateColor.resolveWith(
+                      (states) => availableColor)),
+              child: Text(
+                'Book',
+                style: TextStyle(color: textColor),
               ),
               onPressed: () async {
                 bool connectionState = await connection.hasConnection;
@@ -154,7 +158,6 @@ void bookingDialog(
                   }
                 }
               },
-              child: const Text('Book'),
             ),
           ],
         );

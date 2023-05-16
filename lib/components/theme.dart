@@ -10,12 +10,6 @@ Color academyColor = const Color.fromRGBO(27, 114, 192, 1);
 Color usersColor = const Color.fromRGBO(27, 114, 192, 1);
 Color managersColor = const Color.fromRGBO(18, 57, 88, 1);
 
-//Text-Icons
-Color textColor = Colors.white;
-
-Color selectedTabColor = Colors.blue;
-Color unSelectedTabColor = Colors.grey;
-
 //Links
 
 //Facebook
@@ -31,3 +25,10 @@ Color instagramColor3 = const Color.fromRGBO(220, 141, 64, 1);
 
 //Location
 Color locationColor = const Color.fromRGBO(241, 67, 54, 1);
+
+//Theme
+Color backgroundDark = const Color.fromRGBO(48, 48, 48, 1);
+Color indiactorDark = const Color.fromRGBO(100, 255, 218, 1);
+Color backgroundLight = const Color.fromRGBO(250, 250, 250, 1);
+Color indicatorLight = const Color.fromRGBO(33, 150, 243, 1);
+Color textColor = const Color.fromRGBO(255, 255, 255, 1);

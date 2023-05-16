@@ -5,11 +5,12 @@ Widget defaultButton({
   required String text,
   required Color color,
   Color buttonTextColor = Colors.white,
+  double width = double.infinity,
 }) {
   return InkWell(
     onTap: onTap,
     child: Container(
-      width: double.infinity,
+      width: width,
       height: 40,
       decoration: BoxDecoration(
         color: color,
