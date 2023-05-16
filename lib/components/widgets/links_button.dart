@@ -20,23 +20,23 @@ class LinkButton extends StatelessWidget {
   final Gradient? gradient;
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        launchUrlString(url);
-      },
-      child: Container(
-        margin: const EdgeInsets.only(
-          left: 8,
-          right: 8,
-          bottom: 8,
-        ),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          gradient: gradient,
-          color: color,
-        ),
-        height: 40,
-        width: double.infinity,
+    return Container(
+      margin: const EdgeInsets.only(
+        left: 8,
+        right: 8,
+        bottom: 8,
+      ),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
+        gradient: gradient,
+        color: color,
+      ),
+      height: 40,
+      width: double.infinity,
+      child: InkWell(
+        onTap: () {
+          launchUrlString(url);
+        },
         child: Row(
           children: [
             Padding(
