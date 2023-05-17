@@ -37,7 +37,7 @@ void pendingDialog(
                         Text('Name: $name'),
                         Text('Phone: $phonenumber'),
                         const SizedBox(
-                          height: 16,
+                          height: 24,
                         ),
                         manager
                             ? Column(
@@ -73,7 +73,7 @@ void pendingDialog(
                                               color: availableColor,
                                             ),
                                             const SizedBox(
-                                              height: 8,
+                                              height: 12,
                                             ),
                                           ],
                                         )
@@ -128,10 +128,18 @@ void pendingDialog(
                                     ],
                                   )
                                 : const SizedBox(),
+                        const SizedBox(
+                          height: 12,
+                        ),
+                        const Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            MyBackButton(),
+                          ],
+                        ),
                       ],
                     )
                   ])),
-                  actions: const [MyBackButton()],
                 );
               });
         });

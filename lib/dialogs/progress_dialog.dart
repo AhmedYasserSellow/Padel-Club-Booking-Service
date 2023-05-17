@@ -5,15 +5,16 @@ void progressDialog(BuildContext context) {
     context: context,
     builder: (context) {
       return const AlertDialog(
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Center(
-              child: CircularProgressIndicator(
-                backgroundColor: Colors.grey,
+        content: Padding(
+          padding: EdgeInsets.symmetric(vertical: 16),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Center(
+                child: CircularProgressIndicator(),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       );
     },

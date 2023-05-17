@@ -30,6 +30,9 @@ void profileDialog(
           child: SingleChildScrollView(
             child: Column(
               children: [
+                const SizedBox(
+                  height: 24,
+                ),
                 myTextFormField(
                   textStyleColor: AppCubit.get(context).iconAndTextColor,
                   color: AppCubit.get(context).iconAndTextColor,
@@ -47,7 +50,7 @@ void profileDialog(
                   isEnabled: !manager,
                 ),
                 const SizedBox(
-                  height: 12,
+                  height: 24,
                 ),
                 myTextFormField(
                     textStyleColor: AppCubit.get(context).iconAndTextColor,
@@ -73,7 +76,7 @@ void profileDialog(
                     : Column(
                         children: [
                           const SizedBox(
-                            height: 12,
+                            height: 24,
                           ),
                           defaultButton(
                             onTap: () async {
@@ -86,10 +89,7 @@ void profileDialog(
                                 if (context.mounted) {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
-                                      backgroundColor:
-                                          AppCubit.get(context).isLightMode
-                                              ? usersColor
-                                              : managersColor,
+                                      backgroundColor: usersColor,
                                       content: Text(
                                         'Updated Successfully',
                                         style: TextStyle(color: textColor),
@@ -123,14 +123,20 @@ void profileDialog(
                     }
                   },
                   text: 'Log Out',
-                )
+                ),
+                const SizedBox(
+                  height: 12,
+                ),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    MyBackButton(),
+                  ],
+                ),
               ],
             ),
           ),
         ),
-        actions: const [
-          MyBackButton(),
-        ],
       );
     },
   );

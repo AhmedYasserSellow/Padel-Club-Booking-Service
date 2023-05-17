@@ -40,7 +40,7 @@ void bookingDialog(
           //Form----------------------------------------------------------------------------------------------------------------------
 
           content: SingleChildScrollView(
-            padding: const EdgeInsets.only(top: 10),
+            padding: const EdgeInsets.only(top: 24),
             child: SafeArea(
               child: Form(
                 key: formKey,
@@ -48,10 +48,6 @@ void bookingDialog(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    // const Text('Your Name'),
-                    // const SizedBox(
-                    //   height: 10,
-                    // ),
                     myTextFormField(
                       textStyleColor: AppCubit.get(context).iconAndTextColor,
                       color: AppCubit.get(context).iconAndTextColor,
@@ -67,12 +63,8 @@ void bookingDialog(
                       type: TextInputType.name,
                       prefix: Icons.title,
                     ),
-                    // const SizedBox(
-                    //   height: 10,
-                    // ),
-                    // const Text('Mobile Number'),
                     const SizedBox(
-                      height: 10,
+                      height: 24,
                     ),
                     myTextFormField(
                       textStyleColor: AppCubit.get(context).iconAndTextColor,
@@ -95,7 +87,7 @@ void bookingDialog(
                       prefix: Icons.phone,
                     ),
                     const SizedBox(
-                      height: 20,
+                      height: 24,
                     ),
                     const Text(
                       'Price:',
@@ -103,63 +95,75 @@ void bookingDialog(
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                     ),
                     const SizedBox(
-                      height: 10,
+                      height: 12,
                     ),
-                    Text('$price.00 EGP')
+                    Text(
+                      '$price.00 EGP',
+                    ),
+                    const SizedBox(
+                      height: 12,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        const MyBackButton(),
+                        const SizedBox(
+                          width: 8,
+                        ),
+                        TextButton(
+                          style: ButtonStyle(
+                              backgroundColor: MaterialStateColor.resolveWith(
+                                  (states) => availableColor)),
+                          child: Text(
+                            'Book',
+                            style: TextStyle(color: textColor),
+                          ),
+                          onPressed: () async {
+                            bool connectionState =
+                                await connection.hasConnection;
+                            if (formKey.currentState!.validate()) {
+                              if (connectionState == false) {
+                                if (context.mounted) {
+                                  noInternetSnackBar(context);
+                                }
+                              } else {
+                                if (manager) {
+                                  FirebaseFirestore.instance
+                                      .collection(selectedYear)
+                                      .doc(selectedMonth)
+                                      .collection(selectedDay)
+                                      .doc('${abc[index]}-${clock[index]}')
+                                      .set({
+                                    'Name': nameController.text,
+                                    'Phone': phoneNumberController.text,
+                                    'State': booked,
+                                  });
+                                } else {
+                                  FirebaseFirestore.instance
+                                      .collection(selectedYear)
+                                      .doc(selectedMonth)
+                                      .collection(selectedDay)
+                                      .doc('${abc[index]}-${clock[index]}')
+                                      .set({
+                                    'Name': nameController.text,
+                                    'Phone': phoneNumberController.text,
+                                    'State': pending,
+                                  });
+                                }
+                                if (context.mounted) {
+                                  Navigator.pop(context);
+                                }
+                              }
+                            }
+                          },
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),
             ),
           ),
-          actions: [
-            const MyBackButton(),
-            TextButton(
-              style: ButtonStyle(
-                  backgroundColor: MaterialStateColor.resolveWith(
-                      (states) => availableColor)),
-              child: Text(
-                'Book',
-                style: TextStyle(color: textColor),
-              ),
-              onPressed: () async {
-                bool connectionState = await connection.hasConnection;
-                if (formKey.currentState!.validate()) {
-                  if (connectionState == false) {
-                    if (context.mounted) {
-                      noInternetSnackBar(context);
-                    }
-                  } else {
-                    if (manager) {
-                      FirebaseFirestore.instance
-                          .collection(selectedYear)
-                          .doc(selectedMonth)
-                          .collection(selectedDay)
-                          .doc('${abc[index]}-${clock[index]}')
-                          .set({
-                        'Name': nameController.text,
-                        'Phone': phoneNumberController.text,
-                        'State': booked,
-                      });
-                    } else {
-                      FirebaseFirestore.instance
-                          .collection(selectedYear)
-                          .doc(selectedMonth)
-                          .collection(selectedDay)
-                          .doc('${abc[index]}-${clock[index]}')
-                          .set({
-                        'Name': nameController.text,
-                        'Phone': phoneNumberController.text,
-                        'State': pending,
-                      });
-                    }
-                    if (context.mounted) {
-                      Navigator.pop(context);
-                    }
-                  }
-                }
-              },
-            ),
-          ],
         );
       },
     );
