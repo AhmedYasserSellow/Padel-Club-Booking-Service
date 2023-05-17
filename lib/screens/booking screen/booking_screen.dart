@@ -91,7 +91,10 @@ class _BookingScreenState extends State<BookingScreen> {
               ],
             );
           } else {
-            return const Center(child: CircularProgressIndicator());
+            return Center(
+                child: CircularProgressIndicator(
+              color: Theme.of(context).indicatorColor,
+            ));
           }
         });
   }
