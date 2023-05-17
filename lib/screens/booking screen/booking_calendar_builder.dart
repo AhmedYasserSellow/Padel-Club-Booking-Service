@@ -45,17 +45,26 @@ class ButtonsList extends StatelessWidget {
                 buttonColor = availableColor;
               }
 
-              return BookingTimeButton(
-                name: snapshot.data!.docs[index]['Name'],
-                phonenumber: snapshot.data!.docs[index]['Phone'],
-                state: state,
-                selectedYear: selectedYear,
-                selectedDay: selectedDay,
-                selectedMonth: selectedMonth,
-                buttonColor: buttonColor,
-                focusedDay: today,
-                index: index,
-                snapshot: pricesSnapshot,
+              return Column(
+                children: [
+                  BookingTimeButton(
+                    name: snapshot.data!.docs[index]['Name'],
+                    phonenumber: snapshot.data!.docs[index]['Phone'],
+                    state: state,
+                    selectedYear: selectedYear,
+                    selectedDay: selectedDay,
+                    selectedMonth: selectedMonth,
+                    buttonColor: buttonColor,
+                    focusedDay: today,
+                    index: index,
+                    snapshot: pricesSnapshot,
+                  ),
+                  index == 23
+                      ? const SizedBox(
+                          height: 12,
+                        )
+                      : const SizedBox()
+                ],
               );
             },
             itemCount: 24,

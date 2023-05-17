@@ -29,6 +29,9 @@ void pendingDialog(
               listener: (context, state) {},
               builder: (context, state) {
                 return AlertDialog(
+                  titlePadding: EdgeInsets.zero,
+                  contentPadding: const EdgeInsets.only(
+                      top: 16, right: 24, left: 24, bottom: 16),
                   //Form----------------------------------------------------------------------------------------------------------------------
                   content: SingleChildScrollView(
                       child: Column(children: [

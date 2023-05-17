@@ -35,6 +35,9 @@ void bookingDialog(
         }
 
         return AlertDialog(
+          contentPadding:
+              const EdgeInsets.only(top: 16, right: 24, left: 24, bottom: 16),
+          titlePadding: EdgeInsets.zero,
           //Price
 
           //Form----------------------------------------------------------------------------------------------------------------------

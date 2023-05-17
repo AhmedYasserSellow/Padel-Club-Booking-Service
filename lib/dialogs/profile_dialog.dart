@@ -25,6 +25,9 @@ void profileDialog(
       phoneController.text = phone;
 
       return AlertDialog(
+        contentPadding:
+            const EdgeInsets.only(top: 16, right: 24, left: 24, bottom: 16),
+        titlePadding: EdgeInsets.zero,
         content: Form(
           key: formKey,
           child: SingleChildScrollView(
