@@ -44,7 +44,9 @@ class MyApp extends StatelessWidget {
                     dialogTheme: DialogTheme(
                       backgroundColor: backgroundLight,
                     ),
-                    appBarTheme: const AppBarTheme(scrolledUnderElevation: 0),
+                    appBarTheme: const AppBarTheme(
+                      scrolledUnderElevation: 0,
+                    ),
                     useMaterial3: true,
                     brightness: Brightness.light,
                     scaffoldBackgroundColor: backgroundLight,
@@ -54,7 +56,9 @@ class MyApp extends StatelessWidget {
                     fontFamily: 'Cairo',
                   )
                 : ThemeData(
-                    appBarTheme: const AppBarTheme(scrolledUnderElevation: 0),
+                    appBarTheme: const AppBarTheme(
+                      scrolledUnderElevation: 0,
+                    ),
                     dialogTheme: DialogTheme(
                       backgroundColor: backgroundDark,
                     ),

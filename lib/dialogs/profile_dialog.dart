@@ -26,16 +26,16 @@ void profileDialog(
 
       return AlertDialog(
         contentPadding:
-            const EdgeInsets.only(top: 16, right: 24, left: 24, bottom: 16),
+            const EdgeInsets.only(top: 24, right: 24, left: 24, bottom: 16),
         titlePadding: EdgeInsets.zero,
         content: Form(
           key: formKey,
           child: SingleChildScrollView(
             child: Column(
               children: [
-                const SizedBox(
-                  height: 24,
-                ),
+                // const SizedBox(
+                //   height: 24,
+                // ),
                 myTextFormField(
                   textStyleColor: AppCubit.get(context).iconAndTextColor,
                   color: AppCubit.get(context).iconAndTextColor,

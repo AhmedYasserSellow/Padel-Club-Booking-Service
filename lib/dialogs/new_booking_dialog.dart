@@ -36,14 +36,13 @@ void bookingDialog(
 
         return AlertDialog(
           contentPadding:
-              const EdgeInsets.only(top: 16, right: 24, left: 24, bottom: 16),
+              const EdgeInsets.only(top: 24, right: 24, left: 24, bottom: 16),
           titlePadding: EdgeInsets.zero,
           //Price
 
           //Form----------------------------------------------------------------------------------------------------------------------
 
           content: SingleChildScrollView(
-            padding: const EdgeInsets.only(top: 24),
             child: SafeArea(
               child: Form(
                 key: formKey,
