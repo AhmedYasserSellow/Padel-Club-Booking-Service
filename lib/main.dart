@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'bloc/cubit.dart';
 import 'bloc/states.dart';
-
+import 'components/notifications.dart';
 import 'database/control_panel.dart';
 import 'firebase_options.dart';
 import 'layouts/home_layout.dart';
@@ -22,6 +22,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  getPermssion();
 
   runApp(const MyApp());
 }

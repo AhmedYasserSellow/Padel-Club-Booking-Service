@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../bloc/cubit.dart';
 import '../components/constants.dart';
+import '../components/notifications.dart';
 import '../components/theme.dart';
 import '../components/widgets/back_button.dart';
 import '../components/widgets/text_form_field.dart';
@@ -151,6 +152,12 @@ void bookingDialog(
                                     'Phone': phoneNumberController.text,
                                     'State': pending,
                                   });
+                                  sendNotify(
+                                    title: 'New Booking Request',
+                                    body:
+                                        '$selectedYear - $selectedMonth - $selectedDay - ${clock[index]}',
+                                    id: '$selectedYear - $selectedMonth - $selectedDay',
+                                  );
                                 }
                                 if (context.mounted) {
                                   Navigator.pop(context);

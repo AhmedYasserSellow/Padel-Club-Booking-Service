@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../bloc/cubit.dart';
@@ -118,6 +119,7 @@ void profileDialog(
                     if (context.mounted) {
                       AppCubit.get(context).changeBottomNavIndex(0);
                       AppCubit.get(context).loginPageState(0);
+                      FirebaseMessaging.instance.unsubscribeFromTopic('notify');
                       Navigator.pop(context);
                       Navigator.pushReplacementNamed(
                         context,
