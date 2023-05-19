@@ -24,7 +24,6 @@ Future backgroundMessage(RemoteMessage message) async {}
 Future sendNotify({
   required String title,
   required String body,
-  required String id,
 }) async {
   String serverToken =
       'AAAABlB1t8E:APA91bHOo2dPLvUNuiZk9_4O5Pfo5b1EYfmvx5fXsWYfB1dP8PCsA2t4Grh48JOOGhM6dWIDOL3hMwWm2Mt_lpz6kG3FLs2O5AakU1loVa1rO5kYjehhp8UNeSCJDtp6D88L4jnbwdKy';
@@ -45,7 +44,6 @@ Future sendNotify({
         'priority': 'high',
         'data': <String, dynamic>{
           'click_action': 'FLUTTER_NOTIFICATION_CLICK',
-          'id': id,
           'to': "/topics/notify",
         },
         'to': "/topics/notify",

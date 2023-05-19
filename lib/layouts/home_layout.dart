@@ -38,7 +38,9 @@ class _HomePageState extends State<HomePage> {
   firebaseMessaging() {
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       NotificationService().showNotification(
-          title: message.notification!.title, body: message.notification!.body);
+        title: message.notification!.title,
+        body: message.notification!.body,
+      );
     });
   }
 
