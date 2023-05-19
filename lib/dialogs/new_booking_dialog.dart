@@ -155,8 +155,7 @@ void bookingDialog(
                                   sendNotify(
                                     title: 'New Booking Request',
                                     body:
-                                        '$selectedYear - $selectedMonth - $selectedDay - ${clock[index]}',
-                                    id: '$selectedYear - $selectedMonth - $selectedDay',
+                                        'Date : $selectedDay/$selectedMonth/$selectedYear \nTime : ${clock[index]}',
                                   );
                                 }
                                 if (context.mounted) {

@@ -23,6 +23,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   getPermssion();
+
   NotificationService().initNotification();
   runApp(const MyApp());
 }
