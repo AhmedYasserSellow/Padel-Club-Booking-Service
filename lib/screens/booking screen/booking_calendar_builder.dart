@@ -32,14 +32,14 @@ class ButtonsList extends StatelessWidget {
           return ListView.separated(
             itemBuilder: (BuildContext context, int index) {
               Color? buttonColor;
-              String state;
-
-              state = snapshot.data!.docs[index]['State'];
-              if (snapshot.data!.docs[index]['State'] == pending) {
+              String name = snapshot.data!.docs[index]['Name'];
+              String phone = snapshot.data!.docs[index]['Phone'];
+              String state = snapshot.data!.docs[index]['State'];
+              if (state == pending) {
                 buttonColor = pendingColor;
-              } else if (snapshot.data!.docs[index]['State'] == booked) {
+              } else if (state == booked) {
                 buttonColor = bookedColor;
-              } else if (snapshot.data!.docs[index]['State'] == academy) {
+              } else if (state == academy) {
                 buttonColor = academyColor;
               } else {
                 buttonColor = availableColor;
@@ -48,8 +48,8 @@ class ButtonsList extends StatelessWidget {
               return Column(
                 children: [
                   BookingTimeButton(
-                    name: snapshot.data!.docs[index]['Name'],
-                    phonenumber: snapshot.data!.docs[index]['Phone'],
+                    name: name,
+                    phonenumber: phone,
                     state: state,
                     selectedYear: selectedYear,
                     selectedDay: selectedDay,
@@ -57,7 +57,7 @@ class ButtonsList extends StatelessWidget {
                     buttonColor: buttonColor,
                     focusedDay: today,
                     index: index,
-                    snapshot: pricesSnapshot,
+                    price: pricesSnapshot,
                   ),
                   index == 23
                       ? const SizedBox(

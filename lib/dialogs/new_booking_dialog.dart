@@ -26,7 +26,7 @@ void bookingDialog(
     showDialog(
       context: context,
       builder: (context) {
-        var formKey = GlobalKey<FormState>();
+        GlobalKey<FormState> formKey = GlobalKey<FormState>();
         int? price;
         if ((index >= 0 && index <= prices.data!['Night End AM']) ||
             (index >= prices.data!['Night Start PM'])) {

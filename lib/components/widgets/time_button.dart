@@ -1,4 +1,3 @@
-import 'package:booking/bloc/cubit.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +18,7 @@ class BookingTimeButton extends StatelessWidget {
     required this.state,
     required this.name,
     required this.phonenumber,
-    required this.snapshot,
+    required this.price,
   });
 
   final int? index;
@@ -31,28 +30,33 @@ class BookingTimeButton extends StatelessWidget {
   final String state;
   final String name;
   final String phonenumber;
-  final AsyncSnapshot<DocumentSnapshot<Map<String, dynamic>>> snapshot;
+  final AsyncSnapshot<DocumentSnapshot<Map<String, dynamic>>> price;
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: () async {
         if (state == pending || state == booked) {
-          pendingDialog(context, index!, selectedYear, selectedMonth,
-              selectedDay, name, phonenumber, state);
+          pendingDialog(
+            context,
+            index!,
+            selectedYear,
+            selectedMonth,
+            selectedDay,
+            name,
+            phonenumber,
+            state,
+          );
         } else if (state == academy) {
         } else {
-          if (DateTime.utc(2023, 5, 5)
-              .isBefore(AppCubit.get(context).focusedDay)) {
-            bookingDialog(
-              context,
-              index!,
-              selectedYear,
-              selectedMonth,
-              selectedDay,
-              snapshot,
-            );
-          }
+          bookingDialog(
+            context,
+            index!,
+            selectedYear,
+            selectedMonth,
+            selectedDay,
+            price,
+          );
         }
       },
       child: Container(
