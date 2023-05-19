@@ -1,3 +1,4 @@
+import 'package:booking/components/notifications.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -35,7 +36,10 @@ class _HomePageState extends State<HomePage> {
   }
 
   firebaseMessaging() {
-    FirebaseMessaging.onMessage.listen((RemoteMessage message) {});
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+      NotificationService().showNotification(
+          title: message.notification!.title, body: message.notification!.body);
+    });
   }
 
   @override

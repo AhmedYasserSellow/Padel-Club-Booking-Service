@@ -46,6 +46,7 @@ dependencies:
   internet_connection_checker_plus: ^1.0.1
   shared_preferences: ^2.1.1
   firebase_messaging: ^14.6.1
+  flutter_local_notifications:
   http: ^0.13.6
   
 
