@@ -5,7 +5,6 @@ import 'package:booking/layouts/login%20Layout/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../../bloc/cubit.dart';
 
 class Splash extends StatefulWidget {

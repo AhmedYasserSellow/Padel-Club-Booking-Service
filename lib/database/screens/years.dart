@@ -56,7 +56,7 @@ class AddYearsToDB extends StatelessWidget {
                 ),
                 defaultButton(
                   text: 'Add to Database',
-                  color: usersColor,
+                  color: racket1Color,
                   onTap: () {
                     if (formKey.currentState!.validate()) {
                       createDatabase(yearDBField.text, context);

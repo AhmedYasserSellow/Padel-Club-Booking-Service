@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
+import '../database/control_panel.dart';
+import '../layouts/home_layout.dart';
+import '../layouts/login Layout/login_page.dart';
+import '../screens/splash screen/splash_screen.dart';
 import 'theme.dart';
 
 int finalYear = DateTime.now().year + 1;
@@ -84,3 +88,10 @@ void noInternetSnackBar(BuildContext context) {
     ),
   );
 }
+
+Map<String, Widget Function(BuildContext)> appRoutes = {
+  Splash.id: (context) => const Splash(),
+  HomePage.id: (context) => const HomePage(),
+  LoginPage.id: (context) => const LoginPage(),
+  DashBoard.id: (context) => const DashBoard(),
+};

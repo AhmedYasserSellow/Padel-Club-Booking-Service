@@ -28,8 +28,8 @@ class DashBoard extends StatelessWidget {
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                usersColor,
-                managersColor,
+                racket1Color,
+                racker2Color,
               ],
             ),
           ),
@@ -46,12 +46,12 @@ class DashBoard extends StatelessWidget {
                 style: TextStyle(color: textColor),
               ),
               centerTitle: true,
-              backgroundColor: usersColor,
+              backgroundColor: racket1Color,
             ),
             bottomNavigationBar: BottomNavigationBar(
               selectedItemColor: textColor,
               unselectedItemColor: Colors.grey,
-              backgroundColor: managersColor,
+              backgroundColor: racker2Color,
               onTap: (value) {
                 AppCubit.get(context).changeBottomNavIndexForDB(value);
               },
@@ -76,8 +76,8 @@ class DashBoard extends StatelessWidget {
               decoration: BoxDecoration(
                   gradient: LinearGradient(
                 colors: [
-                  usersColor,
-                  managersColor,
+                  racket1Color,
+                  racker2Color,
                 ],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,

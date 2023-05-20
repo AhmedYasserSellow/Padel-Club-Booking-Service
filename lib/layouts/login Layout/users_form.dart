@@ -85,15 +85,12 @@ class _UserFormState extends State<UserForm> {
             height: 24,
           ),
           defaultButton(
-            buttonTextColor: Colors.black,
             color: textColor,
             onTap: () async {
               if (formKey.currentState!.validate()) {
                 final prefs = await SharedPreferences.getInstance();
-
                 prefs.setString(yourName, name.text);
                 prefs.setString(yourPhone, phone.text);
-
                 prefs.setBool(dev, false);
                 prefs.setBool(isLoggedIn, true);
                 if (context.mounted) {

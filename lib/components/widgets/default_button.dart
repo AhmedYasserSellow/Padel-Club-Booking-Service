@@ -4,7 +4,7 @@ Widget defaultButton({
   required onTap,
   required String text,
   required Color color,
-  Color buttonTextColor = Colors.white,
+  Color buttonTextColor = const Color.fromRGBO(255, 255, 255, 1),
   double width = double.infinity,
 }) {
   return GestureDetector(

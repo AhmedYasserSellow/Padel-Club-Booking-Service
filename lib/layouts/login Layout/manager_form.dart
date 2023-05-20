@@ -134,7 +134,6 @@ class _ManagersFormState extends State<ManagersForm> {
                                   height: 24,
                                 ),
                                 defaultButton(
-                                  buttonTextColor: Colors.black,
                                   color: textColor,
                                   onTap: () async {
                                     String id = phone.text;

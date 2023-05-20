@@ -32,9 +32,13 @@ class AboutUsScreen extends StatelessWidget {
             image: 'instagram.png',
             text: 'FOLLOW US',
             url: 'https://www.instagram.com/padel_club_/',
-            color: instagramColor1,
+            color: instagramFirstColor,
             gradient: LinearGradient(
-              colors: [instagramColor1, instagramColor2, instagramColor3],
+              colors: [
+                instagramFirstColor,
+                instagramSecondColor,
+                instagramThirdColor
+              ],
             ),
           ),
           const SizedBox(

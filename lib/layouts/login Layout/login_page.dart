@@ -19,47 +19,48 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AppCubit, AppStates>(
-        listener: (context, state) {},
-        builder: (context, state) {
-          return Scaffold(
-            body: Container(
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(colors: [usersColor, managersColor]),
-              ),
-              child: SingleChildScrollView(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: MediaQuery.of(context).size.width / 20,
-                  ),
-                  child: SafeArea(
-                    child: Column(
-                      children: [
-                        const SizedBox(
-                          height: 12,
+      listener: (context, state) {},
+      builder: (context, state) {
+        return Scaffold(
+          body: Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(colors: [racket1Color, racker2Color]),
+            ),
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: MediaQuery.of(context).size.width / 20,
+                ),
+                child: SafeArea(
+                  child: Column(
+                    children: [
+                      const SizedBox(
+                        height: 12,
+                      ),
+                      Center(
+                        child: Image.asset(
+                          'assets/logodark.png',
+                          width: MediaQuery.of(context).size.width * 2 / 3,
                         ),
-                        Center(
-                          child: Image.asset(
-                            'assets/logodark.png',
-                            width: MediaQuery.of(context).size.width * 2 / 3,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 48,
-                        ),
-                        AppCubit.get(context).loginFormState == 0
-                            ? const ChooseRole()
-                            : AppCubit.get(context).loginFormState == 1
-                                ? const UserForm()
-                                : const ManagersForm()
-                      ],
-                    ),
+                      ),
+                      const SizedBox(
+                        height: 48,
+                      ),
+                      AppCubit.get(context).loginFormState == 0
+                          ? const ChooseRole()
+                          : AppCubit.get(context).loginFormState == 1
+                              ? const UserForm()
+                              : const ManagersForm()
+                    ],
                   ),
                 ),
               ),
             ),
-          );
-        });
+          ),
+        );
+      },
+    );
   }
 }

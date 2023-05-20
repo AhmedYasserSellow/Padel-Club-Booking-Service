@@ -55,8 +55,8 @@ class _BookingScreenState extends State<BookingScreen> {
                   firstDay: DateTime.utc(2023, 5, 14),
                   lastDay: DateTime.utc(
                     finalYear,
-                    cubit.firstDay.month,
-                    cubit.firstDay.day,
+                    cubit.today.month,
+                    cubit.today.day,
                   ),
                   headerStyle: const HeaderStyle(
                     formatButtonVisible: false,
@@ -79,6 +79,9 @@ class _BookingScreenState extends State<BookingScreen> {
                 const SizedBox(
                   height: 12,
                 ),
+
+                // Booking Buttons
+
                 Flexible(
                   child: ButtonsList(
                     selectedYear: selectedYear,
