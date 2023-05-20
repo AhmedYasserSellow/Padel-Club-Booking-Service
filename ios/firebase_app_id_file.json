@@ -1,7 +1,7 @@
 {
   "file_generated_by": "FlutterFire CLI",
   "purpose": "FirebaseAppID & ProjectID for this Firebase app in this directory",
-  "GOOGLE_APP_ID": "1:27119695809:ios:7a7c566168a5ffb048a140",
-  "FIREBASE_PROJECT_ID": "padel-club-2023",
-  "GCM_SENDER_ID": "27119695809"
+  "GOOGLE_APP_ID": "1:612967960403:ios:0ff2c150d04d7f85205ba6",
+  "FIREBASE_PROJECT_ID": "bookingtest-a54a5",
+  "GCM_SENDER_ID": "612967960403"
 }
