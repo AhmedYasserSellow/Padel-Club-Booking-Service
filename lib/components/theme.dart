@@ -7,8 +7,8 @@ Color bookedColor = const Color.fromRGBO(208, 57, 43, 1);
 Color academyColor = const Color.fromRGBO(27, 114, 192, 1);
 
 //Gradient Background Colors
-Color racket1Color = const Color.fromRGBO(27, 114, 192, 1);
-Color racker2Color = const Color.fromRGBO(18, 57, 88, 1);
+Color racketFirstColor = const Color.fromRGBO(27, 114, 192, 1);
+Color rackerSecondColor = const Color.fromRGBO(18, 57, 88, 1);
 
 //Links
 

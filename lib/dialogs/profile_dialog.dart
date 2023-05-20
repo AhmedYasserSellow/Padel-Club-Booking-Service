@@ -93,7 +93,7 @@ void profileDialog(
                                 if (context.mounted) {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
-                                      backgroundColor: racket1Color,
+                                      backgroundColor: racketFirstColor,
                                       content: Text(
                                         'Updated Successfully',
                                         style: TextStyle(color: textColor),
@@ -104,7 +104,7 @@ void profileDialog(
                               }
                             },
                             text: "Update",
-                            color: racket1Color,
+                            color: racketFirstColor,
                           ),
                         ],
                       ),
