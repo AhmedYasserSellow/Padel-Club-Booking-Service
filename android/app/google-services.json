@@ -1,76 +1,40 @@
 {
   "project_info": {
-    "project_number": "612967960403",
-    "project_id": "bookingtest-a54a5",
-    "storage_bucket": "bookingtest-a54a5.appspot.com"
+    "project_number": "27119695809",
+    "project_id": "padel-club-2023",
+    "storage_bucket": "padel-club-2023.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:612967960403:android:f02005de65d397eb205ba6",
-        "android_client_info": {
-          "package_name": "com.example.booking"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "612967960403-1j9r2e3dsct3cauq6h7sf1vocfin0s7s.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDiKr6ZNHeCYWgWJwTensnvO2a98stbVaU"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "612967960403-1j9r2e3dsct3cauq6h7sf1vocfin0s7s.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "612967960403-r42jft91teu5neon5f4bqcesg9csjhj2.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.booking"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:612967960403:android:94933a6e4a8a8cb0205ba6",
+        "mobilesdk_app_id": "1:27119695809:android:8c62f54a4650e4c548a140",
         "android_client_info": {
           "package_name": "com.example.padel_club"
         }
       },
       "oauth_client": [
         {
-          "client_id": "612967960403-1j9r2e3dsct3cauq6h7sf1vocfin0s7s.apps.googleusercontent.com",
+          "client_id": "27119695809-72sr6nsaavq8pk7me3eqcfj089kmacau.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDiKr6ZNHeCYWgWJwTensnvO2a98stbVaU"
+          "current_key": "AIzaSyBC95HtDoW2XctVDwD5pnB_i8jnZw347TQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "612967960403-1j9r2e3dsct3cauq6h7sf1vocfin0s7s.apps.googleusercontent.com",
+              "client_id": "27119695809-72sr6nsaavq8pk7me3eqcfj089kmacau.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "612967960403-r42jft91teu5neon5f4bqcesg9csjhj2.apps.googleusercontent.com",
+              "client_id": "27119695809-jj8ljb1j8uce54pcr2g2rem1t9kv2ip1.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.booking"
+                "bundle_id": "com.example.padelClub"
               }
             }
           ]

@@ -44,40 +44,40 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBEHFYuFj4PxDL8ziDUUSUUvnnCtWQEziQ',
-    appId: '1:612967960403:web:0ab57c010623eada205ba6',
-    messagingSenderId: '612967960403',
-    projectId: 'bookingtest-a54a5',
-    authDomain: 'bookingtest-a54a5.firebaseapp.com',
-    storageBucket: 'bookingtest-a54a5.appspot.com',
-    measurementId: 'G-R50NWCEWH7',
+    apiKey: 'AIzaSyA590O7_Z2vShrqyrDmt6ixLXJyk4R-oEE',
+    appId: '1:27119695809:web:6b02e622c2e772bb48a140',
+    messagingSenderId: '27119695809',
+    projectId: 'padel-club-2023',
+    authDomain: 'padel-club-2023.firebaseapp.com',
+    storageBucket: 'padel-club-2023.appspot.com',
+    measurementId: 'G-GCC9LDDKD1',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDiKr6ZNHeCYWgWJwTensnvO2a98stbVaU',
-    appId: '1:612967960403:android:94933a6e4a8a8cb0205ba6',
-    messagingSenderId: '612967960403',
-    projectId: 'bookingtest-a54a5',
-    storageBucket: 'bookingtest-a54a5.appspot.com',
+    apiKey: 'AIzaSyBC95HtDoW2XctVDwD5pnB_i8jnZw347TQ',
+    appId: '1:27119695809:android:8c62f54a4650e4c548a140',
+    messagingSenderId: '27119695809',
+    projectId: 'padel-club-2023',
+    storageBucket: 'padel-club-2023.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCereXV56NWr0WIINHFexiFmrLB8d32ptY',
-    appId: '1:612967960403:ios:0ff2c150d04d7f85205ba6',
-    messagingSenderId: '612967960403',
-    projectId: 'bookingtest-a54a5',
-    storageBucket: 'bookingtest-a54a5.appspot.com',
-    iosClientId: '612967960403-1bovgkq0k3aabgcm97ifq30m05vs0ckp.apps.googleusercontent.com',
+    apiKey: 'AIzaSyAbF1YkrQQfPTZKexKG7GYdW6H_ywECAxo',
+    appId: '1:27119695809:ios:7a7c566168a5ffb048a140',
+    messagingSenderId: '27119695809',
+    projectId: 'padel-club-2023',
+    storageBucket: 'padel-club-2023.appspot.com',
+    iosClientId: '27119695809-jj8ljb1j8uce54pcr2g2rem1t9kv2ip1.apps.googleusercontent.com',
     iosBundleId: 'com.example.padelClub',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCereXV56NWr0WIINHFexiFmrLB8d32ptY',
-    appId: '1:612967960403:ios:0ff2c150d04d7f85205ba6',
-    messagingSenderId: '612967960403',
-    projectId: 'bookingtest-a54a5',
-    storageBucket: 'bookingtest-a54a5.appspot.com',
-    iosClientId: '612967960403-1bovgkq0k3aabgcm97ifq30m05vs0ckp.apps.googleusercontent.com',
+    apiKey: 'AIzaSyAbF1YkrQQfPTZKexKG7GYdW6H_ywECAxo',
+    appId: '1:27119695809:ios:7a7c566168a5ffb048a140',
+    messagingSenderId: '27119695809',
+    projectId: 'padel-club-2023',
+    storageBucket: 'padel-club-2023.appspot.com',
+    iosClientId: '27119695809-jj8ljb1j8uce54pcr2g2rem1t9kv2ip1.apps.googleusercontent.com',
     iosBundleId: 'com.example.padelClub',
   );
 }
