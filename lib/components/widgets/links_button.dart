@@ -33,7 +33,7 @@ class LinkButton extends StatelessWidget {
       ),
       height: 40,
       width: double.infinity,
-      child: InkWell(
+      child: GestureDetector(
         onTap: () {
           launchUrlString(url);
         },

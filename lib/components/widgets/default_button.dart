@@ -7,7 +7,7 @@ Widget defaultButton({
   Color buttonTextColor = Colors.white,
   double width = double.infinity,
 }) {
-  return InkWell(
+  return GestureDetector(
     onTap: onTap,
     child: Container(
       width: width,

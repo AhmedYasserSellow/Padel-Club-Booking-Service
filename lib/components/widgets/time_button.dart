@@ -34,7 +34,7 @@ class BookingTimeButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
       onTap: () async {
         if (state == pending || state == booked) {
           pendingDialog(
