@@ -8,6 +8,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../../components/notifications.dart';
 import '../../components/widgets/text_form_field.dart';
 import 'package:flutter/material.dart';
 import '../../components/widgets/default_button.dart';
@@ -187,6 +188,7 @@ class _ManagersFormState extends State<ManagersForm> {
                                           }
                                           prefs.setBool(isLoggedIn, true);
                                           prefs.setBool(dev, true);
+                                          getPermssion();
                                           FirebaseMessaging.instance
                                               .subscribeToTopic('notify');
                                           if (context.mounted) {
