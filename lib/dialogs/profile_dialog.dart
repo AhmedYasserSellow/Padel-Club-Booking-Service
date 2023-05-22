@@ -34,9 +34,6 @@ void profileDialog(
           child: SingleChildScrollView(
             child: Column(
               children: [
-                // const SizedBox(
-                //   height: 24,
-                // ),
                 myTextFormField(
                   textStyleColor: AppCubit.get(context).iconAndTextColor,
                   color: AppCubit.get(context).iconAndTextColor,
