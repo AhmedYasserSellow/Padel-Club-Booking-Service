@@ -72,7 +72,7 @@ class Role extends StatelessWidget {
             ),
             Image.asset(
               image,
-              width: 120,
+              width: MediaQuery.of(context).size.width / 4,
             ),
             const Spacer(
               flex: 1,
