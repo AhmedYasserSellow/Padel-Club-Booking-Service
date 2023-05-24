@@ -200,7 +200,11 @@ class _ManagersFormState extends State<ManagersForm> {
                                               ScaffoldMessenger.of(context)
                                                   .showSnackBar(
                                                 SnackBar(
-                                                  backgroundColor: Colors.red,
+                                                  duration: const Duration(
+                                                      milliseconds: 1500),
+                                                  backgroundColor:
+                                                      const Color.fromRGBO(
+                                                          244, 67, 54, 1),
                                                   content: Text(
                                                     'wrong phone or password please try again',
                                                     style: TextStyle(

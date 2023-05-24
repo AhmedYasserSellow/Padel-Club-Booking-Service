@@ -90,6 +90,8 @@ void profileDialog(
                                 if (context.mounted) {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
+                                      duration:
+                                          const Duration(milliseconds: 1500),
                                       backgroundColor: racketFirstColor,
                                       content: Text(
                                         'Updated Successfully',
