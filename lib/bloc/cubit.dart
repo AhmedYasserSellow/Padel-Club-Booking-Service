@@ -85,7 +85,7 @@ class AppCubit extends Cubit<AppStates> {
       isLightMode = !isLightMode;
       prefs.setBool('Mode', isLightMode);
       brightness = Brightness.light;
-      iconAndTextColor = textAndIconDarkModeColor;
+      iconAndTextColor = textAndIconLightModeColor;
       modeIcon = Icons.light_mode;
     }
     emit(ChangeTheme());
