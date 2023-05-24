@@ -68,8 +68,6 @@ class ButtonsList extends StatelessWidget {
               );
             },
             itemCount: 24,
-            physics: const ScrollPhysics(),
-            shrinkWrap: true,
             separatorBuilder: (BuildContext context, int index) {
               return const SizedBox(
                 height: 12,
