@@ -102,6 +102,7 @@ class _UserFormState extends State<UserForm> {
               }
             },
             text: 'Sign In',
+            buttonTextColor: const Color.fromRGBO(0, 0, 0, 1),
           ),
         ],
       ),

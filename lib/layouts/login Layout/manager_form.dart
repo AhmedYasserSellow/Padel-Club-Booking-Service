@@ -134,89 +134,90 @@ class _ManagersFormState extends State<ManagersForm> {
                                   height: 24,
                                 ),
                                 defaultButton(
-                                  color: textColor,
-                                  onTap: () async {
-                                    String id = phone.text;
-                                    String lock = password.text;
-                                    phone1 = snapshot.data!.docs[0]['phone'];
-                                    phone2 = snapshot.data!.docs[1]['phone'];
-                                    phone3 = snapshot.data!.docs[2]['phone'];
-                                    phone4 = snapshot.data!.docs[3]['phone'];
-                                    phone5 = snapshot.data!.docs[4]['phone'];
-                                    name1 = snapshot.data!.docs[0]['name'];
-                                    name2 = snapshot.data!.docs[1]['name'];
-                                    name3 = snapshot.data!.docs[2]['name'];
-                                    name4 = snapshot.data!.docs[3]['name'];
-                                    name5 = snapshot.data!.docs[4]['name'];
-                                    pass1 = snapshot.data!.docs[0]['pass'];
-                                    pass2 = snapshot.data!.docs[1]['pass'];
-                                    pass3 = snapshot.data!.docs[2]['pass'];
-                                    pass4 = snapshot.data!.docs[3]['pass'];
-                                    pass5 = snapshot.data!.docs[4]['pass'];
-                                    if (formKey.currentState!.validate()) {
-                                      if (snapshot.hasData &&
-                                          (internetSnapshot.data ==
-                                                  InternetConnectionStatus
-                                                      .connected ||
-                                              ethernetSnapshot.data ==
-                                                  InternetConnectionStatus
-                                                      .connected)) {
-                                        final prefs = await SharedPreferences
-                                            .getInstance();
-                                        if ((id == phone1 && lock == pass1) ||
-                                            (id == phone2 && lock == pass2) ||
-                                            (id == phone3 && lock == pass3) ||
-                                            (id == phone4 && lock == pass4) ||
-                                            (id == phone5 && lock == pass5)) {
-                                          if (id == phone1) {
-                                            prefs.setString(yourName, name1);
-                                            prefs.setString(yourPhone, id);
-                                          } else if (id == phone2) {
-                                            prefs.setString(yourName, name2);
-                                            prefs.setString(yourPhone, id);
-                                          } else if (id == phone3) {
-                                            prefs.setString(yourName, name3);
-                                            prefs.setString(yourPhone, id);
-                                          } else if (id == phone4) {
-                                            prefs.setString(yourName, name4);
-                                            prefs.setString(yourPhone, id);
-                                          } else if (id == phone5) {
-                                            prefs.setString(yourName, name5);
-                                            prefs.setString(yourPhone, id);
-                                          }
-                                          prefs.setBool(isLoggedIn, true);
-                                          prefs.setBool(dev, true);
+                                    color: textColor,
+                                    onTap: () async {
+                                      String id = phone.text;
+                                      String lock = password.text;
+                                      phone1 = snapshot.data!.docs[0]['phone'];
+                                      phone2 = snapshot.data!.docs[1]['phone'];
+                                      phone3 = snapshot.data!.docs[2]['phone'];
+                                      phone4 = snapshot.data!.docs[3]['phone'];
+                                      phone5 = snapshot.data!.docs[4]['phone'];
+                                      name1 = snapshot.data!.docs[0]['name'];
+                                      name2 = snapshot.data!.docs[1]['name'];
+                                      name3 = snapshot.data!.docs[2]['name'];
+                                      name4 = snapshot.data!.docs[3]['name'];
+                                      name5 = snapshot.data!.docs[4]['name'];
+                                      pass1 = snapshot.data!.docs[0]['pass'];
+                                      pass2 = snapshot.data!.docs[1]['pass'];
+                                      pass3 = snapshot.data!.docs[2]['pass'];
+                                      pass4 = snapshot.data!.docs[3]['pass'];
+                                      pass5 = snapshot.data!.docs[4]['pass'];
+                                      if (formKey.currentState!.validate()) {
+                                        if (snapshot.hasData &&
+                                            (internetSnapshot.data ==
+                                                    InternetConnectionStatus
+                                                        .connected ||
+                                                ethernetSnapshot.data ==
+                                                    InternetConnectionStatus
+                                                        .connected)) {
+                                          final prefs = await SharedPreferences
+                                              .getInstance();
+                                          if ((id == phone1 && lock == pass1) ||
+                                              (id == phone2 && lock == pass2) ||
+                                              (id == phone3 && lock == pass3) ||
+                                              (id == phone4 && lock == pass4) ||
+                                              (id == phone5 && lock == pass5)) {
+                                            if (id == phone1) {
+                                              prefs.setString(yourName, name1);
+                                              prefs.setString(yourPhone, id);
+                                            } else if (id == phone2) {
+                                              prefs.setString(yourName, name2);
+                                              prefs.setString(yourPhone, id);
+                                            } else if (id == phone3) {
+                                              prefs.setString(yourName, name3);
+                                              prefs.setString(yourPhone, id);
+                                            } else if (id == phone4) {
+                                              prefs.setString(yourName, name4);
+                                              prefs.setString(yourPhone, id);
+                                            } else if (id == phone5) {
+                                              prefs.setString(yourName, name5);
+                                              prefs.setString(yourPhone, id);
+                                            }
+                                            prefs.setBool(isLoggedIn, true);
+                                            prefs.setBool(dev, true);
 
-                                          FirebaseMessaging.instance
-                                              .subscribeToTopic('notify');
-                                          if (context.mounted) {
-                                            Navigator.pushReplacementNamed(
-                                              context,
-                                              HomePage.id,
-                                            );
+                                            FirebaseMessaging.instance
+                                                .subscribeToTopic('notify');
+                                            if (context.mounted) {
+                                              Navigator.pushReplacementNamed(
+                                                context,
+                                                HomePage.id,
+                                              );
+                                            }
+                                          } else {
+                                            if (context.mounted) {
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                SnackBar(
+                                                  backgroundColor: Colors.red,
+                                                  content: Text(
+                                                    'wrong phone or password please try again',
+                                                    style: TextStyle(
+                                                        color: textColor),
+                                                  ),
+                                                ),
+                                              );
+                                            }
                                           }
                                         } else {
-                                          if (context.mounted) {
-                                            ScaffoldMessenger.of(context)
-                                                .showSnackBar(
-                                              SnackBar(
-                                                backgroundColor: Colors.red,
-                                                content: Text(
-                                                  'wrong phone or password please try again',
-                                                  style: TextStyle(
-                                                      color: textColor),
-                                                ),
-                                              ),
-                                            );
-                                          }
+                                          noInternetSnackBar(context);
                                         }
-                                      } else {
-                                        noInternetSnackBar(context);
                                       }
-                                    }
-                                  },
-                                  text: 'Sign In',
-                                ),
+                                    },
+                                    text: 'Sign In',
+                                    buttonTextColor:
+                                        const Color.fromRGBO(0, 0, 0, 1)),
                               ],
                             ),
                           );

@@ -61,8 +61,8 @@ class Role extends StatelessWidget {
         width: MediaQuery.of(context).size.width * 5 / 12,
         height: MediaQuery.of(context).size.width * 5 / 12,
         decoration: BoxDecoration(
+          color: const Color.fromRGBO(255, 255, 255, 1),
           borderRadius: BorderRadius.circular(24),
-          border: Border.all(color: Colors.white, width: 3),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -72,15 +72,14 @@ class Role extends StatelessWidget {
             ),
             Image.asset(
               image,
-              width: 64,
-              color: Colors.white,
+              width: 120,
             ),
             const Spacer(
               flex: 1,
             ),
             Text(
               role,
-              style: const TextStyle(fontSize: 24, color: Colors.white),
+              style: const TextStyle(fontSize: 24, color: Colors.black),
             ),
             const Spacer(
               flex: 2,
