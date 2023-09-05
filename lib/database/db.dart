@@ -131,9 +131,9 @@ void removePin(int year, int month, int from, int to, String dayName,
             .doc('${abc[index]}-${clock[index]}')
             .set(
           {
-            'Name': name,
-            'Phone': phone,
-            'State': booked,
+            'Name': '',
+            'Phone': '',
+            'State': '',
           },
         );
       }

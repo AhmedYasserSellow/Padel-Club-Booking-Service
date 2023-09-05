@@ -1,3 +1,6 @@
+import 'package:booking/screens/about%20us/about_us_screen.dart';
+import 'package:booking/screens/booking%20screen/booking_screen.dart';
+import 'package:booking/screens/offers%20screen/offers_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 import '../database/control_panel.dart';
@@ -71,6 +74,12 @@ List<String> abc = [
   'x',
   'y',
   'z',
+];
+
+List appScreens = const [
+  BookingScreen(),
+  OffersScreen(),
+  AboutUsScreen(),
 ];
 
 final connection = InternetConnectionCheckerPlus.createInstance(

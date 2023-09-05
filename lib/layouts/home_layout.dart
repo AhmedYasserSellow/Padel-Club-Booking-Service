@@ -9,8 +9,6 @@ import '../components/constants.dart';
 import '../components/notifications.dart';
 import '../database/control_panel.dart';
 import '../dialogs/profile_dialog.dart';
-import '../screens/about us/about_us_screen.dart';
-import '../screens/booking screen/booking_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -61,7 +59,7 @@ class _HomePageState extends State<HomePage> {
                 return StreamBuilder(
                     stream: Stream.fromFuture(loadState()),
                     builder: (context, snapshot) {
-                      return BlocConsumer<AppCubit, AppStates>(
+                      return BlocBuilder<AppCubit, AppStates>(
                         builder: (context, state) {
                           return Scaffold(
                               appBar: AppBar(
@@ -134,6 +132,11 @@ class _HomePageState extends State<HomePage> {
                                     label: 'Booking',
                                   ),
                                   BottomNavigationBarItem(
+                                      icon: Icon(
+                                        Icons.local_offer_outlined,
+                                      ),
+                                      label: 'Offers'),
+                                  BottomNavigationBarItem(
                                     icon: Icon(Icons.info_outline),
                                     label: 'About',
                                   ),
@@ -145,16 +148,13 @@ class _HomePageState extends State<HomePage> {
                                           InternetConnectionStatus.connected ||
                                       ethernetSnapshot.data ==
                                           InternetConnectionStatus.connected)
-                                  ? AppCubit.get(context).navIndex == 0
-                                      ? const BookingScreen()
-                                      : const AboutUsScreen()
+                                  ? appScreens[AppCubit.get(context).navIndex]
                                   : Center(
                                       child: CircularProgressIndicator(
                                         color: Theme.of(context).indicatorColor,
                                       ),
                                     ));
                         },
-                        listener: (context, state) {},
                       );
                     });
               });
