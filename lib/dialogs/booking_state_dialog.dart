@@ -25,125 +25,121 @@ void pendingDialog(
     showDialog(
         context: context,
         builder: (context) {
-          return BlocConsumer<AppCubit, AppStates>(
-              listener: (context, state) {},
-              builder: (context, state) {
-                return AlertDialog(
-                  contentPadding: const EdgeInsets.only(
-                      top: 24, right: 24, left: 24, bottom: 16),
-                  //Form----------------------------------------------------------------------------------------------------------------------
-                  content: SingleChildScrollView(
-                      child: Column(children: [
-                    Column(
-                      children: [
-                        Text('Name: $name'),
-                        Text('Phone: $phonenumber'),
-                        const SizedBox(
-                          height: 24,
-                        ),
-                        manager
+          return BlocBuilder<AppCubit, AppStates>(builder: (context, state) {
+            return AlertDialog(
+              contentPadding: const EdgeInsets.only(
+                  top: 24, right: 24, left: 24, bottom: 16),
+              //Form----------------------------------------------------------------------------------------------------------------------
+              content: SingleChildScrollView(
+                  child: Column(children: [
+                Column(
+                  children: [
+                    Text('Name: $name'),
+                    Text('Phone: $phonenumber'),
+                    const SizedBox(
+                      height: 24,
+                    ),
+                    manager
+                        ? Column(
+                            children: [
+                              bookingState == pending
+                                  ? Column(
+                                      children: [
+                                        defaultButton(
+                                          onTap: () async {
+                                            bool connectionState =
+                                                await connection.hasConnection;
+                                            if (connectionState == false) {
+                                              if (context.mounted) {
+                                                noInternetSnackBar(context);
+                                              }
+                                            } else {
+                                              FirebaseFirestore.instance
+                                                  .collection(selectedYear)
+                                                  .doc(selectedMonth)
+                                                  .collection(selectedDay)
+                                                  .doc(
+                                                      '${abc[index]}-${clock[index]}')
+                                                  .set({
+                                                'State': booked,
+                                              }, SetOptions(merge: true));
+                                              if (context.mounted) {
+                                                Navigator.pop(context);
+                                              }
+                                            }
+                                          },
+                                          text: 'Confirm',
+                                          color: availableColor,
+                                        ),
+                                        const SizedBox(
+                                          height: 12,
+                                        ),
+                                      ],
+                                    )
+                                  : const SizedBox(),
+                              defaultButton(
+                                onTap: () async {
+                                  bool connectionState =
+                                      await connection.hasConnection;
+                                  if (connectionState == false) {
+                                    if (context.mounted) {
+                                      noInternetSnackBar(context);
+                                    }
+                                  } else {
+                                    FirebaseFirestore.instance
+                                        .collection(selectedYear)
+                                        .doc(selectedMonth)
+                                        .collection(selectedDay)
+                                        .doc('${abc[index]}-${clock[index]}')
+                                        .set({
+                                      'Name': '',
+                                      'Phone': '',
+                                      'State': '',
+                                    }, SetOptions(merge: true));
+                                    if (context.mounted) {
+                                      Navigator.pop(context);
+                                    }
+                                  }
+                                },
+                                text: 'Cancel',
+                                color: bookedColor,
+                              ),
+                            ],
+                          )
+                        : bookingState == pending
                             ? Column(
                                 children: [
-                                  bookingState == pending
-                                      ? Column(
-                                          children: [
-                                            defaultButton(
-                                              onTap: () async {
-                                                bool connectionState =
-                                                    await connection
-                                                        .hasConnection;
-                                                if (connectionState == false) {
-                                                  if (context.mounted) {
-                                                    noInternetSnackBar(context);
-                                                  }
-                                                } else {
-                                                  FirebaseFirestore.instance
-                                                      .collection(selectedYear)
-                                                      .doc(selectedMonth)
-                                                      .collection(selectedDay)
-                                                      .doc(
-                                                          '${abc[index]}-${clock[index]}')
-                                                      .set({
-                                                    'State': booked,
-                                                  }, SetOptions(merge: true));
-                                                  if (context.mounted) {
-                                                    Navigator.pop(context);
-                                                  }
-                                                }
-                                              },
-                                              text: 'Confirm',
-                                              color: availableColor,
-                                            ),
-                                            const SizedBox(
-                                              height: 12,
-                                            ),
-                                          ],
-                                        )
-                                      : const SizedBox(),
-                                  defaultButton(
-                                    onTap: () async {
-                                      bool connectionState =
-                                          await connection.hasConnection;
-                                      if (connectionState == false) {
-                                        if (context.mounted) {
-                                          noInternetSnackBar(context);
-                                        }
-                                      } else {
-                                        FirebaseFirestore.instance
-                                            .collection(selectedYear)
-                                            .doc(selectedMonth)
-                                            .collection(selectedDay)
-                                            .doc(
-                                                '${abc[index]}-${clock[index]}')
-                                            .set({
-                                          'Name': '',
-                                          'Phone': '',
-                                          'State': '',
-                                        }, SetOptions(merge: true));
-                                        if (context.mounted) {
-                                          Navigator.pop(context);
-                                        }
-                                      }
+                                  const Text('to confirm your booking '),
+                                  InkWell(
+                                    child: const Text(
+                                      'CONTACT US',
+                                      style: TextStyle(
+                                        color: Colors.blue,
+                                      ),
+                                    ),
+                                    onTap: () {
+                                      Navigator.pop(context);
+                                      AppCubit.get(context)
+                                          .changeBottomNavIndex(1);
                                     },
-                                    text: 'Cancel',
-                                    color: bookedColor,
-                                  ),
+                                  )
                                 ],
                               )
-                            : bookingState == pending
-                                ? Column(
-                                    children: [
-                                      const Text('to confirm your booking '),
-                                      InkWell(
-                                        child: const Text(
-                                          'CONTACT US',
-                                          style: TextStyle(
-                                            color: Colors.blue,
-                                          ),
-                                        ),
-                                        onTap: () {
-                                          Navigator.pop(context);
-                                          AppCubit.get(context)
-                                              .changeBottomNavIndex(1);
-                                        },
-                                      )
-                                    ],
-                                  )
-                                : const SizedBox(),
-                        const SizedBox(
-                          height: 12,
-                        ),
-                        const Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            MyBackButton(),
-                          ],
-                        ),
+                            : const SizedBox(),
+                    const SizedBox(
+                      height: 12,
+                    ),
+                    const Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        MyBackButton(),
                       ],
-                    )
-                  ])),
-                );
-              });
+                    ),
+                  ],
+                )
+              ])),
+            );
+          });
         });
   }
 }

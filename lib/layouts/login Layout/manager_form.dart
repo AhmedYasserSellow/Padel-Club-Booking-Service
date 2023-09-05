@@ -28,7 +28,7 @@ class _ManagersFormState extends State<ManagersForm> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AppCubit, AppStates>(
+    return BlocBuilder<AppCubit, AppStates>(
       builder: (context, state) {
         return StreamBuilder(
             stream: connection.onStatusChange,
@@ -229,7 +229,6 @@ class _ManagersFormState extends State<ManagersForm> {
                   });
             });
       },
-      listener: (context, state) {},
     );
   }
 }
