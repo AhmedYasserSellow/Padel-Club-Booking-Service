@@ -101,7 +101,9 @@ class OffersListBuilder extends StatelessWidget {
                   ? 'Add offers little shit'
                   : 'There is no offers right now',
               style: TextStyle(
-                color: AppCubit.get(context).iconAndTextColor,
+                color: isOpenedFromDashboard
+                    ? textColor
+                    : AppCubit.get(context).iconAndTextColor,
                 fontSize: 20,
               ),
             )
