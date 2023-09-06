@@ -129,7 +129,7 @@ class ControlOffers extends StatelessWidget {
                     'Link': offerControllerLink.text,
                     'id': offerIDController.text,
                   });
-                  sendOffersNotification(
+                  sendGlobalNotification(
                     title: 'New Offer',
                     body: 'Open to see our new offer',
                   );

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -24,6 +25,7 @@ Future backgroundMessage(RemoteMessage message) async {}
 Future sendNotify({
   required String title,
   required String body,
+  required String id,
 }) async {
   String serverToken =
       'AAAABlB1t8E:APA91bHOo2dPLvUNuiZk9_4O5Pfo5b1EYfmvx5fXsWYfB1dP8PCsA2t4Grh48JOOGhM6dWIDOL3hMwWm2Mt_lpz6kG3FLs2O5AakU1loVa1rO5kYjehhp8UNeSCJDtp6D88L4jnbwdKy';
@@ -50,9 +52,13 @@ Future sendNotify({
       },
     ),
   );
+  FirebaseFirestore.instance.collection('Notifications').doc(id).set({
+    'title': title,
+    'body': body,
+  });
 }
 
-Future sendOffersNotification({
+Future sendGlobalNotification({
   required String title,
   required String body,
 }) async {

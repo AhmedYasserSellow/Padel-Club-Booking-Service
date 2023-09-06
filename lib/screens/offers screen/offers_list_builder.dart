@@ -37,11 +37,13 @@ class OffersListBuilder extends StatelessWidget {
                         ? 'ID :  ${offers[index]['id']}'
                         : offers[index]['title'],
                     style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 24,
-                        color: isOpenedFromDashboard
-                            ? textColor
-                            : AppCubit.get(context).iconAndTextColor),
+                      fontFamily: 'Cairo',
+                      fontWeight: FontWeight.w600,
+                      fontSize: 24,
+                      color: isOpenedFromDashboard
+                          ? textColor
+                          : AppCubit.get(context).iconAndTextColor,
+                    ),
                   ),
                   const SizedBox(
                     height: 15,

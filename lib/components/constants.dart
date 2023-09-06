@@ -1,3 +1,4 @@
+import 'package:booking/database/screens/notification.dart';
 import 'package:booking/screens/about%20us/about_us_screen.dart';
 import 'package:booking/screens/booking%20screen/booking_screen.dart';
 import 'package:booking/screens/offers%20screen/offers_screen.dart';
@@ -106,4 +107,5 @@ Map<String, Widget Function(BuildContext)> appRoutes = {
   HomePage.id: (context) => const HomePage(),
   LoginPage.id: (context) => const LoginPage(),
   DashBoard.id: (context) => const DashBoard(),
+  NotificationScreen.id: (context) => const NotificationScreen(),
 };

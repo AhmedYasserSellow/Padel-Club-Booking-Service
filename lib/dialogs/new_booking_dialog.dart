@@ -153,7 +153,8 @@ void bookingDialog(
                                     'State': pending,
                                   });
                                   sendNotify(
-                                    title: 'New Booking Request',
+                                    id: '$selectedDay$selectedMonth$selectedYear${clock[index]}',
+                                    title: nameController.text,
                                     body:
                                         'Date : $selectedDay/$selectedMonth/$selectedYear \nTime : ${clock[index]}',
                                   );

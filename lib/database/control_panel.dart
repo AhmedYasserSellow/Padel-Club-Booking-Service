@@ -1,4 +1,5 @@
 import 'package:booking/components/theme.dart';
+import 'package:booking/database/screens/notification.dart';
 import 'package:booking/database/screens/offers.dart';
 import 'package:booking/database/screens/prices.dart';
 import 'package:flutter/material.dart';
@@ -44,6 +45,23 @@ class DashBoard extends StatelessWidget {
                   Navigator.pop(context);
                 },
               ),
+              actions: [
+                IconButton(
+                  onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      NotificationScreen.id,
+                    );
+                  },
+                  icon: const Icon(
+                    Icons.notifications_outlined,
+                  ),
+                  color: textColor,
+                ),
+                const SizedBox(
+                  width: 8,
+                ),
+              ],
               title: Text(
                 'Dashboard',
                 style: TextStyle(color: textColor),

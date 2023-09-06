@@ -184,7 +184,7 @@ class PricesScreen extends StatelessWidget {
                           ),
                         ),
                       );
-                      sendOffersNotification(
+                      sendGlobalNotification(
                         title: 'Price Changed',
                         body: 'Check our new prices',
                       );
