@@ -10,10 +10,10 @@ class OffersListBuilder extends StatelessWidget {
   const OffersListBuilder({
     super.key,
     required this.offers,
-    required this.removeFeature,
+    required this.isOpenedFromDashboard,
   });
   final List<QueryDocumentSnapshot<Map<String, dynamic>>> offers;
-  final bool removeFeature;
+  final bool isOpenedFromDashboard;
   @override
   Widget build(BuildContext context) {
     if (offers.isNotEmpty) {
@@ -33,13 +33,13 @@ class OffersListBuilder extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    removeFeature
+                    isOpenedFromDashboard
                         ? 'ID :  ${offers[index]['id']}'
                         : offers[index]['title'],
                     style: TextStyle(
                         fontWeight: FontWeight.w600,
                         fontSize: 24,
-                        color: removeFeature
+                        color: isOpenedFromDashboard
                             ? textColor
                             : AppCubit.get(context).iconAndTextColor),
                   ),
@@ -59,12 +59,12 @@ class OffersListBuilder extends StatelessWidget {
                       ),
                     ),
                   ),
-                  removeFeature
+                  isOpenedFromDashboard
                       ? const SizedBox(
                           height: 15,
                         )
                       : const SizedBox(),
-                  removeFeature
+                  isOpenedFromDashboard
                       ? defaultButton(
                           onTap: () {
                             FirebaseFirestore.instance
@@ -97,7 +97,9 @@ class OffersListBuilder extends StatelessWidget {
               height: 20,
             ),
             Text(
-              'There is no offers right now',
+              isOpenedFromDashboard
+                  ? 'Add offers little shit'
+                  : 'There is no offers right now',
               style: TextStyle(
                 color: AppCubit.get(context).iconAndTextColor,
                 fontSize: 20,

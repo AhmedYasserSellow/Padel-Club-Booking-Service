@@ -88,7 +88,7 @@ class ControlOffers extends StatelessWidget {
                 return null;
               },
               label: 'Image Url',
-              prefix: Icons.link_rounded,
+              prefix: Icons.image_outlined,
               context: context,
               color: textColor,
               textStyleColor: textColor,
