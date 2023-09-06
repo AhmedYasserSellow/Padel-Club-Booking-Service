@@ -31,7 +31,7 @@ class AddYearsToDB extends StatelessWidget {
             myTextFormField(
               limit: 4,
               controller: yearDBField,
-              type: TextInputType.phone,
+              type: TextInputType.number,
               validate: (String? value) {
                 if (value!.isEmpty) {
                   return 'year is required';

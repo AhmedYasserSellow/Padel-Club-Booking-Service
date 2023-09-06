@@ -91,7 +91,7 @@ class PinTimes extends StatelessWidget {
                   child: myTextFormField(
                     limit: 4,
                     controller: yearsForPin,
-                    type: TextInputType.phone,
+                    type: TextInputType.number,
                     validate: (String? value) {
                       if (value!.isEmpty) {
                         return 'year is required';
@@ -117,7 +117,7 @@ class PinTimes extends StatelessWidget {
                   child: myTextFormField(
                     limit: 2,
                     controller: monthForPin,
-                    type: TextInputType.phone,
+                    type: TextInputType.number,
                     validate: (String? value) {
                       if (value!.isEmpty) {
                         return 'month is required';
@@ -153,7 +153,7 @@ class PinTimes extends StatelessWidget {
             myTextFormField(
               limit: 1,
               controller: dayIndex,
-              type: TextInputType.phone,
+              type: TextInputType.number,
               validate: (String? value) {
                 if (value!.isEmpty) {
                   return 'day index is required';
@@ -181,7 +181,7 @@ class PinTimes extends StatelessWidget {
                   child: myTextFormField(
                     limit: 2,
                     controller: startPin,
-                    type: TextInputType.phone,
+                    type: TextInputType.number,
                     validate: (String? value) {
                       if (value!.isEmpty) {
                         return 'starting time is required';
@@ -207,7 +207,7 @@ class PinTimes extends StatelessWidget {
                   child: myTextFormField(
                     limit: 2,
                     controller: endPin,
-                    type: TextInputType.phone,
+                    type: TextInputType.number,
                     validate: (String? value) {
                       if (value!.isEmpty) {
                         return 'ending time is required';

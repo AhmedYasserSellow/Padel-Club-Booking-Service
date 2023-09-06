@@ -37,7 +37,7 @@ class ControlAcademy extends StatelessWidget {
                 Expanded(
                   child: myTextFormField(
                     controller: yeasAcademy,
-                    type: TextInputType.phone,
+                    type: TextInputType.number,
                     validate: (String? value) {
                       if (value!.isEmpty) {
                         return 'year is required';
@@ -62,7 +62,7 @@ class ControlAcademy extends StatelessWidget {
                 Expanded(
                   child: myTextFormField(
                     controller: monthAcademy,
-                    type: TextInputType.phone,
+                    type: TextInputType.number,
                     validate: (String? value) {
                       if (value!.isEmpty) {
                         return 'month is required';
@@ -95,7 +95,7 @@ class ControlAcademy extends StatelessWidget {
             ),
             myTextFormField(
               controller: dayIndex,
-              type: TextInputType.phone,
+              type: TextInputType.number,
               validate: (String? value) {
                 if (value!.isEmpty) {
                   return 'day index is required';
@@ -122,7 +122,7 @@ class ControlAcademy extends StatelessWidget {
                 Expanded(
                   child: myTextFormField(
                     controller: fromAcademy,
-                    type: TextInputType.phone,
+                    type: TextInputType.number,
                     validate: (String? value) {
                       if (value!.isEmpty) {
                         return 'ending time is required';
@@ -148,7 +148,7 @@ class ControlAcademy extends StatelessWidget {
                 Expanded(
                   child: myTextFormField(
                     controller: toAcademy,
-                    type: TextInputType.phone,
+                    type: TextInputType.number,
                     validate: (String? value) {
                       if (value!.isEmpty) {
                         return 'ending time is required';

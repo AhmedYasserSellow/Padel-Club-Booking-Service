@@ -1,5 +1,6 @@
 import 'package:booking/components/theme.dart';
 import 'package:booking/database/screens/offers.dart';
+import 'package:booking/database/screens/prices.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc/cubit.dart';
@@ -13,6 +14,7 @@ List screens = [
   ControlAcademy(),
   ControlOffers(),
   AddYearsToDB(),
+  PricesScreen()
 ];
 
 class DashBoard extends StatelessWidget {
@@ -73,6 +75,10 @@ class DashBoard extends StatelessWidget {
                 BottomNavigationBarItem(
                   icon: Icon(Icons.calendar_month_outlined),
                   label: 'Years',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.price_change),
+                  label: 'Prices',
                 ),
               ],
               showUnselectedLabels: false,
