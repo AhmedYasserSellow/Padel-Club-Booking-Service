@@ -26,7 +26,7 @@ class _LoginPageState extends State<LoginPage> {
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
               gradient:
-                  LinearGradient(colors: [racketFirstColor, rackerSecondColor]),
+                  LinearGradient(colors: [racketFirstColor, racketSecondColor]),
             ),
             child: SingleChildScrollView(
               child: Padding(

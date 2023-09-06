@@ -8,7 +8,7 @@ Color academyColor = const Color.fromRGBO(27, 114, 192, 1);
 
 //Gradient Background Colors
 Color racketFirstColor = const Color.fromRGBO(27, 114, 192, 1);
-Color rackerSecondColor = const Color.fromRGBO(18, 57, 88, 1);
+Color racketSecondColor = const Color.fromRGBO(18, 57, 88, 1);
 
 //Links
 

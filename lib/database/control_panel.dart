@@ -1,4 +1,5 @@
 import 'package:booking/components/theme.dart';
+import 'package:booking/database/screens/offers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc/cubit.dart';
@@ -10,6 +11,7 @@ import 'screens/years.dart';
 List screens = [
   PinTimes(),
   ControlAcademy(),
+  ControlOffers(),
   AddYearsToDB(),
 ];
 
@@ -28,7 +30,7 @@ class DashBoard extends StatelessWidget {
             gradient: LinearGradient(
               colors: [
                 racketFirstColor,
-                rackerSecondColor,
+                racketSecondColor,
               ],
             ),
           ),
@@ -48,9 +50,10 @@ class DashBoard extends StatelessWidget {
               backgroundColor: racketFirstColor,
             ),
             bottomNavigationBar: BottomNavigationBar(
+              type: BottomNavigationBarType.fixed,
               selectedItemColor: textColor,
               unselectedItemColor: Colors.grey,
-              backgroundColor: rackerSecondColor,
+              backgroundColor: racketSecondColor,
               onTap: (value) {
                 AppCubit.get(context).changeBottomNavIndexForDB(value);
               },
@@ -62,6 +65,10 @@ class DashBoard extends StatelessWidget {
                 BottomNavigationBarItem(
                   icon: Icon(Icons.sports_tennis),
                   label: 'Academy',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.local_offer_outlined),
+                  label: 'Offers',
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.numbers),
@@ -76,7 +83,7 @@ class DashBoard extends StatelessWidget {
                   gradient: LinearGradient(
                 colors: [
                   racketFirstColor,
-                  rackerSecondColor,
+                  racketSecondColor,
                 ],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,

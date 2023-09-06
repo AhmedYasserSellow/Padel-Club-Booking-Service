@@ -78,7 +78,9 @@ List<String> abc = [
 
 List appScreens = const [
   BookingScreen(),
-  OffersScreen(),
+  OffersScreen(
+    removeFeature: false,
+  ),
   AboutUsScreen(),
 ];
 
