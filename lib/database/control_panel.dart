@@ -71,7 +71,7 @@ class DashBoard extends StatelessWidget {
                   label: 'Offers',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.numbers),
+                  icon: Icon(Icons.calendar_month_outlined),
                   label: 'Years',
                 ),
               ],

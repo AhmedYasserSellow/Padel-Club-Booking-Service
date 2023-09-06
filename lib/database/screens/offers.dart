@@ -1,5 +1,6 @@
 import 'package:booking/bloc/cubit.dart';
 import 'package:booking/bloc/states.dart';
+import 'package:booking/components/notifications.dart';
 import 'package:booking/components/theme.dart';
 import 'package:booking/components/widgets/default_button.dart';
 import 'package:booking/components/widgets/text_form_field.dart';
@@ -128,6 +129,10 @@ class ControlOffers extends StatelessWidget {
                     'Link': offerControllerLink.text,
                     'id': offerIDController.text,
                   });
+                  sendOffersNotification(
+                    title: 'New Offer',
+                    body: 'Open to see our new offer',
+                  );
                   offerControllerImage.clear();
                   offerControllerLink.clear();
                   offerIDController.clear();
@@ -135,7 +140,7 @@ class ControlOffers extends StatelessWidget {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: Text(
-                        'Done',
+                        'Offer Added',
                         style: TextStyle(
                           color: textColor,
                         ),
