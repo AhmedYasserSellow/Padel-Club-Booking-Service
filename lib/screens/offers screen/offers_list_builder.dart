@@ -1,12 +1,19 @@
 import 'package:booking/bloc/cubit.dart';
+import 'package:booking/components/theme.dart';
+import 'package:booking/components/widgets/default_button.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class OffersListBuilder extends StatelessWidget {
-  const OffersListBuilder({super.key, required this.offers});
+  const OffersListBuilder({
+    super.key,
+    required this.offers,
+    required this.removeFeature,
+  });
   final List<QueryDocumentSnapshot<Map<String, dynamic>>> offers;
+  final bool removeFeature;
   @override
   Widget build(BuildContext context) {
     if (offers.isNotEmpty) {
@@ -27,10 +34,12 @@ class OffersListBuilder extends StatelessWidget {
                 children: [
                   Text(
                     offers[index]['title'],
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 24,
-                    ),
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 24,
+                        color: removeFeature
+                            ? textColor
+                            : AppCubit.get(context).iconAndTextColor),
                   ),
                   const SizedBox(
                     height: 15,
@@ -48,6 +57,23 @@ class OffersListBuilder extends StatelessWidget {
                       ),
                     ),
                   ),
+                  removeFeature
+                      ? const SizedBox(
+                          height: 15,
+                        )
+                      : const SizedBox(),
+                  removeFeature
+                      ? defaultButton(
+                          onTap: () {
+                            FirebaseFirestore.instance
+                                .collection('Offers')
+                                .doc(offers[index]['id'])
+                                .delete();
+                          },
+                          text: 'Remove Offer',
+                          color: Colors.red,
+                        )
+                      : const SizedBox(),
                 ],
               ),
             );

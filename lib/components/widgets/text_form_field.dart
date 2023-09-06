@@ -1,6 +1,5 @@
 import 'package:booking/components/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 Widget myTextFormField({
   required TextEditingController controller,
@@ -11,7 +10,7 @@ Widget myTextFormField({
   required BuildContext context,
   required Color color,
   required Color textStyleColor,
-  int limit = 20,
+  int? limit,
   bool isHidden = false,
   bool isEnabled = true,
   Color focusColor = Colors.blue,
@@ -22,9 +21,6 @@ Widget myTextFormField({
     enabled: isEnabled,
     textInputAction: TextInputAction.next,
     obscureText: isHidden,
-    inputFormatters: [
-      LengthLimitingTextInputFormatter(limit),
-    ],
     style: TextStyle(color: textStyleColor),
     validator: validate,
     controller: controller,

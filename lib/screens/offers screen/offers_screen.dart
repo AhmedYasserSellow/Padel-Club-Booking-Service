@@ -19,6 +19,7 @@ class OffersScreen extends StatelessWidget {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return OffersListBuilder(
+              removeFeature: removeFeature,
               offers: snapshot.data!.docs,
             );
           } else {

@@ -36,7 +36,6 @@ class ControlAcademy extends StatelessWidget {
               children: [
                 Expanded(
                   child: myTextFormField(
-                    limit: 4,
                     controller: yeasAcademy,
                     type: TextInputType.phone,
                     validate: (String? value) {
@@ -62,7 +61,6 @@ class ControlAcademy extends StatelessWidget {
                 ),
                 Expanded(
                   child: myTextFormField(
-                    limit: 2,
                     controller: monthAcademy,
                     type: TextInputType.phone,
                     validate: (String? value) {
@@ -96,7 +94,6 @@ class ControlAcademy extends StatelessWidget {
               height: 12,
             ),
             myTextFormField(
-              limit: 1,
               controller: dayIndex,
               type: TextInputType.phone,
               validate: (String? value) {
@@ -124,7 +121,6 @@ class ControlAcademy extends StatelessWidget {
               children: [
                 Expanded(
                   child: myTextFormField(
-                    limit: 2,
                     controller: fromAcademy,
                     type: TextInputType.phone,
                     validate: (String? value) {
@@ -151,7 +147,6 @@ class ControlAcademy extends StatelessWidget {
                 ),
                 Expanded(
                   child: myTextFormField(
-                    limit: 2,
                     controller: toAcademy,
                     type: TextInputType.phone,
                     validate: (String? value) {
