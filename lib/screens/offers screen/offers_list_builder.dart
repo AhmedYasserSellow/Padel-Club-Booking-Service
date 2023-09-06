@@ -33,7 +33,9 @@ class OffersListBuilder extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    offers[index]['title'],
+                    removeFeature
+                        ? 'ID :  ${offers[index]['id']}'
+                        : offers[index]['title'],
                     style: TextStyle(
                         fontWeight: FontWeight.w600,
                         fontSize: 24,
