@@ -90,8 +90,10 @@ class OffersListBuilder extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image(
-              image: const AssetImage(
-                'assets/no_offer.png',
+              image: AssetImage(
+                AppCubit.get(context).brightness == Brightness.light
+                    ? 'assets/no_offer.png'
+                    : 'assets/no_offer_dark_mode.png',
               ),
               width: MediaQuery.of(context).size.width / 2,
             ),
