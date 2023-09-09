@@ -79,14 +79,18 @@ List<String> abc = [
   'z',
 ];
 
-List appScreens({required bool manager, required String managerID}) => [
+List appScreens({
+  required bool manager,
+  required String myName,
+}) =>
+    [
       const BookingScreen(),
       const OffersScreen(
         removeFeature: false,
       ),
       ChatsScreen(
         manager: manager,
-        managerID: managerID,
+        myName: myName,
       ),
       const AboutUsScreen(),
     ];

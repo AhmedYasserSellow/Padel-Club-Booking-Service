@@ -93,18 +93,15 @@ class _UserFormState extends State<UserForm> {
               if (formKey.currentState!.validate()) {
                 try {
                   final prefs = await SharedPreferences.getInstance();
+                  UserCredential user =
+                      await FirebaseAuth.instance.signInAnonymously();
+                  FirebaseMessaging.instance.subscribeToTopic(user.user!.uid);
+                  FirebaseMessaging.instance.subscribeToTopic('offers');
                   prefs.setString(yourName, name.text);
                   prefs.setString(yourPhone, phone.text);
                   prefs.setBool(dev, false);
                   prefs.setBool(isLoggedIn, true);
-
-                  FirebaseMessaging.instance.subscribeToTopic('offers');
-                  UserCredential user =
-                      await FirebaseAuth.instance.signInAnonymously();
-                  prefs.setString(
-                    id,
-                    user.user!.uid,
-                  );
+                  prefs.setString(id, user.user!.uid);
                   FirebaseFirestore.instance
                       .collection('App Users')
                       .doc(user.user!.uid)

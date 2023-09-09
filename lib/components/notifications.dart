@@ -89,6 +89,38 @@ Future sendGlobalNotification({
   );
 }
 
+Future sendMessageNotification({
+  required String title,
+  required String body,
+  required String reciverID,
+}) async {
+  String serverToken =
+      'AAAABlB1t8E:APA91bHOo2dPLvUNuiZk9_4O5Pfo5b1EYfmvx5fXsWYfB1dP8PCsA2t4Grh48JOOGhM6dWIDOL3hMwWm2Mt_lpz6kG3FLs2O5AakU1loVa1rO5kYjehhp8UNeSCJDtp6D88L4jnbwdKy';
+  await http.post(
+    Uri.parse(
+      'https://fcm.googleapis.com/fcm/send',
+    ),
+    headers: <String, String>{
+      'Content-Type': 'application/json',
+      'Authorization': 'key=$serverToken',
+    },
+    body: jsonEncode(
+      <String, dynamic>{
+        'notification': <String, dynamic>{
+          'body': body,
+          'title': title,
+        },
+        'priority': 'high',
+        'data': <String, dynamic>{
+          'click_action': 'FLUTTER_NOTIFICATION_CLICK',
+          'to': "/topics/$reciverID",
+        },
+        'to': "/topics/$reciverID",
+      },
+    ),
+  );
+}
+
 class NotificationService {
   final FlutterLocalNotificationsPlugin notificationsPlugin =
       FlutterLocalNotificationsPlugin();

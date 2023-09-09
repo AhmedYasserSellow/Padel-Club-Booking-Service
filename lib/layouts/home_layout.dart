@@ -24,14 +24,13 @@ class _HomePageState extends State<HomePage> {
   bool manager = false;
   String name = '';
   String phone = '';
-  String managerID = '';
+
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   Future loadState() async {
     final prefs = await SharedPreferences.getInstance();
     manager = prefs.getBool(dev)!;
     name = prefs.getString(yourName)!;
     phone = prefs.getString(yourPhone)!;
-    managerID = prefs.getString(id)!;
   }
 
   firebaseMessaging() {
@@ -142,7 +141,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                   BottomNavigationBarItem(
                                     icon: Icon(Icons.chat_bubble_outline),
-                                    label: 'Chat',
+                                    label: 'Chats',
                                   ),
                                   BottomNavigationBarItem(
                                     icon: Icon(Icons.info_outline),
@@ -157,8 +156,8 @@ class _HomePageState extends State<HomePage> {
                                       ethernetSnapshot.data ==
                                           InternetConnectionStatus.connected)
                                   ? appScreens(
+                                      myName: name,
                                       manager: manager,
-                                      managerID: managerID,
                                     )[AppCubit.get(context).navIndex]
                                   : Center(
                                       child: CircularProgressIndicator(

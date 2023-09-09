@@ -29,7 +29,6 @@ void pendingDialog(
             return AlertDialog(
               contentPadding: const EdgeInsets.only(
                   top: 24, right: 24, left: 24, bottom: 16),
-              //Form----------------------------------------------------------------------------------------------------------------------
               content: SingleChildScrollView(
                   child: Column(children: [
                 Column(
@@ -120,7 +119,7 @@ void pendingDialog(
                                     onTap: () {
                                       Navigator.pop(context);
                                       AppCubit.get(context)
-                                          .changeBottomNavIndex(1);
+                                          .changeBottomNavIndex(2);
                                     },
                                   )
                                 ],

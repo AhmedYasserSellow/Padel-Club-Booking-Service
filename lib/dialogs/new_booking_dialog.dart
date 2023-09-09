@@ -22,6 +22,7 @@ void bookingDialog(
   nameController.text = prefs.getString('Name') ?? '';
   phoneNumberController.text = prefs.getString('Phone') ?? '';
   bool manager = prefs.getBool(dev) ?? false;
+  String myID = prefs.getString(id)!;
   if (context.mounted) {
     showDialog(
       context: context,
@@ -152,12 +153,23 @@ void bookingDialog(
                                     'Phone': phoneNumberController.text,
                                     'State': pending,
                                   });
+
                                   sendNotify(
                                     id: '$selectedDay$selectedMonth$selectedYear${clock[index]}',
                                     title: nameController.text,
                                     body:
                                         'Date : $selectedDay/$selectedMonth/$selectedYear \nTime : ${clock[index]}',
                                   );
+                                  FirebaseFirestore.instance
+                                      .collection('Chats')
+                                      .doc('0')
+                                      .collection(myID)
+                                      .add({
+                                    'Message':
+                                        'I have send a book request\nDate : $selectedDay/$selectedMonth/$selectedYear \nTime : ${clock[index]}',
+                                    'ID': myID,
+                                    'Created at': DateTime.now(),
+                                  });
                                 }
                                 if (context.mounted) {
                                   Navigator.pop(context);

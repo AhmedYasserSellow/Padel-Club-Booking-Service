@@ -139,6 +139,10 @@ void profileDialog(
                       AppCubit.get(context).changeBottomNavIndex(0);
                       AppCubit.get(context).loginPageState(0);
                       FirebaseMessaging.instance.unsubscribeFromTopic('notify');
+                      FirebaseMessaging.instance
+                          .unsubscribeFromTopic(prefs.getString(id)!);
+                      FirebaseMessaging.instance.unsubscribeFromTopic('offers');
+                      FirebaseMessaging.instance.unsubscribeFromTopic('0');
                       Navigator.pop(context);
                       Navigator.pushReplacementNamed(
                         context,

@@ -196,6 +196,8 @@ class _ManagersFormState extends State<ManagersForm> {
 
                                             FirebaseMessaging.instance
                                                 .subscribeToTopic('notify');
+                                            FirebaseMessaging.instance
+                                                .subscribeToTopic('0');
                                             if (context.mounted) {
                                               Navigator.pushReplacementNamed(
                                                 context,
