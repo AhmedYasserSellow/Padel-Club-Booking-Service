@@ -197,7 +197,7 @@ class _ManagersFormState extends State<ManagersForm> {
                                             FirebaseMessaging.instance
                                                 .subscribeToTopic('notify');
                                             FirebaseMessaging.instance
-                                                .subscribeToTopic('new users');
+                                                .subscribeToTopic('newUsers');
                                             FirebaseMessaging.instance
                                                 .subscribeToTopic('0');
                                             if (context.mounted) {

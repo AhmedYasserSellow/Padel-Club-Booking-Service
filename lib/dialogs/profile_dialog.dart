@@ -143,7 +143,7 @@ void profileDialog(
                           .unsubscribeFromTopic(prefs.getString(id)!);
                       FirebaseMessaging.instance.unsubscribeFromTopic('offers');
                       FirebaseMessaging.instance
-                          .unsubscribeFromTopic('new users');
+                          .unsubscribeFromTopic('newUsers');
                       FirebaseMessaging.instance.unsubscribeFromTopic('0');
                       Navigator.pop(context);
                       Navigator.pushReplacementNamed(

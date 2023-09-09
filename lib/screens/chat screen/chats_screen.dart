@@ -91,7 +91,7 @@ class ChatsScreen extends StatelessWidget {
                       );
                     }
                   },
-                  text: 'Start Chat',
+                  text: 'Open Chat',
                   color: racketFirstColor,
                   width: MediaQuery.of(context).size.width / 2,
                 ),

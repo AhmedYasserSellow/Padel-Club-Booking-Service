@@ -137,15 +137,15 @@ Future sendNewUserNotification({
     body: jsonEncode(
       <String, dynamic>{
         'notification': <String, dynamic>{
-          'body': name,
+          'body': 'Sey hello for $name',
           'title': 'New User has joined our app',
         },
         'priority': 'high',
         'data': <String, dynamic>{
           'click_action': 'FLUTTER_NOTIFICATION_CLICK',
-          'to': "/topics/new users",
+          'to': "/topics/newUsers",
         },
-        'to': "/topics/new users",
+        'to': "/topics/newUsers",
       },
     ),
   );
