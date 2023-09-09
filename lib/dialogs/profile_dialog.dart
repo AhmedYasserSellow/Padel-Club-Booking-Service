@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -84,9 +86,26 @@ void profileDialog(
                               if (formKey.currentState!.validate()) {
                                 final prefs =
                                     await SharedPreferences.getInstance();
-                                prefs.setString(yourName, nameController.text);
                                 prefs.setString(
-                                    yourPhone, phoneController.text);
+                                  yourName,
+                                  nameController.text,
+                                );
+                                prefs.setString(
+                                  yourPhone,
+                                  phoneController.text,
+                                );
+                                FirebaseFirestore.instance
+                                    .collection('App Users')
+                                    .doc(prefs.getString(id))
+                                    .set(
+                                        {
+                                      'ID': prefs.getString(id),
+                                      'Name': nameController.text,
+                                      'Phone Number': phoneController.text,
+                                    },
+                                        SetOptions(
+                                          merge: true,
+                                        ));
                                 if (context.mounted) {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
@@ -115,6 +134,7 @@ void profileDialog(
                   onTap: () async {
                     final prefs = await SharedPreferences.getInstance();
                     prefs.setBool(isLoggedIn, false);
+                    FirebaseAuth.instance.signOut();
                     if (context.mounted) {
                       AppCubit.get(context).changeBottomNavIndex(0);
                       AppCubit.get(context).loginPageState(0);

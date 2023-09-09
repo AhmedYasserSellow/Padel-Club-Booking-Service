@@ -2,6 +2,8 @@ import 'package:booking/bloc/cubit.dart';
 import 'package:booking/components/constants.dart';
 import 'package:booking/components/theme.dart';
 import 'package:booking/layouts/home_layout.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../components/widgets/text_form_field.dart';
@@ -89,17 +91,42 @@ class _UserFormState extends State<UserForm> {
             color: textColor,
             onTap: () async {
               if (formKey.currentState!.validate()) {
-                final prefs = await SharedPreferences.getInstance();
-                prefs.setString(yourName, name.text);
-                prefs.setString(yourPhone, phone.text);
-                prefs.setBool(dev, false);
-                prefs.setBool(isLoggedIn, true);
-                FirebaseMessaging.instance.subscribeToTopic('offers');
-                if (context.mounted) {
-                  Navigator.pushReplacementNamed(
-                    context,
-                    HomePage.id,
+                try {
+                  final prefs = await SharedPreferences.getInstance();
+                  prefs.setString(yourName, name.text);
+                  prefs.setString(yourPhone, phone.text);
+                  prefs.setBool(dev, false);
+                  prefs.setBool(isLoggedIn, true);
+
+                  FirebaseMessaging.instance.subscribeToTopic('offers');
+                  UserCredential user =
+                      await FirebaseAuth.instance.signInAnonymously();
+                  prefs.setString(
+                    id,
+                    user.user!.uid,
                   );
+                  FirebaseFirestore.instance
+                      .collection('App Users')
+                      .doc(user.user!.uid)
+                      .set(
+                          {
+                        'ID': user.user!.uid,
+                        'Name': name.text,
+                        'Phone Number': phone.text,
+                      },
+                          SetOptions(
+                            merge: true,
+                          ));
+                  if (context.mounted) {
+                    Navigator.pushReplacementNamed(
+                      context,
+                      HomePage.id,
+                    );
+                  }
+                } catch (e) {
+                  if (context.mounted) {
+                    noInternetSnackBar(context);
+                  }
                 }
               }
             },

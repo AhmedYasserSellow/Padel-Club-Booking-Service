@@ -52,10 +52,7 @@ class _ManagersFormState extends State<ManagersForm> {
                               name3,
                               phone4,
                               pass4,
-                              name4,
-                              phone5,
-                              pass5,
-                              name5;
+                              name4;
 
                           return Form(
                             key: formKey,
@@ -136,23 +133,21 @@ class _ManagersFormState extends State<ManagersForm> {
                                 defaultButton(
                                     color: textColor,
                                     onTap: () async {
-                                      String id = phone.text;
+                                      String phoneNumber = phone.text;
                                       String lock = password.text;
+
                                       phone1 = snapshot.data!.docs[0]['phone'];
                                       phone2 = snapshot.data!.docs[1]['phone'];
                                       phone3 = snapshot.data!.docs[2]['phone'];
                                       phone4 = snapshot.data!.docs[3]['phone'];
-                                      phone5 = snapshot.data!.docs[4]['phone'];
                                       name1 = snapshot.data!.docs[0]['name'];
                                       name2 = snapshot.data!.docs[1]['name'];
                                       name3 = snapshot.data!.docs[2]['name'];
                                       name4 = snapshot.data!.docs[3]['name'];
-                                      name5 = snapshot.data!.docs[4]['name'];
                                       pass1 = snapshot.data!.docs[0]['pass'];
                                       pass2 = snapshot.data!.docs[1]['pass'];
                                       pass3 = snapshot.data!.docs[2]['pass'];
                                       pass4 = snapshot.data!.docs[3]['pass'];
-                                      pass5 = snapshot.data!.docs[4]['pass'];
                                       if (formKey.currentState!.validate()) {
                                         if (snapshot.hasData &&
                                             (internetSnapshot.data ==
@@ -163,26 +158,38 @@ class _ManagersFormState extends State<ManagersForm> {
                                                         .connected)) {
                                           final prefs = await SharedPreferences
                                               .getInstance();
-                                          if ((id == phone1 && lock == pass1) ||
-                                              (id == phone2 && lock == pass2) ||
-                                              (id == phone3 && lock == pass3) ||
-                                              (id == phone4 && lock == pass4) ||
-                                              (id == phone5 && lock == pass5)) {
-                                            if (id == phone1) {
+                                          if ((phoneNumber == phone1 &&
+                                                  lock == pass1) ||
+                                              (phoneNumber == phone2 &&
+                                                  lock == pass2) ||
+                                              (phoneNumber == phone3 &&
+                                                  lock == pass3) ||
+                                              (phoneNumber == phone4 &&
+                                                  lock == pass4)) {
+                                            if (phoneNumber == phone1) {
                                               prefs.setString(yourName, name1);
-                                              prefs.setString(yourPhone, id);
-                                            } else if (id == phone2) {
+                                              prefs.setString(
+                                                  yourPhone, phoneNumber);
+                                              prefs.setString(id,
+                                                  snapshot.data!.docs[0]['ID']);
+                                            } else if (phoneNumber == phone2) {
                                               prefs.setString(yourName, name2);
-                                              prefs.setString(yourPhone, id);
-                                            } else if (id == phone3) {
+                                              prefs.setString(
+                                                  yourPhone, phoneNumber);
+                                              prefs.setString(id,
+                                                  snapshot.data!.docs[1]['ID']);
+                                            } else if (phoneNumber == phone3) {
                                               prefs.setString(yourName, name3);
-                                              prefs.setString(yourPhone, id);
-                                            } else if (id == phone4) {
+                                              prefs.setString(
+                                                  yourPhone, phoneNumber);
+                                              prefs.setString(id,
+                                                  snapshot.data!.docs[2]['ID']);
+                                            } else if (phoneNumber == phone4) {
                                               prefs.setString(yourName, name4);
-                                              prefs.setString(yourPhone, id);
-                                            } else if (id == phone5) {
-                                              prefs.setString(yourName, name5);
-                                              prefs.setString(yourPhone, id);
+                                              prefs.setString(
+                                                  yourPhone, phoneNumber);
+                                              prefs.setString(id,
+                                                  snapshot.data!.docs[3]['ID']);
                                             }
                                             prefs.setBool(isLoggedIn, true);
                                             prefs.setBool(dev, true);

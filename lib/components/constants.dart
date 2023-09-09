@@ -1,6 +1,7 @@
 import 'package:booking/database/screens/notification.dart';
 import 'package:booking/screens/about%20us/about_us_screen.dart';
 import 'package:booking/screens/booking%20screen/booking_screen.dart';
+import 'package:booking/screens/chat%20screen/chats_screen.dart';
 import 'package:booking/screens/offers%20screen/offers_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
@@ -21,6 +22,7 @@ String isLoggedIn = 'isLoggedin';
 String yourName = 'Name';
 String yourPhone = 'Phone';
 String dev = 'dev';
+String id = 'ID';
 
 List<String> clock = [
   '12:00 AM',
@@ -77,13 +79,17 @@ List<String> abc = [
   'z',
 ];
 
-List appScreens = const [
-  BookingScreen(),
-  OffersScreen(
-    removeFeature: false,
-  ),
-  AboutUsScreen(),
-];
+List appScreens({required bool manager, required String managerID}) => [
+      const BookingScreen(),
+      const OffersScreen(
+        removeFeature: false,
+      ),
+      ChatsScreen(
+        manager: manager,
+        managerID: managerID,
+      ),
+      const AboutUsScreen(),
+    ];
 
 final connection = InternetConnectionCheckerPlus.createInstance(
   checkInterval: const Duration(milliseconds: 500),

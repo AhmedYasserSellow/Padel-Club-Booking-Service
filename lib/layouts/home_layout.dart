@@ -24,12 +24,14 @@ class _HomePageState extends State<HomePage> {
   bool manager = false;
   String name = '';
   String phone = '';
+  String managerID = '';
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   Future loadState() async {
     final prefs = await SharedPreferences.getInstance();
     manager = prefs.getBool(dev)!;
     name = prefs.getString(yourName)!;
     phone = prefs.getString(yourPhone)!;
+    managerID = prefs.getString(id)!;
   }
 
   firebaseMessaging() {
@@ -122,6 +124,7 @@ class _HomePageState extends State<HomePage> {
                                 ],
                               ),
                               bottomNavigationBar: BottomNavigationBar(
+                                type: BottomNavigationBarType.fixed,
                                 onTap: (value) {
                                   AppCubit.get(context)
                                       .changeBottomNavIndex(value);
@@ -132,10 +135,15 @@ class _HomePageState extends State<HomePage> {
                                     label: 'Booking',
                                   ),
                                   BottomNavigationBarItem(
-                                      icon: Icon(
-                                        Icons.local_offer_outlined,
-                                      ),
-                                      label: 'Offers'),
+                                    icon: Icon(
+                                      Icons.local_offer_outlined,
+                                    ),
+                                    label: 'Offers',
+                                  ),
+                                  BottomNavigationBarItem(
+                                    icon: Icon(Icons.chat_bubble_outline),
+                                    label: 'Chat',
+                                  ),
                                   BottomNavigationBarItem(
                                     icon: Icon(Icons.info_outline),
                                     label: 'About',
@@ -148,7 +156,10 @@ class _HomePageState extends State<HomePage> {
                                           InternetConnectionStatus.connected ||
                                       ethernetSnapshot.data ==
                                           InternetConnectionStatus.connected)
-                                  ? appScreens[AppCubit.get(context).navIndex]
+                                  ? appScreens(
+                                      manager: manager,
+                                      managerID: managerID,
+                                    )[AppCubit.get(context).navIndex]
                                   : Center(
                                       child: CircularProgressIndicator(
                                         color: Theme.of(context).indicatorColor,

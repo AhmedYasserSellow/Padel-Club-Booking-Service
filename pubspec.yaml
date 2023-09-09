@@ -50,6 +50,7 @@ dependencies:
   http: ^0.13.6
   connectivity_plus: ^2.0.0
   cached_network_image: ^3.2.3
+  firebase_auth: ^4.8.0
 
 
 
