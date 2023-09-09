@@ -111,7 +111,7 @@ void pendingDialog(
                                   const Text('to confirm your booking '),
                                   InkWell(
                                     child: const Text(
-                                      'CONTACT US',
+                                      'Chat With US',
                                       style: TextStyle(
                                         color: Colors.blue,
                                       ),
