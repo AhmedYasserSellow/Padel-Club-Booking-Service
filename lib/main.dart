@@ -41,6 +41,7 @@ class MyApp extends StatelessWidget {
         listener: (context, state) {},
         builder: (context, state) {
           return MaterialApp(
+            title: 'Padel Club',
             theme: AppCubit.get(context).isLightMode
                 //Light Theme
                 ? lightTheme
