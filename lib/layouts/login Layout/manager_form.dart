@@ -193,7 +193,7 @@ class _ManagersFormState extends State<ManagersForm> {
                                             }
                                             prefs.setBool(isLoggedIn, true);
                                             prefs.setBool(dev, true);
-
+                                            prefs.setString(id, '0');
                                             FirebaseMessaging.instance
                                                 .subscribeToTopic('notify');
                                             FirebaseMessaging.instance

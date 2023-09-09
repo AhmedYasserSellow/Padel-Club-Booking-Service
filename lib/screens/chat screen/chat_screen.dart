@@ -120,6 +120,14 @@ class ChatScreen extends StatelessWidget {
                                     'ID': manager ? '0' : id,
                                     'Created at': DateTime.now(),
                                   });
+                                  FirebaseFirestore.instance
+                                      .collection('App Users')
+                                      .doc(id)
+                                      .set(
+                                          {'Last Message': DateTime.now()},
+                                          SetOptions(
+                                            merge: true,
+                                          ));
                                   sendMessageNotification(
                                     title: manager ? 'Players Service' : myName,
                                     body: controller.text,

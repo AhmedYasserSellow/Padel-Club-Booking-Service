@@ -110,6 +110,7 @@ class _UserFormState extends State<UserForm> {
                         'ID': user.user!.uid,
                         'Name': name.text,
                         'Phone Number': phone.text,
+                        'Last Message': DateTime.now(),
                       },
                           SetOptions(
                             merge: true,

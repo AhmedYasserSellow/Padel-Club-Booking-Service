@@ -19,7 +19,13 @@ class ChatsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-        stream: FirebaseFirestore.instance.collection('App Users').snapshots(),
+        stream: FirebaseFirestore.instance
+            .collection('App Users')
+            .orderBy(
+              'Last Message',
+              descending: true,
+            )
+            .snapshots(),
         builder: (context, userSnapshot) {
           return StreamBuilder(
               stream:
