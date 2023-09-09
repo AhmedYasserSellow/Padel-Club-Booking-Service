@@ -124,7 +124,10 @@ class ChatScreen extends StatelessWidget {
                                       .collection('App Users')
                                       .doc(id)
                                       .set(
-                                          {'Last Message': DateTime.now()},
+                                          {
+                                        'Last Message': DateTime.now(),
+                                        'Message': controller.text,
+                                      },
                                           SetOptions(
                                             merge: true,
                                           ));

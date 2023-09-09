@@ -27,84 +27,81 @@ class ChatsScreen extends StatelessWidget {
             )
             .snapshots(),
         builder: (context, userSnapshot) {
-          return StreamBuilder(
-              stream:
-                  FirebaseFirestore.instance.collection('Chats').snapshots(),
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  List<QueryDocumentSnapshot<Map<String, dynamic>>> users =
-                      userSnapshot.data!.docs;
-                  if (manager) {
-                    return ListView.separated(
-                      itemBuilder: (context, index) {
-                        return ListTile(
-                          leading: Icon(
-                            Icons.account_circle,
-                            color: AppCubit.get(context).iconAndTextColor,
-                          ),
-                          title: Text(users[index]['Name']),
-                          subtitle: Text(
-                            users[index]['Phone Number'],
-                          ),
-                          trailing: IconButton(
-                            onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(
-                                builder: (context) {
-                                  return ChatScreen(
-                                    myName: myName,
-                                    manager: manager,
-                                    name: users[index]['Name'],
-                                    id: users[index]['ID'],
-                                  );
-                                },
-                              ));
-                            },
-                            icon: Icon(
-                              Icons.messenger_outline,
-                              color: AppCubit.get(context).iconAndTextColor,
-                            ),
-                          ),
-                        );
-                      },
-                      separatorBuilder: (context, index) {
-                        return const SizedBox(
-                          height: 15,
-                        );
-                      },
-                      itemCount: users.length,
-                    );
-                  } else {
-                    return Center(
-                      child: defaultButton(
-                        onTap: () async {
-                          final prefs = await SharedPreferences.getInstance();
-                          String myID = prefs.getString(id)!;
-                          if (context.mounted) {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => ChatScreen(
-                                  myName: myName,
-                                  name: 'Players Service',
-                                  id: myID,
-                                  manager: manager,
-                                ),
-                              ),
+          if (userSnapshot.hasData) {
+            List<QueryDocumentSnapshot<Map<String, dynamic>>> users =
+                userSnapshot.data!.docs;
+            if (manager) {
+              return ListView.separated(
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    leading: Icon(
+                      Icons.account_circle,
+                      color: AppCubit.get(context).iconAndTextColor,
+                    ),
+                    title: Text(users[index]['Name']),
+                    subtitle: Text(
+                      users[index]['Message'],
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    trailing: IconButton(
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) {
+                            return ChatScreen(
+                              myName: myName,
+                              manager: manager,
+                              name: users[index]['Name'],
+                              id: users[index]['ID'],
                             );
-                          }
-                        },
-                        text: 'Start Chat',
-                        color: racketFirstColor,
-                        width: MediaQuery.of(context).size.width / 2,
+                          },
+                        ));
+                      },
+                      icon: Icon(
+                        Icons.messenger_outline,
+                        color: AppCubit.get(context).iconAndTextColor,
                       ),
-                    );
-                  }
-                } else {
-                  return const Center(
-                    child: CircularProgressIndicator(),
+                    ),
                   );
-                }
-              });
+                },
+                separatorBuilder: (context, index) {
+                  return const SizedBox(
+                    height: 15,
+                  );
+                },
+                itemCount: users.length,
+              );
+            } else {
+              return Center(
+                child: defaultButton(
+                  onTap: () async {
+                    final prefs = await SharedPreferences.getInstance();
+                    String myID = prefs.getString(id)!;
+                    if (context.mounted) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ChatScreen(
+                            myName: myName,
+                            name: 'Players Service',
+                            id: myID,
+                            manager: manager,
+                          ),
+                        ),
+                      );
+                    }
+                  },
+                  text: 'Start Chat',
+                  color: racketFirstColor,
+                  width: MediaQuery.of(context).size.width / 2,
+                ),
+              );
+            }
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
         });
   }
 }
