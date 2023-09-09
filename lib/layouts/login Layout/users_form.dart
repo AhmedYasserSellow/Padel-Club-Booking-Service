@@ -1,5 +1,6 @@
 import 'package:booking/bloc/cubit.dart';
 import 'package:booking/components/constants.dart';
+import 'package:booking/components/notifications.dart';
 import 'package:booking/components/theme.dart';
 import 'package:booking/layouts/home_layout.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -102,6 +103,9 @@ class _UserFormState extends State<UserForm> {
                   prefs.setBool(dev, false);
                   prefs.setBool(isLoggedIn, true);
                   prefs.setString(id, user.user!.uid);
+                  sendNewUserNotification(
+                    name: name.text,
+                  );
                   FirebaseFirestore.instance
                       .collection('App Users')
                       .doc(user.user!.uid)
