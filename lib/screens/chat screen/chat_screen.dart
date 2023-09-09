@@ -37,6 +37,9 @@ class ChatScreen extends StatelessWidget {
           return Scaffold(
               resizeToAvoidBottomInset: true,
               appBar: AppBar(
+                backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                scrolledUnderElevation: 0,
+                elevation: 0,
                 centerTitle: true,
                 leading: BackButton(
                   color: AppCubit.get(context).iconAndTextColor,

@@ -152,6 +152,37 @@ void profileDialog(
                   },
                   text: 'Log Out',
                 ),
+                manager
+                    ? const SizedBox()
+                    : Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const SizedBox(
+                            height: 12,
+                          ),
+                          RichText(
+                              textAlign: TextAlign.center,
+                              text: TextSpan(children: [
+                                const TextSpan(
+                                  text: 'Warning : ',
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(255, 0, 0, 1),
+                                    fontSize: 18,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text:
+                                      'If you logged out your chat will be deleted',
+                                  style: TextStyle(
+                                    color:
+                                        AppCubit.get(context).iconAndTextColor,
+                                  ),
+                                )
+                              ]))
+                        ],
+                      ),
                 const SizedBox(
                   height: 12,
                 ),
