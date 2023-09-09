@@ -31,46 +31,74 @@ class ChatsScreen extends StatelessWidget {
             List<QueryDocumentSnapshot<Map<String, dynamic>>> users =
                 userSnapshot.data!.docs;
             if (manager) {
-              return ListView.separated(
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    leading: Icon(
-                      Icons.account_circle,
-                      color: AppCubit.get(context).iconAndTextColor,
-                    ),
-                    title: Text(users[index]['Name']),
-                    subtitle: Text(
-                      users[index]['Message'],
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    trailing: IconButton(
-                      onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(
-                          builder: (context) {
-                            return ChatScreen(
-                              myName: myName,
-                              manager: manager,
-                              name: users[index]['Name'],
-                              id: users[index]['ID'],
-                            );
-                          },
-                        ));
-                      },
-                      icon: Icon(
-                        Icons.messenger_outline,
+              if (users.isNotEmpty) {
+                return ListView.separated(
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      leading: Icon(
+                        Icons.account_circle,
                         color: AppCubit.get(context).iconAndTextColor,
                       ),
-                    ),
-                  );
-                },
-                separatorBuilder: (context, index) {
-                  return const SizedBox(
-                    height: 15,
-                  );
-                },
-                itemCount: users.length,
-              );
+                      title: Text(users[index]['Name']),
+                      subtitle: Text(
+                        users[index]['Message'],
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      trailing: IconButton(
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(
+                            builder: (context) {
+                              return ChatScreen(
+                                myName: myName,
+                                manager: manager,
+                                name: users[index]['Name'],
+                                id: users[index]['ID'],
+                              );
+                            },
+                          ));
+                        },
+                        icon: Icon(
+                          Icons.messenger_outline,
+                          color: AppCubit.get(context).iconAndTextColor,
+                        ),
+                      ),
+                    );
+                  },
+                  separatorBuilder: (context, index) {
+                    return const SizedBox(
+                      height: 15,
+                    );
+                  },
+                  itemCount: users.length,
+                );
+              } else {
+                return Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image(
+                        image: AssetImage(
+                          AppCubit.get(context).brightness == Brightness.light
+                              ? 'assets/no_offer.png'
+                              : 'assets/no_offer_dark_mode.png',
+                        ),
+                        width: MediaQuery.of(context).size.width / 2,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Text(
+                        'There is no users right now',
+                        style: TextStyle(
+                          color: AppCubit.get(context).iconAndTextColor,
+                          fontSize: 20,
+                        ),
+                      )
+                    ],
+                  ),
+                );
+              }
             } else {
               return Center(
                 child: defaultButton(
