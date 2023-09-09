@@ -170,6 +170,18 @@ void bookingDialog(
                                     'ID': myID,
                                     'Created at': DateTime.now(),
                                   });
+                                  FirebaseFirestore.instance
+                                      .collection('App Users')
+                                      .doc(myID)
+                                      .set(
+                                          {
+                                        'Last Message': DateTime.now(),
+                                        'Message':
+                                            'I have send a book request\nDate : $selectedDay/$selectedMonth/$selectedYear \nTime : ${clock[index]}',
+                                      },
+                                          SetOptions(
+                                            merge: true,
+                                          ));
                                 }
                                 if (context.mounted) {
                                   Navigator.pop(context);
