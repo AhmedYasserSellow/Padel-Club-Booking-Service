@@ -29,7 +29,7 @@ class ButtonsList extends StatelessWidget {
             .doc('Prices')
             .get(),
         builder: (context, pricesSnapshot) {
-          return ListView.separated(
+          return SliverList.separated(
             itemBuilder: (BuildContext context, int index) {
               Color? buttonColor;
               String name = snapshot.data!.docs[index]['Name'];

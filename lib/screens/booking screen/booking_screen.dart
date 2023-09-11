@@ -30,66 +30,70 @@ class _BookingScreenState extends State<BookingScreen> {
             .snapshots(),
         builder: (context, dataBasesnapshot) {
           if (dataBasesnapshot.hasData) {
-            return Column(
-              children: [
+            return CustomScrollView(
+              slivers: [
                 // Calendar View
-                TableCalendar(
-                  rowHeight: 52,
-                  weekendDays: const [],
-                  locale: 'en_US',
-                  startingDayOfWeek: StartingDayOfWeek.saturday,
-                  calendarStyle: CalendarStyle(
-                      todayDecoration: BoxDecoration(
-                        color: AppCubit.get(context).isLightMode
-                            ? Theme.of(context).indicatorColor.withOpacity(0.5)
-                            : Theme.of(context).indicatorColor.withOpacity(0.2),
-                        shape: BoxShape.circle,
-                      ),
-                      selectedDecoration: BoxDecoration(
-                        color: AppCubit.get(context).isLightMode
-                            ? Theme.of(context).indicatorColor
-                            : Theme.of(context).indicatorColor.withOpacity(0.5),
-                        shape: BoxShape.circle,
-                      )),
-                  focusedDay: cubit.focusedDay,
-                  firstDay: DateTime.utc(2023, 5, 14),
-                  lastDay: DateTime.utc(
-                    finalYear,
-                    cubit.today.month,
-                    cubit.today.day,
+                SliverToBoxAdapter(
+                  child: TableCalendar(
+                    rowHeight: 52,
+                    weekendDays: const [],
+                    locale: 'en_US',
+                    startingDayOfWeek: StartingDayOfWeek.saturday,
+                    calendarStyle: CalendarStyle(
+                        todayDecoration: BoxDecoration(
+                          color: AppCubit.get(context).isLightMode
+                              ? Theme.of(context)
+                                  .indicatorColor
+                                  .withOpacity(0.5)
+                              : Theme.of(context)
+                                  .indicatorColor
+                                  .withOpacity(0.2),
+                          shape: BoxShape.circle,
+                        ),
+                        selectedDecoration: BoxDecoration(
+                          color: AppCubit.get(context).isLightMode
+                              ? Theme.of(context).indicatorColor
+                              : Theme.of(context)
+                                  .indicatorColor
+                                  .withOpacity(0.5),
+                          shape: BoxShape.circle,
+                        )),
+                    focusedDay: cubit.focusedDay,
+                    firstDay: DateTime.utc(2023, 5, 14),
+                    lastDay: DateTime.utc(
+                      finalYear,
+                      cubit.today.month,
+                      cubit.today.day,
+                    ),
+                    headerStyle: const HeaderStyle(
+                      formatButtonVisible: false,
+                      titleCentered: true,
+                    ),
+                    availableGestures: AvailableGestures.all,
+                    onDaySelected: (day, focusedDay) {
+                      setState(() {
+                        cubit.focusedDay = day;
+                      });
+                    },
+                    selectedDayPredicate: (day) {
+                      return isSameDay(day, cubit.focusedDay);
+                    },
                   ),
-                  headerStyle: const HeaderStyle(
-                    formatButtonVisible: false,
-                    titleCentered: true,
-                  ),
-                  availableGestures: AvailableGestures.all,
-                  onDaySelected: (day, focusedDay) {
-                    setState(() {
-                      cubit.focusedDay = day;
-                    });
-                  },
-                  selectedDayPredicate: (day) {
-                    return isSameDay(day, cubit.focusedDay);
-                  },
                 ),
-
                 //States
-
-                const BookingStates(),
-                const SizedBox(
-                  height: 12,
-                ),
-
-                // Booking Buttons
-
-                Flexible(
-                  child: ButtonsList(
-                    selectedYear: selectedYear,
-                    selectedDay: selectedDay,
-                    selectedMonth: selectedMonth,
-                    today: cubit.focusedDay,
-                    snapshot: dataBasesnapshot,
+                const SliverToBoxAdapter(child: BookingStates()),
+                const SliverToBoxAdapter(
+                  child: SizedBox(
+                    height: 12,
                   ),
+                ),
+                // Booking Buttons
+                ButtonsList(
+                  selectedYear: selectedYear,
+                  selectedDay: selectedDay,
+                  selectedMonth: selectedMonth,
+                  today: cubit.focusedDay,
+                  snapshot: dataBasesnapshot,
                 ),
               ],
             );
