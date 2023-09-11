@@ -96,8 +96,6 @@ class _UserFormState extends State<UserForm> {
                   final prefs = await SharedPreferences.getInstance();
                   UserCredential user =
                       await FirebaseAuth.instance.signInAnonymously();
-                  FirebaseMessaging.instance.subscribeToTopic(user.user!.uid);
-                  FirebaseMessaging.instance.subscribeToTopic('offers');
                   prefs.setString(yourName, name.text);
                   prefs.setString(yourPhone, phone.text);
                   prefs.setBool(dev, false);
@@ -120,6 +118,8 @@ class _UserFormState extends State<UserForm> {
                           SetOptions(
                             merge: true,
                           ));
+                  FirebaseMessaging.instance.subscribeToTopic(user.user!.uid);
+                  FirebaseMessaging.instance.subscribeToTopic('offers');
                   if (context.mounted) {
                     Navigator.pushReplacementNamed(
                       context,
