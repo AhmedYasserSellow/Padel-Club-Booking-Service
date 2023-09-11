@@ -52,7 +52,10 @@ class _LoginPageState extends State<LoginPage> {
                           ? const ChooseRole()
                           : AppCubit.get(context).loginFormState == 1
                               ? const UserForm()
-                              : const ManagersForm()
+                              : const ManagersForm(),
+                      const SizedBox(
+                        height: 48,
+                      ),
                     ],
                   ),
                 ),
