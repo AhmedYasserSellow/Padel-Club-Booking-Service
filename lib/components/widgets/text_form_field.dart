@@ -16,8 +16,11 @@ Widget myTextFormField({
   Color focusColor = Colors.blue,
   Color labelColor = Colors.grey,
   Widget? suffix,
+  int maxLines = 1,
 }) {
   return TextFormField(
+    minLines: 1,
+    maxLines: maxLines,
     enabled: isEnabled,
     textInputAction: TextInputAction.next,
     obscureText: isHidden,

@@ -88,17 +88,18 @@ class ChatScreen extends StatelessWidget {
                       : const Center(
                           child: CircularProgressIndicator(),
                         ),
-                  BottomAppBar(
-                    elevation: 0,
-                    color: Theme.of(context).scaffoldBackgroundColor,
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 12, right: 12, bottom: 12),
                     child: Form(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Expanded(
                             child: myTextFormField(
+                              maxLines: 3,
                               controller: controller,
-                              type: TextInputType.text,
+                              type: TextInputType.multiline,
                               validate: (String? value) {},
                               label: 'Message',
                               prefix: Icons.message,
