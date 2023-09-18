@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../bloc/cubit.dart';
 import '../../bloc/states.dart';
-import '../../components/widgets/text_form_field.dart';
+import '../../core/widgets/text_form_field.dart';
 import '../db.dart';
 
 class AddYearsToDB extends StatelessWidget {

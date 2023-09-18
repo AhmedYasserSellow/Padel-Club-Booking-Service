@@ -1,3 +1,5 @@
+import 'package:booking/components/constants.dart';
+import 'package:booking/components/notifications.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -5,8 +7,6 @@ import 'package:internet_connection_checker_plus/internet_connection_checker_plu
 import 'package:shared_preferences/shared_preferences.dart';
 import '../bloc/cubit.dart';
 import '../bloc/states.dart';
-import '../components/constants.dart';
-import '../components/notifications.dart';
 import '../database/control_panel.dart';
 import '../dialogs/profile_dialog.dart';
 

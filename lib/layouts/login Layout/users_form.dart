@@ -2,14 +2,14 @@ import 'package:booking/bloc/cubit.dart';
 import 'package:booking/components/constants.dart';
 import 'package:booking/components/notifications.dart';
 import 'package:booking/components/theme.dart';
+import 'package:booking/components/widgets/default_button.dart';
 import 'package:booking/layouts/home_layout.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../components/widgets/text_form_field.dart';
+import '../../core/widgets/text_form_field.dart';
 import 'package:flutter/material.dart';
-import '../../components/widgets/default_button.dart';
 
 class UserForm extends StatefulWidget {
   const UserForm({super.key});

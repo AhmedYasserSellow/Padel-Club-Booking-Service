@@ -1,8 +1,8 @@
+import 'package:booking/components/constants.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../bloc/cubit.dart';
-import '../components/constants.dart';
 
 List<String> days = [
   'Saturday',

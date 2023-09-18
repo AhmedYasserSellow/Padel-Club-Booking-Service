@@ -1,13 +1,12 @@
 import 'package:booking/components/constants.dart';
+import 'package:booking/components/notifications.dart';
 import 'package:booking/components/theme.dart';
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'bloc/cubit.dart';
 import 'bloc/states.dart';
-import 'components/notifications.dart';
 
 import 'firebase_options.dart';
 

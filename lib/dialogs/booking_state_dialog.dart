@@ -1,3 +1,4 @@
+import 'package:booking/components/constants.dart';
 import 'package:booking/components/theme.dart';
 import 'package:booking/components/widgets/default_button.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -6,8 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../bloc/cubit.dart';
 import '../bloc/states.dart';
-import '../components/constants.dart';
-import '../components/widgets/back_button.dart';
+import '../core/widgets/back_button.dart';
 
 void pendingDialog(
   BuildContext context,

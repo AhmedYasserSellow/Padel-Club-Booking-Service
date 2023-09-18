@@ -1,12 +1,12 @@
+import 'package:booking/components/constants.dart';
+import 'package:booking/components/notifications.dart';
+import 'package:booking/components/theme.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../bloc/cubit.dart';
-import '../components/constants.dart';
-import '../components/notifications.dart';
-import '../components/theme.dart';
-import '../components/widgets/back_button.dart';
-import '../components/widgets/text_form_field.dart';
+import '../core/widgets/back_button.dart';
+import '../core/widgets/text_form_field.dart';
 
 void bookingDialog(
     BuildContext context,
