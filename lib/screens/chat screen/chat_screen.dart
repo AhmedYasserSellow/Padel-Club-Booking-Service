@@ -1,6 +1,6 @@
 import 'package:booking/bloc/cubit.dart';
 import 'package:booking/components/notifications.dart';
-import 'package:booking/core/widgets/text_form_field.dart';
+import 'package:booking/components/widgets/text_form_field.dart';
 import 'package:booking/screens/chat%20screen/chat_bubble.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';

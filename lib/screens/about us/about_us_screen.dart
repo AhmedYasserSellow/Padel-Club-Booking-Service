@@ -1,6 +1,6 @@
 import 'package:booking/components/theme.dart';
+import 'package:booking/components/widgets/links_button.dart';
 import 'package:flutter/material.dart';
-import '../../core/widgets/links_button.dart';
 
 class AboutUsScreen extends StatelessWidget {
   const AboutUsScreen({super.key});

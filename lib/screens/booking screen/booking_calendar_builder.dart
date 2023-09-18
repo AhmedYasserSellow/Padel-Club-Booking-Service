@@ -1,8 +1,8 @@
 import 'package:booking/components/constants.dart';
 import 'package:booking/components/theme.dart';
+import 'package:booking/components/widgets/time_button.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import '../../core/widgets/time_button.dart';
 
 class ButtonsList extends StatelessWidget {
   const ButtonsList({
