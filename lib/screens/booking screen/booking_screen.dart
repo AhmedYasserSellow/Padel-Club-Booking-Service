@@ -8,8 +8,9 @@ import '../../bloc/cubit.dart';
 class BookingScreen extends StatefulWidget {
   const BookingScreen({
     super.key,
+    required this.firebaseID,
   });
-
+  final String firebaseID;
   @override
   State<BookingScreen> createState() => _BookingScreenState();
 }
@@ -89,6 +90,7 @@ class _BookingScreenState extends State<BookingScreen> {
                 ),
                 // Booking Buttons
                 ButtonsList(
+                  firebaseID: widget.firebaseID,
                   selectedYear: selectedYear,
                   selectedDay: selectedDay,
                   selectedMonth: selectedMonth,

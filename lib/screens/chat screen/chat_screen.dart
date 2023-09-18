@@ -1,9 +1,11 @@
 import 'package:booking/bloc/cubit.dart';
+import 'package:booking/components/constants.dart';
 import 'package:booking/components/notifications.dart';
 import 'package:booking/components/widgets/text_form_field.dart';
 import 'package:booking/screens/chat%20screen/chat_bubble.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ChatScreen extends StatelessWidget {
   ChatScreen({
@@ -11,11 +13,10 @@ class ChatScreen extends StatelessWidget {
     required this.name,
     required this.id,
     required this.manager,
-    required this.myName,
   });
 
-  final String? name;
-  final String myName;
+  final String name;
+
   final String id;
   final bool manager;
   final TextEditingController controller = TextEditingController();
@@ -42,10 +43,13 @@ class ChatScreen extends StatelessWidget {
                 elevation: 0,
                 centerTitle: true,
                 leading: BackButton(
+                  onPressed: () {
+                    AppCubit.get(context).navigateToMainPages(context, 0);
+                  },
                   color: AppCubit.get(context).iconAndTextColor,
                 ),
                 title: Text(
-                  name!,
+                  name,
                   style:
                       TextStyle(color: AppCubit.get(context).iconAndTextColor),
                 ),
@@ -113,7 +117,10 @@ class ChatScreen extends StatelessWidget {
                             width: 10,
                           ),
                           IconButton(
-                              onPressed: () {
+                              onPressed: () async {
+                                final prefs =
+                                    await SharedPreferences.getInstance();
+                                String myName = prefs.getString(yourName)!;
                                 if (controller.text != '') {
                                   FirebaseFirestore.instance
                                       .collection('Chats')

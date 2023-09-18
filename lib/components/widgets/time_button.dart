@@ -19,6 +19,7 @@ class BookingTimeButton extends StatelessWidget {
     required this.name,
     required this.phonenumber,
     required this.price,
+    required this.firebaseID,
   });
 
   final int? index;
@@ -31,7 +32,7 @@ class BookingTimeButton extends StatelessWidget {
   final String name;
   final String phonenumber;
   final AsyncSnapshot<DocumentSnapshot<Map<String, dynamic>>> price;
-
+  final String firebaseID;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -46,6 +47,7 @@ class BookingTimeButton extends StatelessWidget {
             name,
             phonenumber,
             state,
+            firebaseID,
           );
         } else if (state == academy) {
         } else {

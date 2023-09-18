@@ -2,6 +2,7 @@ import 'package:booking/components/constants.dart';
 import 'package:booking/components/theme.dart';
 import 'package:booking/components/widgets/back_button.dart';
 import 'package:booking/components/widgets/default_button.dart';
+import 'package:booking/screens/chat%20screen/chat_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,6 +19,7 @@ void pendingDialog(
   String name,
   String phonenumber,
   String bookingState,
+  String firebaseID,
 ) async {
   final prefs = await SharedPreferences.getInstance();
   bool manager = prefs.getBool(dev) ?? false;
@@ -118,8 +120,14 @@ void pendingDialog(
                                     ),
                                     onTap: () {
                                       Navigator.pop(context);
-                                      AppCubit.get(context)
-                                          .changeBottomNavIndex(2);
+                                      Navigator.push(context,
+                                          MaterialPageRoute(builder: (context) {
+                                        return ChatScreen(
+                                          name: 'Players Service',
+                                          id: firebaseID,
+                                          manager: manager,
+                                        );
+                                      }));
                                     },
                                   )
                                 ],

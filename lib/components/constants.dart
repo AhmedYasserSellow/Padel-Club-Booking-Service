@@ -82,9 +82,12 @@ List<String> abc = [
 List appScreens({
   required bool manager,
   required String myName,
+  required String firebaseID,
 }) =>
     [
-      const BookingScreen(),
+      BookingScreen(
+        firebaseID: firebaseID,
+      ),
       const OffersScreen(
         removeFeature: false,
       ),

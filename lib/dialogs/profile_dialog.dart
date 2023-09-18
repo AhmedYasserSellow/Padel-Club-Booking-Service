@@ -1,6 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../bloc/cubit.dart';
@@ -9,15 +7,14 @@ import '../components/theme.dart';
 import '../components/widgets/back_button.dart';
 import '../components/widgets/default_button.dart';
 import '../components/widgets/text_form_field.dart';
-import '../layouts/login Layout/login_page.dart';
 
 void profileDialog(
   BuildContext context,
-  GlobalKey<FormState> formKey,
   String name,
   String phone,
   bool manager,
 ) {
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
   showDialog(
     context: context,
     builder: (context) {
@@ -50,141 +47,80 @@ void profileDialog(
                   label: 'Your Name',
                   prefix: Icons.title,
                   context: context,
-                  isEnabled: !manager,
                 ),
                 const SizedBox(
                   height: 24,
                 ),
                 myTextFormField(
-                    textStyleColor: AppCubit.get(context).iconAndTextColor,
-                    color: AppCubit.get(context).iconAndTextColor,
-                    limit: 11,
-                    controller: phoneController,
-                    type: TextInputType.phone,
-                    validate: (String? value) {
-                      if (value!.isEmpty) {
-                        return 'your phone is required';
-                      }
-                      if (!value.startsWith('01') || value.length != 11) {
-                        return 'enter a valid phone number';
-                      }
-                      return null;
-                    },
-                    label: 'Your Phone',
-                    prefix: Icons.phone,
-                    context: context,
-                    isEnabled: !manager),
-                manager
-                    ? const SizedBox()
-                    : Column(
-                        children: [
-                          const SizedBox(
-                            height: 24,
-                          ),
-                          defaultButton(
-                            onTap: () async {
-                              if (formKey.currentState!.validate()) {
-                                final prefs =
-                                    await SharedPreferences.getInstance();
-                                prefs.setString(
-                                  yourName,
-                                  nameController.text,
-                                );
-                                prefs.setString(
-                                  yourPhone,
-                                  phoneController.text,
-                                );
-                                FirebaseFirestore.instance
-                                    .collection('App Users')
-                                    .doc(prefs.getString(id))
-                                    .set(
-                                        {
-                                      'ID': prefs.getString(id),
-                                      'Name': nameController.text,
-                                      'Phone Number': phoneController.text,
-                                    },
-                                        SetOptions(
-                                          merge: true,
-                                        ));
-                                if (context.mounted) {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      duration:
-                                          const Duration(milliseconds: 1500),
-                                      backgroundColor: racketFirstColor,
-                                      content: Text(
-                                        'Updated Successfully',
-                                        style: TextStyle(color: textColor),
-                                      ),
-                                    ),
-                                  );
-                                }
-                              }
-                            },
-                            text: "Update",
-                            color: racketFirstColor,
-                          ),
-                        ],
-                      ),
-                const SizedBox(
-                  height: 12,
-                ),
-                defaultButton(
-                  color: bookedColor,
-                  onTap: () async {
-                    final prefs = await SharedPreferences.getInstance();
-                    prefs.setBool(isLoggedIn, false);
-                    FirebaseAuth.instance.signOut();
-                    if (context.mounted) {
-                      AppCubit.get(context).changeBottomNavIndex(0);
-                      AppCubit.get(context).loginPageState(0);
-                      FirebaseMessaging.instance.unsubscribeFromTopic('notify');
-                      FirebaseMessaging.instance
-                          .unsubscribeFromTopic(prefs.getString(id)!);
-                      FirebaseMessaging.instance.unsubscribeFromTopic('offers');
-                      FirebaseMessaging.instance
-                          .unsubscribeFromTopic('newUsers');
-                      FirebaseMessaging.instance.unsubscribeFromTopic('0');
-                      Navigator.pop(context);
-                      Navigator.pushReplacementNamed(
-                        context,
-                        LoginPage.id,
-                      );
+                  textStyleColor: AppCubit.get(context).iconAndTextColor,
+                  color: AppCubit.get(context).iconAndTextColor,
+                  limit: 11,
+                  controller: phoneController,
+                  type: TextInputType.phone,
+                  validate: (String? value) {
+                    if (value!.isEmpty) {
+                      return 'your phone is required';
                     }
+                    if (!value.startsWith('01') || value.length != 11) {
+                      return 'enter a valid phone number';
+                    }
+                    return null;
                   },
-                  text: 'Log Out',
+                  label: 'Your Phone',
+                  prefix: Icons.phone,
+                  context: context,
                 ),
-                manager
-                    ? const SizedBox()
-                    : Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const SizedBox(
-                            height: 12,
-                          ),
-                          RichText(
-                              textAlign: TextAlign.center,
-                              text: TextSpan(children: [
-                                const TextSpan(
-                                  text: 'Warning : ',
-                                  style: TextStyle(
-                                    color: Color.fromRGBO(255, 0, 0, 1),
-                                    fontSize: 18,
-                                  ),
+                Column(
+                  children: [
+                    const SizedBox(
+                      height: 24,
+                    ),
+                    defaultButton(
+                      onTap: () async {
+                        if (formKey.currentState!.validate()) {
+                          final prefs = await SharedPreferences.getInstance();
+                          prefs.setString(
+                            yourName,
+                            nameController.text,
+                          );
+                          prefs.setString(
+                            yourPhone,
+                            phoneController.text,
+                          );
+                          FirebaseFirestore.instance
+                              .collection('App Users')
+                              .doc(prefs.getString(id))
+                              .set(
+                                  {
+                                'ID': prefs.getString(id),
+                                'Name': nameController.text,
+                                'Phone Number': phoneController.text,
+                              },
+                                  SetOptions(
+                                    merge: true,
+                                  ));
+
+                          if (context.mounted) {
+                            AppCubit.get(context).changeName();
+                            Navigator.pop(context);
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                duration: const Duration(milliseconds: 1500),
+                                backgroundColor: racketFirstColor,
+                                content: Text(
+                                  'Updated Successfully',
+                                  style: TextStyle(color: textColor),
                                 ),
-                                TextSpan(
-                                  text:
-                                      'If you logged out your chat will be deleted',
-                                  style: TextStyle(
-                                    color:
-                                        AppCubit.get(context).iconAndTextColor,
-                                  ),
-                                )
-                              ]))
-                        ],
-                      ),
+                              ),
+                            );
+                          }
+                        }
+                      },
+                      text: "Update",
+                      color: racketFirstColor,
+                    ),
+                  ],
+                ),
                 const SizedBox(
                   height: 12,
                 ),

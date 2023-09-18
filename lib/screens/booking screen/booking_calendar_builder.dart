@@ -12,6 +12,7 @@ class ButtonsList extends StatelessWidget {
     required this.selectedMonth,
     required this.today,
     required this.snapshot,
+    required this.firebaseID,
   });
 
   final String selectedYear;
@@ -19,6 +20,7 @@ class ButtonsList extends StatelessWidget {
   final String selectedMonth;
   final DateTime today;
   final AsyncSnapshot snapshot;
+  final String firebaseID;
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +49,7 @@ class ButtonsList extends StatelessWidget {
               return Column(
                 children: [
                   BookingTimeButton(
+                    firebaseID: firebaseID,
                     name: name,
                     phonenumber: phone,
                     state: state,

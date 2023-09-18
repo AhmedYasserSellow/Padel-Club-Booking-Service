@@ -1,5 +1,6 @@
 import 'package:booking/components/constants.dart';
 import 'package:booking/components/notifications.dart';
+import 'package:booking/drawer/drawer_view.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,8 +8,6 @@ import 'package:internet_connection_checker_plus/internet_connection_checker_plu
 import 'package:shared_preferences/shared_preferences.dart';
 import '../bloc/cubit.dart';
 import '../bloc/states.dart';
-import '../database/control_panel.dart';
-import '../dialogs/profile_dialog.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -24,13 +23,15 @@ class _HomePageState extends State<HomePage> {
   bool manager = false;
   String name = '';
   String phone = '';
-
+  String firebaseID = '';
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   Future loadState() async {
     final prefs = await SharedPreferences.getInstance();
     manager = prefs.getBool(dev)!;
     name = prefs.getString(yourName)!;
     phone = prefs.getString(yourPhone)!;
+    firebaseID = prefs.getString(id)!;
   }
 
   firebaseMessaging() {
@@ -63,17 +64,20 @@ class _HomePageState extends State<HomePage> {
                       return BlocBuilder<AppCubit, AppStates>(
                         builder: (context, state) {
                           return Scaffold(
+                              key: scaffoldKey,
+                              drawer: const HomeDrawer(),
                               appBar: AppBar(
                                 scrolledUnderElevation: 0,
                                 leading: IconButton(
                                   icon: Icon(
-                                    Icons.account_circle,
+                                    Icons.menu,
                                     color:
                                         AppCubit.get(context).iconAndTextColor,
                                   ),
                                   onPressed: () {
-                                    profileDialog(
-                                        context, formKey, name, phone, manager);
+                                    // profileDialog(
+                                    //     context, formKey, name, phone, manager);
+                                    scaffoldKey.currentState!.openDrawer();
                                   },
                                 ),
                                 backgroundColor:
@@ -86,76 +90,13 @@ class _HomePageState extends State<HomePage> {
                                       : 'assets/logodark.png',
                                   height: 72,
                                 ),
-                                actions: [
-                                  IconButton(
-                                    onPressed: () {
-                                      AppCubit.get(context).changeTheme();
-                                    },
-                                    icon: Icon(
-                                      AppCubit.get(context).modeIcon,
-                                    ),
-                                    color:
-                                        AppCubit.get(context).iconAndTextColor,
-                                  ),
-                                  const SizedBox(
-                                    width: 8,
-                                  ),
-                                  //dev mode ---------------------------------
-                                  manager
-                                      ? Row(
-                                          children: [
-                                            IconButton(
-                                              onPressed: () {
-                                                Navigator.pushNamed(
-                                                    context, DashBoard.id);
-                                              },
-                                              icon: const Icon(
-                                                  Icons.developer_board),
-                                              color: AppCubit.get(context)
-                                                  .iconAndTextColor,
-                                            ),
-                                            const SizedBox(
-                                              width: 8,
-                                            ),
-                                          ],
-                                        )
-                                      : const SizedBox(),
-                                ],
-                              ),
-                              bottomNavigationBar: BottomNavigationBar(
-                                type: BottomNavigationBarType.fixed,
-                                onTap: (value) {
-                                  AppCubit.get(context)
-                                      .changeBottomNavIndex(value);
-                                },
-                                items: const [
-                                  BottomNavigationBarItem(
-                                    icon: Icon(Icons.calendar_month_outlined),
-                                    label: 'Booking',
-                                  ),
-                                  BottomNavigationBarItem(
-                                    icon: Icon(
-                                      Icons.local_offer_outlined,
-                                    ),
-                                    label: 'Offers',
-                                  ),
-                                  BottomNavigationBarItem(
-                                    icon: Icon(Icons.chat_bubble_outline),
-                                    label: 'Chats',
-                                  ),
-                                  BottomNavigationBarItem(
-                                    icon: Icon(Icons.info_outline),
-                                    label: 'About',
-                                  ),
-                                ],
-                                showUnselectedLabels: false,
-                                currentIndex: AppCubit.get(context).navIndex,
                               ),
                               body: (internetSnapshot.data ==
                                           InternetConnectionStatus.connected ||
                                       ethernetSnapshot.data ==
                                           InternetConnectionStatus.connected)
                                   ? appScreens(
+                                      firebaseID: firebaseID,
                                       myName: name,
                                       manager: manager,
                                     )[AppCubit.get(context).navIndex]

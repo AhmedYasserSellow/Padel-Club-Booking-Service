@@ -92,9 +92,10 @@ class AppCubit extends Cubit<AppStates> {
   }
 
 //Navigate in Bottom Nav bar for home layout
-  void changeBottomNavIndex(int index) {
+  void navigateToMainPages(BuildContext context, int index) {
     navIndex = index;
-    emit(ChangeBottomNavIndex());
+    Navigator.pop(context);
+    emit(NavigateToAnotherMainPage());
   }
 
 //Navigate in Bottom Nav bar for dashboard layout
@@ -106,5 +107,9 @@ class AppCubit extends Cubit<AppStates> {
 //Progress Calculator for adding year to database
   void progressCalculator() {
     emit(ProgressCalculator());
+  }
+
+  void changeName() async {
+    emit(NameChanged());
   }
 }

@@ -4,7 +4,7 @@ class AppIntialState extends AppStates {}
 
 class PrefsCreate extends AppStates {}
 
-class ChangeBottomNavIndex extends AppStates {}
+class NavigateToAnotherMainPage extends AppStates {}
 
 class ChangeBottomNavIndexForDB extends AppStates {}
 
@@ -19,3 +19,5 @@ class GetData extends AppStates {}
 class PasswordState extends AppStates {}
 
 class GetTheme extends AppStates {}
+
+class NameChanged extends AppStates {}
