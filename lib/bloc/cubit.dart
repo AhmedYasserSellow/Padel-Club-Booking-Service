@@ -28,7 +28,7 @@ class AppCubit extends Cubit<AppStates> {
   int loginFormState = 0;
   bool firstLogin = true;
   bool isHidden = true;
-
+  bool isExpanded = false;
 //Get Theme data on creating app
   Future<bool> getTheme() async {
     bool? getLightMode;

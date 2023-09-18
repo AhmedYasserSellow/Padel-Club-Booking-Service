@@ -1,9 +1,6 @@
 import 'package:booking/bloc/cubit.dart';
-import 'package:booking/components/constants.dart';
 import 'package:booking/drawer/widgets/drawer_item.dart';
-import 'package:booking/screens/chat%20screen/chat_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class MainPages extends StatefulWidget {
   const MainPages({super.key, required this.isManager});
@@ -14,7 +11,6 @@ class MainPages extends StatefulWidget {
 }
 
 class _MainPagesState extends State<MainPages> {
-  bool isExpanded = false;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -26,17 +22,19 @@ class _MainPagesState extends State<MainPages> {
             materialGapSize: 0,
             expandedHeaderPadding: EdgeInsets.zero,
             expansionCallback: (panelIndex, expanded) => setState(() {
-              isExpanded = expanded;
+              AppCubit.get(context).isExpanded = expanded;
             }),
             elevation: 0,
             children: [
               ExpansionPanel(
                 canTapOnHeader: true,
                 backgroundColor: Colors.transparent,
-                isExpanded: isExpanded,
+                isExpanded: AppCubit.get(context).isExpanded,
                 body: Column(
                   children: [
                     DrawerItem(
+                      isSelected:
+                          AppCubit.get(context).navIndex == 0 ? true : false,
                       onTap: () {
                         AppCubit.get(context).navigateToMainPages(context, 0);
                       },
@@ -44,6 +42,8 @@ class _MainPagesState extends State<MainPages> {
                       icon: Icons.calendar_month,
                     ),
                     DrawerItem(
+                      isSelected:
+                          AppCubit.get(context).navIndex == 1 ? true : false,
                       onTap: () {
                         AppCubit.get(context).navigateToMainPages(context, 1);
                       },
@@ -51,31 +51,38 @@ class _MainPagesState extends State<MainPages> {
                       icon: Icons.local_offer,
                     ),
                     DrawerItem(
+                      isSelected: AppCubit.get(context).navIndex == 2 ||
+                              AppCubit.get(context).navIndex == 4
+                          ? true
+                          : false,
                       onTap: () async {
                         if (widget.isManager) {
                           AppCubit.get(context).navigateToMainPages(context, 2);
                         } else {
-                          Navigator.pop(context);
-                          final prefs = await SharedPreferences.getInstance();
-                          String myID = prefs.getString(id)!;
-                          if (context.mounted) {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => ChatScreen(
-                                  name: 'Players Service',
-                                  id: myID,
-                                  manager: widget.isManager,
-                                ),
-                              ),
-                            );
-                          }
+                          AppCubit.get(context).navigateToMainPages(context, 4);
+                          // Navigator.pop(context);
+                          // final prefs = await SharedPreferences.getInstance();
+                          // String myID = prefs.getString(id)!;
+                          // if (context.mounted) {
+                          //   Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //       builder: (context) => ChatScreen(
+                          //         name: 'Players Service',
+                          //         id: myID,
+                          //         manager: widget.isManager,
+                          //       ),
+                          //     ),
+                          //   );
+                          // }
                         }
                       },
                       text: widget.isManager ? 'Chats' : 'Chat',
                       icon: Icons.chat,
                     ),
                     DrawerItem(
+                      isSelected:
+                          AppCubit.get(context).navIndex == 3 ? true : false,
                       onTap: () {
                         AppCubit.get(context).navigateToMainPages(context, 3);
                       },

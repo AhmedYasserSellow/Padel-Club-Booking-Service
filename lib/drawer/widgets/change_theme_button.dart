@@ -8,6 +8,7 @@ class ThemeChangerButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DrawerItem(
+      isSelected: false,
       onTap: () {
         AppCubit.get(context).changeTheme();
       },

@@ -15,6 +15,7 @@ class UserAndManagerListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     if (isManager) {
       return DrawerItem(
+        isSelected: false,
         text: 'Dashboard',
         icon: Icons.developer_board,
         onTap: () {
@@ -24,6 +25,7 @@ class UserAndManagerListTile extends StatelessWidget {
       );
     } else {
       return DrawerItem(
+        isSelected: false,
         text: 'Profile',
         icon: Icons.account_circle,
         onTap: () {

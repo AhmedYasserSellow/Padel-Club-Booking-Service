@@ -97,6 +97,13 @@ class ChatsScreen extends StatelessWidget {
                 ),
               );
             }
+          } else if (userSnapshot.hasError) {
+            return const Center(
+              child: Text(
+                'No Internet Connection',
+                style: TextStyle(fontSize: 20),
+              ),
+            );
           } else {
             return const Center(
               child: CircularProgressIndicator(),

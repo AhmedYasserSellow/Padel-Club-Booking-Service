@@ -15,6 +15,7 @@ class LogOut extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DrawerItem(
+      isSelected: false,
       onTap: () async {
         final prefs = await SharedPreferences.getInstance();
         prefs.setBool(isLoggedIn, false);

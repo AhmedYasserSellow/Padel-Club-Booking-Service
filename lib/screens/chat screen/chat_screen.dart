@@ -37,29 +37,39 @@ class ChatScreen extends StatelessWidget {
         builder: (context, snapshot) {
           return Scaffold(
               resizeToAvoidBottomInset: true,
-              appBar: AppBar(
-                backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-                scrolledUnderElevation: 0,
-                elevation: 0,
-                centerTitle: true,
-                leading: BackButton(
-                  onPressed: () {
-                    AppCubit.get(context).navigateToMainPages(context, 0);
-                  },
-                  color: AppCubit.get(context).iconAndTextColor,
-                ),
-                title: Text(
-                  name,
-                  style:
-                      TextStyle(color: AppCubit.get(context).iconAndTextColor),
-                ),
-              ),
+              appBar: manager
+                  ? AppBar(
+                      backgroundColor:
+                          Theme.of(context).scaffoldBackgroundColor,
+                      scrolledUnderElevation: 0,
+                      elevation: 0,
+                      centerTitle: true,
+                      leading: BackButton(
+                        onPressed: () {
+                          AppCubit.get(context).navigateToMainPages(context, 0);
+                        },
+                        color: AppCubit.get(context).iconAndTextColor,
+                      ),
+                      title: Text(
+                        name,
+                        style: TextStyle(
+                            color: AppCubit.get(context).iconAndTextColor),
+                      ),
+                    )
+                  : const PreferredSize(
+                      preferredSize: Size(0, 0),
+                      child: SizedBox(),
+                    ),
               body: Column(
                 children: [
                   snapshot.hasData
                       ? Expanded(
                           child: Padding(
-                            padding: const EdgeInsets.all(16),
+                            padding: const EdgeInsets.only(
+                              bottom: 16,
+                              right: 16,
+                              left: 16,
+                            ),
                             child: ListView.separated(
                               controller: listController,
                               reverse: true,

@@ -31,73 +31,69 @@ class _BookingScreenState extends State<BookingScreen> {
             .snapshots(),
         builder: (context, dataBasesnapshot) {
           if (dataBasesnapshot.hasData) {
-            return CustomScrollView(
-              slivers: [
-                // Calendar View
-                SliverToBoxAdapter(
-                  child: TableCalendar(
-                    rowHeight: 52,
-                    weekendDays: const [],
-                    locale: 'en_US',
-                    startingDayOfWeek: StartingDayOfWeek.saturday,
-                    calendarStyle: CalendarStyle(
-                        todayDecoration: BoxDecoration(
-                          color: AppCubit.get(context).isLightMode
-                              ? Theme.of(context)
-                                  .indicatorColor
-                                  .withOpacity(0.5)
-                              : Theme.of(context)
-                                  .indicatorColor
-                                  .withOpacity(0.2),
-                          shape: BoxShape.circle,
-                        ),
-                        selectedDecoration: BoxDecoration(
-                          color: AppCubit.get(context).isLightMode
-                              ? Theme.of(context).indicatorColor
-                              : Theme.of(context)
-                                  .indicatorColor
-                                  .withOpacity(0.5),
-                          shape: BoxShape.circle,
-                        )),
-                    focusedDay: cubit.focusedDay,
-                    firstDay: DateTime.utc(2023, 5, 14),
-                    lastDay: DateTime.utc(
-                      finalYear,
-                      cubit.today.month,
-                      cubit.today.day,
-                    ),
-                    headerStyle: const HeaderStyle(
-                      formatButtonVisible: false,
-                      titleCentered: true,
-                    ),
-                    availableGestures: AvailableGestures.all,
-                    onDaySelected: (day, focusedDay) {
-                      setState(() {
-                        cubit.focusedDay = day;
-                      });
-                    },
-                    selectedDayPredicate: (day) {
-                      return isSameDay(day, cubit.focusedDay);
-                    },
+            return Column(
+              children: [
+                TableCalendar(
+                  rowHeight: 52,
+                  weekendDays: const [],
+                  locale: 'en_US',
+                  startingDayOfWeek: StartingDayOfWeek.saturday,
+                  calendarStyle: CalendarStyle(
+                      todayDecoration: BoxDecoration(
+                        color: AppCubit.get(context).isLightMode
+                            ? Theme.of(context).indicatorColor.withOpacity(0.5)
+                            : Theme.of(context).indicatorColor.withOpacity(0.2),
+                        shape: BoxShape.circle,
+                      ),
+                      selectedDecoration: BoxDecoration(
+                        color: AppCubit.get(context).isLightMode
+                            ? Theme.of(context).indicatorColor
+                            : Theme.of(context).indicatorColor.withOpacity(0.5),
+                        shape: BoxShape.circle,
+                      )),
+                  focusedDay: cubit.focusedDay,
+                  firstDay: DateTime.utc(2023, 5, 14),
+                  lastDay: DateTime.utc(
+                    finalYear,
+                    cubit.today.month,
+                    cubit.today.day,
                   ),
-                ),
-                //States
-                const SliverToBoxAdapter(child: BookingStates()),
-                const SliverToBoxAdapter(
-                  child: SizedBox(
-                    height: 12,
+                  headerStyle: const HeaderStyle(
+                    formatButtonVisible: false,
+                    titleCentered: true,
                   ),
+                  availableGestures: AvailableGestures.all,
+                  onDaySelected: (day, focusedDay) {
+                    setState(() {
+                      cubit.focusedDay = day;
+                    });
+                  },
+                  selectedDayPredicate: (day) {
+                    return isSameDay(day, cubit.focusedDay);
+                  },
                 ),
-                // Booking Buttons
-                ButtonsList(
-                  firebaseID: widget.firebaseID,
-                  selectedYear: selectedYear,
-                  selectedDay: selectedDay,
-                  selectedMonth: selectedMonth,
-                  today: cubit.focusedDay,
-                  snapshot: dataBasesnapshot,
+                const BookingStates(),
+                const SizedBox(
+                  height: 12,
+                ),
+                Expanded(
+                  child: ButtonsList(
+                    firebaseID: widget.firebaseID,
+                    selectedYear: selectedYear,
+                    selectedDay: selectedDay,
+                    selectedMonth: selectedMonth,
+                    today: cubit.focusedDay,
+                    snapshot: dataBasesnapshot,
+                  ),
                 ),
               ],
+            );
+          } else if (dataBasesnapshot.hasError) {
+            return const Center(
+              child: Text(
+                'No Internet Connection',
+                style: TextStyle(fontSize: 20),
+              ),
             );
           } else {
             return Center(
