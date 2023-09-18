@@ -1,3 +1,4 @@
+import 'package:booking/drawer/widgets/user_manager_list_tile.dart';
 import 'package:flutter/material.dart';
 
 class ProfileInfo extends StatelessWidget {
@@ -36,6 +37,11 @@ class ProfileInfo extends StatelessWidget {
         Text(
           phone,
           style: const TextStyle(fontSize: 24),
+        ),
+        UserAndManagerListTile(
+          name: name,
+          phone: phone,
+          isManager: isManager,
         ),
       ],
     );

@@ -75,8 +75,6 @@ class _HomePageState extends State<HomePage> {
                                         AppCubit.get(context).iconAndTextColor,
                                   ),
                                   onPressed: () {
-                                    // profileDialog(
-                                    //     context, formKey, name, phone, manager);
                                     scaffoldKey.currentState!.openDrawer();
                                   },
                                 ),
