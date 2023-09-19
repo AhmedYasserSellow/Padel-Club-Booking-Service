@@ -21,6 +21,7 @@ class LogOut extends StatelessWidget {
         prefs.setBool(isLoggedIn, false);
         FirebaseAuth.instance.signOut();
         if (context.mounted) {
+          AppCubit.get(context).mainPagesIndex = 0;
           AppCubit.get(context).loginPageState(0);
           FirebaseMessaging.instance.unsubscribeFromTopic('notify');
           FirebaseMessaging.instance.unsubscribeFromTopic(prefs.getString(id)!);

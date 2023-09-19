@@ -122,70 +122,62 @@ void bookingDialog(
                             'Book',
                             style: TextStyle(color: textColor),
                           ),
-                          onPressed: () async {
-                            bool connectionState =
-                                await connection.hasConnection;
+                          onPressed: () {
                             if (formKey.currentState!.validate()) {
-                              if (connectionState == false) {
-                                if (context.mounted) {
-                                  noInternetSnackBar(context);
-                                }
+                              if (manager) {
+                                FirebaseFirestore.instance
+                                    .collection(selectedYear)
+                                    .doc(selectedMonth)
+                                    .collection(selectedDay)
+                                    .doc('${abc[index]}-${clock[index]}')
+                                    .set({
+                                  'Name': nameController.text,
+                                  'Phone': phoneNumberController.text,
+                                  'State': booked,
+                                });
                               } else {
-                                if (manager) {
-                                  FirebaseFirestore.instance
-                                      .collection(selectedYear)
-                                      .doc(selectedMonth)
-                                      .collection(selectedDay)
-                                      .doc('${abc[index]}-${clock[index]}')
-                                      .set({
-                                    'Name': nameController.text,
-                                    'Phone': phoneNumberController.text,
-                                    'State': booked,
-                                  });
-                                } else {
-                                  FirebaseFirestore.instance
-                                      .collection(selectedYear)
-                                      .doc(selectedMonth)
-                                      .collection(selectedDay)
-                                      .doc('${abc[index]}-${clock[index]}')
-                                      .set({
-                                    'Name': nameController.text,
-                                    'Phone': phoneNumberController.text,
-                                    'State': pending,
-                                  });
+                                FirebaseFirestore.instance
+                                    .collection(selectedYear)
+                                    .doc(selectedMonth)
+                                    .collection(selectedDay)
+                                    .doc('${abc[index]}-${clock[index]}')
+                                    .set({
+                                  'Name': nameController.text,
+                                  'Phone': phoneNumberController.text,
+                                  'State': pending,
+                                });
 
-                                  sendNotify(
-                                    id: '$selectedDay$selectedMonth$selectedYear${clock[index]}',
-                                    title: nameController.text,
-                                    body:
-                                        'Date : $selectedDay/$selectedMonth/$selectedYear \nTime : ${clock[index]}',
-                                  );
-                                  FirebaseFirestore.instance
-                                      .collection('Chats')
-                                      .doc('0')
-                                      .collection(myID)
-                                      .add({
-                                    'Message':
-                                        'I have send a book request\nDate : $selectedDay/$selectedMonth/$selectedYear \nTime : ${clock[index]}',
-                                    'ID': myID,
-                                    'Created at': DateTime.now(),
-                                  });
-                                  FirebaseFirestore.instance
-                                      .collection('App Users')
-                                      .doc(myID)
-                                      .set(
-                                          {
-                                        'Last Message': DateTime.now(),
-                                        'Message':
-                                            'I have send a book request\nDate : $selectedDay/$selectedMonth/$selectedYear \nTime : ${clock[index]}',
-                                      },
-                                          SetOptions(
-                                            merge: true,
-                                          ));
-                                }
-                                if (context.mounted) {
-                                  Navigator.pop(context);
-                                }
+                                sendNotify(
+                                  id: '$selectedDay$selectedMonth$selectedYear${clock[index]}',
+                                  title: nameController.text,
+                                  body:
+                                      'Date : $selectedDay/$selectedMonth/$selectedYear \nTime : ${clock[index]}',
+                                );
+                                FirebaseFirestore.instance
+                                    .collection('Chats')
+                                    .doc('0')
+                                    .collection(myID)
+                                    .add({
+                                  'Message':
+                                      'I have send a book request\nDate : $selectedDay/$selectedMonth/$selectedYear \nTime : ${clock[index]}',
+                                  'ID': myID,
+                                  'Created at': DateTime.now(),
+                                });
+                                FirebaseFirestore.instance
+                                    .collection('App Users')
+                                    .doc(myID)
+                                    .set(
+                                        {
+                                      'Last Message': DateTime.now(),
+                                      'Message':
+                                          'I have send a book request\nDate : $selectedDay/$selectedMonth/$selectedYear \nTime : ${clock[index]}',
+                                    },
+                                        SetOptions(
+                                          merge: true,
+                                        ));
+                              }
+                              if (context.mounted) {
+                                Navigator.pop(context);
                               }
                             }
                           },

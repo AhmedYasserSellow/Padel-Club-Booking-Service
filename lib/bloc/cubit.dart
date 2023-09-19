@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -11,7 +9,7 @@ class AppCubit extends Cubit<AppStates> {
   AppCubit() : super(AppIntialState());
 
   static AppCubit get(context) => BlocProvider.of(context);
-  int navIndex = 0;
+  int mainPagesIndex = 0;
   int navIndexForDB = 0;
   int dialogTabIndex = 1;
   int monthDB = 1;
@@ -29,36 +27,6 @@ class AppCubit extends Cubit<AppStates> {
   bool firstLogin = true;
   bool isHidden = true;
   bool isExpanded = false;
-//Get Theme data on creating app
-  Future<bool> getTheme() async {
-    bool? getLightMode;
-    final prefs = await SharedPreferences.getInstance();
-    if (SchedulerBinding.instance.platformDispatcher.platformBrightness ==
-        Brightness.light) {
-      getLightMode = true;
-    } else {
-      getLightMode = false;
-    }
-
-    bool isLightMode;
-    if (prefs.getBool('Mode') == null) {
-      prefs.setBool('Mode', getLightMode);
-    }
-    isLightMode = prefs.getBool('Mode')!;
-    return isLightMode;
-  }
-
-  void getAppTheme() async {
-    isLightMode = await getTheme();
-    if (isLightMode) {
-      iconAndTextColor = textAndIconLightModeColor;
-      modeIcon = Icons.light_mode;
-    } else {
-      iconAndTextColor = textAndIconDarkModeColor;
-      modeIcon = Icons.dark_mode;
-    }
-    emit(GetTheme());
-  }
 
 // Toogle obscure text for password
   void passwordState() {
@@ -93,7 +61,7 @@ class AppCubit extends Cubit<AppStates> {
 
 //Navigate in Bottom Nav bar for home layout
   void navigateToMainPages(BuildContext context, int index) {
-    navIndex = index;
+    mainPagesIndex = index;
     Navigator.pop(context);
     emit(NavigateToAnotherMainPage());
   }

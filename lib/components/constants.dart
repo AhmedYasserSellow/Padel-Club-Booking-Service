@@ -24,6 +24,7 @@ String yourName = 'Name';
 String yourPhone = 'Phone';
 String dev = 'dev';
 String id = 'ID';
+String isOnBoarding = 'isOnBoarding';
 
 List<String> clock = [
   '12:00 AM',

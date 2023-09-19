@@ -2,6 +2,7 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:booking/components/constants.dart';
 import 'package:booking/layouts/home_layout.dart';
 import 'package:booking/layouts/login%20Layout/login_page.dart';
+import 'package:booking/screens/on%20boarding%20screen/on_boarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -17,6 +18,7 @@ class Splash extends StatefulWidget {
 
 class _SplashState extends State<Splash> {
   bool loggedIn = false;
+  bool onBoarding = false;
   @override
   void initState() {
     super.initState();
@@ -26,7 +28,8 @@ class _SplashState extends State<Splash> {
   void loadState() async {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
-      loggedIn = (prefs.getBool(isLoggedIn) ?? false);
+      loggedIn = prefs.getBool(isLoggedIn) ?? false;
+      onBoarding = prefs.getBool(isOnBoarding) ?? true;
     });
   }
 
@@ -41,7 +44,11 @@ class _SplashState extends State<Splash> {
         ),
         splashIconSize: MediaQuery.of(context).size.width * 3 / 4,
         duration: 1500,
-        nextScreen: loggedIn ? const HomePage() : const LoginPage(),
+        nextScreen: onBoarding
+            ? const OnBoardingPage()
+            : loggedIn
+                ? const HomePage()
+                : const LoginPage(),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       );
     });

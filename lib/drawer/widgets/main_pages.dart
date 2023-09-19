@@ -33,8 +33,9 @@ class _MainPagesState extends State<MainPages> {
                 body: Column(
                   children: [
                     DrawerItem(
-                      isSelected:
-                          AppCubit.get(context).navIndex == 0 ? true : false,
+                      isSelected: AppCubit.get(context).mainPagesIndex == 0
+                          ? true
+                          : false,
                       onTap: () {
                         AppCubit.get(context).navigateToMainPages(context, 0);
                       },
@@ -42,8 +43,9 @@ class _MainPagesState extends State<MainPages> {
                       icon: Icons.calendar_month,
                     ),
                     DrawerItem(
-                      isSelected:
-                          AppCubit.get(context).navIndex == 1 ? true : false,
+                      isSelected: AppCubit.get(context).mainPagesIndex == 1
+                          ? true
+                          : false,
                       onTap: () {
                         AppCubit.get(context).navigateToMainPages(context, 1);
                       },
@@ -51,8 +53,8 @@ class _MainPagesState extends State<MainPages> {
                       icon: Icons.local_offer,
                     ),
                     DrawerItem(
-                      isSelected: AppCubit.get(context).navIndex == 2 ||
-                              AppCubit.get(context).navIndex == 4
+                      isSelected: AppCubit.get(context).mainPagesIndex == 2 ||
+                              AppCubit.get(context).mainPagesIndex == 4
                           ? true
                           : false,
                       onTap: () async {
@@ -81,8 +83,9 @@ class _MainPagesState extends State<MainPages> {
                       icon: Icons.chat,
                     ),
                     DrawerItem(
-                      isSelected:
-                          AppCubit.get(context).navIndex == 3 ? true : false,
+                      isSelected: AppCubit.get(context).mainPagesIndex == 3
+                          ? true
+                          : false,
                       onTap: () {
                         AppCubit.get(context).navigateToMainPages(context, 3);
                       },

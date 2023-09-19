@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (BuildContext context) {
-        return AppCubit()..getAppTheme();
+        return AppCubit();
       },
       child: BlocConsumer<AppCubit, AppStates>(
         listener: (context, state) {},

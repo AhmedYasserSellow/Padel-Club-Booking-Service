@@ -84,7 +84,7 @@ class _HomePageState extends State<HomePage> {
                   firebaseID: firebaseID,
                   myName: name,
                   manager: manager,
-                )[AppCubit.get(context).navIndex],
+                )[AppCubit.get(context).mainPagesIndex],
               );
             },
           );
