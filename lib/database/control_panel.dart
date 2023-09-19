@@ -3,6 +3,7 @@ import 'package:booking/database/screens/notification.dart';
 import 'package:booking/database/screens/offers.dart';
 import 'package:booking/database/screens/prices.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc/cubit.dart';
 import '../bloc/states.dart';
@@ -38,7 +39,9 @@ class DashBoard extends StatelessWidget {
             ),
           ),
           child: Scaffold(
+            backgroundColor: Colors.transparent,
             appBar: AppBar(
+              systemOverlayStyle: SystemUiOverlayStyle.light,
               leading: BackButton(
                 color: textColor,
                 onPressed: () {
@@ -67,13 +70,15 @@ class DashBoard extends StatelessWidget {
                 style: TextStyle(color: textColor),
               ),
               centerTitle: true,
-              backgroundColor: racketFirstColor,
+              backgroundColor: Colors.transparent,
+              elevation: 0,
             ),
             bottomNavigationBar: BottomNavigationBar(
+              elevation: 0,
               type: BottomNavigationBarType.fixed,
               selectedItemColor: textColor,
               unselectedItemColor: Colors.grey,
-              backgroundColor: racketSecondColor,
+              backgroundColor: Colors.transparent,
               onTap: (value) {
                 AppCubit.get(context).changeBottomNavIndexForDB(value);
               },
@@ -102,23 +107,12 @@ class DashBoard extends StatelessWidget {
               showUnselectedLabels: false,
               currentIndex: AppCubit.get(context).navIndexForDB,
             ),
-            body: Container(
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                colors: [
-                  racketFirstColor,
-                  racketSecondColor,
-                ],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-              )),
-              child: Center(
-                child: SingleChildScrollView(
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                    child: screens[AppCubit.get(context).navIndexForDB],
-                  ),
+            body: Center(
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                  child: screens[AppCubit.get(context).navIndexForDB],
                 ),
               ),
             ),
