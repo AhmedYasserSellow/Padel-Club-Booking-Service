@@ -16,7 +16,7 @@ List<OnBoardingInfoItem> onBoardingInfoSection = const [
   OnBoardingInfoItem(
     image: 'chats',
     subtitle:
-        'Also we provide you a chat service so you can reach us at any time\nWelcome To Our community',
+        'Also we provide you a chat service so you can reach us at any time\nWelcome To Our Community',
     title: 'Chat Service',
   )
 ];
