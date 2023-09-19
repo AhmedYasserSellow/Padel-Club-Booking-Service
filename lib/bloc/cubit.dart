@@ -29,6 +29,29 @@ class AppCubit extends Cubit<AppStates> {
   bool isExpanded = false;
   bool isLoading = false;
 
+  Future<bool> getTheme() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    bool isLightMode;
+    if (prefs.getBool('Mode') == null) {
+      prefs.setBool('Mode', true);
+    }
+    isLightMode = prefs.getBool('Mode')!;
+    return isLightMode;
+  }
+
+  void getAppTheme() async {
+    isLightMode = await getTheme();
+    if (isLightMode) {
+      iconAndTextColor = textAndIconLightModeColor;
+      modeIcon = Icons.light_mode;
+    } else {
+      iconAndTextColor = textAndIconDarkModeColor;
+      modeIcon = Icons.dark_mode;
+    }
+    emit(GetTheme());
+  }
+
 // Toogle obscure text for password
   void passwordState() {
     isHidden = !isHidden;

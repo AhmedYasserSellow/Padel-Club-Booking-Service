@@ -15,9 +15,7 @@ class ThemeChangerButton extends StatelessWidget {
       text: Theme.of(context).brightness == Brightness.dark
           ? 'Dark Mode'
           : 'Light Mode',
-      icon: Theme.of(context).brightness == Brightness.dark
-          ? Icons.dark_mode
-          : Icons.light_mode,
+      icon: AppCubit.get(context).modeIcon,
     );
   }
 }

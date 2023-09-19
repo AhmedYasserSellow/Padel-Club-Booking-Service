@@ -22,7 +22,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  getPermssion();
+  await getPermssion();
   NotificationService().initNotification();
   runApp(const MyApp());
 }
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (BuildContext context) {
-        return AppCubit();
+        return AppCubit()..getAppTheme();
       },
       child: BlocConsumer<AppCubit, AppStates>(
         listener: (context, state) {},
