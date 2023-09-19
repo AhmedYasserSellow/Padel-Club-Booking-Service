@@ -27,6 +27,7 @@ class AppCubit extends Cubit<AppStates> {
   bool firstLogin = true;
   bool isHidden = true;
   bool isExpanded = false;
+  bool isLoading = false;
 
 // Toogle obscure text for password
   void passwordState() {
@@ -75,6 +76,13 @@ class AppCubit extends Cubit<AppStates> {
 //Progress Calculator for adding year to database
   void progressCalculator() {
     emit(ProgressCalculator());
+  }
+
+//Add Progress indicator to button
+
+  void buttonIsLoading(bool buttonIsLoading) {
+    isLoading = buttonIsLoading;
+    emit(ButtonLoadingState());
   }
 
   void changeName() async {

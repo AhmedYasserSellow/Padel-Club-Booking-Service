@@ -1,7 +1,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:booking/components/constants.dart';
 import 'package:booking/layouts/home_layout.dart';
-import 'package:booking/layouts/login%20Layout/login_page.dart';
+import 'package:booking/layouts/auth/login_page.dart';
 import 'package:booking/screens/on%20boarding%20screen/on_boarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';

@@ -1,7 +1,7 @@
 import 'package:booking/components/theme.dart';
-import 'package:booking/database/screens/notification.dart';
-import 'package:booking/database/screens/offers.dart';
-import 'package:booking/database/screens/prices.dart';
+import 'package:booking/backend/screens/notification.dart';
+import 'package:booking/backend/screens/offers.dart';
+import 'package:booking/backend/screens/prices.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

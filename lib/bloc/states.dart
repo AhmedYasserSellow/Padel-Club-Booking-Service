@@ -21,3 +21,5 @@ class PasswordState extends AppStates {}
 class GetTheme extends AppStates {}
 
 class NameChanged extends AppStates {}
+
+class ButtonLoadingState extends AppStates {}

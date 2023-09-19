@@ -1,7 +1,7 @@
 import 'package:booking/bloc/states.dart';
 import 'package:booking/components/theme.dart';
-import 'package:booking/layouts/login%20Layout/choose_your_role.dart';
-import 'package:booking/layouts/login%20Layout/users_form.dart';
+import 'package:booking/layouts/auth/choose_your_role.dart';
+import 'package:booking/layouts/auth/users_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

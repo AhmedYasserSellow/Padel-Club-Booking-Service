@@ -4,6 +4,7 @@ import 'package:booking/drawer/drawer_view.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../bloc/cubit.dart';
 import '../bloc/states.dart';
@@ -52,42 +53,60 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-        stream: Stream.fromFuture(loadState()),
-        builder: (context, snapshot) {
-          return BlocBuilder<AppCubit, AppStates>(
-            builder: (context, state) {
-              return Scaffold(
-                key: scaffoldKey,
-                drawer: const HomeDrawer(),
-                appBar: AppBar(
-                  scrolledUnderElevation: 0,
-                  leading: IconButton(
-                    icon: Icon(
-                      Icons.menu,
-                      color: AppCubit.get(context).iconAndTextColor,
-                    ),
-                    onPressed: () {
-                      scaffoldKey.currentState!.openDrawer();
-                    },
-                  ),
-                  backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-                  toolbarHeight: 56,
-                  centerTitle: true,
-                  title: Image.asset(
-                    AppCubit.get(context).isLightMode
-                        ? 'assets/logo.png'
-                        : 'assets/logodark.png',
-                    height: 72,
-                  ),
-                ),
-                body: appScreens(
-                  firebaseID: firebaseID,
-                  myName: name,
-                  manager: manager,
-                )[AppCubit.get(context).mainPagesIndex],
-              );
-            },
-          );
+        stream: connection.onStatusChange,
+        builder: (context, ethernetSnapshot) {
+          return StreamBuilder(
+              stream: Stream.fromFuture(connection.connectionStatus),
+              builder: (context, internetSnapshot) {
+                return StreamBuilder(
+                    stream: Stream.fromFuture(loadState()),
+                    builder: (context, snapshot) {
+                      return BlocBuilder<AppCubit, AppStates>(
+                        builder: (context, state) {
+                          return Scaffold(
+                            key: scaffoldKey,
+                            drawer: const HomeDrawer(),
+                            appBar: AppBar(
+                              scrolledUnderElevation: 0,
+                              leading: IconButton(
+                                icon: Icon(
+                                  Icons.menu,
+                                  color: AppCubit.get(context).iconAndTextColor,
+                                ),
+                                onPressed: () {
+                                  scaffoldKey.currentState!.openDrawer();
+                                },
+                              ),
+                              backgroundColor:
+                                  Theme.of(context).scaffoldBackgroundColor,
+                              toolbarHeight: 56,
+                              centerTitle: true,
+                              title: Image.asset(
+                                AppCubit.get(context).isLightMode
+                                    ? 'assets/logo.png'
+                                    : 'assets/logodark.png',
+                                height: 72,
+                              ),
+                            ),
+                            body: (internetSnapshot.data ==
+                                        InternetConnectionStatus.connected ||
+                                    ethernetSnapshot.data ==
+                                        InternetConnectionStatus.connected)
+                                ? appScreens(
+                                    firebaseID: firebaseID,
+                                    myName: name,
+                                    manager: manager,
+                                  )[AppCubit.get(context).mainPagesIndex]
+                                : Center(
+                                    child: CircularProgressIndicator(
+                                      color: Theme.of(context).indicatorColor,
+                                    ),
+                                  ),
+                          );
+                        },
+                      );
+                    });
+              });
         });
   }
 }

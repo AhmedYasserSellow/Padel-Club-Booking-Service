@@ -6,6 +6,7 @@ import 'package:booking/components/widgets/default_button.dart';
 import 'package:booking/components/widgets/text_form_field.dart';
 import 'package:booking/layouts/home_layout.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -57,8 +58,9 @@ class _ManagersFormState extends State<ManagersForm> {
                         IconButton(
                           icon: const BackButtonIcon(),
                           color: textColor,
-                          onPressed: () =>
-                              AppCubit.get(context).loginPageState(0),
+                          onPressed: () => AppCubit.get(context)
+                            ..loginPageState(0)
+                            ..buttonIsLoading(false),
                         ),
                       ],
                     ),
@@ -125,8 +127,10 @@ class _ManagersFormState extends State<ManagersForm> {
                       height: 24,
                     ),
                     defaultButton(
+                        isLoading: AppCubit.get(context).isLoading,
                         color: textColor,
                         onTap: () async {
+                          bool wrongData = false;
                           String phoneNumber = phone.text;
                           String lock = password.text;
 
@@ -145,47 +149,61 @@ class _ManagersFormState extends State<ManagersForm> {
                           pass3 = snapshot.data!.docs[2]['pass'];
                           pass4 = snapshot.data!.docs[3]['pass'];
                           pass5 = snapshot.data!.docs[4]['pass'];
-                          try {
-                            if (formKey.currentState!.validate()) {
-                              final prefs =
-                                  await SharedPreferences.getInstance();
-                              if ((phoneNumber == phone1 && lock == pass1) ||
-                                  (phoneNumber == phone2 && lock == pass2) ||
-                                  (phoneNumber == phone3 && lock == pass3) ||
-                                  (phoneNumber == phone4 && lock == pass4) ||
-                                  (phoneNumber == phone5 && lock == pass5)) {
-                                if (phoneNumber == phone1) {
-                                  prefs.setString(yourName, name1);
-                                  prefs.setString(yourPhone, phoneNumber);
-                                } else if (phoneNumber == phone2) {
-                                  prefs.setString(yourName, name2);
-                                  prefs.setString(yourPhone, phoneNumber);
-                                } else if (phoneNumber == phone3) {
-                                  prefs.setString(yourName, name3);
-                                  prefs.setString(yourPhone, phoneNumber);
-                                } else if (phoneNumber == phone4) {
-                                  prefs.setString(yourName, name4);
-                                  prefs.setString(yourPhone, phoneNumber);
-                                } else if (phoneNumber == phone5) {
-                                  prefs.setString(yourName, name5);
-                                  prefs.setString(yourPhone, phoneNumber);
+                          if (AppCubit.get(context).isLoading) {
+                          } else {
+                            try {
+                              if (formKey.currentState!.validate()) {
+                                AppCubit.get(context).buttonIsLoading(true);
+                                final prefs =
+                                    await SharedPreferences.getInstance();
+                                if ((phoneNumber == phone1 && lock == pass1) ||
+                                    (phoneNumber == phone2 && lock == pass2) ||
+                                    (phoneNumber == phone3 && lock == pass3) ||
+                                    (phoneNumber == phone4 && lock == pass4) ||
+                                    (phoneNumber == phone5 && lock == pass5)) {
+                                  if (phoneNumber == phone1) {
+                                    prefs.setString(yourName, name1);
+                                    prefs.setString(yourPhone, phoneNumber);
+                                  } else if (phoneNumber == phone2) {
+                                    prefs.setString(yourName, name2);
+                                    prefs.setString(yourPhone, phoneNumber);
+                                  } else if (phoneNumber == phone3) {
+                                    prefs.setString(yourName, name3);
+                                    prefs.setString(yourPhone, phoneNumber);
+                                  } else if (phoneNumber == phone4) {
+                                    prefs.setString(yourName, name4);
+                                    prefs.setString(yourPhone, phoneNumber);
+                                  } else if (phoneNumber == phone5) {
+                                    prefs.setString(yourName, name5);
+                                    prefs.setString(yourPhone, phoneNumber);
+                                  }
+                                  prefs.setBool(isLoggedIn, true);
+                                  prefs.setBool(dev, true);
+                                  prefs.setString(id, '0');
+                                  await FirebaseAuth.instance
+                                      .signInAnonymously();
+                                  FirebaseMessaging.instance
+                                      .subscribeToTopic('notify');
+                                  FirebaseMessaging.instance
+                                      .subscribeToTopic('newUsers');
+                                  FirebaseMessaging.instance
+                                      .subscribeToTopic('0');
+                                  if (context.mounted) {
+                                    Navigator.pushReplacementNamed(
+                                      context,
+                                      HomePage.id,
+                                    );
+                                    AppCubit.get(context)
+                                        .buttonIsLoading(false);
+                                  }
+                                } else {
+                                  throw Exception(wrongData = true);
                                 }
-                                prefs.setBool(isLoggedIn, true);
-                                prefs.setBool(dev, true);
-                                prefs.setString(id, '0');
-                                FirebaseMessaging.instance
-                                    .subscribeToTopic('notify');
-                                FirebaseMessaging.instance
-                                    .subscribeToTopic('newUsers');
-                                FirebaseMessaging.instance
-                                    .subscribeToTopic('0');
-                                if (context.mounted) {
-                                  Navigator.pushReplacementNamed(
-                                    context,
-                                    HomePage.id,
-                                  );
-                                }
-                              } else {
+                              }
+                            } catch (e) {
+                              if (wrongData == true) {
+                                await Future.delayed(
+                                    const Duration(milliseconds: 500));
                                 if (context.mounted) {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
@@ -200,11 +218,14 @@ class _ManagersFormState extends State<ManagersForm> {
                                     ),
                                   );
                                 }
+                              } else {
+                                if (context.mounted) {
+                                  noInternetSnackBar(context);
+                                }
                               }
-                            }
-                          } catch (e) {
-                            if (context.mounted) {
-                              noInternetSnackBar(context);
+                              if (context.mounted) {
+                                AppCubit.get(context).buttonIsLoading(false);
+                              }
                             }
                           }
                         },

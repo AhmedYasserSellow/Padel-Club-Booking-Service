@@ -1,4 +1,4 @@
-import 'package:booking/database/screens/notification.dart';
+import 'package:booking/backend/screens/notification.dart';
 import 'package:booking/screens/about%20us/about_us_screen.dart';
 import 'package:booking/screens/booking%20screen/booking_screen.dart';
 import 'package:booking/screens/chat%20screen/chat_screen.dart';
@@ -6,9 +6,9 @@ import 'package:booking/screens/chat%20screen/chats_screen.dart';
 import 'package:booking/screens/offers%20screen/offers_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
-import '../database/control_panel.dart';
+import '../backend/control_panel.dart';
 import '../layouts/home_layout.dart';
-import '../layouts/login Layout/login_page.dart';
+import '../layouts/auth/login_page.dart';
 import '../screens/splash screen/splash_screen.dart';
 import 'theme.dart';
 

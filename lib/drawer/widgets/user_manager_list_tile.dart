@@ -1,4 +1,4 @@
-import 'package:booking/database/control_panel.dart';
+import 'package:booking/backend/control_panel.dart';
 import 'package:booking/dialogs/profile_dialog.dart';
 import 'package:booking/drawer/widgets/drawer_item.dart';
 import 'package:flutter/material.dart';
