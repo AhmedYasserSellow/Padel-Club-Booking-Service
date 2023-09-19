@@ -54,7 +54,8 @@ class _ManagersFormState extends State<ManagersForm> {
                   children: [
                     Row(
                       children: [
-                        BackButton(
+                        IconButton(
+                          icon: const BackButtonIcon(),
                           color: textColor,
                           onPressed: () =>
                               AppCubit.get(context).loginPageState(0),

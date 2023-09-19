@@ -62,21 +62,6 @@ class _MainPagesState extends State<MainPages> {
                           AppCubit.get(context).navigateToMainPages(context, 2);
                         } else {
                           AppCubit.get(context).navigateToMainPages(context, 4);
-                          // Navigator.pop(context);
-                          // final prefs = await SharedPreferences.getInstance();
-                          // String myID = prefs.getString(id)!;
-                          // if (context.mounted) {
-                          //   Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //       builder: (context) => ChatScreen(
-                          //         name: 'Players Service',
-                          //         id: myID,
-                          //         manager: widget.isManager,
-                          //       ),
-                          //     ),
-                          //   );
-                          // }
                         }
                       },
                       text: widget.isManager ? 'Chats' : 'Chat',

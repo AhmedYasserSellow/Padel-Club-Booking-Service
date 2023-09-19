@@ -33,7 +33,8 @@ class _UserFormState extends State<UserForm> {
         children: [
           Row(
             children: [
-              BackButton(
+              IconButton(
+                icon: const BackButtonIcon(),
                 color: textColor,
                 onPressed: () => AppCubit.get(context).loginPageState(0),
               ),

@@ -18,7 +18,7 @@ class Splash extends StatefulWidget {
 
 class _SplashState extends State<Splash> {
   bool loggedIn = false;
-  bool onBoarding = false;
+  bool onBoarding = true;
   @override
   void initState() {
     super.initState();

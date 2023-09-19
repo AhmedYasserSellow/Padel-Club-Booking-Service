@@ -14,6 +14,7 @@ class DrawerItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      selectedColor: Theme.of(context).indicatorColor,
       selected: isSelected,
       leading: Icon(icon),
       title: Text(text),
