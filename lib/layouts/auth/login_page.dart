@@ -29,8 +29,10 @@ class _LoginPageState extends State<LoginPage> {
                 LinearGradient(colors: [racketFirstColor, racketSecondColor]),
           ),
           child: Scaffold(
+            resizeToAvoidBottomInset: true,
             backgroundColor: Colors.transparent,
             appBar: AppBar(
+              toolbarHeight: 0,
               elevation: 0,
               backgroundColor: Colors.transparent,
               systemOverlayStyle: SystemUiOverlayStyle.light,

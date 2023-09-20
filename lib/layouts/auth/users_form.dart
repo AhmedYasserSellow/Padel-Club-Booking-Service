@@ -111,10 +111,10 @@ class _UserFormState extends State<UserForm> {
                         prefs.setBool(dev, false);
                         prefs.setBool(isLoggedIn, true);
                         prefs.setString(id, user.user!.uid);
-                        sendNewUserNotification(
+                        await sendNewUserNotification(
                           name: name.text,
                         );
-                        FirebaseFirestore.instance
+                        await FirebaseFirestore.instance
                             .collection('App Users')
                             .doc(user.user!.uid)
                             .set(
@@ -128,9 +128,10 @@ class _UserFormState extends State<UserForm> {
                                 SetOptions(
                                   merge: true,
                                 ));
-                        FirebaseMessaging.instance
+                        await FirebaseMessaging.instance
                             .subscribeToTopic(user.user!.uid);
-                        FirebaseMessaging.instance.subscribeToTopic('offers');
+                        await FirebaseMessaging.instance
+                            .subscribeToTopic('offers');
                         if (context.mounted) {
                           Navigator.pushReplacementNamed(
                             context,

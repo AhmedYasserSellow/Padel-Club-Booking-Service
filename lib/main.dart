@@ -5,6 +5,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'bloc/cubit.dart';
 import 'bloc/states.dart';
 
@@ -22,7 +23,13 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  await getPermssion();
+  final prefs = await SharedPreferences.getInstance();
+  bool isShowed = prefs.getBool(isPremessionShowed) ?? false;
+  if (isShowed == false) {
+    await getPermssion();
+    prefs.setBool(isPremessionShowed, true);
+  }
+
   NotificationService().initNotification();
   runApp(const MyApp());
 }

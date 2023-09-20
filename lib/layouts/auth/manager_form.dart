@@ -134,25 +134,25 @@ class _ManagersFormState extends State<ManagersForm> {
                           String phoneNumber = phone.text;
                           String lock = password.text;
 
-                          phone1 = snapshot.data!.docs[0]['phone'];
-                          phone2 = snapshot.data!.docs[1]['phone'];
-                          phone3 = snapshot.data!.docs[2]['phone'];
-                          phone4 = snapshot.data!.docs[3]['phone'];
-                          phone5 = snapshot.data!.docs[4]['phone'];
-                          name1 = snapshot.data!.docs[0]['name'];
-                          name2 = snapshot.data!.docs[1]['name'];
-                          name3 = snapshot.data!.docs[2]['name'];
-                          name4 = snapshot.data!.docs[3]['name'];
-                          name5 = snapshot.data!.docs[4]['name'];
-                          pass1 = snapshot.data!.docs[0]['pass'];
-                          pass2 = snapshot.data!.docs[1]['pass'];
-                          pass3 = snapshot.data!.docs[2]['pass'];
-                          pass4 = snapshot.data!.docs[3]['pass'];
-                          pass5 = snapshot.data!.docs[4]['pass'];
                           if (AppCubit.get(context).isLoading) {
                           } else {
                             try {
                               if (formKey.currentState!.validate()) {
+                                phone1 = snapshot.data!.docs[0]['phone'];
+                                phone2 = snapshot.data!.docs[1]['phone'];
+                                phone3 = snapshot.data!.docs[2]['phone'];
+                                phone4 = snapshot.data!.docs[3]['phone'];
+                                phone5 = snapshot.data!.docs[4]['phone'];
+                                name1 = snapshot.data!.docs[0]['name'];
+                                name2 = snapshot.data!.docs[1]['name'];
+                                name3 = snapshot.data!.docs[2]['name'];
+                                name4 = snapshot.data!.docs[3]['name'];
+                                name5 = snapshot.data!.docs[4]['name'];
+                                pass1 = snapshot.data!.docs[0]['pass'];
+                                pass2 = snapshot.data!.docs[1]['pass'];
+                                pass3 = snapshot.data!.docs[2]['pass'];
+                                pass4 = snapshot.data!.docs[3]['pass'];
+                                pass5 = snapshot.data!.docs[4]['pass'];
                                 AppCubit.get(context).buttonIsLoading(true);
                                 final prefs =
                                     await SharedPreferences.getInstance();
@@ -182,11 +182,11 @@ class _ManagersFormState extends State<ManagersForm> {
                                   prefs.setString(id, '0');
                                   await FirebaseAuth.instance
                                       .signInAnonymously();
-                                  FirebaseMessaging.instance
+                                  await FirebaseMessaging.instance
                                       .subscribeToTopic('notify');
-                                  FirebaseMessaging.instance
+                                  await FirebaseMessaging.instance
                                       .subscribeToTopic('newUsers');
-                                  FirebaseMessaging.instance
+                                  await FirebaseMessaging.instance
                                       .subscribeToTopic('0');
                                   if (context.mounted) {
                                     Navigator.pushReplacementNamed(

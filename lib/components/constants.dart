@@ -25,6 +25,7 @@ String yourPhone = 'Phone';
 String dev = 'dev';
 String id = 'ID';
 String isOnBoarding = 'isOnBoarding';
+String isPremessionShowed = 'isPremessionShowed';
 
 List<String> clock = [
   '12:00 AM',
