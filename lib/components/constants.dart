@@ -1,9 +1,13 @@
 import 'package:booking/backend/screens/notification.dart';
+import 'package:booking/components/models/page_model.dart';
 import 'package:booking/screens/about%20us/about_us_screen.dart';
 import 'package:booking/screens/booking%20screen/booking_screen.dart';
 import 'package:booking/screens/chat%20screen/chat_screen.dart';
 import 'package:booking/screens/chat%20screen/chats_screen.dart';
+import 'package:booking/screens/giveaway%20screen/give_away_screen.dart';
 import 'package:booking/screens/offers%20screen/offers_screen.dart';
+import 'package:booking/shimmer/shimmer_booking_screen.dart';
+import 'package:booking/shimmer/shimmer_offers_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 import '../backend/control_panel.dart';
@@ -82,28 +86,67 @@ List<String> abc = [
   'z',
 ];
 
-List appScreens({
+List<PageModel> mainPages({
   required bool manager,
   required String myName,
   required String firebaseID,
 }) =>
     [
-      BookingScreen(
-        firebaseID: firebaseID,
+      PageModel(
+        icon: Icons.calendar_month,
+        name: 'Booking',
+        mainWidget: BookingScreen(
+          firebaseID: firebaseID,
+        ),
+        shimmerWidget: const BookingShimmer(),
       ),
-      const OffersScreen(
-        removeFeature: false,
+      PageModel(
+        icon: Icons.local_offer,
+        name: 'Offers',
+        mainWidget: const OffersScreen(
+          removeFeature: false,
+        ),
+        shimmerWidget: const OffersShimmer(),
       ),
-      ChatsScreen(
-        manager: manager,
-        myName: myName,
+      PageModel(
+        icon: Icons.card_giftcard,
+        name: 'Giveaways',
+        mainWidget: const GiveAwasyScreen(),
+        shimmerWidget: const GiveAwasyScreen(),
       ),
-      const AboutUsScreen(),
-      ChatScreen(
-        name: 'Players Service',
-        id: firebaseID,
-        manager: manager,
-      )
+      manager
+          ? PageModel(
+              icon: Icons.chat,
+              name: 'Chats',
+              mainWidget: ChatsScreen(
+                manager: manager,
+                myName: myName,
+              ),
+              shimmerWidget: ChatsScreen(
+                manager: manager,
+                myName: myName,
+              ),
+            )
+          : PageModel(
+              icon: Icons.chat,
+              name: 'Chat',
+              mainWidget: ChatScreen(
+                name: 'Players Service',
+                id: firebaseID,
+                manager: manager,
+              ),
+              shimmerWidget: ChatScreen(
+                name: 'Players Service',
+                id: id,
+                manager: manager,
+              ),
+            ),
+      PageModel(
+        icon: Icons.info,
+        name: 'Contact Us',
+        mainWidget: const ContactUsScreen(),
+        shimmerWidget: const ContactUsScreen(),
+      ),
     ];
 
 final connection = InternetConnectionCheckerPlus.createInstance(

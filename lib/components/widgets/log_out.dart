@@ -1,6 +1,6 @@
+import 'package:booking/backend/dashboard%20drawer/dashboard_drawer_item.dart';
 import 'package:booking/bloc/cubit.dart';
 import 'package:booking/components/constants.dart';
-import 'package:booking/drawer/widgets/drawer_item.dart';
 import 'package:booking/layouts/auth/login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -14,7 +14,7 @@ class LogOut extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DrawerItem(
+    return DashBoardDrawerItem(
       isSelected: false,
       onTap: () async {
         final prefs = await SharedPreferences.getInstance();
@@ -22,6 +22,7 @@ class LogOut extends StatelessWidget {
         FirebaseAuth.instance.signOut();
         if (context.mounted) {
           AppCubit.get(context).mainPagesIndex = 0;
+          AppCubit.get(context).dashboardPAgesIndex = 0;
           AppCubit.get(context).loginPageState(0);
           FirebaseMessaging.instance.unsubscribeFromTopic('notify');
           FirebaseMessaging.instance.unsubscribeFromTopic(prefs.getString(id)!);

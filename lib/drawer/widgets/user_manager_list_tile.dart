@@ -20,7 +20,14 @@ class UserAndManagerListTile extends StatelessWidget {
         icon: Icons.developer_board,
         onTap: () {
           Navigator.pop(context);
-          Navigator.pushNamed(context, DashBoard.id);
+          Navigator.pushReplacementNamed(
+            context,
+            DashBoard.id,
+            arguments: {
+              'name': name,
+              'phone': phone,
+            },
+          );
         },
       );
     } else {

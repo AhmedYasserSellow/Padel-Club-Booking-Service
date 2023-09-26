@@ -64,45 +64,47 @@ class _HomePageState extends State<HomePage> {
                       return BlocBuilder<AppCubit, AppStates>(
                         builder: (context, state) {
                           return Scaffold(
-                            key: scaffoldKey,
-                            drawer: const HomeDrawer(),
-                            appBar: AppBar(
-                              scrolledUnderElevation: 0,
-                              leading: IconButton(
-                                icon: Icon(
-                                  Icons.menu,
-                                  color: AppCubit.get(context).iconAndTextColor,
-                                ),
-                                onPressed: () {
-                                  scaffoldKey.currentState!.openDrawer();
-                                },
-                              ),
-                              backgroundColor:
-                                  Theme.of(context).scaffoldBackgroundColor,
-                              toolbarHeight: 56,
-                              centerTitle: true,
-                              title: Image.asset(
-                                AppCubit.get(context).isLightMode
-                                    ? 'assets/logo.png'
-                                    : 'assets/logodark.png',
-                                height: 72,
-                              ),
-                            ),
-                            body: (internetSnapshot.data ==
-                                        InternetConnectionStatus.connected ||
-                                    ethernetSnapshot.data ==
-                                        InternetConnectionStatus.connected)
-                                ? appScreens(
-                                    firebaseID: firebaseID,
-                                    myName: name,
-                                    manager: manager,
-                                  )[AppCubit.get(context).mainPagesIndex]
-                                : Center(
-                                    child: CircularProgressIndicator(
-                                      color: Theme.of(context).indicatorColor,
-                                    ),
+                              key: scaffoldKey,
+                              drawer: const HomeDrawerView(),
+                              appBar: AppBar(
+                                scrolledUnderElevation: 0,
+                                leading: IconButton(
+                                  icon: Icon(
+                                    Icons.menu,
+                                    color:
+                                        AppCubit.get(context).iconAndTextColor,
                                   ),
-                          );
+                                  onPressed: () {
+                                    scaffoldKey.currentState!.openDrawer();
+                                  },
+                                ),
+                                backgroundColor:
+                                    Theme.of(context).scaffoldBackgroundColor,
+                                toolbarHeight: 56,
+                                centerTitle: true,
+                                title: Image.asset(
+                                  AppCubit.get(context).isLightMode
+                                      ? 'assets/logo.png'
+                                      : 'assets/logodark.png',
+                                  height: 72,
+                                ),
+                              ),
+                              body: (internetSnapshot.data ==
+                                          InternetConnectionStatus.connected ||
+                                      ethernetSnapshot.data ==
+                                          InternetConnectionStatus.connected)
+                                  ? mainPages(
+                                      firebaseID: firebaseID,
+                                      myName: name,
+                                      manager: manager,
+                                    )[AppCubit.get(context).mainPagesIndex]
+                                      .mainWidget
+                                  : mainPages(
+                                      firebaseID: firebaseID,
+                                      myName: name,
+                                      manager: manager,
+                                    )[AppCubit.get(context).mainPagesIndex]
+                                      .shimmerWidget);
                         },
                       );
                     });

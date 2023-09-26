@@ -10,7 +10,7 @@ class AppCubit extends Cubit<AppStates> {
 
   static AppCubit get(context) => BlocProvider.of(context);
   int mainPagesIndex = 0;
-  int navIndexForDB = 0;
+  int dashboardPAgesIndex = 0;
   int dialogTabIndex = 1;
   int monthDB = 1;
   int dayDB = 1;
@@ -91,8 +91,9 @@ class AppCubit extends Cubit<AppStates> {
   }
 
 //Navigate in Bottom Nav bar for dashboard layout
-  void changeBottomNavIndexForDB(int index) {
-    navIndexForDB = index;
+  void navigateToDashboardPages(BuildContext context, int index) {
+    dashboardPAgesIndex = index;
+    Navigator.pop(context);
     emit(ChangeBottomNavIndexForDB());
   }
 

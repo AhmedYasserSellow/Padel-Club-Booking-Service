@@ -85,7 +85,12 @@ class ChatScreen extends StatelessWidget {
                                 } else {
                                   requiredID = id;
                                 }
-
+                                // DateTime date =
+                                //     DateTime.fromMicrosecondsSinceEpoch(snapshot
+                                //         .data!
+                                //         .docs[index]['Created at']
+                                //         .microsecondsSinceEpoch);
+                                // print(date.hour);
                                 return ChatBubble(
                                   message: snapshot.data!.docs[index]
                                       ['Message'],

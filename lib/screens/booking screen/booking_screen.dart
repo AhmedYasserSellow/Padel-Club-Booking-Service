@@ -52,7 +52,7 @@ class _BookingScreenState extends State<BookingScreen> {
                         shape: BoxShape.circle,
                       )),
                   focusedDay: cubit.focusedDay,
-                  firstDay: DateTime.utc(2023, 5, 14),
+                  firstDay: DateTime.utc(2023, 9, 24),
                   lastDay: DateTime.utc(
                     finalYear,
                     cubit.today.month,
@@ -87,13 +87,6 @@ class _BookingScreenState extends State<BookingScreen> {
                   ),
                 ),
               ],
-            );
-          } else if (dataBasesnapshot.hasError) {
-            return const Center(
-              child: Text(
-                'No Internet Connection',
-                style: TextStyle(fontSize: 20),
-              ),
             );
           } else {
             return Center(

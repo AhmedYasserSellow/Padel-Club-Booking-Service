@@ -145,6 +145,7 @@ void bookingDialog(
                                   'Name': nameController.text,
                                   'Phone': phoneNumberController.text,
                                   'State': pending,
+                                  'Created at': DateTime.now(),
                                 });
 
                                 sendNotify(
