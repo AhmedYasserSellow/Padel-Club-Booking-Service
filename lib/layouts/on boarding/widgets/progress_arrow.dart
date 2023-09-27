@@ -1,7 +1,6 @@
 import 'package:booking/core/routes/app_routes.dart';
 import 'package:booking/core/theme/theme.dart';
-import 'package:booking/logic/cubit.dart';
-import 'package:booking/logic/states.dart';
+import 'package:booking/layouts/on%20boarding/logic/on_boarding_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -10,7 +9,7 @@ class ProgressArrow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AppCubit, AppStates>(
+    return BlocBuilder<OnBoardingCubit, OnBoardingState>(
       builder: (context, state) {
         return Column(
           children: [
@@ -21,13 +20,14 @@ class ProgressArrow extends StatelessWidget {
                 child: CircularProgressIndicator(
                   backgroundColor: const Color(0xffD3E4FF),
                   color: const Color(0xff1B72C0),
-                  value: (AppCubit.get(context).onBoardingIndex + 1) /
+                  value: (OnBoardingCubit.get(context).onBoardingIndex + 1) /
                       onBoardingPages.length,
                 ),
               ),
               GestureDetector(
-                onTap: () => AppCubit.get(context).changeOnBoardingScreenIndex(
-                    context, AppCubit.get(context).onBoardingIndex),
+                onTap: () => OnBoardingCubit.get(context)
+                    .changeOnBoardingScreenIndex(
+                        context, OnBoardingCubit.get(context).onBoardingIndex),
                 child: CircleAvatar(
                   radius: 50,
                   backgroundColor: racketFirstColor,

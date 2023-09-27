@@ -1,3 +1,4 @@
+import 'package:booking/layouts/auth/logic/auth_cubit.dart';
 import 'package:booking/layouts/home/drawer/widgets/drawer_item.dart';
 import 'package:booking/logic/cubit.dart';
 import 'package:booking/core/constants/constants.dart';
@@ -23,7 +24,7 @@ class LogOut extends StatelessWidget {
         if (context.mounted) {
           AppCubit.get(context).mainPagesIndex = 0;
           AppCubit.get(context).dashboardPagesIndex = 0;
-          AppCubit.get(context).loginPageState(0);
+          AuthCubit.get(context).loginPageState(0);
           FirebaseMessaging.instance.unsubscribeFromTopic('notify');
           FirebaseMessaging.instance.unsubscribeFromTopic(prefs.getString(id)!);
           FirebaseMessaging.instance.unsubscribeFromTopic('offers');

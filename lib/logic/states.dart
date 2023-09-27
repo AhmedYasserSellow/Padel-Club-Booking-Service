@@ -22,6 +22,4 @@ class GetTheme extends AppStates {}
 
 class NameChanged extends AppStates {}
 
-class OnBoardingPageChanged extends AppStates {}
-
 class ButtonLoadingState extends AppStates {}

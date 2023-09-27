@@ -1,4 +1,4 @@
-import 'package:booking/logic/cubit.dart';
+import 'package:booking/layouts/auth/logic/auth_cubit.dart';
 import 'package:booking/core/theme/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -56,7 +56,7 @@ class Role extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => AppCubit.get(context).loginPageState(index),
+      onTap: () => AuthCubit.get(context).loginPageState(index),
       child: Container(
         width: MediaQuery.of(context).size.width * 5 / 12,
         height: MediaQuery.of(context).size.width * 5 / 12,

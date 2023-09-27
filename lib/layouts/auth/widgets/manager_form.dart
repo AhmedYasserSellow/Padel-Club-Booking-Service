@@ -1,6 +1,5 @@
 import 'package:booking/core/widgets/no_internet_snackbar.dart';
-import 'package:booking/logic/cubit.dart';
-import 'package:booking/logic/states.dart';
+import 'package:booking/layouts/auth/logic/auth_cubit.dart';
 import 'package:booking/core/constants/constants.dart';
 import 'package:booking/core/theme/theme.dart';
 import 'package:booking/core/widgets/default_button.dart';
@@ -29,7 +28,7 @@ class _ManagersFormState extends State<ManagersForm> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AppCubit, AppStates>(
+    return BlocBuilder<AuthCubit, AuthState>(
       builder: (context, state) {
         return StreamBuilder(
             stream: FirebaseFirestore.instance.collection('Users').snapshots(),
@@ -59,7 +58,7 @@ class _ManagersFormState extends State<ManagersForm> {
                         IconButton(
                           icon: const BackButtonIcon(),
                           color: whiteTextColor,
-                          onPressed: () => AppCubit.get(context)
+                          onPressed: () => AuthCubit.get(context)
                             ..loginPageState(0)
                             ..buttonIsLoading(false),
                         ),
@@ -98,7 +97,7 @@ class _ManagersFormState extends State<ManagersForm> {
                       labelColor: whiteTextColor,
                       focusColor: whiteTextColor,
                       color: whiteTextColor,
-                      isHidden: AppCubit.get(context).isHidden,
+                      isHidden: AuthCubit.get(context).isHidden,
                       controller: password,
                       type: TextInputType.text,
                       validate: (String? value) {
@@ -115,10 +114,10 @@ class _ManagersFormState extends State<ManagersForm> {
                       prefix: Icons.lock,
                       suffix: IconButton(
                           onPressed: () {
-                            AppCubit.get(context).passwordState();
+                            AuthCubit.get(context).passwordState();
                           },
                           icon: Icon(
-                            AppCubit.get(context).isHidden
+                            AuthCubit.get(context).isHidden
                                 ? Icons.visibility_off
                                 : Icons.visibility,
                           )),
@@ -128,14 +127,14 @@ class _ManagersFormState extends State<ManagersForm> {
                       height: 24,
                     ),
                     defaultButton(
-                        isLoading: AppCubit.get(context).isLoading,
+                        isLoading: AuthCubit.get(context).isLoading,
                         color: whiteTextColor,
                         onTap: () async {
                           bool wrongData = false;
                           String phoneNumber = phone.text;
                           String lock = password.text;
 
-                          if (AppCubit.get(context).isLoading) {
+                          if (AuthCubit.get(context).isLoading) {
                           } else {
                             try {
                               if (formKey.currentState!.validate()) {
@@ -154,7 +153,7 @@ class _ManagersFormState extends State<ManagersForm> {
                                 pass3 = snapshot.data!.docs[2]['pass'];
                                 pass4 = snapshot.data!.docs[3]['pass'];
                                 pass5 = snapshot.data!.docs[4]['pass'];
-                                AppCubit.get(context).buttonIsLoading(true);
+                                AuthCubit.get(context).buttonIsLoading(true);
                                 final prefs =
                                     await SharedPreferences.getInstance();
                                 if ((phoneNumber == phone1 && lock == pass1) ||
@@ -194,7 +193,7 @@ class _ManagersFormState extends State<ManagersForm> {
                                       context,
                                       HomeLayout.id,
                                     );
-                                    AppCubit.get(context)
+                                    AuthCubit.get(context)
                                         .buttonIsLoading(false);
                                   }
                                 } else {
@@ -225,7 +224,7 @@ class _ManagersFormState extends State<ManagersForm> {
                                 }
                               }
                               if (context.mounted) {
-                                AppCubit.get(context).buttonIsLoading(false);
+                                AuthCubit.get(context).buttonIsLoading(false);
                               }
                             }
                           }

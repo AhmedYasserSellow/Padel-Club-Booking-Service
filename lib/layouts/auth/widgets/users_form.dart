@@ -1,6 +1,5 @@
 import 'package:booking/core/widgets/no_internet_snackbar.dart';
-import 'package:booking/logic/cubit.dart';
-import 'package:booking/logic/states.dart';
+import 'package:booking/layouts/auth/logic/auth_cubit.dart';
 import 'package:booking/core/constants/constants.dart';
 import 'package:booking/core/services/notifications.dart';
 import 'package:booking/core/theme/theme.dart';
@@ -30,7 +29,7 @@ class _UserFormState extends State<UserForm> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AppCubit, AppStates>(
+    return BlocBuilder<AuthCubit, AuthState>(
       builder: (context, state) {
         return Form(
           key: formKey,
@@ -41,7 +40,7 @@ class _UserFormState extends State<UserForm> {
                   IconButton(
                     icon: const BackButtonIcon(),
                     color: whiteTextColor,
-                    onPressed: () => AppCubit.get(context)
+                    onPressed: () => AuthCubit.get(context)
                       ..loginPageState(0)
                       ..buttonIsLoading(false),
                   ),
@@ -97,12 +96,12 @@ class _UserFormState extends State<UserForm> {
                 height: 24,
               ),
               defaultButton(
-                isLoading: AppCubit.get(context).isLoading,
+                isLoading: AuthCubit.get(context).isLoading,
                 color: whiteTextColor,
                 onTap: () async {
                   if (formKey.currentState!.validate()) {
-                    if (!AppCubit.get(context).isLoading) {
-                      AppCubit.get(context).buttonIsLoading(true);
+                    if (!AuthCubit.get(context).isLoading) {
+                      AuthCubit.get(context).buttonIsLoading(true);
                       try {
                         final prefs = await SharedPreferences.getInstance();
                         UserCredential user =
@@ -138,11 +137,11 @@ class _UserFormState extends State<UserForm> {
                             context,
                             HomeLayout.id,
                           );
-                          AppCubit.get(context).buttonIsLoading(false);
+                          AuthCubit.get(context).buttonIsLoading(false);
                         }
                       } catch (e) {
                         if (context.mounted) {
-                          AppCubit.get(context).buttonIsLoading(false);
+                          AuthCubit.get(context).buttonIsLoading(false);
                           noInternetSnackBar(context);
                         }
                       }
