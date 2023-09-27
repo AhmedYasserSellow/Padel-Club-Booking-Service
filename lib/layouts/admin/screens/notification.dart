@@ -11,35 +11,41 @@ class NotificationScreen extends StatelessWidget {
         stream:
             FirebaseFirestore.instance.collection('Notifications').snapshots(),
         builder: (context, snapshot) {
-          return snapshot.hasData
-              ? snapshot.data!.docs.isEmpty
-                  ? Text(
-                      'There is no Notifications',
-                      style: TextStyle(
-                        color: whiteTextColor,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 24,
-                      ),
-                    )
-                  : ListView.separated(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      separatorBuilder: (context, index) {
-                        return const SizedBox(
-                          height: 20,
-                        );
-                      },
-                      itemCount: snapshot.data!.docs.length,
-                      itemBuilder: (context, index) {
-                        return NotificationListTile(
-                          snapshot: snapshot,
-                          index: index,
-                        );
-                      },
-                    )
-              : const Center(
-                  child: CircularProgressIndicator(),
-                );
+          if (snapshot.hasData) {
+            if (snapshot.data!.docs.isEmpty) {
+              return Center(
+                child: Text(
+                  'There is no Notifications',
+                  style: TextStyle(
+                    color: whiteTextColor,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 24,
+                  ),
+                ),
+              );
+            } else {
+              return ListView.separated(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                separatorBuilder: (context, index) {
+                  return const SizedBox(
+                    height: 20,
+                  );
+                },
+                itemCount: snapshot.data!.docs.length,
+                itemBuilder: (context, index) {
+                  return NotificationListTile(
+                    snapshot: snapshot,
+                    index: index,
+                  );
+                },
+              );
+            }
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
         });
   }
 }
