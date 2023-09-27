@@ -1,4 +1,4 @@
-import 'package:booking/components/theme.dart';
+import 'package:booking/components/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 class ChatBubble extends StatelessWidget {
@@ -30,7 +30,7 @@ class ChatBubble extends StatelessWidget {
         ),
         child: Text(
           message,
-          style: TextStyle(color: textColor),
+          style: TextStyle(color: whiteTextColor),
         ),
       ),
     );

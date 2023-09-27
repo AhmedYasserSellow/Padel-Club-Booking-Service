@@ -2,8 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../logic/cubit.dart';
-import '../../../components/constants.dart';
-import '../../../components/theme.dart';
+import '../../../components/constants/constants.dart';
+import '../../../components/theme/theme.dart';
 import '../../../components/widgets/back_button.dart';
 import '../../../components/widgets/default_button.dart';
 import '../../../components/widgets/text_form_field.dart';
@@ -109,7 +109,7 @@ void profileDialog(
                                 backgroundColor: racketFirstColor,
                                 content: Text(
                                   'Updated Successfully',
-                                  style: TextStyle(color: textColor),
+                                  style: TextStyle(color: whiteTextColor),
                                 ),
                               ),
                             );

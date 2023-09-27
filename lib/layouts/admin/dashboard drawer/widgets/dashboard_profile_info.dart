@@ -39,7 +39,7 @@ class DashBoardProfileInfo extends StatelessWidget {
             Navigator.pop(context);
             Navigator.pushReplacementNamed(
               context,
-              HomePage.id,
+              HomeScreen.id,
             );
           },
         ),

@@ -1,12 +1,13 @@
+import 'package:booking/components/constants/constants.dart';
 import 'package:booking/components/widgets/default_button.dart';
+import 'package:booking/layouts/admin/functions/academy_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../logic/cubit.dart';
 import '../../../logic/states.dart';
-import '../../../components/theme.dart';
+import '../../../components/theme/theme.dart';
 import '../../../components/widgets/text_form_field.dart';
 import '../../home/dialogs/progress_dialog.dart';
-import '../db.dart';
 
 class ControlAcademy extends StatelessWidget {
   ControlAcademy({super.key});
@@ -27,7 +28,7 @@ class ControlAcademy extends StatelessWidget {
           children: [
             Text(
               'Academy',
-              style: TextStyle(color: textColor),
+              style: TextStyle(color: whiteTextColor),
             ),
             const SizedBox(
               height: 12,
@@ -50,10 +51,10 @@ class ControlAcademy extends StatelessWidget {
                     label: 'Year',
                     prefix: Icons.numbers,
                     context: context,
-                    color: textColor,
-                    textStyleColor: textColor,
-                    labelColor: textColor,
-                    focusColor: textColor,
+                    color: whiteTextColor,
+                    textStyleColor: whiteTextColor,
+                    labelColor: whiteTextColor,
+                    focusColor: whiteTextColor,
                   ),
                 ),
                 const SizedBox(
@@ -75,10 +76,10 @@ class ControlAcademy extends StatelessWidget {
                     label: 'Month',
                     prefix: Icons.numbers,
                     context: context,
-                    color: textColor,
-                    textStyleColor: textColor,
-                    labelColor: textColor,
-                    focusColor: textColor,
+                    color: whiteTextColor,
+                    textStyleColor: whiteTextColor,
+                    labelColor: whiteTextColor,
+                    focusColor: whiteTextColor,
                   ),
                 ),
               ],
@@ -88,7 +89,7 @@ class ControlAcademy extends StatelessWidget {
             ),
             Text(
               'Academy Time 24H Format',
-              style: TextStyle(color: textColor),
+              style: TextStyle(color: whiteTextColor),
             ),
             const SizedBox(
               height: 12,
@@ -109,10 +110,10 @@ class ControlAcademy extends StatelessWidget {
               label: 'Day Number',
               prefix: Icons.numbers,
               context: context,
-              color: textColor,
-              textStyleColor: textColor,
-              labelColor: textColor,
-              focusColor: textColor,
+              color: whiteTextColor,
+              textStyleColor: whiteTextColor,
+              labelColor: whiteTextColor,
+              focusColor: whiteTextColor,
             ),
             const SizedBox(
               height: 12,
@@ -136,10 +137,10 @@ class ControlAcademy extends StatelessWidget {
                     label: 'From',
                     prefix: Icons.numbers,
                     context: context,
-                    color: textColor,
-                    textStyleColor: textColor,
-                    labelColor: textColor,
-                    focusColor: textColor,
+                    color: whiteTextColor,
+                    textStyleColor: whiteTextColor,
+                    labelColor: whiteTextColor,
+                    focusColor: whiteTextColor,
                   ),
                 ),
                 const SizedBox(
@@ -165,10 +166,10 @@ class ControlAcademy extends StatelessWidget {
                     label: 'To',
                     prefix: Icons.numbers,
                     context: context,
-                    color: textColor,
-                    textStyleColor: textColor,
-                    labelColor: textColor,
-                    focusColor: textColor,
+                    color: whiteTextColor,
+                    textStyleColor: whiteTextColor,
+                    labelColor: whiteTextColor,
+                    focusColor: whiteTextColor,
                   ),
                 ),
               ],
@@ -181,19 +182,19 @@ class ControlAcademy extends StatelessWidget {
               children: [
                 Text(
                   '1 : ${days[0]}',
-                  style: TextStyle(color: textColor),
+                  style: TextStyle(color: whiteTextColor),
                 ),
                 Text(
                   '2 : ${days[1]}',
-                  style: TextStyle(color: textColor),
+                  style: TextStyle(color: whiteTextColor),
                 ),
                 Text(
                   '3 : ${days[2]}',
-                  style: TextStyle(color: textColor),
+                  style: TextStyle(color: whiteTextColor),
                 ),
                 Text(
                   '4 : ${days[3]}',
-                  style: TextStyle(color: textColor),
+                  style: TextStyle(color: whiteTextColor),
                 ),
               ],
             ),
@@ -202,15 +203,15 @@ class ControlAcademy extends StatelessWidget {
               children: [
                 Text(
                   '5 : ${days[4]}',
-                  style: TextStyle(color: textColor),
+                  style: TextStyle(color: whiteTextColor),
                 ),
                 Text(
                   '6 : ${days[5]}',
-                  style: TextStyle(color: textColor),
+                  style: TextStyle(color: whiteTextColor),
                 ),
                 Text(
                   '7 : ${days[6]}',
-                  style: TextStyle(color: textColor),
+                  style: TextStyle(color: whiteTextColor),
                 ),
               ],
             ),

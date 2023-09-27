@@ -1,7 +1,8 @@
+import 'package:booking/components/widgets/no_internet_snackbar.dart';
 import 'package:booking/logic/cubit.dart';
 import 'package:booking/logic/states.dart';
-import 'package:booking/components/constants.dart';
-import 'package:booking/components/theme.dart';
+import 'package:booking/components/constants/constants.dart';
+import 'package:booking/components/theme/theme.dart';
 import 'package:booking/components/widgets/default_button.dart';
 import 'package:booking/components/widgets/text_form_field.dart';
 import 'package:booking/layouts/home/home_layout.dart';
@@ -57,7 +58,7 @@ class _ManagersFormState extends State<ManagersForm> {
                       children: [
                         IconButton(
                           icon: const BackButtonIcon(),
-                          color: textColor,
+                          color: whiteTextColor,
                           onPressed: () => AppCubit.get(context)
                             ..loginPageState(0)
                             ..buttonIsLoading(false),
@@ -68,10 +69,10 @@ class _ManagersFormState extends State<ManagersForm> {
                       height: 12,
                     ),
                     myTextFormField(
-                      textStyleColor: textColor,
-                      labelColor: textColor,
-                      focusColor: textColor,
-                      color: textColor,
+                      textStyleColor: whiteTextColor,
+                      labelColor: whiteTextColor,
+                      focusColor: whiteTextColor,
+                      color: whiteTextColor,
                       limit: 11,
                       context: context,
                       validate: (String? value) {
@@ -93,10 +94,10 @@ class _ManagersFormState extends State<ManagersForm> {
                       height: 12,
                     ),
                     myTextFormField(
-                      textStyleColor: textColor,
-                      labelColor: textColor,
-                      focusColor: textColor,
-                      color: textColor,
+                      textStyleColor: whiteTextColor,
+                      labelColor: whiteTextColor,
+                      focusColor: whiteTextColor,
+                      color: whiteTextColor,
                       isHidden: AppCubit.get(context).isHidden,
                       controller: password,
                       type: TextInputType.text,
@@ -128,7 +129,7 @@ class _ManagersFormState extends State<ManagersForm> {
                     ),
                     defaultButton(
                         isLoading: AppCubit.get(context).isLoading,
-                        color: textColor,
+                        color: whiteTextColor,
                         onTap: () async {
                           bool wrongData = false;
                           String phoneNumber = phone.text;
@@ -191,7 +192,7 @@ class _ManagersFormState extends State<ManagersForm> {
                                   if (context.mounted) {
                                     Navigator.pushReplacementNamed(
                                       context,
-                                      HomePage.id,
+                                      HomeScreen.id,
                                     );
                                     AppCubit.get(context)
                                         .buttonIsLoading(false);
@@ -213,7 +214,7 @@ class _ManagersFormState extends State<ManagersForm> {
                                           const Color.fromRGBO(244, 67, 54, 1),
                                       content: Text(
                                         'wrong phone or password please try again',
-                                        style: TextStyle(color: textColor),
+                                        style: TextStyle(color: whiteTextColor),
                                       ),
                                     ),
                                   );

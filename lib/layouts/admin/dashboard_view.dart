@@ -1,23 +1,23 @@
+import 'package:booking/components/routes/app_routes.dart';
 import 'package:booking/layouts/admin/dashboard%20drawer/dashboard_drawer_view.dart';
-import 'package:booking/components/theme.dart';
-import 'package:booking/layouts/admin/dashboard%20drawer/widgets/dashboard_pages.dart';
+import 'package:booking/components/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../logic/cubit.dart';
 import '../../logic/states.dart';
 
-class DashBoard extends StatefulWidget {
-  const DashBoard({
+class DashBoardView extends StatefulWidget {
+  const DashBoardView({
     super.key,
   });
   static String id = 'DashBoard';
 
   @override
-  State<DashBoard> createState() => _DashBoardState();
+  State<DashBoardView> createState() => _DashBoardViewState();
 }
 
-class _DashBoardState extends State<DashBoard> {
+class _DashBoardViewState extends State<DashBoardView> {
   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -47,14 +47,14 @@ class _DashBoardState extends State<DashBoard> {
               systemOverlayStyle: SystemUiOverlayStyle.light,
               leading: IconButton(
                 icon: const Icon(Icons.menu),
-                color: textColor,
+                color: whiteTextColor,
                 onPressed: () {
                   scaffoldKey.currentState!.openDrawer();
                 },
               ),
               title: Text(
                 'Dashboard',
-                style: TextStyle(color: textColor),
+                style: TextStyle(color: whiteTextColor),
               ),
               centerTitle: true,
               backgroundColor: Colors.transparent,
@@ -65,8 +65,9 @@ class _DashBoardState extends State<DashBoard> {
                 child: Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                  child: screens[AppCubit.get(context).dashboardPAgesIndex]
-                      .mainWidget,
+                  child:
+                      dashboardPages[AppCubit.get(context).dashboardPagesIndex]
+                          .mainWidget,
                 ),
               ),
             ),

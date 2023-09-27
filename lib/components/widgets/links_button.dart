@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:url_launcher/url_launcher_string.dart';
 
-import '../theme.dart';
+import '../theme/theme.dart';
 
 class LinkButton extends StatelessWidget {
   const LinkButton(
@@ -49,7 +49,8 @@ class LinkButton extends StatelessWidget {
             ),
             Text(
               text,
-              style: TextStyle(fontWeight: FontWeight.bold, color: textColor),
+              style:
+                  TextStyle(fontWeight: FontWeight.bold, color: whiteTextColor),
             ),
           ],
         ),

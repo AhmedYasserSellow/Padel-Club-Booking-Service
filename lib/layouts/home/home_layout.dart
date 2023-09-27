@@ -1,5 +1,6 @@
-import 'package:booking/components/constants.dart';
-import 'package:booking/components/notifications.dart';
+import 'package:booking/components/constants/constants.dart';
+import 'package:booking/components/routes/app_routes.dart';
+import 'package:booking/components/services/notifications.dart';
 import 'package:booking/layouts/home/drawer/drawer_view.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -9,17 +10,17 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../logic/cubit.dart';
 import '../../logic/states.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({
     super.key,
   });
   static String id = 'HomePage';
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomeScreenState extends State<HomeScreen> {
   bool manager = false;
   String name = '';
   String phone = '';
@@ -93,13 +94,13 @@ class _HomePageState extends State<HomePage> {
                                           InternetConnectionStatus.connected ||
                                       ethernetSnapshot.data ==
                                           InternetConnectionStatus.connected)
-                                  ? mainPages(
+                                  ? appPages(
                                       firebaseID: firebaseID,
                                       myName: name,
                                       manager: manager,
                                     )[AppCubit.get(context).mainPagesIndex]
                                       .mainWidget
-                                  : mainPages(
+                                  : appPages(
                                       firebaseID: firebaseID,
                                       myName: name,
                                       manager: manager,

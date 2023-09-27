@@ -1,8 +1,9 @@
+import 'package:booking/components/widgets/no_internet_snackbar.dart';
 import 'package:booking/logic/cubit.dart';
 import 'package:booking/logic/states.dart';
-import 'package:booking/components/constants.dart';
-import 'package:booking/components/notifications.dart';
-import 'package:booking/components/theme.dart';
+import 'package:booking/components/constants/constants.dart';
+import 'package:booking/components/services/notifications.dart';
+import 'package:booking/components/theme/theme.dart';
 import 'package:booking/components/widgets/default_button.dart';
 import 'package:booking/components/widgets/text_form_field.dart';
 import 'package:booking/layouts/home/home_layout.dart';
@@ -39,7 +40,7 @@ class _UserFormState extends State<UserForm> {
                 children: [
                   IconButton(
                     icon: const BackButtonIcon(),
-                    color: textColor,
+                    color: whiteTextColor,
                     onPressed: () => AppCubit.get(context)
                       ..loginPageState(0)
                       ..buttonIsLoading(false),
@@ -50,10 +51,10 @@ class _UserFormState extends State<UserForm> {
                 height: 12,
               ),
               myTextFormField(
-                textStyleColor: textColor,
-                labelColor: textColor,
-                focusColor: textColor,
-                color: textColor,
+                textStyleColor: whiteTextColor,
+                labelColor: whiteTextColor,
+                focusColor: whiteTextColor,
+                color: whiteTextColor,
                 controller: name,
                 type: TextInputType.text,
                 validate: (String? value) {
@@ -71,10 +72,10 @@ class _UserFormState extends State<UserForm> {
                 height: 12,
               ),
               myTextFormField(
-                textStyleColor: textColor,
-                labelColor: textColor,
-                focusColor: textColor,
-                color: textColor,
+                textStyleColor: whiteTextColor,
+                labelColor: whiteTextColor,
+                focusColor: whiteTextColor,
+                color: whiteTextColor,
                 limit: 11,
                 context: context,
                 validate: (String? value) {
@@ -97,7 +98,7 @@ class _UserFormState extends State<UserForm> {
               ),
               defaultButton(
                 isLoading: AppCubit.get(context).isLoading,
-                color: textColor,
+                color: whiteTextColor,
                 onTap: () async {
                   if (formKey.currentState!.validate()) {
                     if (!AppCubit.get(context).isLoading) {
@@ -135,7 +136,7 @@ class _UserFormState extends State<UserForm> {
                         if (context.mounted) {
                           Navigator.pushReplacementNamed(
                             context,
-                            HomePage.id,
+                            HomeScreen.id,
                           );
                           AppCubit.get(context).buttonIsLoading(false);
                         }

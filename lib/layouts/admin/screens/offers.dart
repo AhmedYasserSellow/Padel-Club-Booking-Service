@@ -1,7 +1,7 @@
 import 'package:booking/logic/cubit.dart';
 import 'package:booking/logic/states.dart';
-import 'package:booking/components/notifications.dart';
-import 'package:booking/components/theme.dart';
+import 'package:booking/components/services/notifications.dart';
+import 'package:booking/components/theme/theme.dart';
 import 'package:booking/components/widgets/default_button.dart';
 import 'package:booking/components/widgets/text_form_field.dart';
 import 'package:booking/layouts/home/screens/offers%20screen/offers_screen.dart';
@@ -30,7 +30,7 @@ class ControlOffers extends StatelessWidget {
           children: [
             Text(
               'Offer',
-              style: TextStyle(color: textColor),
+              style: TextStyle(color: whiteTextColor),
             ),
             const SizedBox(
               height: 12,
@@ -48,10 +48,10 @@ class ControlOffers extends StatelessWidget {
               label: 'ID',
               prefix: Icons.numbers,
               context: context,
-              color: textColor,
-              textStyleColor: textColor,
-              focusColor: textColor,
-              labelColor: textColor,
+              color: whiteTextColor,
+              textStyleColor: whiteTextColor,
+              focusColor: whiteTextColor,
+              labelColor: whiteTextColor,
             ),
             const SizedBox(
               height: 12,
@@ -69,10 +69,10 @@ class ControlOffers extends StatelessWidget {
               label: 'Title',
               prefix: Icons.title,
               context: context,
-              color: textColor,
-              textStyleColor: textColor,
-              focusColor: textColor,
-              labelColor: textColor,
+              color: whiteTextColor,
+              textStyleColor: whiteTextColor,
+              focusColor: whiteTextColor,
+              labelColor: whiteTextColor,
             ),
             const SizedBox(
               height: 12,
@@ -90,10 +90,10 @@ class ControlOffers extends StatelessWidget {
               label: 'Image Url',
               prefix: Icons.image_outlined,
               context: context,
-              color: textColor,
-              textStyleColor: textColor,
-              focusColor: textColor,
-              labelColor: textColor,
+              color: whiteTextColor,
+              textStyleColor: whiteTextColor,
+              focusColor: whiteTextColor,
+              labelColor: whiteTextColor,
             ),
             const SizedBox(
               height: 12,
@@ -107,10 +107,10 @@ class ControlOffers extends StatelessWidget {
               label: 'Post Url',
               prefix: Icons.link_rounded,
               context: context,
-              color: textColor,
-              textStyleColor: textColor,
-              focusColor: textColor,
-              labelColor: textColor,
+              color: whiteTextColor,
+              textStyleColor: whiteTextColor,
+              focusColor: whiteTextColor,
+              labelColor: whiteTextColor,
             ),
             const SizedBox(
               height: 12,
@@ -142,7 +142,7 @@ class ControlOffers extends StatelessWidget {
                       content: Text(
                         'Offer Added',
                         style: TextStyle(
-                          color: textColor,
+                          color: whiteTextColor,
                         ),
                       ),
                       backgroundColor: racketFirstColor,
@@ -175,12 +175,12 @@ class ControlOffers extends StatelessWidget {
                           backgroundColor: Colors.transparent,
                           appBar: AppBar(
                             leading: BackButton(
-                              color: textColor,
+                              color: whiteTextColor,
                             ),
                             title: Text(
                               'Offers',
                               style: TextStyle(
-                                color: textColor,
+                                color: whiteTextColor,
                               ),
                             ),
                             centerTitle: true,

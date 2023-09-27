@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../../layouts/home/dialogs/booking_state_dialog.dart';
 import '../../layouts/home/dialogs/new_booking_dialog.dart';
-import '../constants.dart';
-import '../theme.dart';
+import '../constants/constants.dart';
+import '../theme/theme.dart';
 
 class BookingTimeButton extends StatelessWidget {
   const BookingTimeButton({
@@ -72,7 +72,9 @@ class BookingTimeButton extends StatelessWidget {
           child: Text(
             clock[index!],
             style: TextStyle(
-                fontSize: 20, fontWeight: FontWeight.w600, color: textColor),
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+                color: whiteTextColor),
           ),
         ),
       ),

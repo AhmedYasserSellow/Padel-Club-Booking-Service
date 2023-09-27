@@ -1,4 +1,4 @@
-import 'package:booking/components/constants.dart';
+import 'package:booking/components/constants/constants.dart';
 import 'package:booking/layouts/home/drawer/widgets/change_theme_button.dart';
 import 'package:booking/layouts/home/drawer/widgets/log_out.dart';
 import 'package:booking/layouts/home/drawer/widgets/main_pages.dart';

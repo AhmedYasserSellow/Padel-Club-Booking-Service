@@ -1,5 +1,5 @@
 import 'package:booking/logic/states.dart';
-import 'package:booking/components/theme.dart';
+import 'package:booking/components/theme/theme.dart';
 import 'package:booking/layouts/auth/choose_your_role.dart';
 import 'package:booking/layouts/auth/users_form.dart';
 import 'package:flutter/material.dart';
@@ -8,15 +8,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../logic/cubit.dart';
 import 'manager_form.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class AuthScreen extends StatefulWidget {
+  const AuthScreen({super.key});
   static String id = 'LoginPage';
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<AuthScreen> createState() => _AuthScreenState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _AuthScreenState extends State<AuthScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AppCubit, AppStates>(

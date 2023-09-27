@@ -1,5 +1,5 @@
 import 'package:booking/logic/cubit.dart';
-import 'package:booking/components/theme.dart';
+import 'package:booking/components/theme/theme.dart';
 import 'package:booking/components/widgets/default_button.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -41,7 +41,7 @@ class OffersListBuilder extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                       fontSize: 24,
                       color: isOpenedFromDashboard
-                          ? textColor
+                          ? whiteTextColor
                           : AppCubit.get(context).iconAndTextColor,
                     ),
                   ),
@@ -106,7 +106,7 @@ class OffersListBuilder extends StatelessWidget {
                   : 'There is no offers right now',
               style: TextStyle(
                 color: isOpenedFromDashboard
-                    ? textColor
+                    ? whiteTextColor
                     : AppCubit.get(context).iconAndTextColor,
                 fontSize: 20,
               ),

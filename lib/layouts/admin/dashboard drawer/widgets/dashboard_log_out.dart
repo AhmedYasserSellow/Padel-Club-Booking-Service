@@ -1,6 +1,6 @@
 import 'package:booking/layouts/admin/dashboard%20drawer/widgets/dashboard_drawer_item.dart';
 import 'package:booking/logic/cubit.dart';
-import 'package:booking/components/constants.dart';
+import 'package:booking/components/constants/constants.dart';
 import 'package:booking/layouts/auth/login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -22,7 +22,7 @@ class LogOutForDashboard extends StatelessWidget {
         FirebaseAuth.instance.signOut();
         if (context.mounted) {
           AppCubit.get(context).mainPagesIndex = 0;
-          AppCubit.get(context).dashboardPAgesIndex = 0;
+          AppCubit.get(context).dashboardPagesIndex = 0;
           AppCubit.get(context).loginPageState(0);
           FirebaseMessaging.instance.unsubscribeFromTopic('notify');
           FirebaseMessaging.instance.unsubscribeFromTopic(prefs.getString(id)!);
@@ -32,7 +32,7 @@ class LogOutForDashboard extends StatelessWidget {
           Navigator.pop(context);
           Navigator.pushReplacementNamed(
             context,
-            LoginPage.id,
+            AuthScreen.id,
           );
         }
       },

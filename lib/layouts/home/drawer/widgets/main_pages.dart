@@ -1,5 +1,5 @@
+import 'package:booking/components/routes/app_routes.dart';
 import 'package:booking/logic/cubit.dart';
-import 'package:booking/components/constants.dart';
 import 'package:booking/layouts/home/drawer/widgets/drawer_item.dart';
 import 'package:flutter/material.dart';
 
@@ -39,7 +39,7 @@ class _MainPagesState extends State<MainPages> {
                 backgroundColor: Colors.transparent,
                 isExpanded: AppCubit.get(context).isExpanded,
                 body: ListView.builder(
-                  itemCount: mainPages(
+                  itemCount: appPages(
                     manager: widget.isManager,
                     firebaseID: widget.firebaseID,
                     myName: widget.myName,
@@ -48,13 +48,13 @@ class _MainPagesState extends State<MainPages> {
                   physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (context, index) {
                     return DrawerItem(
-                      text: mainPages(
+                      text: appPages(
                         manager: widget.isManager,
                         firebaseID: widget.firebaseID,
                         myName: widget.myName,
                       )[index]
                           .name,
-                      icon: mainPages(
+                      icon: appPages(
                         manager: widget.isManager,
                         firebaseID: widget.firebaseID,
                         myName: widget.myName,

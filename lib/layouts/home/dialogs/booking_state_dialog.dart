@@ -1,7 +1,8 @@
-import 'package:booking/components/constants.dart';
-import 'package:booking/components/theme.dart';
+import 'package:booking/components/constants/constants.dart';
+import 'package:booking/components/theme/theme.dart';
 import 'package:booking/components/widgets/back_button.dart';
 import 'package:booking/components/widgets/default_button.dart';
+import 'package:booking/components/widgets/no_internet_snackbar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -1,5 +1,5 @@
 import 'package:booking/logic/cubit.dart';
-import 'package:booking/components/theme.dart';
+import 'package:booking/components/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 class ChooseRole extends StatelessWidget {
@@ -13,7 +13,7 @@ class ChooseRole extends StatelessWidget {
           'Are you a ... ?',
           style: TextStyle(
             fontSize: 24,
-            color: textColor,
+            color: whiteTextColor,
           ),
         ),
         const SizedBox(

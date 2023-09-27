@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../components/theme.dart';
+import '../components/theme/theme.dart';
 import 'states.dart';
 
 class AppCubit extends Cubit<AppStates> {
@@ -10,11 +10,12 @@ class AppCubit extends Cubit<AppStates> {
 
   static AppCubit get(context) => BlocProvider.of(context);
   int mainPagesIndex = 0;
-  int dashboardPAgesIndex = 0;
+  int dashboardPagesIndex = 0;
   int dialogTabIndex = 1;
   int monthDB = 1;
   int dayDB = 1;
   int indexDB = 0;
+  int onBoardingIndex = 0;
   DateTime focusedDay = DateTime.now();
   DateTime today = DateTime.now();
 
@@ -29,6 +30,7 @@ class AppCubit extends Cubit<AppStates> {
   bool isExpanded = false;
   bool isLoading = false;
 
+// Get Theme
   Future<bool> getTheme() async {
     final prefs = await SharedPreferences.getInstance();
 
@@ -83,16 +85,16 @@ class AppCubit extends Cubit<AppStates> {
     emit(ChangeTheme());
   }
 
-//Navigate in Bottom Nav bar for home layout
+//Navigate in Drawer for home layout
   void navigateToMainPages(BuildContext context, int index) {
     mainPagesIndex = index;
     Navigator.pop(context);
     emit(NavigateToAnotherMainPage());
   }
 
-//Navigate in Bottom Nav bar for dashboard layout
+//Navigate in Drawer for dashboard layout
   void navigateToDashboardPages(BuildContext context, int index) {
-    dashboardPAgesIndex = index;
+    dashboardPagesIndex = index;
     Navigator.pop(context);
     emit(ChangeBottomNavIndexForDB());
   }
@@ -109,7 +111,13 @@ class AppCubit extends Cubit<AppStates> {
     emit(ButtonLoadingState());
   }
 
+//Profile Name Changer
   void changeName() async {
     emit(NameChanged());
+  }
+
+  //On boarding index changer
+  void changeOnBoardingScreenIndex(int index) {
+    onBoardingIndex = index;
   }
 }

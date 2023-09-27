@@ -1,6 +1,8 @@
-import 'package:booking/components/constants.dart';
-import 'package:booking/components/notifications.dart';
-import 'package:booking/components/theme.dart';
+import 'package:booking/components/constants/constants.dart';
+import 'package:booking/components/services/notifications.dart';
+import 'package:booking/components/theme/dark_theme.dart';
+import 'package:booking/components/theme/light_theme.dart';
+import 'package:booking/components/routes/app_routes.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -11,7 +13,7 @@ import 'logic/states.dart';
 
 import 'firebase_options.dart';
 
-import 'layouts/home/screens/splash screen/splash_screen.dart';
+import 'layouts/splash/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -55,7 +57,7 @@ class MyApp extends StatelessWidget {
                 : darkTheme,
             debugShowCheckedModeBanner: false,
             routes: appRoutes,
-            initialRoute: Splash.id,
+            initialRoute: SplashScreen.id,
           );
         },
       ),

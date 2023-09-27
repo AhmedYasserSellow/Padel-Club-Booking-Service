@@ -1,4 +1,4 @@
-import 'package:booking/components/theme.dart';
+import 'package:booking/components/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 Widget defaultButton({

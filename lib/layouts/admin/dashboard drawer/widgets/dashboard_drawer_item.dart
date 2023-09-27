@@ -1,4 +1,4 @@
-import 'package:booking/components/theme.dart';
+import 'package:booking/components/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 class DashBoardDrawerItem extends StatelessWidget {
@@ -18,12 +18,12 @@ class DashBoardDrawerItem extends StatelessWidget {
     return ListTile(
       selectedColor: const Color(0xff000000),
       titleTextStyle: TextStyle(
-        color: textColor,
+        color: whiteTextColor,
       ),
       selected: isSelected,
       leading: Icon(
         icon,
-        color: isSelected ? Colors.black : textColor,
+        color: isSelected ? Colors.black : whiteTextColor,
       ),
       title: Text(text),
       onTap: onTap,

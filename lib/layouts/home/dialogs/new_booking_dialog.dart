@@ -1,6 +1,6 @@
-import 'package:booking/components/constants.dart';
-import 'package:booking/components/notifications.dart';
-import 'package:booking/components/theme.dart';
+import 'package:booking/components/constants/constants.dart';
+import 'package:booking/components/services/notifications.dart';
+import 'package:booking/components/theme/theme.dart';
 import 'package:booking/components/widgets/back_button.dart';
 import 'package:booking/components/widgets/text_form_field.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -120,7 +120,7 @@ void bookingDialog(
                                   (states) => availableColor)),
                           child: Text(
                             'Book',
-                            style: TextStyle(color: textColor),
+                            style: TextStyle(color: whiteTextColor),
                           ),
                           onPressed: () {
                             if (formKey.currentState!.validate()) {

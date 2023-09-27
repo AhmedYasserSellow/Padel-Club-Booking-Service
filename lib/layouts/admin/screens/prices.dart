@@ -1,7 +1,7 @@
 import 'package:booking/logic/cubit.dart';
 import 'package:booking/logic/states.dart';
-import 'package:booking/components/notifications.dart';
-import 'package:booking/components/theme.dart';
+import 'package:booking/components/services/notifications.dart';
+import 'package:booking/components/theme/theme.dart';
 import 'package:booking/components/widgets/default_button.dart';
 import 'package:booking/components/widgets/text_form_field.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -41,7 +41,7 @@ class PricesScreen extends StatelessWidget {
                 children: [
                   Text(
                     'Prices',
-                    style: TextStyle(color: textColor),
+                    style: TextStyle(color: whiteTextColor),
                   ),
                   const SizedBox(
                     height: 12,
@@ -62,10 +62,10 @@ class PricesScreen extends StatelessWidget {
                           label: 'Day',
                           prefix: Icons.numbers,
                           context: context,
-                          color: textColor,
-                          textStyleColor: textColor,
-                          labelColor: textColor,
-                          focusColor: textColor,
+                          color: whiteTextColor,
+                          textStyleColor: whiteTextColor,
+                          labelColor: whiteTextColor,
+                          focusColor: whiteTextColor,
                         ),
                       ),
                       const SizedBox(
@@ -85,10 +85,10 @@ class PricesScreen extends StatelessWidget {
                           label: 'Night',
                           prefix: Icons.numbers,
                           context: context,
-                          color: textColor,
-                          textStyleColor: textColor,
-                          labelColor: textColor,
-                          focusColor: textColor,
+                          color: whiteTextColor,
+                          textStyleColor: whiteTextColor,
+                          labelColor: whiteTextColor,
+                          focusColor: whiteTextColor,
                         ),
                       ),
                     ],
@@ -98,7 +98,7 @@ class PricesScreen extends StatelessWidget {
                   ),
                   Text(
                     'Night Time 24H Format',
-                    style: TextStyle(color: textColor),
+                    style: TextStyle(color: whiteTextColor),
                   ),
                   const SizedBox(
                     height: 12,
@@ -122,10 +122,10 @@ class PricesScreen extends StatelessWidget {
                           label: 'From',
                           prefix: Icons.numbers,
                           context: context,
-                          color: textColor,
-                          textStyleColor: textColor,
-                          labelColor: textColor,
-                          focusColor: textColor,
+                          color: whiteTextColor,
+                          textStyleColor: whiteTextColor,
+                          labelColor: whiteTextColor,
+                          focusColor: whiteTextColor,
                         ),
                       ),
                       const SizedBox(
@@ -151,10 +151,10 @@ class PricesScreen extends StatelessWidget {
                           label: 'To',
                           prefix: Icons.numbers,
                           context: context,
-                          color: textColor,
-                          textStyleColor: textColor,
-                          labelColor: textColor,
-                          focusColor: textColor,
+                          color: whiteTextColor,
+                          textStyleColor: whiteTextColor,
+                          labelColor: whiteTextColor,
+                          focusColor: whiteTextColor,
                         ),
                       ),
                     ],
@@ -179,7 +179,7 @@ class PricesScreen extends StatelessWidget {
                           content: Text(
                             'Prices Changed',
                             style: TextStyle(
-                              color: textColor,
+                              color: whiteTextColor,
                             ),
                           ),
                         ),

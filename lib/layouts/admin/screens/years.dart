@@ -1,4 +1,4 @@
-import 'package:booking/components/theme.dart';
+import 'package:booking/components/theme/theme.dart';
 import 'package:booking/components/widgets/default_button.dart';
 import 'package:booking/components/widgets/text_form_field.dart';
 import 'package:flutter/material.dart';
@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../logic/cubit.dart';
 import '../../../logic/states.dart';
-import '../db.dart';
+import '../functions/create_database_functions.dart';
 
 class AddYearsToDB extends StatelessWidget {
   AddYearsToDB({super.key});
@@ -23,7 +23,7 @@ class AddYearsToDB extends StatelessWidget {
           children: [
             Text(
               'Year',
-              style: TextStyle(color: textColor),
+              style: TextStyle(color: whiteTextColor),
             ),
             const SizedBox(
               height: 12,
@@ -44,10 +44,10 @@ class AddYearsToDB extends StatelessWidget {
               label: 'Year',
               prefix: Icons.numbers,
               context: context,
-              color: textColor,
-              textStyleColor: textColor,
-              focusColor: textColor,
-              labelColor: textColor,
+              color: whiteTextColor,
+              textStyleColor: whiteTextColor,
+              focusColor: whiteTextColor,
+              labelColor: whiteTextColor,
             ),
             const SizedBox(
               height: 12,
