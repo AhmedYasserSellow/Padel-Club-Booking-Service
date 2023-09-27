@@ -1,7 +1,7 @@
 import 'package:booking/components/constants.dart';
 import 'package:booking/components/theme.dart';
 import 'package:booking/layouts/auth/login_page.dart';
-import 'package:booking/screens/on%20boarding%20screen/widgets/screens_list.dart';
+import 'package:booking/layouts/home/screens/on%20boarding%20screen/widgets/screens_list.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-import '../../dialogs/booking_state_dialog.dart';
-import '../../dialogs/new_booking_dialog.dart';
+import '../../layouts/home/dialogs/booking_state_dialog.dart';
+import '../../layouts/home/dialogs/new_booking_dialog.dart';
 import '../constants.dart';
 import '../theme.dart';
 

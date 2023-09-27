@@ -1,5 +1,5 @@
-import 'package:booking/bloc/cubit.dart';
-import 'package:booking/bloc/states.dart';
+import 'package:booking/logic/cubit.dart';
+import 'package:booking/logic/states.dart';
 import 'package:booking/components/notifications.dart';
 import 'package:booking/components/theme.dart';
 import 'package:booking/components/widgets/default_button.dart';

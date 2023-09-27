@@ -6,8 +6,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../bloc/cubit.dart';
-import '../bloc/states.dart';
+import '../../../logic/cubit.dart';
+import '../../../logic/states.dart';
 
 void pendingDialog(
   BuildContext context,

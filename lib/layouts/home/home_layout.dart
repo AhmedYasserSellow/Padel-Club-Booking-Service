@@ -1,13 +1,13 @@
 import 'package:booking/components/constants.dart';
 import 'package:booking/components/notifications.dart';
-import 'package:booking/drawer/drawer_view.dart';
+import 'package:booking/layouts/home/drawer/drawer_view.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../bloc/cubit.dart';
-import '../bloc/states.dart';
+import '../../logic/cubit.dart';
+import '../../logic/states.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({

@@ -1,11 +1,11 @@
-import 'package:booking/bloc/states.dart';
+import 'package:booking/logic/states.dart';
 import 'package:booking/components/theme.dart';
 import 'package:booking/layouts/auth/choose_your_role.dart';
 import 'package:booking/layouts/auth/users_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../bloc/cubit.dart';
+import '../../logic/cubit.dart';
 import 'manager_form.dart';
 
 class LoginPage extends StatefulWidget {

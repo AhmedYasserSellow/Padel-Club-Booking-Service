@@ -1,6 +1,6 @@
-import 'package:booking/bloc/cubit.dart';
-import 'package:booking/bloc/states.dart';
-import 'package:booking/screens/offers%20screen/offers_list_builder.dart';
+import 'package:booking/logic/cubit.dart';
+import 'package:booking/logic/states.dart';
+import 'package:booking/layouts/home/screens/offers%20screen/offers_list_builder.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -1,4 +1,4 @@
-import 'package:booking/bloc/cubit.dart';
+import 'package:booking/logic/cubit.dart';
 import 'package:booking/components/theme.dart';
 import 'package:flutter/material.dart';
 

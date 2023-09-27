@@ -1,11 +1,11 @@
-import 'package:booking/bloc/cubit.dart';
-import 'package:booking/bloc/states.dart';
+import 'package:booking/logic/cubit.dart';
+import 'package:booking/logic/states.dart';
 import 'package:booking/components/constants.dart';
 import 'package:booking/components/notifications.dart';
 import 'package:booking/components/theme.dart';
 import 'package:booking/components/widgets/default_button.dart';
 import 'package:booking/components/widgets/text_form_field.dart';
-import 'package:booking/layouts/home_layout.dart';
+import 'package:booking/layouts/home/home_layout.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';

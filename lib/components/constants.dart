@@ -1,19 +1,17 @@
 import 'package:booking/backend/screens/notification.dart';
 import 'package:booking/components/models/page_model.dart';
-import 'package:booking/screens/about%20us/about_us_screen.dart';
-import 'package:booking/screens/booking%20screen/booking_screen.dart';
-import 'package:booking/screens/chat%20screen/chat_screen.dart';
-import 'package:booking/screens/chat%20screen/chats_screen.dart';
-import 'package:booking/screens/giveaway%20screen/give_away_screen.dart';
-import 'package:booking/screens/offers%20screen/offers_screen.dart';
-import 'package:booking/shimmer/shimmer_booking_screen.dart';
-import 'package:booking/shimmer/shimmer_offers_screen.dart';
+import 'package:booking/layouts/home/screens/about%20us/about_us_screen.dart';
+import 'package:booking/layouts/home/screens/booking%20screen/booking_screen.dart';
+import 'package:booking/layouts/home/screens/chat%20screen/chat_screen.dart';
+import 'package:booking/layouts/home/screens/chat%20screen/chats_screen.dart';
+import 'package:booking/layouts/home/screens/giveaway%20screen/give_away_screen.dart';
+import 'package:booking/layouts/home/screens/offers%20screen/offers_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 import '../backend/control_panel.dart';
-import '../layouts/home_layout.dart';
+import '../layouts/home/home_layout.dart';
 import '../layouts/auth/login_page.dart';
-import '../screens/splash screen/splash_screen.dart';
+import '../layouts/home/screens/splash screen/splash_screen.dart';
 import 'theme.dart';
 
 int finalYear = DateTime.now().year + 1;
@@ -98,7 +96,6 @@ List<PageModel> mainPages({
         mainWidget: BookingScreen(
           firebaseID: firebaseID,
         ),
-        shimmerWidget: const BookingShimmer(),
       ),
       PageModel(
         icon: Icons.local_offer,
@@ -106,23 +103,17 @@ List<PageModel> mainPages({
         mainWidget: const OffersScreen(
           removeFeature: false,
         ),
-        shimmerWidget: const OffersShimmer(),
       ),
       PageModel(
         icon: Icons.card_giftcard,
         name: 'Giveaways',
         mainWidget: const GiveAwasyScreen(),
-        shimmerWidget: const GiveAwasyScreen(),
       ),
       manager
           ? PageModel(
               icon: Icons.chat,
               name: 'Chats',
               mainWidget: ChatsScreen(
-                manager: manager,
-                myName: myName,
-              ),
-              shimmerWidget: ChatsScreen(
                 manager: manager,
                 myName: myName,
               ),
@@ -135,17 +126,11 @@ List<PageModel> mainPages({
                 id: firebaseID,
                 manager: manager,
               ),
-              shimmerWidget: ChatScreen(
-                name: 'Players Service',
-                id: id,
-                manager: manager,
-              ),
             ),
       PageModel(
         icon: Icons.info,
         name: 'Contact Us',
         mainWidget: const ContactUsScreen(),
-        shimmerWidget: const ContactUsScreen(),
       ),
     ];
 

@@ -6,12 +6,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'bloc/cubit.dart';
-import 'bloc/states.dart';
+import 'logic/cubit.dart';
+import 'logic/states.dart';
 
 import 'firebase_options.dart';
 
-import 'screens/splash screen/splash_screen.dart';
+import 'layouts/home/screens/splash screen/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

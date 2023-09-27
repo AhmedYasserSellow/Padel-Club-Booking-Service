@@ -1,6 +1,6 @@
-import 'package:booking/bloc/cubit.dart';
+import 'package:booking/logic/cubit.dart';
 import 'package:booking/components/constants.dart';
-import 'package:booking/drawer/widgets/drawer_item.dart';
+import 'package:booking/layouts/home/drawer/widgets/drawer_item.dart';
 import 'package:flutter/material.dart';
 
 class MainPages extends StatefulWidget {

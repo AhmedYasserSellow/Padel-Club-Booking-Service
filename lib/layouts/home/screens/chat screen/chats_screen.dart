@@ -1,6 +1,6 @@
-import 'package:booking/bloc/cubit.dart';
+import 'package:booking/logic/cubit.dart';
 
-import 'package:booking/screens/chat%20screen/chat_screen.dart';
+import 'package:booking/layouts/home/screens/chat%20screen/chat_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 

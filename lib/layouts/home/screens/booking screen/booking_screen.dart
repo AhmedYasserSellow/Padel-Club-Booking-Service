@@ -1,9 +1,9 @@
 import 'package:booking/components/constants.dart';
-import 'package:booking/screens/booking%20screen/booking_calendar_builder.dart';
+import 'package:booking/layouts/home/screens/booking%20screen/booking_calendar_builder.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
-import '../../bloc/cubit.dart';
+import '../../../../logic/cubit.dart';
 
 class BookingScreen extends StatefulWidget {
   const BookingScreen({

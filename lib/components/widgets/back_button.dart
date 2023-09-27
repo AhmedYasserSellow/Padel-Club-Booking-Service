@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../bloc/cubit.dart';
+import '../../logic/cubit.dart';
 
 class MyBackButton extends StatelessWidget {
   const MyBackButton({super.key});

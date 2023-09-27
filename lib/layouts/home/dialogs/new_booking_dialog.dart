@@ -6,7 +6,7 @@ import 'package:booking/components/widgets/text_form_field.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../bloc/cubit.dart';
+import '../../../logic/cubit.dart';
 
 void bookingDialog(
     BuildContext context,

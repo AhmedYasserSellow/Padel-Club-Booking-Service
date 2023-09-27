@@ -1,4 +1,4 @@
-import 'package:booking/bloc/cubit.dart';
+import 'package:booking/logic/cubit.dart';
 import 'package:booking/components/theme.dart';
 import 'package:booking/components/widgets/default_button.dart';
 import 'package:cached_network_image/cached_network_image.dart';

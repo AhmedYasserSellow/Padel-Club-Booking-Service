@@ -4,7 +4,7 @@ import 'package:booking/backend/screens/offers.dart';
 import 'package:booking/backend/screens/pin_times.dart';
 import 'package:booking/backend/screens/prices.dart';
 import 'package:booking/backend/screens/years.dart';
-import 'package:booking/bloc/cubit.dart';
+import 'package:booking/logic/cubit.dart';
 import 'package:booking/components/models/page_model.dart';
 import 'package:booking/components/theme.dart';
 import 'package:flutter/material.dart';

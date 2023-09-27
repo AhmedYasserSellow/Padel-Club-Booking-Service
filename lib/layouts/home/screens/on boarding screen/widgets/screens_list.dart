@@ -1,4 +1,4 @@
-import 'package:booking/screens/on%20boarding%20screen/widgets/on_boarding_info_item.dart';
+import 'package:booking/layouts/home/screens/on%20boarding%20screen/widgets/on_boarding_info_item.dart';
 
 List<OnBoardingInfoItem> onBoardingInfoSection = const [
   OnBoardingInfoItem(

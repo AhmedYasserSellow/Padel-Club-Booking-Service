@@ -4,8 +4,8 @@ import 'package:booking/components/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../bloc/cubit.dart';
-import '../bloc/states.dart';
+import '../logic/cubit.dart';
+import '../logic/states.dart';
 
 class DashBoard extends StatefulWidget {
   const DashBoard({

@@ -1,4 +1,4 @@
-import 'package:booking/drawer/widgets/user_manager_list_tile.dart';
+import 'package:booking/layouts/home/drawer/widgets/user_manager_list_tile.dart';
 import 'package:flutter/material.dart';
 
 class ProfileInfo extends StatelessWidget {
