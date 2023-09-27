@@ -1,3 +1,4 @@
+import 'package:booking/layouts/home/screens/offers%20screen/widgets/no_offers_screen.dart';
 import 'package:booking/logic/cubit.dart';
 import 'package:booking/core/theme/theme.dart';
 import 'package:booking/core/widgets/default_button.dart';
@@ -85,35 +86,7 @@ class OffersListBuilder extends StatelessWidget {
         ),
       );
     } else {
-      return Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image(
-              image: AssetImage(
-                AppCubit.get(context).brightness == Brightness.light
-                    ? 'assets/no_offer.png'
-                    : 'assets/no_offer_dark_mode.png',
-              ),
-              width: MediaQuery.of(context).size.width / 2,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Text(
-              isOpenedFromDashboard
-                  ? 'Add offers little shit'
-                  : 'There is no offers right now',
-              style: TextStyle(
-                color: isOpenedFromDashboard
-                    ? whiteTextColor
-                    : AppCubit.get(context).iconAndTextColor,
-                fontSize: 20,
-              ),
-            )
-          ],
-        ),
-      );
+      return NoOffersScreen(isOpenedFromDashboard: isOpenedFromDashboard);
     }
   }
 }

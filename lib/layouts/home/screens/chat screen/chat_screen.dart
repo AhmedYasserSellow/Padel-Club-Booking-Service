@@ -1,8 +1,8 @@
+import 'package:booking/layouts/home/screens/chat%20screen/widgets/chat_bubble.dart';
 import 'package:booking/logic/cubit.dart';
 import 'package:booking/core/constants/constants.dart';
 import 'package:booking/core/services/notifications.dart';
 import 'package:booking/core/widgets/text_form_field.dart';
-import 'package:booking/layouts/home/screens/chat%20screen/chat_bubble.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -85,12 +85,7 @@ class ChatScreen extends StatelessWidget {
                                 } else {
                                   requiredID = id;
                                 }
-                                // DateTime date =
-                                //     DateTime.fromMicrosecondsSinceEpoch(snapshot
-                                //         .data!
-                                //         .docs[index]['Created at']
-                                //         .microsecondsSinceEpoch);
-                                // print(date.hour);
+
                                 return ChatBubble(
                                   message: snapshot.data!.docs[index]
                                       ['Message'],

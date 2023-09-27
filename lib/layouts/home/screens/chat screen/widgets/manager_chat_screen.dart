@@ -1,5 +1,5 @@
+import 'package:booking/layouts/home/screens/chat%20screen/widgets/no_users_screen.dart';
 import 'package:booking/logic/cubit.dart';
-
 import 'package:booking/layouts/home/screens/chat%20screen/chat_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -69,41 +69,8 @@ class ChatsScreen extends StatelessWidget {
                 itemCount: users.length,
               );
             } else {
-              return Center(
-                child: SingleChildScrollView(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image(
-                        image: AssetImage(
-                          AppCubit.get(context).brightness == Brightness.light
-                              ? 'assets/no_offer.png'
-                              : 'assets/no_offer_dark_mode.png',
-                        ),
-                        width: MediaQuery.of(context).size.width / 2,
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        'There is no users right now',
-                        style: TextStyle(
-                          color: AppCubit.get(context).iconAndTextColor,
-                          fontSize: 20,
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              );
+              return const NoUsersScreen();
             }
-          } else if (userSnapshot.hasError) {
-            return const Center(
-              child: Text(
-                'No Internet Connection',
-                style: TextStyle(fontSize: 20),
-              ),
-            );
           } else {
             return const Center(
               child: CircularProgressIndicator(),
