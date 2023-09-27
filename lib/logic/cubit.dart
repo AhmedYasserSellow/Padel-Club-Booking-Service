@@ -1,6 +1,6 @@
 import 'package:booking/core/constants/constants.dart';
 import 'package:booking/core/routes/app_routes.dart';
-import 'package:booking/layouts/auth/auth_screen.dart';
+import 'package:booking/layouts/auth/auth_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -129,7 +129,7 @@ class AppCubit extends Cubit<AppStates> {
       if (AppCubit.get(context).onBoardingIndex == onBoardingPages.length) {
         prefs.setBool(isOnBoarding, false);
         if (context.mounted) {
-          Navigator.pushReplacementNamed(context, AuthScreen.id);
+          Navigator.pushReplacementNamed(context, AuthLayout.id);
         }
       } else {
         emit(OnBoardingPageChanged());

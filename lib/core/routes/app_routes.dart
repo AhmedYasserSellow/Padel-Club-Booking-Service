@@ -1,12 +1,12 @@
 import 'package:booking/core/models/page_model.dart';
-import 'package:booking/layouts/admin/dashboard_view.dart';
+import 'package:booking/layouts/admin/admin_layout.dart';
 import 'package:booking/layouts/admin/screens/academy.dart';
 import 'package:booking/layouts/admin/screens/notification.dart';
 import 'package:booking/layouts/admin/screens/offers.dart';
 import 'package:booking/layouts/admin/screens/pin_times.dart';
 import 'package:booking/layouts/admin/screens/prices.dart';
 import 'package:booking/layouts/admin/screens/years.dart';
-import 'package:booking/layouts/auth/auth_screen.dart';
+import 'package:booking/layouts/auth/auth_layout.dart';
 import 'package:booking/layouts/home/home_layout.dart';
 import 'package:booking/layouts/home/screens/about%20us%20screen/about_us_screen.dart';
 import 'package:booking/layouts/home/screens/booking%20screen/booking_screen.dart';
@@ -14,15 +14,15 @@ import 'package:booking/layouts/home/screens/chat%20screen/chat_screen.dart';
 import 'package:booking/layouts/home/screens/chat%20screen/widgets/manager_chat_screen.dart';
 import 'package:booking/layouts/home/screens/giveaway%20screen/give_away_screen.dart';
 import 'package:booking/layouts/home/screens/offers%20screen/offers_screen.dart';
-import 'package:booking/layouts/splash/splash_screen.dart';
+import 'package:booking/layouts/splash/splash_layout.dart';
 import 'package:booking/layouts/on%20boarding/widgets/on_boarding_info_item.dart';
 import 'package:flutter/material.dart';
 
 Map<String, Widget Function(BuildContext)> appRoutes = {
-  SplashScreen.id: (context) => const SplashScreen(),
-  HomeScreen.id: (context) => const HomeScreen(),
-  AuthScreen.id: (context) => const AuthScreen(),
-  DashBoardView.id: (context) => const DashBoardView(),
+  SplashLayout.id: (context) => const SplashLayout(),
+  HomeLayout.id: (context) => const HomeLayout(),
+  AuthLayout.id: (context) => const AuthLayout(),
+  AdminView.id: (context) => const AdminView(),
 };
 List<PageModel> appPages({
   required bool manager,

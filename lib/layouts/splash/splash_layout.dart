@@ -1,21 +1,21 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:booking/core/constants/constants.dart';
 import 'package:booking/layouts/home/home_layout.dart';
-import 'package:booking/layouts/auth/auth_screen.dart';
-import 'package:booking/layouts/on%20boarding/on_boarding_screen.dart';
+import 'package:booking/layouts/auth/auth_layout.dart';
+import 'package:booking/layouts/on%20boarding/on_boarding_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../logic/cubit.dart';
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
-  static String id = 'SplashScreen';
+class SplashLayout extends StatefulWidget {
+  const SplashLayout({super.key});
+  static String id = 'SplashLayout';
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  State<SplashLayout> createState() => _SplashLayoutState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _SplashLayoutState extends State<SplashLayout> {
   bool loggedIn = false;
   bool onBoarding = true;
   @override
@@ -43,10 +43,10 @@ class _SplashScreenState extends State<SplashScreen> {
       splashIconSize: MediaQuery.of(context).size.width * 3 / 4,
       duration: 1500,
       nextScreen: onBoarding
-          ? const OnBoardingScreen()
+          ? const OnBoardingLayout()
           : loggedIn
-              ? const HomeScreen()
-              : const AuthScreen(),
+              ? const HomeLayout()
+              : const AuthLayout(),
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
     );
   }

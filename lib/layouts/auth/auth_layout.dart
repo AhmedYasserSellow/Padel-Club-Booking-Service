@@ -8,15 +8,15 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../logic/cubit.dart';
 
-class AuthScreen extends StatefulWidget {
-  const AuthScreen({super.key});
-  static String id = 'LoginPage';
+class AuthLayout extends StatefulWidget {
+  const AuthLayout({super.key});
+  static String id = 'AuthLayout';
 
   @override
-  State<AuthScreen> createState() => _AuthScreenState();
+  State<AuthLayout> createState() => _AuthLayoutState();
 }
 
-class _AuthScreenState extends State<AuthScreen> {
+class _AuthLayoutState extends State<AuthLayout> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AppCubit, AppStates>(

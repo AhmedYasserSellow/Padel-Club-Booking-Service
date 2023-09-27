@@ -7,17 +7,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../logic/cubit.dart';
 import '../../logic/states.dart';
 
-class DashBoardView extends StatefulWidget {
-  const DashBoardView({
+class AdminView extends StatefulWidget {
+  const AdminView({
     super.key,
   });
-  static String id = 'DashBoard';
+  static String id = 'Admin';
 
   @override
-  State<DashBoardView> createState() => _DashBoardViewState();
+  State<AdminView> createState() => _AdminViewState();
 }
 
-class _DashBoardViewState extends State<DashBoardView> {
+class _AdminViewState extends State<AdminView> {
   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override

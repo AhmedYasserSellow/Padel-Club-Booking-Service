@@ -1,4 +1,4 @@
-import 'package:booking/layouts/admin/dashboard_view.dart';
+import 'package:booking/layouts/admin/admin_layout.dart';
 import 'package:booking/layouts/home/dialogs/profile_dialog.dart';
 import 'package:booking/layouts/home/drawer/widgets/drawer_item.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +22,7 @@ class UserAndManagerListTile extends StatelessWidget {
           Navigator.pop(context);
           Navigator.pushReplacementNamed(
             context,
-            DashBoardView.id,
+            AdminView.id,
             arguments: {
               'name': name,
               'phone': phone,

@@ -13,7 +13,7 @@ import 'logic/states.dart';
 
 import 'firebase_options.dart';
 
-import 'layouts/splash/splash_screen.dart';
+import 'layouts/splash/splash_layout.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -57,7 +57,7 @@ class MyApp extends StatelessWidget {
                 : darkTheme,
             debugShowCheckedModeBanner: false,
             routes: appRoutes,
-            initialRoute: SplashScreen.id,
+            initialRoute: SplashLayout.id,
           );
         },
       ),

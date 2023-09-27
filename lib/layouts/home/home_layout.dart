@@ -10,17 +10,17 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../logic/cubit.dart';
 import '../../logic/states.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({
+class HomeLayout extends StatefulWidget {
+  const HomeLayout({
     super.key,
   });
-  static String id = 'HomePage';
+  static String id = 'HomeLayout';
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<HomeLayout> createState() => _HomeLayoutState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeLayoutState extends State<HomeLayout> {
   bool manager = false;
   String name = '';
   String phone = '';

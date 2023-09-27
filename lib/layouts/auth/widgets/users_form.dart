@@ -136,7 +136,7 @@ class _UserFormState extends State<UserForm> {
                         if (context.mounted) {
                           Navigator.pushReplacementNamed(
                             context,
-                            HomeScreen.id,
+                            HomeLayout.id,
                           );
                           AppCubit.get(context).buttonIsLoading(false);
                         }

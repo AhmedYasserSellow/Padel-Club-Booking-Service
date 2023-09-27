@@ -192,7 +192,7 @@ class _ManagersFormState extends State<ManagersForm> {
                                   if (context.mounted) {
                                     Navigator.pushReplacementNamed(
                                       context,
-                                      HomeScreen.id,
+                                      HomeLayout.id,
                                     );
                                     AppCubit.get(context)
                                         .buttonIsLoading(false);
