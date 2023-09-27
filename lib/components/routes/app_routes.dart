@@ -1,11 +1,12 @@
 import 'package:booking/components/models/page_model.dart';
 import 'package:booking/layouts/admin/dashboard_view.dart';
 import 'package:booking/layouts/admin/screens/academy.dart';
+import 'package:booking/layouts/admin/screens/notification.dart';
 import 'package:booking/layouts/admin/screens/offers.dart';
 import 'package:booking/layouts/admin/screens/pin_times.dart';
 import 'package:booking/layouts/admin/screens/prices.dart';
 import 'package:booking/layouts/admin/screens/years.dart';
-import 'package:booking/layouts/auth/login_page.dart';
+import 'package:booking/layouts/auth/auth_screen.dart';
 import 'package:booking/layouts/home/home_layout.dart';
 import 'package:booking/layouts/home/screens/about%20us/about_us_screen.dart';
 import 'package:booking/layouts/home/screens/booking%20screen/booking_screen.dart';
@@ -97,5 +98,10 @@ List<PageModel> dashboardPages = [
     icon: Icons.price_change,
     name: 'Prices',
     mainWidget: PricesScreen(),
-  )
+  ),
+  PageModel(
+    icon: Icons.notifications,
+    name: 'Notifications',
+    mainWidget: const NotificationScreen(),
+  ),
 ];

@@ -65,7 +65,7 @@ class _DashboardPagesState extends State<DashboardPages> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Divider(
-            color: AppCubit.get(context).iconAndTextColor,
+            color: whiteTextColor,
           ),
         )
       ],
