@@ -1,10 +1,10 @@
-import 'package:booking/components/widgets/no_internet_snackbar.dart';
+import 'package:booking/core/widgets/no_internet_snackbar.dart';
 import 'package:booking/logic/cubit.dart';
 import 'package:booking/logic/states.dart';
-import 'package:booking/components/constants/constants.dart';
-import 'package:booking/components/theme/theme.dart';
-import 'package:booking/components/widgets/default_button.dart';
-import 'package:booking/components/widgets/text_form_field.dart';
+import 'package:booking/core/constants/constants.dart';
+import 'package:booking/core/theme/theme.dart';
+import 'package:booking/core/widgets/default_button.dart';
+import 'package:booking/core/widgets/text_form_field.dart';
 import 'package:booking/layouts/home/home_layout.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';

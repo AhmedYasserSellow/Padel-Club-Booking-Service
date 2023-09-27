@@ -1,8 +1,8 @@
-import 'package:booking/components/constants/constants.dart';
-import 'package:booking/components/services/notifications.dart';
-import 'package:booking/components/theme/theme.dart';
-import 'package:booking/components/widgets/back_button.dart';
-import 'package:booking/components/widgets/text_form_field.dart';
+import 'package:booking/core/constants/constants.dart';
+import 'package:booking/core/services/notifications.dart';
+import 'package:booking/core/theme/theme.dart';
+import 'package:booking/core/widgets/back_button.dart';
+import 'package:booking/core/widgets/text_form_field.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';

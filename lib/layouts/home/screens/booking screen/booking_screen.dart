@@ -1,4 +1,4 @@
-import 'package:booking/components/constants/constants.dart';
+import 'package:booking/core/constants/constants.dart';
 import 'package:booking/layouts/home/screens/booking%20screen/booking_calendar_builder.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';

@@ -1,4 +1,4 @@
-import 'package:booking/components/theme/theme.dart';
+import 'package:booking/core/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 void noInternetSnackBar(BuildContext context) {

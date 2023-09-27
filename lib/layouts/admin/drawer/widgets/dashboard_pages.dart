@@ -1,7 +1,7 @@
-import 'package:booking/components/routes/app_routes.dart';
-import 'package:booking/layouts/admin/dashboard%20drawer/widgets/dashboard_drawer_item.dart';
+import 'package:booking/core/routes/app_routes.dart';
+import 'package:booking/layouts/admin/drawer/widgets/dashboard_drawer_item.dart';
 import 'package:booking/logic/cubit.dart';
-import 'package:booking/components/theme/theme.dart';
+import 'package:booking/core/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 class DashboardPages extends StatefulWidget {

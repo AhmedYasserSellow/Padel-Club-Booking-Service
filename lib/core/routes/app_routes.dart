@@ -1,4 +1,4 @@
-import 'package:booking/components/models/page_model.dart';
+import 'package:booking/core/models/page_model.dart';
 import 'package:booking/layouts/admin/dashboard_view.dart';
 import 'package:booking/layouts/admin/screens/academy.dart';
 import 'package:booking/layouts/admin/screens/notification.dart';

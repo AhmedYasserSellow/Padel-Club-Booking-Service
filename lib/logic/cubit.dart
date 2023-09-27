@@ -1,11 +1,11 @@
-import 'package:booking/components/constants/constants.dart';
+import 'package:booking/core/constants/constants.dart';
 import 'package:booking/layouts/auth/auth_screen.dart';
 import 'package:booking/layouts/on%20boarding/widgets/screens_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../components/theme/theme.dart';
+import '../core/theme/theme.dart';
 import 'states.dart';
 
 class AppCubit extends Cubit<AppStates> {

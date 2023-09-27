@@ -1,6 +1,6 @@
-import 'package:booking/layouts/admin/dashboard%20drawer/widgets/dashboard_drawer_item.dart';
+import 'package:booking/layouts/admin/drawer/widgets/dashboard_drawer_item.dart';
 import 'package:booking/logic/cubit.dart';
-import 'package:booking/components/constants/constants.dart';
+import 'package:booking/core/constants/constants.dart';
 import 'package:booking/layouts/auth/auth_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';

@@ -1,4 +1,4 @@
-import 'package:booking/components/theme/theme.dart';
+import 'package:booking/core/theme/theme.dart';
 import 'package:booking/layouts/on%20boarding/widgets/screens_list.dart';
 import 'package:booking/logic/cubit.dart';
 import 'package:booking/logic/states.dart';

@@ -1,13 +1,13 @@
-import 'package:booking/components/constants/constants.dart';
-import 'package:booking/components/widgets/default_button.dart';
+import 'package:booking/core/constants/constants.dart';
+import 'package:booking/core/widgets/default_button.dart';
 import 'package:booking/layouts/admin/functions/academy_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../logic/cubit.dart';
 import '../../../logic/states.dart';
-import '../../../components/theme/theme.dart';
-import '../../../components/widgets/text_form_field.dart';
-import '../../home/dialogs/progress_dialog.dart';
+import '../../../core/theme/theme.dart';
+import '../../../core/widgets/text_form_field.dart';
+import '../dialogs/progress_dialog.dart';
 
 class ControlAcademy extends StatelessWidget {
   ControlAcademy({super.key});

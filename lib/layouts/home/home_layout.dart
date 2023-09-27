@@ -1,6 +1,6 @@
-import 'package:booking/components/constants/constants.dart';
-import 'package:booking/components/routes/app_routes.dart';
-import 'package:booking/components/services/notifications.dart';
+import 'package:booking/core/constants/constants.dart';
+import 'package:booking/core/routes/app_routes.dart';
+import 'package:booking/core/services/notifications.dart';
 import 'package:booking/layouts/home/drawer/drawer_view.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';

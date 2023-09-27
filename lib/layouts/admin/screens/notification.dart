@@ -1,4 +1,4 @@
-import 'package:booking/components/theme/theme.dart';
+import 'package:booking/core/theme/theme.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -13,17 +13,17 @@ class NotificationScreen extends StatelessWidget {
         builder: (context, snapshot) {
           return snapshot.hasData
               ? snapshot.data!.docs.isEmpty
-                  ? Center(
-                      child: Text(
-                        'There is no Notifications',
-                        style: TextStyle(
-                          color: whiteTextColor,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 24,
-                        ),
+                  ? Text(
+                      'There is no Notifications',
+                      style: TextStyle(
+                        color: whiteTextColor,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 24,
                       ),
                     )
                   : ListView.separated(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
                       separatorBuilder: (context, index) {
                         return const SizedBox(
                           height: 20,
@@ -35,7 +35,8 @@ class NotificationScreen extends StatelessWidget {
                           snapshot: snapshot,
                           index: index,
                         );
-                      })
+                      },
+                    )
               : const Center(
                   child: CircularProgressIndicator(),
                 );

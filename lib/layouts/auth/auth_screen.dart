@@ -2,7 +2,7 @@ import 'package:booking/layouts/auth/widgets/choose_your_role.dart';
 import 'package:booking/layouts/auth/widgets/manager_form.dart';
 import 'package:booking/layouts/auth/widgets/users_form.dart';
 import 'package:booking/logic/states.dart';
-import 'package:booking/components/theme/theme.dart';
+import 'package:booking/core/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

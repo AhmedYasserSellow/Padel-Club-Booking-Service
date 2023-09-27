@@ -1,7 +1,7 @@
-import 'package:booking/components/theme/theme.dart';
-import 'package:booking/layouts/admin/dashboard%20drawer/widgets/dashboard_log_out.dart';
-import 'package:booking/layouts/admin/dashboard%20drawer/widgets/dashboard_pages.dart';
-import 'package:booking/layouts/admin/dashboard%20drawer/widgets/dashboard_profile_info.dart';
+import 'package:booking/core/theme/theme.dart';
+import 'package:booking/layouts/admin/drawer/widgets/dashboard_log_out.dart';
+import 'package:booking/layouts/admin/drawer/widgets/dashboard_pages.dart';
+import 'package:booking/layouts/admin/drawer/widgets/dashboard_profile_info.dart';
 import 'package:flutter/material.dart';
 
 class DashBoardDrawerView extends StatelessWidget {

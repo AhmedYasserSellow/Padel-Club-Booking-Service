@@ -1,6 +1,6 @@
-import 'package:booking/components/theme/theme.dart';
-import 'package:booking/components/widgets/default_button.dart';
-import 'package:booking/components/widgets/text_form_field.dart';
+import 'package:booking/core/theme/theme.dart';
+import 'package:booking/core/widgets/default_button.dart';
+import 'package:booking/core/widgets/text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -1,4 +1,4 @@
-import 'package:booking/components/routes/app_routes.dart';
+import 'package:booking/core/routes/app_routes.dart';
 import 'package:booking/logic/cubit.dart';
 import 'package:booking/layouts/home/drawer/widgets/drawer_item.dart';
 import 'package:flutter/material.dart';

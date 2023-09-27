@@ -1,6 +1,6 @@
-import 'package:booking/components/routes/app_routes.dart';
-import 'package:booking/layouts/admin/dashboard%20drawer/dashboard_drawer_view.dart';
-import 'package:booking/components/theme/theme.dart';
+import 'package:booking/core/routes/app_routes.dart';
+import 'package:booking/layouts/admin/drawer/dashboard_drawer_view.dart';
+import 'package:booking/core/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -60,17 +60,21 @@ class _DashBoardViewState extends State<DashBoardView> {
               backgroundColor: Colors.transparent,
               elevation: 0,
             ),
-            body: Center(
-              child: SingleChildScrollView(
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                  child:
-                      dashboardPages[AppCubit.get(context).dashboardPagesIndex]
-                          .mainWidget,
-                ),
-              ),
-            ),
+            body: AppCubit.get(context).dashboardPagesIndex ==
+                    dashboardPages.length - 1
+                ? dashboardPages[AppCubit.get(context).dashboardPagesIndex]
+                    .mainWidget
+                : Center(
+                    child: SingleChildScrollView(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 8, vertical: 16),
+                        child: dashboardPages[
+                                AppCubit.get(context).dashboardPagesIndex]
+                            .mainWidget,
+                      ),
+                    ),
+                  ),
           ),
         );
       },
