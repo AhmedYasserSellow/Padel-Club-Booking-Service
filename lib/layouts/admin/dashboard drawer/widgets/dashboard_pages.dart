@@ -1,9 +1,9 @@
-import 'package:booking/backend/dashboard%20drawer/dashboard_drawer_item.dart';
-import 'package:booking/backend/screens/academy.dart';
-import 'package:booking/backend/screens/offers.dart';
-import 'package:booking/backend/screens/pin_times.dart';
-import 'package:booking/backend/screens/prices.dart';
-import 'package:booking/backend/screens/years.dart';
+import 'package:booking/layouts/admin/dashboard%20drawer/widgets/dashboard_drawer_item.dart';
+import 'package:booking/layouts/admin/screens/academy.dart';
+import 'package:booking/layouts/admin/screens/offers.dart';
+import 'package:booking/layouts/admin/screens/pin_times.dart';
+import 'package:booking/layouts/admin/screens/prices.dart';
+import 'package:booking/layouts/admin/screens/years.dart';
 import 'package:booking/logic/cubit.dart';
 import 'package:booking/components/models/page_model.dart';
 import 'package:booking/components/theme.dart';

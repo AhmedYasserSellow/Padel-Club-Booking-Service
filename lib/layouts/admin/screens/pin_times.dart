@@ -1,11 +1,11 @@
 import 'package:booking/components/widgets/default_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../logic/cubit.dart';
-import '../../logic/states.dart';
-import '../../components/theme.dart';
-import '../../components/widgets/text_form_field.dart';
-import '../../layouts/home/dialogs/progress_dialog.dart';
+import '../../../logic/cubit.dart';
+import '../../../logic/states.dart';
+import '../../../components/theme.dart';
+import '../../../components/widgets/text_form_field.dart';
+import '../../home/dialogs/progress_dialog.dart';
 import '../db.dart';
 
 class PinTimes extends StatelessWidget {

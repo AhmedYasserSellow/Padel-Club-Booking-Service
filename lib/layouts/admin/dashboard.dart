@@ -1,17 +1,17 @@
-import 'package:booking/backend/dashboard%20drawer/dashboard_drawer_view.dart';
-import 'package:booking/backend/dashboard%20drawer/dashboard_pages.dart';
+import 'package:booking/layouts/admin/dashboard%20drawer/dashboard_drawer_view.dart';
 import 'package:booking/components/theme.dart';
+import 'package:booking/layouts/admin/dashboard%20drawer/widgets/dashboard_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../logic/cubit.dart';
-import '../logic/states.dart';
+import '../../logic/cubit.dart';
+import '../../logic/states.dart';
 
 class DashBoard extends StatefulWidget {
   const DashBoard({
     super.key,
   });
-  static String id = 'CMD';
+  static String id = 'DashBoard';
 
   @override
   State<DashBoard> createState() => _DashBoardState();

@@ -1,7 +1,7 @@
-import 'package:booking/backend/dashboard%20drawer/dashboard_pages.dart';
-import 'package:booking/backend/dashboard%20drawer/dashboard_profile_info.dart';
 import 'package:booking/components/theme.dart';
-import 'package:booking/components/widgets/log_out.dart';
+import 'package:booking/layouts/admin/dashboard%20drawer/widgets/dashboard_log_out.dart';
+import 'package:booking/layouts/admin/dashboard%20drawer/widgets/dashboard_pages.dart';
+import 'package:booking/layouts/admin/dashboard%20drawer/widgets/dashboard_profile_info.dart';
 import 'package:flutter/material.dart';
 
 class DashBoardDrawerView extends StatelessWidget {
@@ -37,7 +37,7 @@ class DashBoardDrawerView extends StatelessWidget {
                   phone: phone,
                 ),
                 const DashboardPages(),
-                const LogOut(),
+                const LogOutForDashboard(),
               ],
             ),
           ),

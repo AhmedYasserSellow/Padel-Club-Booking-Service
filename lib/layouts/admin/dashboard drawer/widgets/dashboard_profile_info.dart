@@ -1,4 +1,4 @@
-import 'package:booking/backend/dashboard%20drawer/dashboard_drawer_item.dart';
+import 'package:booking/layouts/admin/dashboard%20drawer/widgets/dashboard_drawer_item.dart';
 import 'package:booking/layouts/home/home_layout.dart';
 import 'package:flutter/material.dart';
 

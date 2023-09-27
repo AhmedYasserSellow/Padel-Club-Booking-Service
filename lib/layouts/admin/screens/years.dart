@@ -4,8 +4,8 @@ import 'package:booking/components/widgets/text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../logic/cubit.dart';
-import '../../logic/states.dart';
+import '../../../logic/cubit.dart';
+import '../../../logic/states.dart';
 import '../db.dart';
 
 class AddYearsToDB extends StatelessWidget {

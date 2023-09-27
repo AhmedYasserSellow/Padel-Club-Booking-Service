@@ -1,4 +1,4 @@
-import 'package:booking/backend/dashboard%20drawer/dashboard_drawer_item.dart';
+import 'package:booking/layouts/home/drawer/widgets/drawer_item.dart';
 import 'package:booking/logic/cubit.dart';
 import 'package:booking/components/constants.dart';
 import 'package:booking/layouts/auth/login_page.dart';
@@ -14,7 +14,7 @@ class LogOut extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DashBoardDrawerItem(
+    return DrawerItem(
       isSelected: false,
       onTap: () async {
         final prefs = await SharedPreferences.getInstance();
