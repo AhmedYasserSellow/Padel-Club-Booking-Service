@@ -1,5 +1,5 @@
+import 'package:booking/core/routes/app_routes.dart';
 import 'package:booking/core/theme/theme.dart';
-import 'package:booking/layouts/on%20boarding/widgets/screens_list.dart';
 import 'package:booking/logic/cubit.dart';
 import 'package:booking/logic/states.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +22,7 @@ class ProgressArrow extends StatelessWidget {
                   backgroundColor: const Color(0xffD3E4FF),
                   color: const Color(0xff1B72C0),
                   value: (AppCubit.get(context).onBoardingIndex + 1) /
-                      onBoardingInfoSection.length,
+                      onBoardingPages.length,
                 ),
               ),
               GestureDetector(

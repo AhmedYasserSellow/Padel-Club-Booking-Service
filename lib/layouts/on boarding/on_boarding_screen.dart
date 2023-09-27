@@ -1,5 +1,5 @@
+import 'package:booking/core/routes/app_routes.dart';
 import 'package:booking/layouts/on%20boarding/widgets/progress_arrow.dart';
-import 'package:booking/layouts/on%20boarding/widgets/screens_list.dart';
 import 'package:booking/logic/cubit.dart';
 import 'package:booking/logic/states.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +17,7 @@ class OnBoardingScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 32),
             child: Column(
               children: [
-                onBoardingInfoSection[AppCubit.get(context).onBoardingIndex],
+                onBoardingPages[AppCubit.get(context).onBoardingIndex],
                 const Expanded(
                   child: SizedBox(),
                 ),

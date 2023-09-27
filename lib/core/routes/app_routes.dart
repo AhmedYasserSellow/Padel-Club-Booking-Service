@@ -15,6 +15,7 @@ import 'package:booking/layouts/home/screens/chat%20screen/chats_screen.dart';
 import 'package:booking/layouts/home/screens/giveaway%20screen/give_away_screen.dart';
 import 'package:booking/layouts/home/screens/offers%20screen/offers_screen.dart';
 import 'package:booking/layouts/splash/splash_screen.dart';
+import 'package:booking/layouts/on%20boarding/widgets/on_boarding_info_item.dart';
 import 'package:flutter/material.dart';
 
 Map<String, Widget Function(BuildContext)> appRoutes = {
@@ -104,4 +105,31 @@ List<PageModel> dashboardPages = [
     name: 'Notifications',
     mainWidget: const NotificationScreen(),
   ),
+];
+
+List<OnBoardingInfoItem> onBoardingPages = const [
+  OnBoardingInfoItem(
+    image: 'pitch',
+    title: 'Booking Service',
+    subtitle:
+        'Padel Club application provides you a booking service to our padel stadium so\n Enjoy Our Game',
+  ),
+  OnBoardingInfoItem(
+    title: 'Offers Service',
+    image: 'offers',
+    subtitle:
+        'Also we provide you an offers screen to get notified with our new offers\nEnjoy Our Offers',
+  ),
+  OnBoardingInfoItem(
+    image: 'giveaways',
+    subtitle:
+        'Also we provide you a giveaways screen to know our new giveaways\nEnjoy Our Gifts',
+    title: 'Giveaways Service',
+  ),
+  OnBoardingInfoItem(
+    image: 'chats',
+    subtitle:
+        'Also we provide you a chat service so you can reach us at any time\nWelcome To Our Community',
+    title: 'Chat Service',
+  )
 ];
