@@ -1,5 +1,5 @@
+import 'package:booking/core/theme/logic/theme_cubit.dart';
 import 'package:booking/layouts/home/screens/offers%20screen/widgets/no_offers_screen.dart';
-import 'package:booking/logic/cubit.dart';
 import 'package:booking/core/theme/theme.dart';
 import 'package:booking/core/widgets/default_button.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -43,7 +43,7 @@ class OffersListBuilder extends StatelessWidget {
                       fontSize: 24,
                       color: isOpenedFromDashboard
                           ? whiteTextColor
-                          : AppCubit.get(context).iconAndTextColor,
+                          : ThemeCubit.get(context).iconAndTextColor,
                     ),
                   ),
                   const SizedBox(

@@ -1,3 +1,4 @@
+import 'package:booking/core/theme/theme.dart';
 import 'package:booking/layouts/admin/drawer/widgets/dashboard_drawer_item.dart';
 import 'package:booking/layouts/home/home_layout.dart';
 import 'package:flutter/material.dart';
@@ -25,11 +26,17 @@ class DashBoardProfileInfo extends StatelessWidget {
         ),
         Text(
           name,
-          style: const TextStyle(fontSize: 30),
+          style: TextStyle(
+            fontSize: 30,
+            color: whiteTextColor,
+          ),
         ),
         Text(
           phone,
-          style: const TextStyle(fontSize: 24),
+          style: TextStyle(
+            fontSize: 24,
+            color: whiteTextColor,
+          ),
         ),
         DashBoardDrawerItem(
           isSelected: false,

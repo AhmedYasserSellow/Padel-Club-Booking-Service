@@ -1,11 +1,9 @@
 import 'package:booking/core/theme/theme.dart';
 import 'package:booking/core/widgets/default_button.dart';
 import 'package:booking/core/widgets/text_form_field.dart';
+import 'package:booking/layouts/admin/logic/admin_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../logic/cubit.dart';
-import '../../../logic/states.dart';
 import '../functions/create_database_functions.dart';
 
 class AddYearsToDB extends StatelessWidget {
@@ -14,7 +12,7 @@ class AddYearsToDB extends StatelessWidget {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AppCubit, AppStates>(builder: (context, state) {
+    return BlocBuilder<AdminCubit, AdminState>(builder: (context, state) {
       return Form(
         key: formKey,
         child: Column(
@@ -73,8 +71,8 @@ class AddYearsToDB extends StatelessWidget {
                             const SizedBox(height: 16),
                             const Text('Adding'),
                             Text(
-                                'Month : ${AppCubit.get(context).monthDB}.....'),
-                            Text('Day : ${AppCubit.get(context).dayDB}....')
+                                'Month : ${AdminCubit.get(context).monthDB}.....'),
+                            Text('Day : ${AdminCubit.get(context).dayDB}....')
                           ],
                         ),
                       );

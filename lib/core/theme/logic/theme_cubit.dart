@@ -1,31 +1,21 @@
+import 'package:booking/core/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../core/theme/theme.dart';
-import 'states.dart';
+part 'theme_state.dart';
 
-class AppCubit extends Cubit<AppStates> {
-  AppCubit() : super(AppIntialState());
+class ThemeCubit extends Cubit<ThemeState> {
+  ThemeCubit() : super(ThemeInitial());
 
-  static AppCubit get(context) => BlocProvider.of(context);
-  int mainPagesIndex = 0;
-  int dashboardPagesIndex = 0;
-  int monthDB = 1;
-  int dayDB = 1;
-  int indexDB = 0;
-  DateTime focusedDay = DateTime.now();
-  DateTime today = DateTime.now();
+  static ThemeCubit get(context) => BlocProvider.of(context);
 
   Brightness brightness = Brightness.light;
-
   Color iconAndTextColor = Colors.black;
   IconData modeIcon = Icons.light_mode;
   bool isLightMode = true;
   int loginFormState = 0;
   bool firstLogin = true;
-
-  bool isExpanded = false;
 
 // Get Theme
   Future<bool> getTheme() async {
@@ -68,29 +58,5 @@ class AppCubit extends Cubit<AppStates> {
       modeIcon = Icons.light_mode;
     }
     emit(ChangeTheme());
-  }
-
-//Navigate in Drawer for home layout
-  void navigateToMainPages(BuildContext context, int index) {
-    mainPagesIndex = index;
-    Navigator.pop(context);
-    emit(NavigateToAnotherMainPage());
-  }
-
-//Navigate in Drawer for dashboard layout
-  void navigateToDashboardPages(BuildContext context, int index) {
-    dashboardPagesIndex = index;
-    Navigator.pop(context);
-    emit(ChangeBottomNavIndexForDB());
-  }
-
-//Progress Calculator for adding year to database
-  void progressCalculator() {
-    emit(ProgressCalculator());
-  }
-
-//Profile Name Changer
-  void changeName() async {
-    emit(NameChanged());
   }
 }

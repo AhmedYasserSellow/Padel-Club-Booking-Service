@@ -1,10 +1,9 @@
 import 'package:booking/core/constants/constants.dart';
 import 'package:booking/core/widgets/default_button.dart';
 import 'package:booking/layouts/admin/functions/academy_functions.dart';
+import 'package:booking/layouts/admin/logic/admin_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../logic/cubit.dart';
-import '../../../logic/states.dart';
 import '../../../core/theme/theme.dart';
 import '../../../core/widgets/text_form_field.dart';
 import '../dialogs/progress_dialog.dart';
@@ -19,7 +18,7 @@ class ControlAcademy extends StatelessWidget {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AppCubit, AppStates>(builder: (context, state) {
+    return BlocBuilder<AdminCubit, AdminState>(builder: (context, state) {
       return Form(
         key: formKey,
         child: Column(

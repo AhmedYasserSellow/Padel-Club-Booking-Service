@@ -3,17 +3,14 @@ import 'package:booking/core/services/notifications.dart';
 import 'package:booking/core/theme/dark_theme.dart';
 import 'package:booking/core/theme/light_theme.dart';
 import 'package:booking/core/routes/app_routes.dart';
+import 'package:booking/core/theme/logic/theme_cubit.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'logic/cubit.dart';
-import 'logic/states.dart';
-
-import 'firebase_options.dart';
-
 import 'layouts/splash/splash_layout.dart';
+import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -43,14 +40,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (BuildContext context) {
-        return AppCubit()..getAppTheme();
+        return ThemeCubit()..getAppTheme();
       },
-      child: BlocConsumer<AppCubit, AppStates>(
-        listener: (context, state) {},
+      child: BlocBuilder<ThemeCubit, ThemeState>(
         builder: (context, state) {
           return MaterialApp(
             title: 'Padel Club',
-            theme: AppCubit.get(context).isLightMode
+            theme: ThemeCubit.get(context).isLightMode
                 //Light Theme
                 ? lightTheme
                 //Dark Theme

@@ -1,6 +1,6 @@
 import 'package:booking/core/routes/app_routes.dart';
 import 'package:booking/layouts/admin/drawer/widgets/dashboard_drawer_item.dart';
-import 'package:booking/logic/cubit.dart';
+import 'package:booking/layouts/admin/logic/admin_cubit.dart';
 import 'package:booking/core/theme/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -23,14 +23,14 @@ class _DashboardPagesState extends State<DashboardPages> {
             materialGapSize: 0,
             expandedHeaderPadding: EdgeInsets.zero,
             expansionCallback: (panelIndex, expanded) => setState(() {
-              AppCubit.get(context).isExpanded = expanded;
+              AdminCubit.get(context).isExpanded = expanded;
             }),
             elevation: 0,
             children: [
               ExpansionPanel(
                 canTapOnHeader: true,
                 backgroundColor: Colors.transparent,
-                isExpanded: AppCubit.get(context).isExpanded,
+                isExpanded: AdminCubit.get(context).isExpanded,
                 body: ListView.builder(
                   itemCount: dashboardPages.length,
                   shrinkWrap: true,
@@ -40,11 +40,11 @@ class _DashboardPagesState extends State<DashboardPages> {
                       text: dashboardPages[index].name,
                       icon: dashboardPages[index].icon,
                       onTap: () {
-                        AppCubit.get(context)
+                        AdminCubit.get(context)
                             .navigateToDashboardPages(context, index);
                       },
                       isSelected:
-                          AppCubit.get(context).dashboardPagesIndex == index,
+                          AdminCubit.get(context).dashboardPagesIndex == index,
                     );
                   },
                 ),

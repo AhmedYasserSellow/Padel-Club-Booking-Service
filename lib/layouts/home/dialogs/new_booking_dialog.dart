@@ -1,12 +1,12 @@
 import 'package:booking/core/constants/constants.dart';
 import 'package:booking/core/services/notifications.dart';
+import 'package:booking/core/theme/logic/theme_cubit.dart';
 import 'package:booking/core/theme/theme.dart';
 import 'package:booking/core/widgets/back_button.dart';
 import 'package:booking/core/widgets/text_form_field.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../../logic/cubit.dart';
 
 void bookingDialog(
     BuildContext context,
@@ -53,8 +53,8 @@ void bookingDialog(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     myTextFormField(
-                      textStyleColor: AppCubit.get(context).iconAndTextColor,
-                      color: AppCubit.get(context).iconAndTextColor,
+                      textStyleColor: ThemeCubit.get(context).iconAndTextColor,
+                      color: ThemeCubit.get(context).iconAndTextColor,
                       context: context,
                       validate: (String? value) {
                         if (value!.isEmpty) {
@@ -71,8 +71,8 @@ void bookingDialog(
                       height: 24,
                     ),
                     myTextFormField(
-                      textStyleColor: AppCubit.get(context).iconAndTextColor,
-                      color: AppCubit.get(context).iconAndTextColor,
+                      textStyleColor: ThemeCubit.get(context).iconAndTextColor,
+                      color: ThemeCubit.get(context).iconAndTextColor,
                       limit: 11,
                       context: context,
                       validate: (String? value) {

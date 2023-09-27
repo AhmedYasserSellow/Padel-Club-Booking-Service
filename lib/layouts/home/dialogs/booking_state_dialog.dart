@@ -7,8 +7,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../../logic/cubit.dart';
-import '../../../logic/states.dart';
+import '../logic/home_cubit.dart';
 
 void pendingDialog(
   BuildContext context,
@@ -27,7 +26,7 @@ void pendingDialog(
     showDialog(
         context: context,
         builder: (context) {
-          return BlocBuilder<AppCubit, AppStates>(builder: (context, state) {
+          return BlocBuilder<HomeCubit, HomeState>(builder: (context, state) {
             return AlertDialog(
               contentPadding: const EdgeInsets.only(
                   top: 24, right: 24, left: 24, bottom: 16),
@@ -119,7 +118,7 @@ void pendingDialog(
                                       ),
                                     ),
                                     onTap: () {
-                                      AppCubit.get(context)
+                                      HomeCubit.get(context)
                                           .navigateToMainPages(context, 4);
                                     },
                                   )

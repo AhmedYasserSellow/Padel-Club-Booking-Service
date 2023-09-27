@@ -1,5 +1,4 @@
-import 'package:booking/logic/cubit.dart';
-import 'package:booking/logic/states.dart';
+import 'package:booking/layouts/admin/logic/admin_cubit.dart';
 import 'package:booking/core/services/notifications.dart';
 import 'package:booking/core/theme/theme.dart';
 import 'package:booking/core/widgets/default_button.dart';
@@ -21,7 +20,7 @@ class ControlOffers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AppCubit, AppStates>(builder: (context, state) {
+    return BlocBuilder<AdminCubit, AdminState>(builder: (context, state) {
       return Form(
         key: formKey,
         child: Column(

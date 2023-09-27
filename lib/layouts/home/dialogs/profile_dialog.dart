@@ -1,7 +1,8 @@
+import 'package:booking/core/theme/logic/theme_cubit.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../../logic/cubit.dart';
+import '../logic/home_cubit.dart';
 import '../../../core/constants/constants.dart';
 import '../../../core/theme/theme.dart';
 import '../../../core/widgets/back_button.dart';
@@ -34,8 +35,8 @@ void profileDialog(
             child: Column(
               children: [
                 myTextFormField(
-                  textStyleColor: AppCubit.get(context).iconAndTextColor,
-                  color: AppCubit.get(context).iconAndTextColor,
+                  textStyleColor: ThemeCubit.get(context).iconAndTextColor,
+                  color: ThemeCubit.get(context).iconAndTextColor,
                   controller: nameController,
                   type: TextInputType.name,
                   validate: (String? value) {
@@ -52,8 +53,8 @@ void profileDialog(
                   height: 24,
                 ),
                 myTextFormField(
-                  textStyleColor: AppCubit.get(context).iconAndTextColor,
-                  color: AppCubit.get(context).iconAndTextColor,
+                  textStyleColor: ThemeCubit.get(context).iconAndTextColor,
+                  color: ThemeCubit.get(context).iconAndTextColor,
                   limit: 11,
                   controller: phoneController,
                   type: TextInputType.phone,
@@ -101,7 +102,7 @@ void profileDialog(
                                   ));
 
                           if (context.mounted) {
-                            AppCubit.get(context).changeName();
+                            HomeCubit.get(context).changeName();
                             Navigator.pop(context);
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(

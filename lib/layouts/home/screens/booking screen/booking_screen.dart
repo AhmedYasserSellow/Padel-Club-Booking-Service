@@ -1,9 +1,10 @@
 import 'package:booking/core/constants/constants.dart';
+import 'package:booking/core/theme/logic/theme_cubit.dart';
 import 'package:booking/layouts/home/screens/booking%20screen/booking_calendar_builder.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
-import '../../../../logic/cubit.dart';
+import '../../logic/home_cubit.dart';
 
 class BookingScreen extends StatefulWidget {
   const BookingScreen({
@@ -18,7 +19,7 @@ class BookingScreen extends StatefulWidget {
 class _BookingScreenState extends State<BookingScreen> {
   @override
   Widget build(BuildContext context) {
-    AppCubit cubit = AppCubit.get(context);
+    HomeCubit cubit = HomeCubit.get(context);
     String selectedYear = cubit.focusedDay.year.toString();
     String selectedMonth = cubit.focusedDay.month.toString();
     String selectedDay = cubit.focusedDay.day.toString();
@@ -40,13 +41,13 @@ class _BookingScreenState extends State<BookingScreen> {
                   startingDayOfWeek: StartingDayOfWeek.saturday,
                   calendarStyle: CalendarStyle(
                       todayDecoration: BoxDecoration(
-                        color: AppCubit.get(context).isLightMode
+                        color: ThemeCubit.get(context).isLightMode
                             ? Theme.of(context).indicatorColor.withOpacity(0.5)
                             : Theme.of(context).indicatorColor.withOpacity(0.2),
                         shape: BoxShape.circle,
                       ),
                       selectedDecoration: BoxDecoration(
-                        color: AppCubit.get(context).isLightMode
+                        color: ThemeCubit.get(context).isLightMode
                             ? Theme.of(context).indicatorColor
                             : Theme.of(context).indicatorColor.withOpacity(0.5),
                         shape: BoxShape.circle,

@@ -1,10 +1,10 @@
 import 'package:booking/core/constants/constants.dart';
+import 'package:booking/layouts/admin/logic/admin_cubit.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import '../../../logic/cubit.dart';
 
 void createDatabase(String year, context) async {
-  var cubit = AppCubit.get(context);
+  var cubit = AdminCubit.get(context);
   for (cubit.monthDB = 1; cubit.monthDB <= 12; cubit.monthDB++) {
     for (cubit.dayDB = 1; cubit.dayDB <= 31; cubit.dayDB++) {
       for (cubit.indexDB = 0; cubit.indexDB <= 23; cubit.indexDB++) {
@@ -18,7 +18,7 @@ void createDatabase(String year, context) async {
           'Phone': '',
           'State': '',
         });
-        AppCubit.get(context).progressCalculator();
+        AdminCubit.get(context).progressCalculator();
       }
     }
   }

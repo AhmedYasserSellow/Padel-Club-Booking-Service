@@ -1,4 +1,4 @@
-import 'package:booking/logic/cubit.dart';
+import 'package:booking/core/theme/logic/theme_cubit.dart';
 import 'package:booking/layouts/home/drawer/widgets/drawer_item.dart';
 import 'package:flutter/material.dart';
 
@@ -10,12 +10,12 @@ class ThemeChangerButton extends StatelessWidget {
     return DrawerItem(
       isSelected: false,
       onTap: () {
-        AppCubit.get(context).changeTheme();
+        ThemeCubit.get(context).changeTheme();
       },
       text: Theme.of(context).brightness == Brightness.dark
           ? 'Dark Mode'
           : 'Light Mode',
-      icon: AppCubit.get(context).modeIcon,
+      icon: ThemeCubit.get(context).modeIcon,
     );
   }
 }

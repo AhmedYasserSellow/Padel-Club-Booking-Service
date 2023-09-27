@@ -1,5 +1,6 @@
 import 'package:booking/core/routes/app_routes.dart';
-import 'package:booking/logic/cubit.dart';
+import 'package:booking/core/theme/logic/theme_cubit.dart';
+import 'package:booking/layouts/home/logic/home_cubit.dart';
 import 'package:booking/layouts/home/drawer/widgets/drawer_item.dart';
 import 'package:flutter/material.dart';
 
@@ -30,14 +31,14 @@ class _MainPagesState extends State<MainPages> {
             materialGapSize: 0,
             expandedHeaderPadding: EdgeInsets.zero,
             expansionCallback: (panelIndex, expanded) => setState(() {
-              AppCubit.get(context).isExpanded = expanded;
+              HomeCubit.get(context).isExpanded = expanded;
             }),
             elevation: 0,
             children: [
               ExpansionPanel(
                 canTapOnHeader: true,
                 backgroundColor: Colors.transparent,
-                isExpanded: AppCubit.get(context).isExpanded,
+                isExpanded: HomeCubit.get(context).isExpanded,
                 body: ListView.builder(
                   itemCount: appPages(
                     manager: widget.isManager,
@@ -61,10 +62,11 @@ class _MainPagesState extends State<MainPages> {
                       )[index]
                           .icon,
                       onTap: () {
-                        AppCubit.get(context)
+                        HomeCubit.get(context)
                             .navigateToMainPages(context, index);
                       },
-                      isSelected: AppCubit.get(context).mainPagesIndex == index,
+                      isSelected:
+                          HomeCubit.get(context).mainPagesIndex == index,
                     );
                   },
                 ),
@@ -84,7 +86,7 @@ class _MainPagesState extends State<MainPages> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Divider(
-            color: AppCubit.get(context).iconAndTextColor,
+            color: ThemeCubit.get(context).iconAndTextColor,
           ),
         )
       ],

@@ -1,5 +1,6 @@
+import 'package:booking/core/theme/logic/theme_cubit.dart';
 import 'package:booking/layouts/home/screens/chat%20screen/widgets/chat_bubble.dart';
-import 'package:booking/logic/cubit.dart';
+import 'package:booking/layouts/home/logic/home_cubit.dart';
 import 'package:booking/core/constants/constants.dart';
 import 'package:booking/core/services/notifications.dart';
 import 'package:booking/core/widgets/text_form_field.dart';
@@ -46,14 +47,16 @@ class ChatScreen extends StatelessWidget {
                       centerTitle: true,
                       leading: BackButton(
                         onPressed: () {
-                          AppCubit.get(context).navigateToMainPages(context, 0);
+                          HomeCubit.get(context)
+                              .navigateToMainPages(context, 0);
                         },
-                        color: AppCubit.get(context).iconAndTextColor,
+                        color: ThemeCubit.get(context).iconAndTextColor,
                       ),
                       title: Text(
                         name,
                         style: TextStyle(
-                            color: AppCubit.get(context).iconAndTextColor),
+                          color: ThemeCubit.get(context).iconAndTextColor,
+                        ),
                       ),
                     )
                   : const PreferredSize(
@@ -118,9 +121,9 @@ class ChatScreen extends StatelessWidget {
                               label: 'Message',
                               prefix: Icons.message,
                               context: context,
-                              color: AppCubit.get(context).iconAndTextColor,
+                              color: ThemeCubit.get(context).iconAndTextColor,
                               textStyleColor:
-                                  AppCubit.get(context).iconAndTextColor,
+                                  ThemeCubit.get(context).iconAndTextColor,
                             ),
                           ),
                           const SizedBox(
@@ -165,7 +168,7 @@ class ChatScreen extends StatelessWidget {
                               },
                               icon: Icon(
                                 Icons.send_outlined,
-                                color: AppCubit.get(context).iconAndTextColor,
+                                color: ThemeCubit.get(context).iconAndTextColor,
                               ))
                         ],
                       ),
