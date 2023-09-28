@@ -1,4 +1,3 @@
-import 'package:booking/layouts/home/logic/home_cubit.dart';
 import 'package:booking/layouts/home/screens/offers%20screen/widgets/no_offers_screen.dart';
 import 'package:booking/core/utilities/theme/theme.dart';
 import 'package:booking/core/widgets/default_button.dart';
@@ -38,13 +37,14 @@ class OffersListBuilder extends StatelessWidget {
                         ? 'ID :  ${offers[index]['id']}'
                         : offers[index]['title'],
                     style: TextStyle(
-                      fontFamily: 'Cairo',
-                      fontWeight: FontWeight.w600,
-                      fontSize: 24,
-                      color: isOpenedFromDashboard
-                          ? whiteTextColor
-                          : HomeCubit.get(context).iconAndTextColor,
-                    ),
+                        fontFamily: 'Cairo',
+                        fontWeight: FontWeight.w600,
+                        fontSize: 24,
+                        color: isOpenedFromDashboard
+                            ? whiteTextColor
+                            : Theme.of(context).brightness == Brightness.light
+                                ? Colors.black
+                                : whiteTextColor),
                   ),
                   const SizedBox(
                     height: 15,

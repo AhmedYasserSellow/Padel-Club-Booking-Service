@@ -50,7 +50,7 @@ List<PageModel> homePages({
       PageModel(
         icon: Icons.card_giftcard,
         name: 'Giveaways',
-        mainWidget: const GiveAwasyScreen(),
+        mainWidget: const GiveAwaysScreen(),
         shimmerWidget: const LoadingIndicator(),
       ),
       manager
