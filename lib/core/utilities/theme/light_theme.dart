@@ -14,7 +14,5 @@ ThemeData lightTheme = ThemeData(
   brightness: Brightness.light,
   scaffoldBackgroundColor: backgroundLight,
   indicatorColor: indicatorLight,
-  bottomNavigationBarTheme:
-      BottomNavigationBarThemeData(selectedItemColor: indicatorLight),
   fontFamily: 'Cairo',
 );

@@ -25,7 +25,10 @@ class DashBoardDrawerItem extends StatelessWidget {
         icon,
         color: isSelected ? Colors.black : whiteTextColor,
       ),
-      title: Text(text),
+      title: Text(
+        text,
+        style: const TextStyle(fontFamily: 'Cairo'),
+      ),
       onTap: onTap,
     );
   }

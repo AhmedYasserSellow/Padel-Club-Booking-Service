@@ -17,7 +17,10 @@ class DrawerItem extends StatelessWidget {
       selectedColor: Theme.of(context).indicatorColor,
       selected: isSelected,
       leading: Icon(icon),
-      title: Text(text),
+      title: Text(
+        text,
+        style: const TextStyle(fontFamily: 'Cairo'),
+      ),
       onTap: onTap,
     );
   }

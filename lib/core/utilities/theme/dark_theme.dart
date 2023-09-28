@@ -14,7 +14,5 @@ ThemeData darkTheme = ThemeData(
   brightness: Brightness.dark,
   scaffoldBackgroundColor: backgroundDark,
   indicatorColor: indiactorDark,
-  bottomNavigationBarTheme:
-      BottomNavigationBarThemeData(selectedItemColor: indiactorDark),
   fontFamily: 'Cairo',
 );
