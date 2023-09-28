@@ -23,7 +23,7 @@ class UserAndManagerListTile extends StatelessWidget {
           Navigator.pop(context);
           Navigator.pushReplacementNamed(
             context,
-            AdminView.id,
+            AdminLayout.id,
             arguments: {
               'name': name,
               'phone': phone,

@@ -23,7 +23,7 @@ Map<String, Widget Function(BuildContext)> appRoutes = {
   SplashLayout.id: (context) => const SplashLayout(),
   HomeLayout.id: (context) => const HomeLayout(),
   AuthLayout.id: (context) => const AuthLayout(),
-  AdminView.id: (context) => const AdminView(),
+  AdminLayout.id: (context) => const AdminLayout(),
 };
 List<PageModel> homePages({
   required bool manager,

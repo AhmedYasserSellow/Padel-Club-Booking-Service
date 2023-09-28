@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AdminView extends StatelessWidget {
-  const AdminView({
+class AdminLayout extends StatelessWidget {
+  const AdminLayout({
     super.key,
   });
   static String id = 'Admin';

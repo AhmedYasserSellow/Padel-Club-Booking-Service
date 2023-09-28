@@ -18,6 +18,11 @@ class AdminCubit extends Cubit<AdminState> {
     emit(ChangeBottomNavIndexForDB());
   }
 
+  void pagesExpnasionChanger(bool expanded) {
+    isExpanded = expanded;
+    emit(ChangeExpansion());
+  }
+
   void progressCalculator() {
     emit(ProgressCalculator());
   }

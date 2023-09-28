@@ -38,15 +38,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (BuildContext context) => HomeCubit()..getAppTheme(),
-        ),
-        BlocProvider(
-          create: (BuildContext context) => HomeCubit()..loadState(),
-        ),
-      ],
+    return BlocProvider(
+      create: (BuildContext context) => HomeCubit()
+        ..loadState()
+        ..getAppTheme(),
       child: BlocBuilder<HomeCubit, HomeState>(
         builder: (context, state) {
           return MaterialApp(
