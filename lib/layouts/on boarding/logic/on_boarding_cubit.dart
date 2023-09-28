@@ -1,5 +1,5 @@
-import 'package:booking/core/constants/constants.dart';
-import 'package:booking/core/routes/app_routes.dart';
+import 'package:booking/core/utilities/constants/constants.dart';
+import 'package:booking/core/utilities/routes/app_routes.dart';
 import 'package:booking/layouts/auth/auth_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -1,6 +1,6 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:booking/core/constants/constants.dart';
-import 'package:booking/core/theme/logic/theme_cubit.dart';
+import 'package:booking/core/utilities/constants/constants.dart';
+import 'package:booking/core/utilities/theme/logic/theme_cubit.dart';
 import 'package:booking/layouts/home/home_layout.dart';
 import 'package:booking/layouts/auth/auth_layout.dart';
 import 'package:booking/layouts/on%20boarding/on_boarding_layout.dart';

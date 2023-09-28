@@ -1,5 +1,5 @@
-import 'package:booking/core/theme/logic/theme_cubit.dart';
-import 'package:booking/layouts/home/drawer/widgets/drawer_item.dart';
+import 'package:booking/core/utilities/theme/logic/theme_cubit.dart';
+import 'package:booking/layouts/home/screens/drawer%20screen/widgets/drawer_item.dart';
 import 'package:flutter/material.dart';
 
 class ThemeChangerButton extends StatelessWidget {

@@ -1,5 +1,5 @@
-import 'package:booking/core/theme/logic/theme_cubit.dart';
-import 'package:booking/core/theme/theme.dart';
+import 'package:booking/core/utilities/theme/logic/theme_cubit.dart';
+import 'package:booking/core/utilities/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 class NoOffersScreen extends StatelessWidget {

@@ -24,7 +24,7 @@ Map<String, Widget Function(BuildContext)> appRoutes = {
   AuthLayout.id: (context) => const AuthLayout(),
   AdminView.id: (context) => const AdminView(),
 };
-List<PageModel> appPages({
+List<PageModel> homePages({
   required bool manager,
   required String myName,
   required String firebaseID,

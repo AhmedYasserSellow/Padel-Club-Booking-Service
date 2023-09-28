@@ -1,7 +1,7 @@
+import 'package:booking/core/utilities/constants/constants.dart';
 import 'package:booking/core/widgets/no_internet_snackbar.dart';
 import 'package:booking/layouts/auth/logic/auth_cubit.dart';
-import 'package:booking/core/constants/constants.dart';
-import 'package:booking/core/theme/theme.dart';
+import 'package:booking/core/utilities/theme/theme.dart';
 import 'package:booking/core/widgets/default_button.dart';
 import 'package:booking/core/widgets/text_form_field.dart';
 import 'package:booking/layouts/home/home_layout.dart';

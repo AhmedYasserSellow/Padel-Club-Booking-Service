@@ -1,8 +1,8 @@
-import 'package:booking/core/constants/constants.dart';
-import 'package:booking/layouts/home/drawer/widgets/change_theme_button.dart';
-import 'package:booking/layouts/home/drawer/widgets/log_out.dart';
-import 'package:booking/layouts/home/drawer/widgets/main_pages.dart';
-import 'package:booking/layouts/home/drawer/widgets/profile_info.dart';
+import 'package:booking/core/utilities/constants/constants.dart';
+import 'package:booking/layouts/home/screens/drawer%20screen/widgets/change_theme_button.dart';
+import 'package:booking/layouts/home/screens/drawer%20screen/widgets/log_out.dart';
+import 'package:booking/layouts/home/screens/drawer%20screen/widgets/main_pages.dart';
+import 'package:booking/layouts/home/screens/drawer%20screen/widgets/profile_info.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

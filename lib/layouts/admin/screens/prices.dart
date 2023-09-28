@@ -1,6 +1,6 @@
+import 'package:booking/core/utilities/services/notifications.dart';
 import 'package:booking/layouts/admin/logic/admin_cubit.dart';
-import 'package:booking/core/services/notifications.dart';
-import 'package:booking/core/theme/theme.dart';
+import 'package:booking/core/utilities/theme/theme.dart';
 import 'package:booking/core/widgets/default_button.dart';
 import 'package:booking/core/widgets/text_form_field.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';

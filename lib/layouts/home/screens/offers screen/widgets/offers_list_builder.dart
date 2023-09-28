@@ -1,6 +1,6 @@
-import 'package:booking/core/theme/logic/theme_cubit.dart';
+import 'package:booking/core/utilities/theme/logic/theme_cubit.dart';
 import 'package:booking/layouts/home/screens/offers%20screen/widgets/no_offers_screen.dart';
-import 'package:booking/core/theme/theme.dart';
+import 'package:booking/core/utilities/theme/theme.dart';
 import 'package:booking/core/widgets/default_button.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';

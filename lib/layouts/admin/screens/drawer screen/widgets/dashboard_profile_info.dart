@@ -1,5 +1,5 @@
-import 'package:booking/core/theme/theme.dart';
-import 'package:booking/layouts/admin/drawer/widgets/dashboard_drawer_item.dart';
+import 'package:booking/core/utilities/theme/theme.dart';
+import 'package:booking/layouts/admin/screens/drawer%20screen/widgets/dashboard_drawer_item.dart';
 import 'package:booking/layouts/home/home_layout.dart';
 import 'package:flutter/material.dart';
 

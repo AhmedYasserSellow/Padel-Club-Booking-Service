@@ -1,5 +1,5 @@
-import 'package:booking/core/theme/theme.dart';
-import 'package:booking/core/widgets/links_button.dart';
+import 'package:booking/core/utilities/theme/theme.dart';
+import 'package:booking/layouts/home/screens/about%20us%20screen/widgets/links_button.dart';
 import 'package:flutter/material.dart';
 
 class ContactUsScreen extends StatelessWidget {

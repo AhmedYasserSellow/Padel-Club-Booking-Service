@@ -1,10 +1,10 @@
-import 'package:booking/core/theme/logic/theme_cubit.dart';
+import 'package:booking/core/utilities/constants/constants.dart';
+import 'package:booking/core/utilities/theme/logic/theme_cubit.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../logic/home_cubit.dart';
-import '../../../core/constants/constants.dart';
-import '../../../core/theme/theme.dart';
+import 'package:booking/core/utilities/theme/theme.dart';
 import '../../../core/widgets/back_button.dart';
 import '../../../core/widgets/default_button.dart';
 import '../../../core/widgets/text_form_field.dart';
@@ -102,8 +102,8 @@ void profileDialog(
                                   ));
 
                           if (context.mounted) {
-                            HomeCubit.get(context).changeName();
                             Navigator.pop(context);
+                            HomeCubit.get(context).changeName();
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 duration: const Duration(milliseconds: 1500),

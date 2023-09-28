@@ -1,7 +1,7 @@
-import 'package:booking/core/constants/constants.dart';
-import 'package:booking/core/routes/app_routes.dart';
-import 'package:booking/core/theme/logic/theme_cubit.dart';
-import 'package:booking/layouts/home/drawer/drawer_view.dart';
+import 'package:booking/core/utilities/constants/constants.dart';
+import 'package:booking/core/utilities/routes/app_routes.dart';
+import 'package:booking/core/utilities/theme/logic/theme_cubit.dart';
+import 'package:booking/layouts/home/screens/drawer%20screen/drawer_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
@@ -57,13 +57,13 @@ class HomeLayout extends StatelessWidget {
                                       InternetConnectionStatus.connected ||
                                   ethernetSnapshot.data ==
                                       InternetConnectionStatus.connected)
-                              ? appPages(
+                              ? homePages(
                                   firebaseID: HomeCubit.get(context).firebaseID,
                                   myName: HomeCubit.get(context).name,
                                   manager: HomeCubit.get(context).manager,
                                 )[HomeCubit.get(context).mainPagesIndex]
                                   .mainWidget
-                              : appPages(
+                              : homePages(
                                   firebaseID: HomeCubit.get(context).firebaseID,
                                   myName: HomeCubit.get(context).name,
                                   manager: HomeCubit.get(context).manager,

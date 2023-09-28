@@ -1,6 +1,7 @@
 import 'package:booking/layouts/admin/admin_layout.dart';
-import 'package:booking/layouts/home/dialogs/profile_dialog.dart';
-import 'package:booking/layouts/home/drawer/widgets/drawer_item.dart';
+import 'package:booking/layouts/home/logic/home_cubit.dart';
+import 'package:booking/layouts/home/widgets/profile_dialog.dart';
+import 'package:booking/layouts/home/screens/drawer%20screen/widgets/drawer_item.dart';
 import 'package:flutter/material.dart';
 
 class UserAndManagerListTile extends StatelessWidget {
@@ -36,7 +37,7 @@ class UserAndManagerListTile extends StatelessWidget {
         text: 'Profile',
         icon: Icons.account_circle,
         onTap: () {
-          Navigator.pop(context);
+          HomeCubit.get(context).scaffoldKey.currentState!.closeDrawer();
           profileDialog(
             context,
             name,

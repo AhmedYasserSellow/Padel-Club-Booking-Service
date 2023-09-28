@@ -1,7 +1,7 @@
-import 'package:booking/core/routes/app_routes.dart';
-import 'package:booking/core/theme/logic/theme_cubit.dart';
+import 'package:booking/core/utilities/routes/app_routes.dart';
+import 'package:booking/core/utilities/theme/logic/theme_cubit.dart';
 import 'package:booking/layouts/home/logic/home_cubit.dart';
-import 'package:booking/layouts/home/drawer/widgets/drawer_item.dart';
+import 'package:booking/layouts/home/screens/drawer%20screen/widgets/drawer_item.dart';
 import 'package:flutter/material.dart';
 
 class MainPages extends StatefulWidget {
@@ -40,7 +40,7 @@ class _MainPagesState extends State<MainPages> {
                 backgroundColor: Colors.transparent,
                 isExpanded: HomeCubit.get(context).isExpanded,
                 body: ListView.builder(
-                  itemCount: appPages(
+                  itemCount: homePages(
                     manager: widget.isManager,
                     firebaseID: widget.firebaseID,
                     myName: widget.myName,
@@ -49,13 +49,13 @@ class _MainPagesState extends State<MainPages> {
                   physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (context, index) {
                     return DrawerItem(
-                      text: appPages(
+                      text: homePages(
                         manager: widget.isManager,
                         firebaseID: widget.firebaseID,
                         myName: widget.myName,
                       )[index]
                           .name,
-                      icon: appPages(
+                      icon: homePages(
                         manager: widget.isManager,
                         firebaseID: widget.firebaseID,
                         myName: widget.myName,

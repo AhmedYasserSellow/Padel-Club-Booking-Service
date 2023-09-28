@@ -1,4 +1,4 @@
-import 'package:booking/core/theme/theme.dart';
+import 'package:booking/core/utilities/theme/theme.dart';
 import 'package:booking/core/widgets/default_button.dart';
 import 'package:booking/core/widgets/text_form_field.dart';
 import 'package:booking/layouts/admin/logic/admin_cubit.dart';

@@ -1,5 +1,5 @@
 import 'package:booking/layouts/auth/logic/auth_cubit.dart';
-import 'package:booking/core/theme/theme.dart';
+import 'package:booking/core/utilities/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 class ChooseRole extends StatelessWidget {

@@ -1,6 +1,6 @@
-import 'package:booking/core/routes/app_routes.dart';
-import 'package:booking/layouts/admin/drawer/dashboard_drawer_view.dart';
-import 'package:booking/core/theme/theme.dart';
+import 'package:booking/core/utilities/routes/app_routes.dart';
+import 'package:booking/layouts/admin/screens/drawer%20screen/dashboard_drawer_view.dart';
+import 'package:booking/core/utilities/theme/theme.dart';
 import 'package:booking/layouts/admin/logic/admin_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

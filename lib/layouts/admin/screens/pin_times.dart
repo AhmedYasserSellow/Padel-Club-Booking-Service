@@ -1,12 +1,12 @@
-import 'package:booking/core/constants/constants.dart';
+import 'package:booking/core/utilities/constants/constants.dart';
 import 'package:booking/core/widgets/default_button.dart';
 import 'package:booking/layouts/admin/functions/pinning_functions.dart';
 import 'package:booking/layouts/admin/logic/admin_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../core/theme/theme.dart';
+import 'package:booking/core/utilities/theme/theme.dart';
 import '../../../core/widgets/text_form_field.dart';
-import '../dialogs/progress_dialog.dart';
+import '../widgets/progress_dialog.dart';
 
 class PinTimes extends StatelessWidget {
   PinTimes({super.key});

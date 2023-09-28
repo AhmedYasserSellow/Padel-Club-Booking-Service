@@ -1,5 +1,5 @@
-import 'package:booking/core/constants/constants.dart';
-import 'package:booking/core/services/notifications.dart';
+import 'package:booking/core/utilities/constants/constants.dart';
+import 'package:booking/core/utilities/services/notifications.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -45,6 +45,13 @@ class HomeCubit extends Cubit<HomeState> {
     mainPagesIndex = index;
     Navigator.pop(context);
     emit(NavigateToAnotherMainPage());
+  }
+
+//Change selected day
+
+  void changeSelectedDay(DateTime day) {
+    focusedDay = day;
+    emit(DayChanged());
   }
 
 //Profile Name Changer

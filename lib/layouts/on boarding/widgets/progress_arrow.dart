@@ -1,5 +1,5 @@
-import 'package:booking/core/routes/app_routes.dart';
-import 'package:booking/core/theme/theme.dart';
+import 'package:booking/core/utilities/routes/app_routes.dart';
+import 'package:booking/core/utilities/theme/theme.dart';
 import 'package:booking/layouts/on%20boarding/logic/on_boarding_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

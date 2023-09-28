@@ -1,20 +1,18 @@
-import 'package:booking/core/constants/constants.dart';
-import 'package:booking/core/services/notifications.dart';
-import 'package:booking/core/theme/logic/theme_cubit.dart';
-import 'package:booking/core/theme/theme.dart';
+import 'package:booking/core/utilities/constants/constants.dart';
+import 'package:booking/core/utilities/services/notifications.dart';
+import 'package:booking/core/utilities/theme/logic/theme_cubit.dart';
+import 'package:booking/core/utilities/theme/theme.dart';
 import 'package:booking/core/widgets/back_button.dart';
 import 'package:booking/core/widgets/text_form_field.dart';
+import 'package:booking/layouts/home/models/time_button_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void bookingDialog(
-    BuildContext context,
-    int index,
-    String selectedYear,
-    String selectedMonth,
-    String selectedDay,
-    AsyncSnapshot<DocumentSnapshot<Map<String, dynamic>>> prices) async {
+  BuildContext context,
+  BookingServiceModel bookingServiceModel,
+) async {
   final prefs = await SharedPreferences.getInstance();
   TextEditingController nameController = TextEditingController();
   TextEditingController phoneNumberController = TextEditingController();
@@ -29,11 +27,14 @@ void bookingDialog(
       builder: (context) {
         GlobalKey<FormState> formKey = GlobalKey<FormState>();
         int? price;
-        if ((index >= 0 && index <= prices.data!['Night End AM']) ||
-            (index >= prices.data!['Night Start PM'])) {
-          price = prices.data!['Night'];
+        if ((bookingServiceModel.index >= 0 &&
+                bookingServiceModel.index <=
+                    bookingServiceModel.prices.data!['Night End AM']) ||
+            (bookingServiceModel.index >=
+                bookingServiceModel.prices.data!['Night Start PM'])) {
+          price = bookingServiceModel.prices.data!['Night'];
         } else {
-          price = prices.data!['Day'];
+          price = bookingServiceModel.prices.data!['Day'];
         }
 
         return AlertDialog(
@@ -126,10 +127,14 @@ void bookingDialog(
                             if (formKey.currentState!.validate()) {
                               if (manager) {
                                 FirebaseFirestore.instance
-                                    .collection(selectedYear)
-                                    .doc(selectedMonth)
-                                    .collection(selectedDay)
-                                    .doc('${abc[index]}-${clock[index]}')
+                                    .collection(bookingServiceModel
+                                        .firebaseModel.selectedYear)
+                                    .doc(bookingServiceModel
+                                        .firebaseModel.selectedMonth)
+                                    .collection(bookingServiceModel
+                                        .firebaseModel.selectedDay)
+                                    .doc(
+                                        '${abc[bookingServiceModel.index]}-${clock[bookingServiceModel.index]}')
                                     .set({
                                   'Name': nameController.text,
                                   'Phone': phoneNumberController.text,
@@ -137,10 +142,14 @@ void bookingDialog(
                                 });
                               } else {
                                 FirebaseFirestore.instance
-                                    .collection(selectedYear)
-                                    .doc(selectedMonth)
-                                    .collection(selectedDay)
-                                    .doc('${abc[index]}-${clock[index]}')
+                                    .collection(bookingServiceModel
+                                        .firebaseModel.selectedYear)
+                                    .doc(bookingServiceModel
+                                        .firebaseModel.selectedMonth)
+                                    .collection(bookingServiceModel
+                                        .firebaseModel.selectedDay)
+                                    .doc(
+                                        '${abc[bookingServiceModel.index]}-${clock[bookingServiceModel.index]}')
                                     .set({
                                   'Name': nameController.text,
                                   'Phone': phoneNumberController.text,
@@ -149,10 +158,10 @@ void bookingDialog(
                                 });
 
                                 sendNotify(
-                                  id: '$selectedDay$selectedMonth$selectedYear${clock[index]}',
+                                  id: '${bookingServiceModel.firebaseModel.selectedDay}${bookingServiceModel.firebaseModel.selectedMonth}${bookingServiceModel.firebaseModel.selectedYear}${clock[bookingServiceModel.index]}',
                                   title: nameController.text,
                                   body:
-                                      'Date : $selectedDay/$selectedMonth/$selectedYear \nTime : ${clock[index]}',
+                                      'Date : ${bookingServiceModel.firebaseModel.selectedDay}/${bookingServiceModel.firebaseModel.selectedMonth}/${bookingServiceModel.firebaseModel.selectedYear} \nTime : ${clock[bookingServiceModel.index]}',
                                 );
                                 FirebaseFirestore.instance
                                     .collection('Chats')
@@ -160,7 +169,7 @@ void bookingDialog(
                                     .collection(myID)
                                     .add({
                                   'Message':
-                                      'I have send a book request\nDate : $selectedDay/$selectedMonth/$selectedYear \nTime : ${clock[index]}',
+                                      'I have send a book request\nDate : ${bookingServiceModel.firebaseModel.selectedDay}/${bookingServiceModel.firebaseModel.selectedMonth}/${bookingServiceModel.firebaseModel.selectedYear} \nTime : ${clock[bookingServiceModel.index]}',
                                   'ID': myID,
                                   'Created at': DateTime.now(),
                                 });
@@ -171,7 +180,7 @@ void bookingDialog(
                                         {
                                       'Last Message': DateTime.now(),
                                       'Message':
-                                          'I have send a book request\nDate : $selectedDay/$selectedMonth/$selectedYear \nTime : ${clock[index]}',
+                                          'I have send a book request\nDate : ${bookingServiceModel.firebaseModel.selectedDay}/${bookingServiceModel.firebaseModel.selectedMonth}/${bookingServiceModel.firebaseModel.selectedYear} \nTime : ${clock[bookingServiceModel.index]}',
                                     },
                                         SetOptions(
                                           merge: true,

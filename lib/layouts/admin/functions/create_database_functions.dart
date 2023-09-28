@@ -1,4 +1,4 @@
-import 'package:booking/core/constants/constants.dart';
+import 'package:booking/core/utilities/constants/constants.dart';
 import 'package:booking/layouts/admin/logic/admin_cubit.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';

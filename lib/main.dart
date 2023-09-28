@@ -1,9 +1,9 @@
-import 'package:booking/core/constants/constants.dart';
-import 'package:booking/core/services/notifications.dart';
-import 'package:booking/core/theme/dark_theme.dart';
-import 'package:booking/core/theme/light_theme.dart';
-import 'package:booking/core/routes/app_routes.dart';
-import 'package:booking/core/theme/logic/theme_cubit.dart';
+import 'package:booking/core/utilities/constants/constants.dart';
+import 'package:booking/core/utilities/routes/app_routes.dart';
+import 'package:booking/core/utilities/services/notifications.dart';
+import 'package:booking/core/utilities/theme/dark_theme.dart';
+import 'package:booking/core/utilities/theme/light_theme.dart';
+import 'package:booking/core/utilities/theme/logic/theme_cubit.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

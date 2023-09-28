@@ -1,4 +1,4 @@
-import 'package:booking/core/theme/logic/theme_cubit.dart';
+import 'package:booking/core/utilities/theme/logic/theme_cubit.dart';
 import 'package:booking/layouts/home/screens/chat%20screen/widgets/no_users_screen.dart';
 import 'package:booking/layouts/home/screens/chat%20screen/chat_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
