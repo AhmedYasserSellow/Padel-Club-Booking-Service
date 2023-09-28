@@ -1,6 +1,6 @@
 import 'package:booking/core/utilities/constants/constants.dart';
 import 'package:booking/core/utilities/services/notifications.dart';
-import 'package:booking/core/utilities/theme/logic/theme_cubit.dart';
+
 import 'package:booking/layouts/home/screens/chat%20screen/widgets/chat_bubble.dart';
 import 'package:booking/layouts/home/logic/home_cubit.dart';
 import 'package:booking/core/widgets/text_form_field.dart';
@@ -50,12 +50,12 @@ class ChatScreen extends StatelessWidget {
                           HomeCubit.get(context)
                               .navigateToMainPages(context, 0);
                         },
-                        color: ThemeCubit.get(context).iconAndTextColor,
+                        color: HomeCubit.get(context).iconAndTextColor,
                       ),
                       title: Text(
                         name,
                         style: TextStyle(
-                          color: ThemeCubit.get(context).iconAndTextColor,
+                          color: HomeCubit.get(context).iconAndTextColor,
                         ),
                       ),
                     )
@@ -121,9 +121,9 @@ class ChatScreen extends StatelessWidget {
                               label: 'Message',
                               prefix: Icons.message,
                               context: context,
-                              color: ThemeCubit.get(context).iconAndTextColor,
+                              color: HomeCubit.get(context).iconAndTextColor,
                               textStyleColor:
-                                  ThemeCubit.get(context).iconAndTextColor,
+                                  HomeCubit.get(context).iconAndTextColor,
                             ),
                           ),
                           const SizedBox(
@@ -168,7 +168,7 @@ class ChatScreen extends StatelessWidget {
                               },
                               icon: Icon(
                                 Icons.send_outlined,
-                                color: ThemeCubit.get(context).iconAndTextColor,
+                                color: HomeCubit.get(context).iconAndTextColor,
                               ))
                         ],
                       ),

@@ -3,7 +3,6 @@ import 'package:booking/core/utilities/routes/app_routes.dart';
 import 'package:booking/core/utilities/services/notifications.dart';
 import 'package:booking/core/utilities/theme/dark_theme.dart';
 import 'package:booking/core/utilities/theme/light_theme.dart';
-import 'package:booking/core/utilities/theme/logic/theme_cubit.dart';
 import 'package:booking/layouts/home/logic/home_cubit.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -42,17 +41,17 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (BuildContext context) => ThemeCubit()..getAppTheme(),
+          create: (BuildContext context) => HomeCubit()..getAppTheme(),
         ),
         BlocProvider(
           create: (BuildContext context) => HomeCubit()..loadState(),
         ),
       ],
-      child: BlocBuilder<ThemeCubit, ThemeState>(
+      child: BlocBuilder<HomeCubit, HomeState>(
         builder: (context, state) {
           return MaterialApp(
             title: 'Padel Club',
-            theme: ThemeCubit.get(context).isLightMode
+            theme: HomeCubit.get(context).isLightMode
                 //Light Theme
                 ? lightTheme
                 //Dark Theme

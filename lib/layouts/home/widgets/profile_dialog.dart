@@ -1,9 +1,8 @@
 import 'package:booking/core/utilities/constants/constants.dart';
-import 'package:booking/core/utilities/theme/logic/theme_cubit.dart';
+import 'package:booking/layouts/home/logic/home_cubit.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../logic/home_cubit.dart';
 import 'package:booking/core/utilities/theme/theme.dart';
 import '../../../core/widgets/back_button.dart';
 import '../../../core/widgets/default_button.dart';
@@ -35,8 +34,8 @@ void profileDialog(
             child: Column(
               children: [
                 myTextFormField(
-                  textStyleColor: ThemeCubit.get(context).iconAndTextColor,
-                  color: ThemeCubit.get(context).iconAndTextColor,
+                  textStyleColor: HomeCubit.get(context).iconAndTextColor,
+                  color: HomeCubit.get(context).iconAndTextColor,
                   controller: nameController,
                   type: TextInputType.name,
                   validate: (String? value) {
@@ -53,8 +52,8 @@ void profileDialog(
                   height: 24,
                 ),
                 myTextFormField(
-                  textStyleColor: ThemeCubit.get(context).iconAndTextColor,
-                  color: ThemeCubit.get(context).iconAndTextColor,
+                  textStyleColor: HomeCubit.get(context).iconAndTextColor,
+                  color: HomeCubit.get(context).iconAndTextColor,
                   limit: 11,
                   controller: phoneController,
                   type: TextInputType.phone,

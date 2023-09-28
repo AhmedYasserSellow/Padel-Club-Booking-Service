@@ -1,4 +1,4 @@
-import 'package:booking/core/utilities/theme/logic/theme_cubit.dart';
+import 'package:booking/layouts/home/logic/home_cubit.dart';
 import 'package:booking/layouts/home/screens/chat%20screen/widgets/no_users_screen.dart';
 import 'package:booking/layouts/home/screens/chat%20screen/chat_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -34,7 +34,7 @@ class ChatsScreen extends StatelessWidget {
                   return ListTile(
                     leading: Icon(
                       Icons.account_circle,
-                      color: ThemeCubit.get(context).iconAndTextColor,
+                      color: HomeCubit.get(context).iconAndTextColor,
                     ),
                     title: Text(users[index]['Name']),
                     subtitle: Text(
@@ -56,7 +56,7 @@ class ChatsScreen extends StatelessWidget {
                       },
                       icon: Icon(
                         Icons.messenger_outline,
-                        color: ThemeCubit.get(context).iconAndTextColor,
+                        color: HomeCubit.get(context).iconAndTextColor,
                       ),
                     ),
                   );

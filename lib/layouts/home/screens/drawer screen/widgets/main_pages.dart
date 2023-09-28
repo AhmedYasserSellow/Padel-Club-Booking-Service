@@ -1,5 +1,4 @@
 import 'package:booking/core/utilities/routes/app_routes.dart';
-import 'package:booking/core/utilities/theme/logic/theme_cubit.dart';
 import 'package:booking/layouts/home/logic/home_cubit.dart';
 import 'package:booking/layouts/home/screens/drawer%20screen/widgets/drawer_item.dart';
 import 'package:flutter/material.dart';
@@ -86,7 +85,7 @@ class _MainPagesState extends State<MainPages> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Divider(
-            color: ThemeCubit.get(context).iconAndTextColor,
+            color: HomeCubit.get(context).iconAndTextColor,
           ),
         )
       ],

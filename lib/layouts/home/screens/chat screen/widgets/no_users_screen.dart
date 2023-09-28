@@ -1,4 +1,4 @@
-import 'package:booking/core/utilities/theme/logic/theme_cubit.dart';
+import 'package:booking/layouts/home/logic/home_cubit.dart';
 import 'package:flutter/material.dart';
 
 class NoUsersScreen extends StatelessWidget {
@@ -15,7 +15,7 @@ class NoUsersScreen extends StatelessWidget {
           children: [
             Image(
               image: AssetImage(
-                ThemeCubit.get(context).brightness == Brightness.light
+                HomeCubit.get(context).brightness == Brightness.light
                     ? 'assets/no_offer.png'
                     : 'assets/no_offer_dark_mode.png',
               ),
@@ -27,7 +27,7 @@ class NoUsersScreen extends StatelessWidget {
             Text(
               'There is no users right now',
               style: TextStyle(
-                color: ThemeCubit.get(context).iconAndTextColor,
+                color: HomeCubit.get(context).iconAndTextColor,
                 fontSize: 20,
               ),
             )

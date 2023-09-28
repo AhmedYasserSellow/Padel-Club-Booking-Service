@@ -1,4 +1,4 @@
-import 'package:booking/core/utilities/theme/logic/theme_cubit.dart';
+import 'package:booking/layouts/home/logic/home_cubit.dart';
 import 'package:flutter/material.dart';
 
 class MyBackButton extends StatelessWidget {
@@ -13,7 +13,7 @@ class MyBackButton extends StatelessWidget {
       child: Text(
         'Back',
         style: TextStyle(
-          color: ThemeCubit.get(context).iconAndTextColor,
+          color: HomeCubit.get(context).iconAndTextColor,
         ),
       ),
     );
