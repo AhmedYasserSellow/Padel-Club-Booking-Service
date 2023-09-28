@@ -15,6 +15,7 @@ void pendingDialog(
 ) async {
   final prefs = await SharedPreferences.getInstance();
   bool manager = prefs.getBool(dev) ?? false;
+  String phone = prefs.getString(yourPhone) ?? '';
   if (context.mounted) {
     showDialog(
         context: context,
@@ -106,7 +107,8 @@ void pendingDialog(
                             ),
                           ],
                         )
-                      : bookingServiceModel.state == pending
+                      : bookingServiceModel.state == pending &&
+                              phone == bookingServiceModel.phonenumber
                           ? Column(
                               children: [
                                 const Text('to confirm your booking '),
@@ -118,8 +120,11 @@ void pendingDialog(
                                     ),
                                   ),
                                   onTap: () {
-                                    HomeCubit.get(context)
-                                        .navigateToMainPages(context, 3);
+                                    HomeCubit.get(context).navigateToMainPages(
+                                      context,
+                                      3,
+                                      isDrawer: false,
+                                    );
                                   },
                                 )
                               ],

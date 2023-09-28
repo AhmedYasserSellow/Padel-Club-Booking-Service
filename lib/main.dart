@@ -4,6 +4,7 @@ import 'package:booking/core/utilities/services/notifications.dart';
 import 'package:booking/core/utilities/theme/dark_theme.dart';
 import 'package:booking/core/utilities/theme/light_theme.dart';
 import 'package:booking/core/utilities/theme/logic/theme_cubit.dart';
+import 'package:booking/layouts/home/logic/home_cubit.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -38,10 +39,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (BuildContext context) {
-        return ThemeCubit()..getAppTheme();
-      },
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (BuildContext context) => ThemeCubit()..getAppTheme(),
+        ),
+        BlocProvider(
+          create: (BuildContext context) => HomeCubit()..loadState(),
+        ),
+      ],
       child: BlocBuilder<ThemeCubit, ThemeState>(
         builder: (context, state) {
           return MaterialApp(

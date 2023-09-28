@@ -6,18 +6,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AdminView extends StatefulWidget {
+class AdminView extends StatelessWidget {
   const AdminView({
     super.key,
   });
   static String id = 'Admin';
-
-  @override
-  State<AdminView> createState() => _AdminViewState();
-}
-
-class _AdminViewState extends State<AdminView> {
-  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +35,7 @@ class _AdminViewState extends State<AdminView> {
                 name: args['name'],
                 phone: args['phone'],
               ),
-              key: scaffoldKey,
+              key: AdminCubit.get(context).scaffoldKey,
               backgroundColor: Colors.transparent,
               appBar: AppBar(
                 systemOverlayStyle: SystemUiOverlayStyle.light,
@@ -50,7 +43,10 @@ class _AdminViewState extends State<AdminView> {
                   icon: const Icon(Icons.menu),
                   color: whiteTextColor,
                   onPressed: () {
-                    scaffoldKey.currentState!.openDrawer();
+                    AdminCubit.get(context)
+                        .scaffoldKey
+                        .currentState!
+                        .openDrawer();
                   },
                 ),
                 title: Text(

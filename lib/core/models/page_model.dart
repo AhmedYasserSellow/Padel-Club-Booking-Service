@@ -1,3 +1,4 @@
+import 'package:booking/core/widgets/loading_indicator.dart';
 import 'package:flutter/material.dart';
 
 class PageModel {
@@ -9,6 +10,6 @@ class PageModel {
     required this.icon,
     required this.name,
     required this.mainWidget,
-    this.shimmerWidget,
+    this.shimmerWidget = const LoadingIndicator(),
   });
 }

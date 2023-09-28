@@ -1,4 +1,5 @@
 import 'package:booking/core/models/page_model.dart';
+import 'package:booking/core/widgets/loading_indicator.dart';
 import 'package:booking/layouts/admin/admin_layout.dart';
 import 'package:booking/layouts/admin/screens/academy.dart';
 import 'package:booking/layouts/admin/screens/notification.dart';
@@ -36,6 +37,7 @@ List<PageModel> homePages({
         mainWidget: BookingScreen(
           firebaseID: firebaseID,
         ),
+        shimmerWidget: const LoadingIndicator(),
       ),
       PageModel(
         icon: Icons.local_offer,
@@ -43,17 +45,23 @@ List<PageModel> homePages({
         mainWidget: const OffersScreen(
           removeFeature: false,
         ),
+        shimmerWidget: const LoadingIndicator(),
       ),
       PageModel(
         icon: Icons.card_giftcard,
         name: 'Giveaways',
         mainWidget: const GiveAwasyScreen(),
+        shimmerWidget: const LoadingIndicator(),
       ),
       manager
           ? PageModel(
               icon: Icons.chat,
               name: 'Chats',
               mainWidget: ChatsScreen(
+                manager: manager,
+                myName: myName,
+              ),
+              shimmerWidget: ChatsScreen(
                 manager: manager,
                 myName: myName,
               ),
@@ -66,11 +74,17 @@ List<PageModel> homePages({
                 id: firebaseID,
                 manager: manager,
               ),
+              shimmerWidget: ChatScreen(
+                name: 'Players Service',
+                id: firebaseID,
+                manager: manager,
+              ),
             ),
       PageModel(
         icon: Icons.info,
         name: 'Contact Us',
         mainWidget: const ContactUsScreen(),
+        shimmerWidget: const ContactUsScreen(),
       ),
     ];
 

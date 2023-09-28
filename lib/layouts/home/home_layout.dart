@@ -15,64 +15,61 @@ class HomeLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => HomeCubit()..loadState(),
-      child: StreamBuilder(
-          stream: connection.onStatusChange,
-          builder: (context, ethernetSnapshot) {
-            return StreamBuilder(
-                stream: Stream.fromFuture(connection.connectionStatus),
-                builder: (context, internetSnapshot) {
-                  return BlocBuilder<HomeCubit, HomeState>(
-                    builder: (context, state) {
-                      return Scaffold(
-                          key: HomeCubit.get(context).scaffoldKey,
-                          drawer: const HomeDrawerView(),
-                          appBar: AppBar(
-                            scrolledUnderElevation: 0,
-                            leading: IconButton(
-                              icon: Icon(
-                                Icons.menu,
-                                color: ThemeCubit.get(context).iconAndTextColor,
-                              ),
-                              onPressed: () {
-                                HomeCubit.get(context)
-                                    .scaffoldKey
-                                    .currentState!
-                                    .openDrawer();
-                              },
+    return StreamBuilder(
+        stream: connection.onStatusChange,
+        builder: (context, ethernetSnapshot) {
+          return StreamBuilder(
+              stream: Stream.fromFuture(connection.connectionStatus),
+              builder: (context, internetSnapshot) {
+                return BlocBuilder<HomeCubit, HomeState>(
+                  builder: (context, state) {
+                    return Scaffold(
+                        key: HomeCubit.get(context).scaffoldKey,
+                        drawer: const HomeDrawerView(),
+                        appBar: AppBar(
+                          scrolledUnderElevation: 0,
+                          leading: IconButton(
+                            icon: Icon(
+                              Icons.menu,
+                              color: ThemeCubit.get(context).iconAndTextColor,
                             ),
-                            backgroundColor:
-                                Theme.of(context).scaffoldBackgroundColor,
-                            toolbarHeight: 56,
-                            centerTitle: true,
-                            title: Image.asset(
-                              ThemeCubit.get(context).isLightMode
-                                  ? 'assets/logo.png'
-                                  : 'assets/logodark.png',
-                              height: 72,
-                            ),
+                            onPressed: () {
+                              HomeCubit.get(context)
+                                  .scaffoldKey
+                                  .currentState!
+                                  .openDrawer();
+                            },
                           ),
-                          body: (internetSnapshot.data ==
-                                      InternetConnectionStatus.connected ||
-                                  ethernetSnapshot.data ==
-                                      InternetConnectionStatus.connected)
-                              ? homePages(
-                                  firebaseID: HomeCubit.get(context).firebaseID,
-                                  myName: HomeCubit.get(context).name,
-                                  manager: HomeCubit.get(context).manager,
-                                )[HomeCubit.get(context).mainPagesIndex]
-                                  .mainWidget
-                              : homePages(
-                                  firebaseID: HomeCubit.get(context).firebaseID,
-                                  myName: HomeCubit.get(context).name,
-                                  manager: HomeCubit.get(context).manager,
-                                )[HomeCubit.get(context).mainPagesIndex]
-                                  .shimmerWidget);
-                    },
-                  );
-                });
-          }),
-    );
+                          backgroundColor:
+                              Theme.of(context).scaffoldBackgroundColor,
+                          toolbarHeight: 56,
+                          centerTitle: true,
+                          title: Image.asset(
+                            ThemeCubit.get(context).isLightMode
+                                ? 'assets/logo.png'
+                                : 'assets/logodark.png',
+                            height: 72,
+                          ),
+                        ),
+                        body: (internetSnapshot.data ==
+                                    InternetConnectionStatus.connected ||
+                                ethernetSnapshot.data ==
+                                    InternetConnectionStatus.connected)
+                            ? homePages(
+                                firebaseID: HomeCubit.get(context).firebaseID,
+                                myName: HomeCubit.get(context).name,
+                                manager: HomeCubit.get(context).manager,
+                              )[HomeCubit.get(context).mainPagesIndex]
+                                .mainWidget
+                            : homePages(
+                                firebaseID: HomeCubit.get(context).firebaseID,
+                                myName: HomeCubit.get(context).name,
+                                manager: HomeCubit.get(context).manager,
+                              )[HomeCubit.get(context).mainPagesIndex]
+                                .shimmerWidget);
+                  },
+                );
+              });
+        });
   }
 }

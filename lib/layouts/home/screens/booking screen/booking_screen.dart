@@ -1,3 +1,4 @@
+import 'package:booking/core/widgets/loading_indicator.dart';
 import 'package:booking/layouts/home/models/time_button_model.dart';
 import 'package:booking/layouts/home/screens/booking%20screen/widgets/booking_calendar.dart';
 import 'package:booking/layouts/home/screens/booking%20screen/widgets/booking_list.dart';
@@ -34,25 +35,20 @@ class BookingScreen extends StatelessWidget {
                 const SizedBox(
                   height: 12,
                 ),
-                Expanded(
-                  child: ButtonsList(
-                    fireBaseModel: FireBaseModel(
-                      firebaseID: firebaseID,
-                      selectedYear: selectedYear,
-                      selectedDay: selectedDay,
-                      selectedMonth: selectedMonth,
-                      today: cubit.focusedDay,
-                      snapshot: dataBasesnapshot,
-                    ),
+                ButtonsList(
+                  fireBaseModel: FireBaseModel(
+                    firebaseID: firebaseID,
+                    selectedYear: selectedYear,
+                    selectedDay: selectedDay,
+                    selectedMonth: selectedMonth,
+                    today: cubit.focusedDay,
+                    snapshot: dataBasesnapshot,
                   ),
                 ),
               ],
             );
           } else {
-            return Center(
-                child: CircularProgressIndicator(
-              color: Theme.of(context).indicatorColor,
-            ));
+            return const LoadingIndicator();
           }
         });
   }

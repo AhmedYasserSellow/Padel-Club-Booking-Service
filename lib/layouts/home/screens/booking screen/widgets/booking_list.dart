@@ -11,56 +11,60 @@ class ButtonsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-        future: FirebaseFirestore.instance
-            .collection('Control Panel')
-            .doc('Prices')
-            .get(),
-        builder: (context, pricesSnapshot) {
-          return ListView.separated(
-            itemBuilder: (BuildContext context, int index) {
-              Color? buttonColor;
-              String name = fireBaseModel.snapshot.data!.docs[index]['Name'];
-              String phone = fireBaseModel.snapshot.data!.docs[index]['Phone'];
-              String state = fireBaseModel.snapshot.data!.docs[index]['State'];
-              if (state == pending) {
-                buttonColor = pendingColor;
-              } else if (state == booked) {
-                buttonColor = bookedColor;
-              } else if (state == academy) {
-                buttonColor = academyColor;
-              } else {
-                buttonColor = availableColor;
-              }
+    return Expanded(
+      child: FutureBuilder(
+          future: FirebaseFirestore.instance
+              .collection('Control Panel')
+              .doc('Prices')
+              .get(),
+          builder: (context, pricesSnapshot) {
+            return ListView.separated(
+              itemBuilder: (BuildContext context, int index) {
+                Color? buttonColor;
+                String name = fireBaseModel.snapshot.data!.docs[index]['Name'];
+                String phone =
+                    fireBaseModel.snapshot.data!.docs[index]['Phone'];
+                String state =
+                    fireBaseModel.snapshot.data!.docs[index]['State'];
+                if (state == pending) {
+                  buttonColor = pendingColor;
+                } else if (state == booked) {
+                  buttonColor = bookedColor;
+                } else if (state == academy) {
+                  buttonColor = academyColor;
+                } else {
+                  buttonColor = availableColor;
+                }
 
-              return Column(
-                children: [
-                  BookingTimeButton(
-                    bookingServiceModel: BookingServiceModel(
-                      firebaseModel: fireBaseModel,
-                      index: index,
-                      buttonColor: buttonColor,
-                      state: state,
-                      name: name,
-                      phonenumber: phone,
-                      prices: pricesSnapshot,
+                return Column(
+                  children: [
+                    BookingTimeButton(
+                      bookingServiceModel: BookingServiceModel(
+                        firebaseModel: fireBaseModel,
+                        index: index,
+                        buttonColor: buttonColor,
+                        state: state,
+                        name: name,
+                        phonenumber: phone,
+                        prices: pricesSnapshot,
+                      ),
                     ),
-                  ),
-                  index == 23
-                      ? const SizedBox(
-                          height: 12,
-                        )
-                      : const SizedBox()
-                ],
-              );
-            },
-            itemCount: 24,
-            separatorBuilder: (BuildContext context, int index) {
-              return const SizedBox(
-                height: 12,
-              );
-            },
-          );
-        });
+                    index == 23
+                        ? const SizedBox(
+                            height: 12,
+                          )
+                        : const SizedBox()
+                  ],
+                );
+              },
+              itemCount: 24,
+              separatorBuilder: (BuildContext context, int index) {
+                return const SizedBox(
+                  height: 12,
+                );
+              },
+            );
+          }),
+    );
   }
 }

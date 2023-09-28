@@ -11,10 +11,10 @@ class AdminCubit extends Cubit<AdminState> {
   int monthDB = 1;
   int dayDB = 1;
   int indexDB = 0;
-
+  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   void navigateToDashboardPages(BuildContext context, int index) {
     dashboardPagesIndex = index;
-    Navigator.pop(context);
+    scaffoldKey.currentState!.closeDrawer();
     emit(ChangeBottomNavIndexForDB());
   }
 

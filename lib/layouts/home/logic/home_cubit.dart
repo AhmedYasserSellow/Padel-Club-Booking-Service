@@ -41,9 +41,15 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
 //Navigate in Drawer for home layout
-  void navigateToMainPages(BuildContext context, int index) {
+  void navigateToMainPages(BuildContext context, int index,
+      {bool isDrawer = true}) {
     mainPagesIndex = index;
-    Navigator.pop(context);
+    if (isDrawer) {
+      scaffoldKey.currentState!.closeDrawer();
+    } else {
+      Navigator.pop(context);
+    }
+
     emit(NavigateToAnotherMainPage());
   }
 
