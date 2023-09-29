@@ -1,5 +1,6 @@
 import 'package:booking/core/utilities/constants/constants.dart';
 import 'package:booking/core/utilities/services/notifications.dart';
+import 'package:booking/core/utilities/services/service_locator.dart';
 import 'package:booking/core/widgets/no_internet_snackbar.dart';
 import 'package:booking/layouts/auth/logic/auth_cubit.dart';
 import 'package:booking/core/utilities/theme/theme.dart';
@@ -8,9 +9,7 @@ import 'package:booking/core/widgets/text_form_field.dart';
 import 'package:booking/layouts/home/home_layout.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 
 class UserForm extends StatefulWidget {
@@ -103,9 +102,9 @@ class _UserFormState extends State<UserForm> {
                     if (!AuthCubit.get(context).isLoading) {
                       AuthCubit.get(context).buttonIsLoading(true);
                       try {
-                        final prefs = await SharedPreferences.getInstance();
+                        final prefs = await GetInstance.prefs;
                         UserCredential user =
-                            await FirebaseAuth.instance.signInAnonymously();
+                            await GetInstance.auth.signInAnonymously();
                         prefs.setString(yourName, name.text);
                         prefs.setString(yourPhone, phone.text);
                         prefs.setBool(dev, false);
@@ -114,7 +113,7 @@ class _UserFormState extends State<UserForm> {
                         await sendNewUserNotification(
                           name: name.text,
                         );
-                        await FirebaseFirestore.instance
+                        await GetInstance.store
                             .collection('App Users')
                             .doc(user.user!.uid)
                             .set(
@@ -128,10 +127,8 @@ class _UserFormState extends State<UserForm> {
                                 SetOptions(
                                   merge: true,
                                 ));
-                        await FirebaseMessaging.instance
-                            .subscribeToTopic(user.user!.uid);
-                        await FirebaseMessaging.instance
-                            .subscribeToTopic('offers');
+                        await GetInstance.msg.subscribeToTopic(user.user!.uid);
+                        await GetInstance.msg.subscribeToTopic('offers');
                         if (context.mounted) {
                           Navigator.pushReplacementNamed(
                             context,

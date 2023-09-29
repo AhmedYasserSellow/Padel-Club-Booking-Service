@@ -1,10 +1,10 @@
 import 'package:booking/core/utilities/constants/constants.dart';
+import 'package:booking/core/utilities/services/service_locator.dart';
 import 'package:booking/layouts/home/screens/drawer%20screen/widgets/change_theme_button.dart';
 import 'package:booking/layouts/home/screens/drawer%20screen/widgets/log_out.dart';
 import 'package:booking/layouts/home/screens/drawer%20screen/widgets/main_pages.dart';
 import 'package:booking/layouts/home/screens/drawer%20screen/widgets/profile_info.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeDrawerView extends StatefulWidget {
   const HomeDrawerView({
@@ -21,7 +21,7 @@ class _HomeDrawerViewState extends State<HomeDrawerView> {
   bool isManager = false;
   String firebaseID = '';
   Future loadState() async {
-    final prefs = await SharedPreferences.getInstance();
+    final prefs = await GetInstance.prefs;
     isManager = prefs.getBool(dev)!;
     name = prefs.getString(yourName)!;
     phone = prefs.getString(yourPhone)!;

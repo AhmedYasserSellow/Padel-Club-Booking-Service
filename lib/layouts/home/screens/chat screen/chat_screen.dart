@@ -1,12 +1,11 @@
 import 'package:booking/core/utilities/constants/constants.dart';
 import 'package:booking/core/utilities/services/notifications.dart';
-
+import 'package:booking/core/utilities/services/service_locator.dart';
 import 'package:booking/layouts/home/screens/chat%20screen/widgets/chat_bubble.dart';
 import 'package:booking/layouts/home/logic/home_cubit.dart';
 import 'package:booking/core/widgets/text_form_field.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class ChatScreen extends StatelessWidget {
   ChatScreen({
@@ -26,7 +25,7 @@ class ChatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-        stream: FirebaseFirestore.instance
+        stream: GetInstance.store
             .collection('Chats')
             .doc('0')
             .collection(id)
@@ -131,11 +130,10 @@ class ChatScreen extends StatelessWidget {
                           ),
                           IconButton(
                               onPressed: () async {
-                                final prefs =
-                                    await SharedPreferences.getInstance();
+                                final prefs = await GetInstance.prefs;
                                 String myName = prefs.getString(yourName)!;
                                 if (controller.text != '') {
-                                  FirebaseFirestore.instance
+                                  GetInstance.store
                                       .collection('Chats')
                                       .doc('0')
                                       .collection(id)
@@ -144,7 +142,7 @@ class ChatScreen extends StatelessWidget {
                                     'ID': manager ? '0' : id,
                                     'Created at': DateTime.now(),
                                   });
-                                  FirebaseFirestore.instance
+                                  GetInstance.store
                                       .collection('App Users')
                                       .doc(id)
                                       .set(

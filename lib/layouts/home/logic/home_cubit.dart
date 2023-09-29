@@ -1,10 +1,10 @@
 import 'package:booking/core/utilities/constants/constants.dart';
 import 'package:booking/core/utilities/services/notifications.dart';
+import 'package:booking/core/utilities/services/service_locator.dart';
 import 'package:booking/core/utilities/theme/theme.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 part 'home_state.dart';
 
@@ -25,7 +25,7 @@ class HomeCubit extends Cubit<HomeState> {
   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   Future loadState() async {
     enableFirebaseMessaging();
-    final prefs = await SharedPreferences.getInstance();
+    final prefs = await GetInstance.prefs;
     manager = prefs.getBool(dev)!;
     name = prefs.getString(yourName)!;
     phone = prefs.getString(yourPhone)!;
@@ -81,7 +81,7 @@ class HomeCubit extends Cubit<HomeState> {
 
 // Get Theme
   Future<bool> getTheme() async {
-    final prefs = await SharedPreferences.getInstance();
+    final prefs = await GetInstance.prefs;
 
     bool isLightMode;
     if (prefs.getBool('Mode') == null) {
@@ -105,7 +105,7 @@ class HomeCubit extends Cubit<HomeState> {
 
 //Change Theme
   void changeTheme() async {
-    final prefs = await SharedPreferences.getInstance();
+    final prefs = await GetInstance.prefs;
     if (isLightMode) {
       isLightMode = !isLightMode;
       prefs.setBool('Mode', isLightMode);

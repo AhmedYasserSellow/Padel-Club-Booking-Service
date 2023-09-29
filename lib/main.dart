@@ -1,6 +1,7 @@
 import 'package:booking/core/utilities/constants/constants.dart';
 import 'package:booking/core/utilities/routes/app_routes.dart';
 import 'package:booking/core/utilities/services/notifications.dart';
+import 'package:booking/core/utilities/services/service_locator.dart';
 import 'package:booking/core/utilities/theme/dark_theme.dart';
 import 'package:booking/core/utilities/theme/light_theme.dart';
 import 'package:booking/layouts/home/logic/home_cubit.dart';
@@ -8,7 +9,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'layouts/splash/splash_layout.dart';
 import 'firebase_options.dart';
 
@@ -22,7 +22,8 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  final prefs = await SharedPreferences.getInstance();
+  await GetInstance.setup();
+  final prefs = await GetInstance.prefs;
   bool isShowed = prefs.getBool(isPremessionShowed) ?? false;
   if (isShowed == false) {
     await getPermssion();
@@ -30,11 +31,11 @@ void main() async {
   }
 
   NotificationService().initNotification();
-  runApp(const MyApp());
+  runApp(const PadelClub());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class PadelClub extends StatelessWidget {
+  const PadelClub({super.key});
 
   @override
   Widget build(BuildContext context) {

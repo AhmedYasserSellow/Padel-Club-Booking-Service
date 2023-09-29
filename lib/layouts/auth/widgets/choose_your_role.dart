@@ -34,7 +34,7 @@ class ChooseRole extends StatelessWidget {
             //Manager Role
             Role(
               index: 2,
-              image: Assets.kUserLight,
+              image: Assets.kManagerLight,
               role: 'Manager',
             ),
           ],

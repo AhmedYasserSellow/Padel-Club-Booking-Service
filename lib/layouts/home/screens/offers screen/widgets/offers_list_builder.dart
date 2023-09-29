@@ -1,3 +1,4 @@
+import 'package:booking/core/utilities/services/service_locator.dart';
 import 'package:booking/layouts/home/screens/offers%20screen/widgets/no_offers_screen.dart';
 import 'package:booking/core/utilities/theme/theme.dart';
 import 'package:booking/core/widgets/default_button.dart';
@@ -70,7 +71,7 @@ class OffersListBuilder extends StatelessWidget {
                   isOpenedFromDashboard
                       ? defaultButton(
                           onTap: () {
-                            FirebaseFirestore.instance
+                            GetInstance.store
                                 .collection('Offers')
                                 .doc(offers[index]['id'])
                                 .delete();

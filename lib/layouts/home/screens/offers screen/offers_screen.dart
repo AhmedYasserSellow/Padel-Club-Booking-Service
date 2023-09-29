@@ -1,6 +1,6 @@
+import 'package:booking/core/utilities/services/service_locator.dart';
 import 'package:booking/layouts/home/logic/home_cubit.dart';
 import 'package:booking/layouts/home/screens/offers%20screen/widgets/offers_list_builder.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -14,7 +14,7 @@ class OffersScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCubit, HomeState>(builder: (context, state) {
       return StreamBuilder(
-        stream: FirebaseFirestore.instance.collection('Offers').snapshots(),
+        stream: GetInstance.store.collection('Offers').snapshots(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return OffersListBuilder(

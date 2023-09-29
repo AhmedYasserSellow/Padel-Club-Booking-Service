@@ -1,11 +1,8 @@
 import 'package:booking/core/utilities/constants/constants.dart';
+import 'package:booking/core/utilities/services/service_locator.dart';
 import 'package:booking/layouts/admin/screens/drawer%20screen/widgets/dashboard_drawer_item.dart';
-
 import 'package:booking/layouts/auth/auth_layout.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class LogOutForDashboard extends StatelessWidget {
   const LogOutForDashboard({
@@ -17,15 +14,15 @@ class LogOutForDashboard extends StatelessWidget {
     return DashBoardDrawerItem(
       isSelected: false,
       onTap: () async {
-        final prefs = await SharedPreferences.getInstance();
+        final prefs = await GetInstance.prefs;
         prefs.setBool(isLoggedIn, false);
-        FirebaseAuth.instance.signOut();
+        GetInstance.auth.signOut();
         if (context.mounted) {
-          FirebaseMessaging.instance.unsubscribeFromTopic('notify');
-          FirebaseMessaging.instance.unsubscribeFromTopic(prefs.getString(id)!);
-          FirebaseMessaging.instance.unsubscribeFromTopic('offers');
-          FirebaseMessaging.instance.unsubscribeFromTopic('newUsers');
-          FirebaseMessaging.instance.unsubscribeFromTopic('0');
+          GetInstance.msg.unsubscribeFromTopic('notify');
+          GetInstance.msg.unsubscribeFromTopic(prefs.getString(id)!);
+          GetInstance.msg.unsubscribeFromTopic('offers');
+          GetInstance.msg.unsubscribeFromTopic('newUsers');
+          GetInstance.msg.unsubscribeFromTopic('0');
           Navigator.pop(context);
           Navigator.pushReplacementNamed(
             context,

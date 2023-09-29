@@ -1,8 +1,8 @@
 import 'package:booking/core/utilities/constants/constants.dart';
+import 'package:booking/core/utilities/services/service_locator.dart';
 import 'package:booking/layouts/home/logic/home_cubit.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:booking/core/utilities/theme/theme.dart';
 import '../../../core/widgets/back_button.dart';
 import '../../../core/widgets/default_button.dart';
@@ -78,7 +78,7 @@ void profileDialog(
                     defaultButton(
                       onTap: () async {
                         if (formKey.currentState!.validate()) {
-                          final prefs = await SharedPreferences.getInstance();
+                          final prefs = await GetInstance.prefs;
                           prefs.setString(
                             yourName,
                             nameController.text,
@@ -87,7 +87,7 @@ void profileDialog(
                             yourPhone,
                             phoneController.text,
                           );
-                          FirebaseFirestore.instance
+                          GetInstance.store
                               .collection('App Users')
                               .doc(prefs.getString(id))
                               .set(

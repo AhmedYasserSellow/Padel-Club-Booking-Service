@@ -1,10 +1,10 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:booking/core/utilities/constants/constants.dart';
+import 'package:booking/core/utilities/services/service_locator.dart';
 import 'package:booking/layouts/home/home_layout.dart';
 import 'package:booking/layouts/auth/auth_layout.dart';
 import 'package:booking/layouts/on%20boarding/on_boarding_layout.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:booking/layouts/home/logic/home_cubit.dart';
 
 class SplashLayout extends StatefulWidget {
@@ -25,7 +25,7 @@ class _SplashLayoutState extends State<SplashLayout> {
   }
 
   void loadState() async {
-    final prefs = await SharedPreferences.getInstance();
+    final prefs = await GetInstance.prefs;
     setState(() {
       loggedIn = prefs.getBool(isLoggedIn) ?? false;
       onBoarding = prefs.getBool(isOnBoarding) ?? true;

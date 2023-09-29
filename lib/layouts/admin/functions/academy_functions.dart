@@ -1,5 +1,6 @@
 import 'package:booking/core/utilities/constants/constants.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:booking/core/utilities/services/service_locator.dart';
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -13,7 +14,7 @@ void addAcdemy(
           DateFormat('EEEE').format(DateTime.utc(year, month, day));
 
       if (dayNameResult == dayName) {
-        await FirebaseFirestore.instance
+        await GetInstance.store
             .collection('$year')
             .doc('$month')
             .collection('$day')
@@ -39,7 +40,7 @@ void removeAcdemy(
           DateFormat('EEEE').format(DateTime.utc(year, month, day));
 
       if (dayNameResult == dayName) {
-        await FirebaseFirestore.instance
+        await GetInstance.store
             .collection('$year')
             .doc('$month')
             .collection('$day')

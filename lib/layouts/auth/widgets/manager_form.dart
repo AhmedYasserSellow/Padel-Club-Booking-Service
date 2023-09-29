@@ -1,15 +1,12 @@
 import 'package:booking/core/utilities/constants/constants.dart';
+import 'package:booking/core/utilities/services/service_locator.dart';
 import 'package:booking/core/widgets/no_internet_snackbar.dart';
 import 'package:booking/layouts/auth/logic/auth_cubit.dart';
 import 'package:booking/core/utilities/theme/theme.dart';
 import 'package:booking/core/widgets/default_button.dart';
 import 'package:booking/core/widgets/text_form_field.dart';
 import 'package:booking/layouts/home/home_layout.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 
 class ManagersForm extends StatefulWidget {
@@ -31,7 +28,7 @@ class _ManagersFormState extends State<ManagersForm> {
     return BlocBuilder<AuthCubit, AuthState>(
       builder: (context, state) {
         return StreamBuilder(
-            stream: FirebaseFirestore.instance.collection('Users').snapshots(),
+            stream: GetInstance.store.collection('Users').snapshots(),
             builder: (context, snapshot) {
               String phone1,
                   pass1,
@@ -154,8 +151,7 @@ class _ManagersFormState extends State<ManagersForm> {
                                 pass4 = snapshot.data!.docs[3]['pass'];
                                 pass5 = snapshot.data!.docs[4]['pass'];
                                 AuthCubit.get(context).buttonIsLoading(true);
-                                final prefs =
-                                    await SharedPreferences.getInstance();
+                                final prefs = await GetInstance.prefs;
                                 if ((phoneNumber == phone1 && lock == pass1) ||
                                     (phoneNumber == phone2 && lock == pass2) ||
                                     (phoneNumber == phone3 && lock == pass3) ||
@@ -180,14 +176,12 @@ class _ManagersFormState extends State<ManagersForm> {
                                   prefs.setBool(isLoggedIn, true);
                                   prefs.setBool(dev, true);
                                   prefs.setString(id, '0');
-                                  await FirebaseAuth.instance
-                                      .signInAnonymously();
-                                  await FirebaseMessaging.instance
+                                  await GetInstance.auth.signInAnonymously();
+                                  await GetInstance.msg
                                       .subscribeToTopic('notify');
-                                  await FirebaseMessaging.instance
+                                  await GetInstance.msg
                                       .subscribeToTopic('newUsers');
-                                  await FirebaseMessaging.instance
-                                      .subscribeToTopic('0');
+                                  await GetInstance.msg.subscribeToTopic('0');
                                   if (context.mounted) {
                                     Navigator.pushReplacementNamed(
                                       context,

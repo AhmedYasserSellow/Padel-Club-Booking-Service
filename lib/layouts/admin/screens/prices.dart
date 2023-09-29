@@ -1,9 +1,9 @@
 import 'package:booking/core/utilities/services/notifications.dart';
+import 'package:booking/core/utilities/services/service_locator.dart';
 import 'package:booking/layouts/admin/logic/admin_cubit.dart';
 import 'package:booking/core/utilities/theme/theme.dart';
 import 'package:booking/core/widgets/default_button.dart';
 import 'package:booking/core/widgets/text_form_field.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,7 +17,7 @@ class PricesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-      stream: FirebaseFirestore.instance
+      stream: GetInstance.store
           .collection('Control Panel')
           .doc('Prices')
           .snapshots(),
@@ -163,7 +163,7 @@ class PricesScreen extends StatelessWidget {
                   ),
                   defaultButton(
                     onTap: () {
-                      FirebaseFirestore.instance
+                      GetInstance.store
                           .collection('Control Panel')
                           .doc('Prices')
                           .set({

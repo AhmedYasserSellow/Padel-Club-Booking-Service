@@ -1,10 +1,10 @@
 import 'package:booking/core/utilities/services/notifications.dart';
+import 'package:booking/core/utilities/services/service_locator.dart';
 import 'package:booking/layouts/admin/logic/admin_cubit.dart';
 import 'package:booking/core/utilities/theme/theme.dart';
 import 'package:booking/core/widgets/default_button.dart';
 import 'package:booking/core/widgets/text_form_field.dart';
 import 'package:booking/layouts/home/screens/offers%20screen/offers_screen.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -119,7 +119,7 @@ class ControlOffers extends StatelessWidget {
               color: racketFirstColor,
               onTap: () {
                 if (formKey.currentState!.validate()) {
-                  FirebaseFirestore.instance
+                  GetInstance.store
                       .collection('Offers')
                       .doc(offerIDController.text)
                       .set({

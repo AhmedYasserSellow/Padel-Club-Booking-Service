@@ -1,3 +1,4 @@
+import 'package:booking/core/utilities/services/service_locator.dart';
 import 'package:booking/layouts/home/logic/home_cubit.dart';
 import 'package:booking/layouts/home/screens/chat%20screen/widgets/no_users_screen.dart';
 import 'package:booking/layouts/home/screens/chat%20screen/chat_screen.dart';
@@ -16,7 +17,7 @@ class ChatsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-        stream: FirebaseFirestore.instance
+        stream: GetInstance.store
             .collection('App Users')
             .orderBy(
               'Last Message',

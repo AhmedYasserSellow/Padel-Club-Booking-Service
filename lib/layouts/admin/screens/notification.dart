@@ -1,5 +1,7 @@
+import 'package:booking/core/utilities/services/service_locator.dart';
 import 'package:booking/core/utilities/theme/theme.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:flutter/material.dart';
 
 class NotificationScreen extends StatelessWidget {
@@ -8,8 +10,7 @@ class NotificationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-        stream:
-            FirebaseFirestore.instance.collection('Notifications').snapshots(),
+        stream: GetInstance.store.collection('Notifications').snapshots(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             if (snapshot.data!.docs.isEmpty) {

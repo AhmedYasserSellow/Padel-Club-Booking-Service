@@ -1,8 +1,8 @@
 import 'package:booking/core/utilities/constants/constants.dart';
+import 'package:booking/core/utilities/services/service_locator.dart';
 import 'package:booking/core/utilities/theme/theme.dart';
 import 'package:booking/layouts/home/screens/booking%20screen/widgets/time_button.dart';
 import 'package:booking/layouts/home/models/time_button_model.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class ButtonsList extends StatelessWidget {
@@ -13,10 +13,8 @@ class ButtonsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: FutureBuilder(
-          future: FirebaseFirestore.instance
-              .collection('Control Panel')
-              .doc('Prices')
-              .get(),
+          future:
+              GetInstance.store.collection('Control Panel').doc('Prices').get(),
           builder: (context, pricesSnapshot) {
             return ListView.separated(
               itemBuilder: (BuildContext context, int index) {

@@ -1,9 +1,9 @@
 import 'package:booking/core/utilities/constants/constants.dart';
 import 'package:booking/core/utilities/routes/app_routes.dart';
+import 'package:booking/core/utilities/services/service_locator.dart';
 import 'package:booking/layouts/auth/auth_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 part 'on_boarding_state.dart';
 
@@ -15,7 +15,7 @@ class OnBoardingCubit extends Cubit<OnBoardingState> {
   void changeOnBoardingScreenIndex(BuildContext context, int index) async {
     onBoardingIndex = index;
 
-    final prefs = await SharedPreferences.getInstance();
+    final prefs = await GetInstance.prefs;
     if (context.mounted) {
       onBoardingIndex += 1;
       if (onBoardingIndex == onBoardingPages.length) {

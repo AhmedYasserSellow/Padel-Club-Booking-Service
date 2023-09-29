@@ -1,9 +1,9 @@
+import 'package:booking/core/utilities/services/service_locator.dart';
 import 'package:booking/core/widgets/loading_indicator.dart';
 import 'package:booking/layouts/home/models/time_button_model.dart';
 import 'package:booking/layouts/home/screens/booking%20screen/widgets/booking_calendar.dart';
 import 'package:booking/layouts/home/screens/booking%20screen/widgets/booking_list.dart';
 import 'package:booking/layouts/home/screens/booking%20screen/widgets/booking_states.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import '../../logic/home_cubit.dart';
 
@@ -21,7 +21,7 @@ class BookingScreen extends StatelessWidget {
     String selectedDay = cubit.focusedDay.day.toString();
 
     return StreamBuilder(
-        stream: FirebaseFirestore.instance
+        stream: GetInstance.store
             .collection(selectedYear)
             .doc(selectedMonth)
             .collection(selectedDay)
