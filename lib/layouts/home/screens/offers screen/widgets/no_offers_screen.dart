@@ -1,3 +1,4 @@
+import 'package:booking/core/utilities/constants/constants.dart';
 import 'package:booking/layouts/home/logic/home_cubit.dart';
 import 'package:booking/core/utilities/theme/theme.dart';
 import 'package:flutter/material.dart';
@@ -18,9 +19,9 @@ class NoOffersScreen extends StatelessWidget {
         children: [
           Image(
             image: AssetImage(
-              HomeCubit.get(context).brightness == Brightness.light
-                  ? 'assets/no_offer.png'
-                  : 'assets/no_offer_dark_mode.png',
+              Theme.of(context).brightness == Brightness.dark
+                  ? Assets.kSadBallDark
+                  : Assets.kSadBallLight,
             ),
             width: MediaQuery.of(context).size.width / 2,
           ),

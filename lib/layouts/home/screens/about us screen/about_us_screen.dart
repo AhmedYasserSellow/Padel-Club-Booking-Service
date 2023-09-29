@@ -1,3 +1,4 @@
+import 'package:booking/core/utilities/constants/constants.dart';
 import 'package:booking/core/utilities/theme/theme.dart';
 import 'package:booking/layouts/home/screens/about%20us%20screen/widgets/links_button.dart';
 import 'package:flutter/material.dart';
@@ -24,13 +25,13 @@ class ContactUsScreen extends StatelessWidget {
               height: 24,
             ),
             LinkButton(
-              image: 'facebook.png',
+              imagePath: Assets.kFacebook,
               text: 'FOLLOW US',
               url: 'https://www.facebook.com/profile.php?id=100091147885086',
               color: faceBookColor,
             ),
             LinkButton(
-              image: 'instagram.png',
+              imagePath: Assets.kInstagram,
               text: 'FOLLOW US',
               url: 'https://www.instagram.com/padel_club_/',
               color: instagramFirstColor,
@@ -56,7 +57,7 @@ class ContactUsScreen extends StatelessWidget {
               height: 24,
             ),
             LinkButton(
-              image: 'check in.png',
+              imagePath: Assets.kCheckIn,
               text: 'REACH US',
               color: locationColor,
               url: 'https://maps.app.goo.gl/R3ckCXUkpav74nPLA',
@@ -76,25 +77,25 @@ class ContactUsScreen extends StatelessWidget {
               height: 24,
             ),
             LinkButton(
-              image: 'whatsapp.png',
+              imagePath: Assets.kWhatsApp,
               text: 'Mostafa Adel',
               url: 'https://wa.me/201060200545',
               color: whatsAppColor,
             ),
             LinkButton(
-              image: 'whatsapp.png',
+              imagePath: Assets.kWhatsApp,
               text: 'Karim Mohamed',
               url: 'https://wa.me/201010661328',
               color: whatsAppColor,
             ),
             LinkButton(
-              image: 'whatsapp.png',
+              imagePath: Assets.kWhatsApp,
               text: 'Ahmed Ehab',
               url: 'https://wa.me/201004190510',
               color: whatsAppColor,
             ),
             LinkButton(
-              image: 'whatsapp.png',
+              imagePath: Assets.kWhatsApp,
               text: 'Ahmed Ashraf',
               url: 'https://wa.me/201021234233',
               color: whatsAppColor,

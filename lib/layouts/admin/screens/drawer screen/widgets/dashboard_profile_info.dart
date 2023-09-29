@@ -1,3 +1,4 @@
+import 'package:booking/core/utilities/constants/constants.dart';
 import 'package:booking/core/utilities/theme/theme.dart';
 import 'package:booking/layouts/admin/screens/drawer%20screen/widgets/dashboard_drawer_item.dart';
 import 'package:booking/layouts/home/home_layout.dart';
@@ -22,7 +23,9 @@ class DashBoardProfileInfo extends StatelessWidget {
         CircleAvatar(
           backgroundColor: Colors.transparent,
           radius: 50,
-          child: Image.asset('assets/manager_light_mode.png'),
+          child: Image.asset(
+            Assets.kManagerLight,
+          ),
         ),
         Text(
           name,

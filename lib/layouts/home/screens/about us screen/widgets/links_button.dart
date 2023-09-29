@@ -5,14 +5,14 @@ import 'package:booking/core/utilities/theme/theme.dart';
 class LinkButton extends StatelessWidget {
   const LinkButton(
       {super.key,
-      required this.image,
+      required this.imagePath,
       required this.text,
       required this.color,
       required this.url,
       this.gradient});
 
   final Color color;
-  final String image;
+  final String imagePath;
   final String text;
   final String url;
   final Gradient? gradient;
@@ -40,7 +40,7 @@ class LinkButton extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Image.asset(
-                'assets/$image',
+                imagePath,
                 height: 24,
                 width: 24,
               ),

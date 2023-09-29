@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 class OnBoardingInfoItem extends StatelessWidget {
   const OnBoardingInfoItem({
     super.key,
-    required this.image,
+    required this.assetImage,
     required this.subtitle,
     required this.title,
   });
-  final String image;
+  final String assetImage;
   final String title;
 
   final String subtitle;
@@ -19,7 +19,7 @@ class OnBoardingInfoItem extends StatelessWidget {
         SizedBox(
           height: MediaQuery.of(context).size.height / 7,
         ),
-        Image.asset('assets/$image.png'),
+        Image.asset(assetImage),
         const SizedBox(
           height: 24,
         ),

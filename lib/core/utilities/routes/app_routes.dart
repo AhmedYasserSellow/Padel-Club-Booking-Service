@@ -1,4 +1,5 @@
 import 'package:booking/core/models/page_model.dart';
+import 'package:booking/core/utilities/constants/constants.dart';
 import 'package:booking/core/widgets/loading_indicator.dart';
 import 'package:booking/layouts/admin/admin_layout.dart';
 import 'package:booking/layouts/admin/screens/academy.dart';
@@ -123,25 +124,25 @@ List<PageModel> dashboardPages = [
 
 List<OnBoardingInfoItem> onBoardingPages = const [
   OnBoardingInfoItem(
-    image: 'pitch',
+    assetImage: Assets.kPitch,
     title: 'Booking Service',
     subtitle:
         'Padel Club application provides you a booking service to our padel stadium so\n Enjoy Our Game',
   ),
   OnBoardingInfoItem(
     title: 'Offers Service',
-    image: 'offers',
+    assetImage: Assets.kOffers,
     subtitle:
         'Also we provide you an offers screen to get notified with our new offers\nEnjoy Our Offers',
   ),
   OnBoardingInfoItem(
-    image: 'giveaways',
+    assetImage: Assets.kGiveAways,
     subtitle:
         'Also we provide you a giveaways screen to know our new giveaways\nEnjoy Our Gifts',
     title: 'Giveaways Service',
   ),
   OnBoardingInfoItem(
-    image: 'chats',
+    assetImage: Assets.kChatService,
     subtitle:
         'Also we provide you a chat service so you can reach us at any time\nWelcome To Our Community',
     title: 'Chat Service',

@@ -54,6 +54,12 @@ class HomeCubit extends Cubit<HomeState> {
     emit(NavigateToAnotherMainPage());
   }
 
+//Change Expansion
+  void pagesExpnasionChanger(bool expanded) {
+    isExpanded = expanded;
+    emit(ChangeExpansion());
+  }
+
 //Change selected day
 
   void changeSelectedDay(DateTime day) {

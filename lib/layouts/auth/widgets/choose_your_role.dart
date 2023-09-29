@@ -1,3 +1,4 @@
+import 'package:booking/core/utilities/constants/constants.dart';
 import 'package:booking/layouts/auth/logic/auth_cubit.dart';
 import 'package:booking/core/utilities/theme/theme.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,7 @@ class ChooseRole extends StatelessWidget {
           children: [
             Role(
               index: 1,
-              image: 'assets/user.png',
+              image: Assets.kUserLight,
               role: 'User',
             ),
             SizedBox(
@@ -33,7 +34,7 @@ class ChooseRole extends StatelessWidget {
             //Manager Role
             Role(
               index: 2,
-              image: 'assets/manager_light_mode.png',
+              image: Assets.kUserLight,
               role: 'Manager',
             ),
           ],

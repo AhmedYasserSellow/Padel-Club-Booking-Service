@@ -1,3 +1,4 @@
+import 'package:booking/core/utilities/constants/constants.dart';
 import 'package:booking/layouts/home/logic/home_cubit.dart';
 import 'package:flutter/material.dart';
 
@@ -16,8 +17,8 @@ class NoUsersScreen extends StatelessWidget {
             Image(
               image: AssetImage(
                 HomeCubit.get(context).brightness == Brightness.light
-                    ? 'assets/no_offer.png'
-                    : 'assets/no_offer_dark_mode.png',
+                    ? Assets.kSadBallLight
+                    : Assets.kSadBallDark,
               ),
               width: MediaQuery.of(context).size.width / 2,
             ),

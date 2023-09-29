@@ -45,8 +45,8 @@ class HomeLayout extends StatelessWidget {
                         centerTitle: true,
                         title: Image.asset(
                           HomeCubit.get(context).isLightMode
-                              ? 'assets/logo.png'
-                              : 'assets/logodark.png',
+                              ? Assets.kLogoLight
+                              : Assets.kLogoDark,
                           height: 72,
                         ),
                       ),

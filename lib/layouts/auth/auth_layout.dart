@@ -1,3 +1,4 @@
+import 'package:booking/core/utilities/constants/constants.dart';
 import 'package:booking/layouts/auth/logic/auth_cubit.dart';
 import 'package:booking/layouts/auth/widgets/choose_your_role.dart';
 import 'package:booking/layouts/auth/widgets/manager_form.dart';
@@ -51,7 +52,7 @@ class _AuthLayoutState extends State<AuthLayout> {
                         ),
                         Center(
                           child: Image.asset(
-                            'assets/logodark.png',
+                            Assets.kLogoDark,
                             width: MediaQuery.of(context).size.width * 2 / 3,
                           ),
                         ),

@@ -37,8 +37,8 @@ class _SplashLayoutState extends State<SplashLayout> {
     return AnimatedSplashScreen(
       splash: Image.asset(
         HomeCubit.get(context).isLightMode
-            ? 'assets/logo.png'
-            : 'assets/logodark.png',
+            ? Assets.kLogoLight
+            : Assets.kLogoDark,
       ),
       splashIconSize: MediaQuery.of(context).size.width * 3 / 4,
       duration: 1500,

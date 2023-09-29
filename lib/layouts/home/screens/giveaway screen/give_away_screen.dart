@@ -1,3 +1,4 @@
+import 'package:booking/core/utilities/constants/constants.dart';
 import 'package:flutter/material.dart';
 
 class GiveAwaysScreen extends StatelessWidget {
@@ -11,7 +12,11 @@ class GiveAwaysScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image(
-              image: const AssetImage('assets/no_offer.png'),
+              image: AssetImage(
+                Theme.of(context).brightness == Brightness.dark
+                    ? Assets.kSadBallDark
+                    : Assets.kSadBallLight,
+              ),
               width: MediaQuery.of(context).size.width / 2,
             ),
             const SizedBox(
