@@ -158,24 +158,29 @@ class _ManagersFormState extends State<ManagersForm> {
                                     (phoneNumber == phone4 && lock == pass4) ||
                                     (phoneNumber == phone5 && lock == pass5)) {
                                   if (phoneNumber == phone1) {
-                                    prefs.setString(yourName, name1);
-                                    prefs.setString(yourPhone, phoneNumber);
+                                    prefs.setString(PrefsKeys.yourName, name1);
+                                    prefs.setString(
+                                        PrefsKeys.yourPhone, phoneNumber);
                                   } else if (phoneNumber == phone2) {
-                                    prefs.setString(yourName, name2);
-                                    prefs.setString(yourPhone, phoneNumber);
+                                    prefs.setString(PrefsKeys.yourName, name2);
+                                    prefs.setString(
+                                        PrefsKeys.yourPhone, phoneNumber);
                                   } else if (phoneNumber == phone3) {
-                                    prefs.setString(yourName, name3);
-                                    prefs.setString(yourPhone, phoneNumber);
+                                    prefs.setString(PrefsKeys.yourName, name3);
+                                    prefs.setString(
+                                        PrefsKeys.yourPhone, phoneNumber);
                                   } else if (phoneNumber == phone4) {
-                                    prefs.setString(yourName, name4);
-                                    prefs.setString(yourPhone, phoneNumber);
+                                    prefs.setString(PrefsKeys.yourName, name4);
+                                    prefs.setString(
+                                        PrefsKeys.yourPhone, phoneNumber);
                                   } else if (phoneNumber == phone5) {
-                                    prefs.setString(yourName, name5);
-                                    prefs.setString(yourPhone, phoneNumber);
+                                    prefs.setString(PrefsKeys.yourName, name5);
+                                    prefs.setString(
+                                        PrefsKeys.yourPhone, phoneNumber);
                                   }
-                                  prefs.setBool(isLoggedIn, true);
-                                  prefs.setBool(dev, true);
-                                  prefs.setString(id, '0');
+                                  prefs.setBool(PrefsKeys.isLoggedIn, true);
+                                  prefs.setBool(PrefsKeys.dev, true);
+                                  prefs.setString(PrefsKeys.id, '0');
                                   await GetInstance.auth.signInAnonymously();
                                   await GetInstance.msg
                                       .subscribeToTopic('notify');

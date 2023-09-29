@@ -105,12 +105,12 @@ class _UserFormState extends State<UserForm> {
                         final prefs = await GetInstance.prefs;
                         UserCredential user =
                             await GetInstance.auth.signInAnonymously();
-                        prefs.setString(yourName, name.text);
-                        prefs.setString(yourPhone, phone.text);
-                        prefs.setBool(dev, false);
-                        prefs.setBool(isLoggedIn, true);
-                        prefs.setString(id, user.user!.uid);
-                        await sendNewUserNotification(
+                        prefs.setString(PrefsKeys.yourName, name.text);
+                        prefs.setString(PrefsKeys.yourPhone, phone.text);
+                        prefs.setBool(PrefsKeys.dev, false);
+                        prefs.setBool(PrefsKeys.isLoggedIn, true);
+                        prefs.setString(PrefsKeys.id, user.user!.uid);
+                        await NotificationService.sendNewUserNotification(
                           name: name.text,
                         );
                         await GetInstance.store

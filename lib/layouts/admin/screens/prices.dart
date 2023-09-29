@@ -183,7 +183,7 @@ class PricesScreen extends StatelessWidget {
                           ),
                         ),
                       );
-                      sendGlobalNotification(
+                      NotificationService.sendGlobalNotification(
                         title: 'Price Changed',
                         body: 'Check our new prices',
                       );

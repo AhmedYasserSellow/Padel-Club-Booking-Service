@@ -2,7 +2,6 @@ import 'package:booking/core/utilities/constants/constants.dart';
 import 'package:booking/core/utilities/services/notifications.dart';
 import 'package:booking/core/utilities/services/service_locator.dart';
 import 'package:booking/core/utilities/theme/theme.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -24,21 +23,12 @@ class HomeCubit extends Cubit<HomeState> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   Future loadState() async {
-    enableFirebaseMessaging();
+    NotificationService.enableFirebaseMessaging();
     final prefs = await GetInstance.prefs;
-    manager = prefs.getBool(dev)!;
-    name = prefs.getString(yourName)!;
-    phone = prefs.getString(yourPhone)!;
-    firebaseID = prefs.getString(id)!;
-  }
-
-  enableFirebaseMessaging() {
-    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      NotificationService().showNotification(
-        title: message.notification!.title,
-        body: message.notification!.body,
-      );
-    });
+    manager = prefs.getBool(PrefsKeys.dev)!;
+    name = prefs.getString(PrefsKeys.yourName)!;
+    phone = prefs.getString(PrefsKeys.yourPhone)!;
+    firebaseID = prefs.getString(PrefsKeys.id)!;
   }
 
 //Navigate in Drawer for home layout

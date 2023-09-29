@@ -80,19 +80,19 @@ void profileDialog(
                         if (formKey.currentState!.validate()) {
                           final prefs = await GetInstance.prefs;
                           prefs.setString(
-                            yourName,
+                            PrefsKeys.yourName,
                             nameController.text,
                           );
                           prefs.setString(
-                            yourPhone,
+                            PrefsKeys.yourPhone,
                             phoneController.text,
                           );
                           GetInstance.store
                               .collection('App Users')
-                              .doc(prefs.getString(id))
+                              .doc(prefs.getString(PrefsKeys.id))
                               .set(
                                   {
-                                'ID': prefs.getString(id),
+                                'ID': prefs.getString(PrefsKeys.id),
                                 'Name': nameController.text,
                                 'Phone Number': phoneController.text,
                               },

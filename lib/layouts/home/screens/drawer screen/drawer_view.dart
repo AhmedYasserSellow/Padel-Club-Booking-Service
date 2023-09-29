@@ -22,10 +22,10 @@ class _HomeDrawerViewState extends State<HomeDrawerView> {
   String firebaseID = '';
   Future loadState() async {
     final prefs = await GetInstance.prefs;
-    isManager = prefs.getBool(dev)!;
-    name = prefs.getString(yourName)!;
-    phone = prefs.getString(yourPhone)!;
-    firebaseID = prefs.getString(id)!;
+    isManager = prefs.getBool(PrefsKeys.dev)!;
+    name = prefs.getString(PrefsKeys.yourName)!;
+    phone = prefs.getString(PrefsKeys.yourPhone)!;
+    firebaseID = prefs.getString(PrefsKeys.id)!;
   }
 
   @override

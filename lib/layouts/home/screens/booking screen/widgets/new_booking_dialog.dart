@@ -1,5 +1,6 @@
 import 'package:booking/core/utilities/constants/constants.dart';
 import 'package:booking/core/utilities/services/notifications.dart';
+import 'package:booking/core/utilities/services/service_locator.dart';
 import 'package:booking/core/utilities/theme/theme.dart';
 import 'package:booking/core/widgets/back_button.dart';
 import 'package:booking/core/widgets/text_form_field.dart';
@@ -7,20 +8,19 @@ import 'package:booking/layouts/home/logic/home_cubit.dart';
 import 'package:booking/layouts/home/models/time_button_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 void bookingDialog(
   BuildContext context,
   BookingServiceModel bookingServiceModel,
 ) async {
-  final prefs = await SharedPreferences.getInstance();
+  final prefs = await GetInstance.prefs;
   TextEditingController nameController = TextEditingController();
   TextEditingController phoneNumberController = TextEditingController();
 
   nameController.text = prefs.getString('Name') ?? '';
   phoneNumberController.text = prefs.getString('Phone') ?? '';
-  bool manager = prefs.getBool(dev) ?? false;
-  String myID = prefs.getString(id)!;
+  bool manager = prefs.getBool(PrefsKeys.dev) ?? false;
+  String myID = prefs.getString(PrefsKeys.id)!;
   if (context.mounted) {
     showDialog(
       context: context,
@@ -126,7 +126,7 @@ void bookingDialog(
                           onPressed: () {
                             if (formKey.currentState!.validate()) {
                               if (manager) {
-                                FirebaseFirestore.instance
+                                GetInstance.store
                                     .collection(bookingServiceModel
                                         .firebaseModel.selectedYear)
                                     .doc(bookingServiceModel
@@ -141,7 +141,7 @@ void bookingDialog(
                                   'State': booked,
                                 });
                               } else {
-                                FirebaseFirestore.instance
+                                GetInstance.store
                                     .collection(bookingServiceModel
                                         .firebaseModel.selectedYear)
                                     .doc(bookingServiceModel
@@ -157,13 +157,13 @@ void bookingDialog(
                                   'Created at': DateTime.now(),
                                 });
 
-                                sendNotify(
+                                NotificationService.sendNotify(
                                   id: '${bookingServiceModel.firebaseModel.selectedDay}${bookingServiceModel.firebaseModel.selectedMonth}${bookingServiceModel.firebaseModel.selectedYear}${clock[bookingServiceModel.index]}',
                                   title: nameController.text,
                                   body:
                                       'Date : ${bookingServiceModel.firebaseModel.selectedDay}/${bookingServiceModel.firebaseModel.selectedMonth}/${bookingServiceModel.firebaseModel.selectedYear} \nTime : ${clock[bookingServiceModel.index]}',
                                 );
-                                FirebaseFirestore.instance
+                                GetInstance.store
                                     .collection('Chats')
                                     .doc('0')
                                     .collection(myID)
@@ -173,7 +173,7 @@ void bookingDialog(
                                   'ID': myID,
                                   'Created at': DateTime.now(),
                                 });
-                                FirebaseFirestore.instance
+                                GetInstance.store
                                     .collection('App Users')
                                     .doc(myID)
                                     .set(

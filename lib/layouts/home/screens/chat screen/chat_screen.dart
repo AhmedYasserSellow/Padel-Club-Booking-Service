@@ -131,7 +131,8 @@ class ChatScreen extends StatelessWidget {
                           IconButton(
                               onPressed: () async {
                                 final prefs = await GetInstance.prefs;
-                                String myName = prefs.getString(yourName)!;
+                                String myName =
+                                    prefs.getString(PrefsKeys.yourName)!;
                                 if (controller.text != '') {
                                   GetInstance.store
                                       .collection('Chats')
@@ -153,7 +154,7 @@ class ChatScreen extends StatelessWidget {
                                           SetOptions(
                                             merge: true,
                                           ));
-                                  sendMessageNotification(
+                                  NotificationService.sendMessageNotification(
                                     title: manager ? 'Players Service' : myName,
                                     body: controller.text,
                                     reciverID: manager ? id : '0',

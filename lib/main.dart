@@ -24,13 +24,13 @@ void main() async {
   );
   await GetInstance.setup();
   final prefs = await GetInstance.prefs;
-  bool isShowed = prefs.getBool(isPremessionShowed) ?? false;
+  bool isShowed = prefs.getBool(PrefsKeys.isPremessionShowed) ?? false;
   if (isShowed == false) {
-    await getPermssion();
-    prefs.setBool(isPremessionShowed, true);
+    await NotificationService.getPermssion();
+    prefs.setBool(PrefsKeys.isPremessionShowed, true);
   }
 
-  NotificationService().initNotification();
+  NotificationService.initNotification();
   runApp(const PadelClub());
 }
 

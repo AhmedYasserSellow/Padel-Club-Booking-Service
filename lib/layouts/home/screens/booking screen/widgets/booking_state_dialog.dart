@@ -1,4 +1,5 @@
 import 'package:booking/core/utilities/constants/constants.dart';
+import 'package:booking/core/utilities/services/service_locator.dart';
 import 'package:booking/core/utilities/theme/theme.dart';
 import 'package:booking/core/widgets/back_button.dart';
 import 'package:booking/core/widgets/default_button.dart';
@@ -6,16 +7,16 @@ import 'package:booking/core/widgets/no_internet_snackbar.dart';
 import 'package:booking/layouts/home/logic/home_cubit.dart';
 import 'package:booking/layouts/home/models/time_button_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 void pendingDialog(
   BuildContext context,
   BookingServiceModel bookingServiceModel,
 ) async {
-  final prefs = await SharedPreferences.getInstance();
-  bool manager = prefs.getBool(dev) ?? false;
-  String phone = prefs.getString(yourPhone) ?? '';
+  final prefs = await GetInstance.prefs;
+  bool manager = prefs.getBool(PrefsKeys.dev) ?? false;
+  String phone = prefs.getString(PrefsKeys.yourPhone) ?? '';
   if (context.mounted) {
     showDialog(
         context: context,
@@ -47,7 +48,7 @@ void pendingDialog(
                                               noInternetSnackBar(context);
                                             }
                                           } else {
-                                            FirebaseFirestore.instance
+                                            GetInstance.store
                                                 .collection(bookingServiceModel
                                                     .firebaseModel.selectedYear)
                                                 .doc(bookingServiceModel
@@ -83,7 +84,7 @@ void pendingDialog(
                                     noInternetSnackBar(context);
                                   }
                                 } else {
-                                  FirebaseFirestore.instance
+                                  GetInstance.store
                                       .collection(bookingServiceModel
                                           .firebaseModel.selectedYear)
                                       .doc(bookingServiceModel

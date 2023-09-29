@@ -7,13 +7,15 @@ String booked = 'Booked';
 String academy = 'Academy';
 
 //Shared Preferences variables
-String isLoggedIn = 'isLoggedin';
-String yourName = 'Name';
-String yourPhone = 'Phone';
-String dev = 'dev';
-String id = 'ID';
-String isOnBoarding = 'isOnBoarding';
-String isPremessionShowed = 'isPremessionShowed';
+abstract class PrefsKeys {
+  static String isLoggedIn = 'isLoggedin';
+  static String yourName = 'Name';
+  static String yourPhone = 'Phone';
+  static String dev = 'dev';
+  static String id = 'ID';
+  static String isOnBoarding = 'isOnBoarding';
+  static String isPremessionShowed = 'isPremessionShowed';
+}
 
 //Lists
 List<String> clock = [
