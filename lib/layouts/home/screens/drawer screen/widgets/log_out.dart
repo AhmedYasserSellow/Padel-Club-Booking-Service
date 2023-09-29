@@ -15,11 +15,12 @@ class LogOut extends StatelessWidget {
       isSelected: false,
       onTap: () async {
         final prefs = await GetInstance.prefs;
-        prefs.setBool(PrefsKeys.isLoggedIn, false);
+        prefs.setBool(PrefsKeys.kIsLoggedIn, false);
         GetInstance.auth.signOut();
         if (context.mounted) {
           GetInstance.msg.unsubscribeFromTopic('notify');
-          GetInstance.msg.unsubscribeFromTopic(prefs.getString(PrefsKeys.id)!);
+          GetInstance.msg
+              .unsubscribeFromTopic(prefs.getString(PrefsKeys.kFirebaseID)!);
           GetInstance.msg.unsubscribeFromTopic('offers');
           GetInstance.msg.unsubscribeFromTopic('newUsers');
           GetInstance.msg.unsubscribeFromTopic('0');

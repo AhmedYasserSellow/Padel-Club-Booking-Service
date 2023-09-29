@@ -19,8 +19,8 @@ void bookingDialog(
 
   nameController.text = prefs.getString('Name') ?? '';
   phoneNumberController.text = prefs.getString('Phone') ?? '';
-  bool manager = prefs.getBool(PrefsKeys.dev) ?? false;
-  String myID = prefs.getString(PrefsKeys.id)!;
+  bool manager = prefs.getBool(PrefsKeys.kAdmin) ?? false;
+  String myID = prefs.getString(PrefsKeys.kFirebaseID)!;
   if (context.mounted) {
     showDialog(
       context: context,
@@ -118,10 +118,10 @@ void bookingDialog(
                         TextButton(
                           style: ButtonStyle(
                               backgroundColor: MaterialStateColor.resolveWith(
-                                  (states) => availableColor)),
+                                  (states) => AppTheme.availableColor)),
                           child: Text(
                             'Book',
-                            style: TextStyle(color: whiteTextColor),
+                            style: TextStyle(color: AppTheme.whiteTextColor),
                           ),
                           onPressed: () {
                             if (formKey.currentState!.validate()) {

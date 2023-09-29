@@ -21,7 +21,7 @@ class AddYearsToDB extends StatelessWidget {
           children: [
             Text(
               'Year',
-              style: TextStyle(color: whiteTextColor),
+              style: TextStyle(color: AppTheme.whiteTextColor),
             ),
             const SizedBox(
               height: 12,
@@ -42,17 +42,17 @@ class AddYearsToDB extends StatelessWidget {
               label: 'Year',
               prefix: Icons.numbers,
               context: context,
-              color: whiteTextColor,
-              textStyleColor: whiteTextColor,
-              focusColor: whiteTextColor,
-              labelColor: whiteTextColor,
+              color: AppTheme.whiteTextColor,
+              textStyleColor: AppTheme.whiteTextColor,
+              focusColor: AppTheme.whiteTextColor,
+              labelColor: AppTheme.whiteTextColor,
             ),
             const SizedBox(
               height: 12,
             ),
             defaultButton(
               text: 'Add to Database',
-              color: racketFirstColor,
+              color: AppTheme.racketFirstColor,
               onTap: () {
                 if (formKey.currentState!.validate()) {
                   createDatabase(yearDBField.text, context);

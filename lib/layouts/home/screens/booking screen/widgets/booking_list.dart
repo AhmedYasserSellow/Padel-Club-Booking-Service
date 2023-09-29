@@ -25,13 +25,13 @@ class ButtonsList extends StatelessWidget {
                 String state =
                     fireBaseModel.snapshot.data!.docs[index]['State'];
                 if (state == pending) {
-                  buttonColor = pendingColor;
+                  buttonColor = AppTheme.pendingColor;
                 } else if (state == booked) {
-                  buttonColor = bookedColor;
+                  buttonColor = AppTheme.bookedColor;
                 } else if (state == academy) {
-                  buttonColor = academyColor;
+                  buttonColor = AppTheme.academyColor;
                 } else {
-                  buttonColor = availableColor;
+                  buttonColor = AppTheme.availableColor;
                 }
 
                 return Column(

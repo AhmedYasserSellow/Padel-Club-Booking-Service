@@ -15,10 +15,10 @@ class BookingStates extends StatelessWidget {
         const SizedBox(
           width: 8,
         ),
-        stateColor(availableColor, 'Available'),
-        stateColor(pendingColor, pending),
-        stateColor(bookedColor, booked),
-        stateColor(academyColor, academy)
+        stateColor(AppTheme.availableColor, 'Available'),
+        stateColor(AppTheme.pendingColor, pending),
+        stateColor(AppTheme.bookedColor, booked),
+        stateColor(AppTheme.academyColor, academy)
       ],
     );
   }

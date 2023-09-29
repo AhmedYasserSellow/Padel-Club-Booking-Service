@@ -29,7 +29,7 @@ class ControlOffers extends StatelessWidget {
           children: [
             Text(
               'Offer',
-              style: TextStyle(color: whiteTextColor),
+              style: TextStyle(color: AppTheme.whiteTextColor),
             ),
             const SizedBox(
               height: 12,
@@ -47,10 +47,10 @@ class ControlOffers extends StatelessWidget {
               label: 'ID',
               prefix: Icons.numbers,
               context: context,
-              color: whiteTextColor,
-              textStyleColor: whiteTextColor,
-              focusColor: whiteTextColor,
-              labelColor: whiteTextColor,
+              color: AppTheme.whiteTextColor,
+              textStyleColor: AppTheme.whiteTextColor,
+              focusColor: AppTheme.whiteTextColor,
+              labelColor: AppTheme.whiteTextColor,
             ),
             const SizedBox(
               height: 12,
@@ -68,10 +68,10 @@ class ControlOffers extends StatelessWidget {
               label: 'Title',
               prefix: Icons.title,
               context: context,
-              color: whiteTextColor,
-              textStyleColor: whiteTextColor,
-              focusColor: whiteTextColor,
-              labelColor: whiteTextColor,
+              color: AppTheme.whiteTextColor,
+              textStyleColor: AppTheme.whiteTextColor,
+              focusColor: AppTheme.whiteTextColor,
+              labelColor: AppTheme.whiteTextColor,
             ),
             const SizedBox(
               height: 12,
@@ -89,10 +89,10 @@ class ControlOffers extends StatelessWidget {
               label: 'Image Url',
               prefix: Icons.image_outlined,
               context: context,
-              color: whiteTextColor,
-              textStyleColor: whiteTextColor,
-              focusColor: whiteTextColor,
-              labelColor: whiteTextColor,
+              color: AppTheme.whiteTextColor,
+              textStyleColor: AppTheme.whiteTextColor,
+              focusColor: AppTheme.whiteTextColor,
+              labelColor: AppTheme.whiteTextColor,
             ),
             const SizedBox(
               height: 12,
@@ -106,17 +106,17 @@ class ControlOffers extends StatelessWidget {
               label: 'Post Url',
               prefix: Icons.link_rounded,
               context: context,
-              color: whiteTextColor,
-              textStyleColor: whiteTextColor,
-              focusColor: whiteTextColor,
-              labelColor: whiteTextColor,
+              color: AppTheme.whiteTextColor,
+              textStyleColor: AppTheme.whiteTextColor,
+              focusColor: AppTheme.whiteTextColor,
+              labelColor: AppTheme.whiteTextColor,
             ),
             const SizedBox(
               height: 12,
             ),
             defaultButton(
               text: 'Add Offer',
-              color: racketFirstColor,
+              color: AppTheme.racketFirstColor,
               onTap: () {
                 if (formKey.currentState!.validate()) {
                   GetInstance.store
@@ -141,10 +141,10 @@ class ControlOffers extends StatelessWidget {
                       content: Text(
                         'Offer Added',
                         style: TextStyle(
-                          color: whiteTextColor,
+                          color: AppTheme.whiteTextColor,
                         ),
                       ),
-                      backgroundColor: racketFirstColor,
+                      backgroundColor: AppTheme.racketFirstColor,
                     ),
                   );
                 }
@@ -165,8 +165,8 @@ class ControlOffers extends StatelessWidget {
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [
-                              racketFirstColor,
-                              racketSecondColor,
+                              AppTheme.racketFirstColor,
+                              AppTheme.racketSecondColor,
                             ],
                           ),
                         ),
@@ -174,12 +174,12 @@ class ControlOffers extends StatelessWidget {
                           backgroundColor: Colors.transparent,
                           appBar: AppBar(
                             leading: BackButton(
-                              color: whiteTextColor,
+                              color: AppTheme.whiteTextColor,
                             ),
                             title: Text(
                               'Offers',
                               style: TextStyle(
-                                color: whiteTextColor,
+                                color: AppTheme.whiteTextColor,
                               ),
                             ),
                             centerTitle: true,
@@ -193,7 +193,7 @@ class ControlOffers extends StatelessWidget {
                 );
               },
               text: 'Offers Screen',
-              color: whatsAppColor,
+              color: AppTheme.whatsAppColor,
             )
           ],
         ),

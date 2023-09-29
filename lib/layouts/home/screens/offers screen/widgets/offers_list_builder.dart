@@ -42,10 +42,10 @@ class OffersListBuilder extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                         fontSize: 24,
                         color: isOpenedFromDashboard
-                            ? whiteTextColor
+                            ? AppTheme.whiteTextColor
                             : Theme.of(context).brightness == Brightness.light
                                 ? Colors.black
-                                : whiteTextColor),
+                                : AppTheme.whiteTextColor),
                   ),
                   const SizedBox(
                     height: 15,

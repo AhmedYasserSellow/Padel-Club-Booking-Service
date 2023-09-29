@@ -18,7 +18,7 @@ class NotificationScreen extends StatelessWidget {
                 child: Text(
                   'There is no Notifications',
                   style: TextStyle(
-                    color: whiteTextColor,
+                    color: AppTheme.whiteTextColor,
                     fontWeight: FontWeight.w600,
                     fontSize: 24,
                   ),
@@ -65,13 +65,13 @@ class NotificationListTile extends StatelessWidget {
       title: Text(
         snapshot.data!.docs[index]['title'],
         style: TextStyle(
-          color: whiteTextColor,
+          color: AppTheme.whiteTextColor,
         ),
       ),
       subtitle: Text(
         snapshot.data!.docs[index]['body'],
         style: TextStyle(
-          color: whiteTextColor,
+          color: AppTheme.whiteTextColor,
         ),
       ),
       trailing: IconButton(

@@ -18,12 +18,12 @@ class DashBoardDrawerItem extends StatelessWidget {
     return ListTile(
       selectedColor: const Color(0xff000000),
       titleTextStyle: TextStyle(
-        color: whiteTextColor,
+        color: AppTheme.whiteTextColor,
       ),
       selected: isSelected,
       leading: Icon(
         icon,
-        color: isSelected ? Colors.black : whiteTextColor,
+        color: isSelected ? Colors.black : AppTheme.whiteTextColor,
       ),
       title: Text(
         text,

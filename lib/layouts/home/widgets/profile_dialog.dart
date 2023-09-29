@@ -80,19 +80,19 @@ void profileDialog(
                         if (formKey.currentState!.validate()) {
                           final prefs = await GetInstance.prefs;
                           prefs.setString(
-                            PrefsKeys.yourName,
+                            PrefsKeys.kName,
                             nameController.text,
                           );
                           prefs.setString(
-                            PrefsKeys.yourPhone,
+                            PrefsKeys.kPhone,
                             phoneController.text,
                           );
                           GetInstance.store
                               .collection('App Users')
-                              .doc(prefs.getString(PrefsKeys.id))
+                              .doc(prefs.getString(PrefsKeys.kFirebaseID))
                               .set(
                                   {
-                                'ID': prefs.getString(PrefsKeys.id),
+                                'ID': prefs.getString(PrefsKeys.kFirebaseID),
                                 'Name': nameController.text,
                                 'Phone Number': phoneController.text,
                               },
@@ -106,10 +106,11 @@ void profileDialog(
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 duration: const Duration(milliseconds: 1500),
-                                backgroundColor: racketFirstColor,
+                                backgroundColor: AppTheme.racketFirstColor,
                                 content: Text(
                                   'Updated Successfully',
-                                  style: TextStyle(color: whiteTextColor),
+                                  style:
+                                      TextStyle(color: AppTheme.whiteTextColor),
                                 ),
                               ),
                             );
@@ -117,7 +118,7 @@ void profileDialog(
                         }
                       },
                       text: "Update",
-                      color: racketFirstColor,
+                      color: AppTheme.racketFirstColor,
                     ),
                   ],
                 ),

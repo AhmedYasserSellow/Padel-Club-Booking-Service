@@ -7,7 +7,7 @@ void noInternetSnackBar(BuildContext context) {
       duration: const Duration(milliseconds: 1500),
       content: Text(
         'No Internet Connection',
-        style: TextStyle(color: whiteTextColor),
+        style: TextStyle(color: AppTheme.whiteTextColor),
       ),
       backgroundColor: Colors.red,
     ),

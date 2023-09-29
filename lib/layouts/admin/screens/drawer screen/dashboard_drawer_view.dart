@@ -22,8 +22,8 @@ class DashBoardDrawerView extends StatelessWidget {
           ),
           gradient: LinearGradient(
             colors: [
-              racketFirstColor,
-              racketSecondColor,
+              AppTheme.racketFirstColor,
+              AppTheme.racketSecondColor,
             ],
           ),
         ),

@@ -8,13 +8,13 @@ String academy = 'Academy';
 
 //Shared Preferences variables
 abstract class PrefsKeys {
-  static String isLoggedIn = 'isLoggedin';
-  static String yourName = 'Name';
-  static String yourPhone = 'Phone';
-  static String dev = 'dev';
-  static String id = 'ID';
-  static String isOnBoarding = 'isOnBoarding';
-  static String isPremessionShowed = 'isPremessionShowed';
+  static String kIsLoggedIn = 'isLoggedin';
+  static String kName = 'Name';
+  static String kPhone = 'Phone';
+  static String kAdmin = 'admin';
+  static String kFirebaseID = 'FirebaseID';
+  static String kIsOnBoarding = 'isOnBoarding';
+  static String kIsPremessionShowed = 'isPremessionShowed';
 }
 
 //Lists

@@ -14,7 +14,7 @@ class ChooseRole extends StatelessWidget {
           'Are you a ... ?',
           style: TextStyle(
             fontSize: 24,
-            color: whiteTextColor,
+            color: AppTheme.whiteTextColor,
           ),
         ),
         const SizedBox(

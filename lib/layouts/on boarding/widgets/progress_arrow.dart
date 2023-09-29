@@ -30,10 +30,10 @@ class ProgressArrow extends StatelessWidget {
                         context, OnBoardingCubit.get(context).onBoardingIndex),
                 child: CircleAvatar(
                   radius: 50,
-                  backgroundColor: racketFirstColor,
+                  backgroundColor: AppTheme.racketFirstColor,
                   child: Icon(
                     Icons.arrow_forward,
-                    color: whiteTextColor,
+                    color: AppTheme.whiteTextColor,
                   ),
                 ),
               ),

@@ -20,7 +20,9 @@ class ChatBubble extends StatelessWidget {
         ),
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: !myMessage ? racketFirstColor : racketSecondColor,
+          color: !myMessage
+              ? AppTheme.racketFirstColor
+              : AppTheme.racketSecondColor,
           borderRadius: BorderRadius.only(
             topLeft: const Radius.circular(16),
             topRight: const Radius.circular(16),
@@ -30,7 +32,7 @@ class ChatBubble extends StatelessWidget {
         ),
         child: Text(
           message,
-          style: TextStyle(color: whiteTextColor),
+          style: TextStyle(color: AppTheme.whiteTextColor),
         ),
       ),
     );

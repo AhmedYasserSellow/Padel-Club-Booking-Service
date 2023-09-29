@@ -19,7 +19,7 @@ class OnBoardingCubit extends Cubit<OnBoardingState> {
     if (context.mounted) {
       onBoardingIndex += 1;
       if (onBoardingIndex == onBoardingPages.length) {
-        prefs.setBool(PrefsKeys.isOnBoarding, false);
+        prefs.setBool(PrefsKeys.kIsOnBoarding, false);
         if (context.mounted) {
           Navigator.pushReplacementNamed(context, AuthLayout.id);
         }

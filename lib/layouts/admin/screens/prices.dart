@@ -40,7 +40,7 @@ class PricesScreen extends StatelessWidget {
                 children: [
                   Text(
                     'Prices',
-                    style: TextStyle(color: whiteTextColor),
+                    style: TextStyle(color: AppTheme.whiteTextColor),
                   ),
                   const SizedBox(
                     height: 12,
@@ -61,10 +61,10 @@ class PricesScreen extends StatelessWidget {
                           label: 'Day',
                           prefix: Icons.numbers,
                           context: context,
-                          color: whiteTextColor,
-                          textStyleColor: whiteTextColor,
-                          labelColor: whiteTextColor,
-                          focusColor: whiteTextColor,
+                          color: AppTheme.whiteTextColor,
+                          textStyleColor: AppTheme.whiteTextColor,
+                          labelColor: AppTheme.whiteTextColor,
+                          focusColor: AppTheme.whiteTextColor,
                         ),
                       ),
                       const SizedBox(
@@ -84,10 +84,10 @@ class PricesScreen extends StatelessWidget {
                           label: 'Night',
                           prefix: Icons.numbers,
                           context: context,
-                          color: whiteTextColor,
-                          textStyleColor: whiteTextColor,
-                          labelColor: whiteTextColor,
-                          focusColor: whiteTextColor,
+                          color: AppTheme.whiteTextColor,
+                          textStyleColor: AppTheme.whiteTextColor,
+                          labelColor: AppTheme.whiteTextColor,
+                          focusColor: AppTheme.whiteTextColor,
                         ),
                       ),
                     ],
@@ -97,7 +97,7 @@ class PricesScreen extends StatelessWidget {
                   ),
                   Text(
                     'Night Time 24H Format',
-                    style: TextStyle(color: whiteTextColor),
+                    style: TextStyle(color: AppTheme.whiteTextColor),
                   ),
                   const SizedBox(
                     height: 12,
@@ -121,10 +121,10 @@ class PricesScreen extends StatelessWidget {
                           label: 'From',
                           prefix: Icons.numbers,
                           context: context,
-                          color: whiteTextColor,
-                          textStyleColor: whiteTextColor,
-                          labelColor: whiteTextColor,
-                          focusColor: whiteTextColor,
+                          color: AppTheme.whiteTextColor,
+                          textStyleColor: AppTheme.whiteTextColor,
+                          labelColor: AppTheme.whiteTextColor,
+                          focusColor: AppTheme.whiteTextColor,
                         ),
                       ),
                       const SizedBox(
@@ -150,10 +150,10 @@ class PricesScreen extends StatelessWidget {
                           label: 'To',
                           prefix: Icons.numbers,
                           context: context,
-                          color: whiteTextColor,
-                          textStyleColor: whiteTextColor,
-                          labelColor: whiteTextColor,
-                          focusColor: whiteTextColor,
+                          color: AppTheme.whiteTextColor,
+                          textStyleColor: AppTheme.whiteTextColor,
+                          labelColor: AppTheme.whiteTextColor,
+                          focusColor: AppTheme.whiteTextColor,
                         ),
                       ),
                     ],
@@ -174,11 +174,11 @@ class PricesScreen extends StatelessWidget {
                       });
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
-                          backgroundColor: racketFirstColor,
+                          backgroundColor: AppTheme.racketFirstColor,
                           content: Text(
                             'Prices Changed',
                             style: TextStyle(
-                              color: whiteTextColor,
+                              color: AppTheme.whiteTextColor,
                             ),
                           ),
                         ),
@@ -189,7 +189,7 @@ class PricesScreen extends StatelessWidget {
                       );
                     },
                     text: 'Sumbit New Prices',
-                    color: racketFirstColor,
+                    color: AppTheme.racketFirstColor,
                   ),
                 ],
               ),

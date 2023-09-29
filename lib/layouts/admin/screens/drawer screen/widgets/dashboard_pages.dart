@@ -52,7 +52,8 @@ class DashboardPages extends StatelessWidget {
                             horizontal: 16, vertical: 8),
                         child: Text(
                           'Pages',
-                          style: TextStyle(fontSize: 20, color: whiteTextColor),
+                          style: TextStyle(
+                              fontSize: 20, color: AppTheme.whiteTextColor),
                         ),
                       );
                     },
@@ -63,7 +64,7 @@ class DashboardPages extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Divider(
-                color: whiteTextColor,
+                color: AppTheme.whiteTextColor,
               ),
             )
           ],

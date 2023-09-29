@@ -54,7 +54,7 @@ class _ManagersFormState extends State<ManagersForm> {
                       children: [
                         IconButton(
                           icon: const BackButtonIcon(),
-                          color: whiteTextColor,
+                          color: AppTheme.whiteTextColor,
                           onPressed: () => AuthCubit.get(context)
                             ..loginPageState(0)
                             ..buttonIsLoading(false),
@@ -65,10 +65,10 @@ class _ManagersFormState extends State<ManagersForm> {
                       height: 12,
                     ),
                     myTextFormField(
-                      textStyleColor: whiteTextColor,
-                      labelColor: whiteTextColor,
-                      focusColor: whiteTextColor,
-                      color: whiteTextColor,
+                      textStyleColor: AppTheme.whiteTextColor,
+                      labelColor: AppTheme.whiteTextColor,
+                      focusColor: AppTheme.whiteTextColor,
+                      color: AppTheme.whiteTextColor,
                       limit: 11,
                       context: context,
                       validate: (String? value) {
@@ -90,10 +90,10 @@ class _ManagersFormState extends State<ManagersForm> {
                       height: 12,
                     ),
                     myTextFormField(
-                      textStyleColor: whiteTextColor,
-                      labelColor: whiteTextColor,
-                      focusColor: whiteTextColor,
-                      color: whiteTextColor,
+                      textStyleColor: AppTheme.whiteTextColor,
+                      labelColor: AppTheme.whiteTextColor,
+                      focusColor: AppTheme.whiteTextColor,
+                      color: AppTheme.whiteTextColor,
                       isHidden: AuthCubit.get(context).isHidden,
                       controller: password,
                       type: TextInputType.text,
@@ -125,7 +125,7 @@ class _ManagersFormState extends State<ManagersForm> {
                     ),
                     defaultButton(
                         isLoading: AuthCubit.get(context).isLoading,
-                        color: whiteTextColor,
+                        color: AppTheme.whiteTextColor,
                         onTap: () async {
                           bool wrongData = false;
                           String phoneNumber = phone.text;
@@ -158,29 +158,29 @@ class _ManagersFormState extends State<ManagersForm> {
                                     (phoneNumber == phone4 && lock == pass4) ||
                                     (phoneNumber == phone5 && lock == pass5)) {
                                   if (phoneNumber == phone1) {
-                                    prefs.setString(PrefsKeys.yourName, name1);
+                                    prefs.setString(PrefsKeys.kName, name1);
                                     prefs.setString(
-                                        PrefsKeys.yourPhone, phoneNumber);
+                                        PrefsKeys.kPhone, phoneNumber);
                                   } else if (phoneNumber == phone2) {
-                                    prefs.setString(PrefsKeys.yourName, name2);
+                                    prefs.setString(PrefsKeys.kName, name2);
                                     prefs.setString(
-                                        PrefsKeys.yourPhone, phoneNumber);
+                                        PrefsKeys.kPhone, phoneNumber);
                                   } else if (phoneNumber == phone3) {
-                                    prefs.setString(PrefsKeys.yourName, name3);
+                                    prefs.setString(PrefsKeys.kName, name3);
                                     prefs.setString(
-                                        PrefsKeys.yourPhone, phoneNumber);
+                                        PrefsKeys.kPhone, phoneNumber);
                                   } else if (phoneNumber == phone4) {
-                                    prefs.setString(PrefsKeys.yourName, name4);
+                                    prefs.setString(PrefsKeys.kName, name4);
                                     prefs.setString(
-                                        PrefsKeys.yourPhone, phoneNumber);
+                                        PrefsKeys.kPhone, phoneNumber);
                                   } else if (phoneNumber == phone5) {
-                                    prefs.setString(PrefsKeys.yourName, name5);
+                                    prefs.setString(PrefsKeys.kName, name5);
                                     prefs.setString(
-                                        PrefsKeys.yourPhone, phoneNumber);
+                                        PrefsKeys.kPhone, phoneNumber);
                                   }
-                                  prefs.setBool(PrefsKeys.isLoggedIn, true);
-                                  prefs.setBool(PrefsKeys.dev, true);
-                                  prefs.setString(PrefsKeys.id, '0');
+                                  prefs.setBool(PrefsKeys.kIsLoggedIn, true);
+                                  prefs.setBool(PrefsKeys.kAdmin, true);
+                                  prefs.setString(PrefsKeys.kFirebaseID, '0');
                                   await GetInstance.auth.signInAnonymously();
                                   await GetInstance.msg
                                       .subscribeToTopic('notify');
@@ -212,7 +212,8 @@ class _ManagersFormState extends State<ManagersForm> {
                                           const Color.fromRGBO(244, 67, 54, 1),
                                       content: Text(
                                         'wrong phone or password please try again',
-                                        style: TextStyle(color: whiteTextColor),
+                                        style: TextStyle(
+                                            color: AppTheme.whiteTextColor),
                                       ),
                                     ),
                                   );

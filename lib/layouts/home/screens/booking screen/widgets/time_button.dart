@@ -43,7 +43,7 @@ class BookingTimeButton extends StatelessWidget {
             style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w600,
-                color: whiteTextColor),
+                color: AppTheme.whiteTextColor),
           ),
         ),
       ),

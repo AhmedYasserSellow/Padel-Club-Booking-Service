@@ -34,7 +34,7 @@ class NoOffersScreen extends StatelessWidget {
                 : 'There is no offers right now',
             style: TextStyle(
               color: isOpenedFromDashboard
-                  ? whiteTextColor
+                  ? AppTheme.whiteTextColor
                   : HomeCubit.get(context).iconAndTextColor,
               fontSize: 20,
             ),

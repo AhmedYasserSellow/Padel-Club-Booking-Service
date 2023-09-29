@@ -1,6 +1,5 @@
 import 'package:booking/core/utilities/constants/constants.dart';
 import 'package:booking/core/utilities/services/service_locator.dart';
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 

@@ -38,7 +38,7 @@ class _UserFormState extends State<UserForm> {
                 children: [
                   IconButton(
                     icon: const BackButtonIcon(),
-                    color: whiteTextColor,
+                    color: AppTheme.whiteTextColor,
                     onPressed: () => AuthCubit.get(context)
                       ..loginPageState(0)
                       ..buttonIsLoading(false),
@@ -49,10 +49,10 @@ class _UserFormState extends State<UserForm> {
                 height: 12,
               ),
               myTextFormField(
-                textStyleColor: whiteTextColor,
-                labelColor: whiteTextColor,
-                focusColor: whiteTextColor,
-                color: whiteTextColor,
+                textStyleColor: AppTheme.whiteTextColor,
+                labelColor: AppTheme.whiteTextColor,
+                focusColor: AppTheme.whiteTextColor,
+                color: AppTheme.whiteTextColor,
                 controller: name,
                 type: TextInputType.text,
                 validate: (String? value) {
@@ -70,10 +70,10 @@ class _UserFormState extends State<UserForm> {
                 height: 12,
               ),
               myTextFormField(
-                textStyleColor: whiteTextColor,
-                labelColor: whiteTextColor,
-                focusColor: whiteTextColor,
-                color: whiteTextColor,
+                textStyleColor: AppTheme.whiteTextColor,
+                labelColor: AppTheme.whiteTextColor,
+                focusColor: AppTheme.whiteTextColor,
+                color: AppTheme.whiteTextColor,
                 limit: 11,
                 context: context,
                 validate: (String? value) {
@@ -96,7 +96,7 @@ class _UserFormState extends State<UserForm> {
               ),
               defaultButton(
                 isLoading: AuthCubit.get(context).isLoading,
-                color: whiteTextColor,
+                color: AppTheme.whiteTextColor,
                 onTap: () async {
                   if (formKey.currentState!.validate()) {
                     if (!AuthCubit.get(context).isLoading) {
@@ -105,11 +105,11 @@ class _UserFormState extends State<UserForm> {
                         final prefs = await GetInstance.prefs;
                         UserCredential user =
                             await GetInstance.auth.signInAnonymously();
-                        prefs.setString(PrefsKeys.yourName, name.text);
-                        prefs.setString(PrefsKeys.yourPhone, phone.text);
-                        prefs.setBool(PrefsKeys.dev, false);
-                        prefs.setBool(PrefsKeys.isLoggedIn, true);
-                        prefs.setString(PrefsKeys.id, user.user!.uid);
+                        prefs.setString(PrefsKeys.kName, name.text);
+                        prefs.setString(PrefsKeys.kPhone, phone.text);
+                        prefs.setBool(PrefsKeys.kAdmin, false);
+                        prefs.setBool(PrefsKeys.kIsLoggedIn, true);
+                        prefs.setString(PrefsKeys.kFirebaseID, user.user!.uid);
                         await NotificationService.sendNewUserNotification(
                           name: name.text,
                         );

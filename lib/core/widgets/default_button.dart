@@ -23,7 +23,7 @@ Widget defaultButton({
               padding: const EdgeInsets.symmetric(vertical: 4),
               child: Center(
                 child: CircularProgressIndicator(
-                  color: racketFirstColor,
+                  color: AppTheme.racketFirstColor,
                 ),
               ),
             )

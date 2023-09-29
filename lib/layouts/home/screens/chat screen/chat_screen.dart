@@ -132,7 +132,7 @@ class ChatScreen extends StatelessWidget {
                               onPressed: () async {
                                 final prefs = await GetInstance.prefs;
                                 String myName =
-                                    prefs.getString(PrefsKeys.yourName)!;
+                                    prefs.getString(PrefsKeys.kName)!;
                                 if (controller.text != '') {
                                   GetInstance.store
                                       .collection('Chats')

@@ -2,8 +2,7 @@ import 'package:booking/core/utilities/constants/constants.dart';
 import 'package:booking/core/utilities/routes/app_routes.dart';
 import 'package:booking/core/utilities/services/notifications.dart';
 import 'package:booking/core/utilities/services/service_locator.dart';
-import 'package:booking/core/utilities/theme/dark_theme.dart';
-import 'package:booking/core/utilities/theme/light_theme.dart';
+import 'package:booking/core/utilities/theme/theme.dart';
 import 'package:booking/layouts/home/logic/home_cubit.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -24,10 +23,10 @@ void main() async {
   );
   await GetInstance.setup();
   final prefs = await GetInstance.prefs;
-  bool isShowed = prefs.getBool(PrefsKeys.isPremessionShowed) ?? false;
+  bool isShowed = prefs.getBool(PrefsKeys.kIsPremessionShowed) ?? false;
   if (isShowed == false) {
     await NotificationService.getPermssion();
-    prefs.setBool(PrefsKeys.isPremessionShowed, true);
+    prefs.setBool(PrefsKeys.kIsPremessionShowed, true);
   }
 
   NotificationService.initNotification();
@@ -49,9 +48,9 @@ class PadelClub extends StatelessWidget {
             title: 'Padel Club',
             theme: HomeCubit.get(context).isLightMode
                 //Light Theme
-                ? lightTheme
+                ? AppTheme.lightTheme
                 //Dark Theme
-                : darkTheme,
+                : AppTheme.darkTheme,
             debugShowCheckedModeBanner: false,
             routes: appRoutes,
             initialRoute: SplashLayout.id,

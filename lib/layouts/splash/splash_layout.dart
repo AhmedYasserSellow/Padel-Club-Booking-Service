@@ -27,8 +27,8 @@ class _SplashLayoutState extends State<SplashLayout> {
   void loadState() async {
     final prefs = await GetInstance.prefs;
     setState(() {
-      loggedIn = prefs.getBool(PrefsKeys.isLoggedIn) ?? false;
-      onBoarding = prefs.getBool(PrefsKeys.isOnBoarding) ?? true;
+      loggedIn = prefs.getBool(PrefsKeys.kIsLoggedIn) ?? false;
+      onBoarding = prefs.getBool(PrefsKeys.kIsOnBoarding) ?? true;
     });
   }
 

@@ -39,7 +39,7 @@ class OnBoardingInfoItem extends StatelessWidget {
           subtitle,
           textAlign: TextAlign.center,
           style: TextStyle(
-            color: racketFirstColor,
+            color: AppTheme.racketFirstColor,
             fontSize: 24,
             fontWeight: FontWeight.w500,
           ),

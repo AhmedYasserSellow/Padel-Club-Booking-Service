@@ -31,14 +31,14 @@ class DashBoardProfileInfo extends StatelessWidget {
           name,
           style: TextStyle(
             fontSize: 30,
-            color: whiteTextColor,
+            color: AppTheme.whiteTextColor,
           ),
         ),
         Text(
           phone,
           style: TextStyle(
             fontSize: 24,
-            color: whiteTextColor,
+            color: AppTheme.whiteTextColor,
           ),
         ),
         DashBoardDrawerItem(

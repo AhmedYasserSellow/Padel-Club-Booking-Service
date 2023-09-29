@@ -27,8 +27,10 @@ class _AuthLayoutState extends State<AuthLayout> {
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-              gradient:
-                  LinearGradient(colors: [racketFirstColor, racketSecondColor]),
+              gradient: LinearGradient(colors: [
+                AppTheme.racketFirstColor,
+                AppTheme.racketSecondColor,
+              ]),
             ),
             child: Scaffold(
               resizeToAvoidBottomInset: true,

@@ -25,10 +25,10 @@ class HomeCubit extends Cubit<HomeState> {
   Future loadState() async {
     NotificationService.enableFirebaseMessaging();
     final prefs = await GetInstance.prefs;
-    manager = prefs.getBool(PrefsKeys.dev)!;
-    name = prefs.getString(PrefsKeys.yourName)!;
-    phone = prefs.getString(PrefsKeys.yourPhone)!;
-    firebaseID = prefs.getString(PrefsKeys.id)!;
+    manager = prefs.getBool(PrefsKeys.kAdmin)!;
+    name = prefs.getString(PrefsKeys.kName)!;
+    phone = prefs.getString(PrefsKeys.kPhone)!;
+    firebaseID = prefs.getString(PrefsKeys.kFirebaseID)!;
   }
 
 //Navigate in Drawer for home layout
@@ -84,10 +84,10 @@ class HomeCubit extends Cubit<HomeState> {
   void getAppTheme() async {
     isLightMode = await getTheme();
     if (isLightMode) {
-      iconAndTextColor = textAndIconLightModeColor;
+      iconAndTextColor = AppTheme.textAndIconLightCoLor;
       modeIcon = Icons.light_mode;
     } else {
-      iconAndTextColor = textAndIconDarkModeColor;
+      iconAndTextColor = AppTheme.textAndIconDarkColor;
       modeIcon = Icons.dark_mode;
     }
     emit(GetTheme());
@@ -100,13 +100,13 @@ class HomeCubit extends Cubit<HomeState> {
       isLightMode = !isLightMode;
       prefs.setBool('Mode', isLightMode);
       brightness = Brightness.dark;
-      iconAndTextColor = textAndIconDarkModeColor;
+      iconAndTextColor = AppTheme.textAndIconDarkColor;
       modeIcon = Icons.dark_mode;
     } else {
       isLightMode = !isLightMode;
       prefs.setBool('Mode', isLightMode);
       brightness = Brightness.light;
-      iconAndTextColor = textAndIconLightModeColor;
+      iconAndTextColor = AppTheme.textAndIconLightCoLor;
       modeIcon = Icons.light_mode;
     }
     emit(ChangeTheme());

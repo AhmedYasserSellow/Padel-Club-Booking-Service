@@ -47,8 +47,8 @@ class LinkButton extends StatelessWidget {
             ),
             Text(
               text,
-              style:
-                  TextStyle(fontWeight: FontWeight.bold, color: whiteTextColor),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold, color: AppTheme.whiteTextColor),
             ),
           ],
         ),

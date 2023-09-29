@@ -1,5 +1,5 @@
 import 'package:booking/core/utilities/routes/app_routes.dart';
-import 'package:booking/core/utilities/theme/dark_theme.dart';
+
 import 'package:booking/layouts/admin/screens/drawer%20screen/dashboard_drawer_view.dart';
 import 'package:booking/core/utilities/theme/theme.dart';
 import 'package:booking/layouts/admin/logic/admin_cubit.dart';
@@ -17,7 +17,7 @@ class AdminLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)!.settings.arguments as Map;
     return Theme(
-      data: darkTheme,
+      data: AppTheme.darkTheme,
       child: BlocProvider(
         create: (context) => AdminCubit(),
         child: BlocBuilder<AdminCubit, AdminState>(
@@ -28,8 +28,8 @@ class AdminLayout extends StatelessWidget {
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
-                    racketFirstColor,
-                    racketSecondColor,
+                    AppTheme.racketFirstColor,
+                    AppTheme.racketSecondColor,
                   ],
                 ),
               ),
@@ -44,7 +44,7 @@ class AdminLayout extends StatelessWidget {
                   systemOverlayStyle: SystemUiOverlayStyle.light,
                   leading: IconButton(
                     icon: const Icon(Icons.menu),
-                    color: whiteTextColor,
+                    color: AppTheme.whiteTextColor,
                     onPressed: () {
                       AdminCubit.get(context)
                           .scaffoldKey
@@ -54,7 +54,7 @@ class AdminLayout extends StatelessWidget {
                   ),
                   title: Text(
                     'Dashboard',
-                    style: TextStyle(color: whiteTextColor),
+                    style: TextStyle(color: AppTheme.whiteTextColor),
                   ),
                   centerTitle: true,
                   backgroundColor: Colors.transparent,

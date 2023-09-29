@@ -39,7 +39,7 @@ Widget myTextFormField({
         color: color,
       ),
       suffixIcon: suffix,
-      suffixIconColor: whiteTextColor,
+      suffixIconColor: AppTheme.whiteTextColor,
       border: const OutlineInputBorder(),
     ),
   );

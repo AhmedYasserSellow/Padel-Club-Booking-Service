@@ -15,8 +15,8 @@ void pendingDialog(
   BookingServiceModel bookingServiceModel,
 ) async {
   final prefs = await GetInstance.prefs;
-  bool manager = prefs.getBool(PrefsKeys.dev) ?? false;
-  String phone = prefs.getString(PrefsKeys.yourPhone) ?? '';
+  bool manager = prefs.getBool(PrefsKeys.kAdmin) ?? false;
+  String phone = prefs.getString(PrefsKeys.kPhone) ?? '';
   if (context.mounted) {
     showDialog(
         context: context,
@@ -67,7 +67,7 @@ void pendingDialog(
                                           }
                                         },
                                         text: 'Confirm',
-                                        color: availableColor,
+                                        color: AppTheme.availableColor,
                                       ),
                                       const SizedBox(
                                         height: 12,
@@ -104,7 +104,7 @@ void pendingDialog(
                                 }
                               },
                               text: 'Cancel',
-                              color: bookedColor,
+                              color: AppTheme.bookedColor,
                             ),
                           ],
                         )

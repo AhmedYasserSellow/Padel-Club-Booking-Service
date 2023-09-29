@@ -27,7 +27,7 @@ class ControlAcademy extends StatelessWidget {
           children: [
             Text(
               'Academy',
-              style: TextStyle(color: whiteTextColor),
+              style: TextStyle(color: AppTheme.whiteTextColor),
             ),
             const SizedBox(
               height: 12,
@@ -50,10 +50,10 @@ class ControlAcademy extends StatelessWidget {
                     label: 'Year',
                     prefix: Icons.numbers,
                     context: context,
-                    color: whiteTextColor,
-                    textStyleColor: whiteTextColor,
-                    labelColor: whiteTextColor,
-                    focusColor: whiteTextColor,
+                    color: AppTheme.whiteTextColor,
+                    textStyleColor: AppTheme.whiteTextColor,
+                    labelColor: AppTheme.whiteTextColor,
+                    focusColor: AppTheme.whiteTextColor,
                   ),
                 ),
                 const SizedBox(
@@ -75,10 +75,10 @@ class ControlAcademy extends StatelessWidget {
                     label: 'Month',
                     prefix: Icons.numbers,
                     context: context,
-                    color: whiteTextColor,
-                    textStyleColor: whiteTextColor,
-                    labelColor: whiteTextColor,
-                    focusColor: whiteTextColor,
+                    color: AppTheme.whiteTextColor,
+                    textStyleColor: AppTheme.whiteTextColor,
+                    labelColor: AppTheme.whiteTextColor,
+                    focusColor: AppTheme.whiteTextColor,
                   ),
                 ),
               ],
@@ -88,7 +88,7 @@ class ControlAcademy extends StatelessWidget {
             ),
             Text(
               'Academy Time 24H Format',
-              style: TextStyle(color: whiteTextColor),
+              style: TextStyle(color: AppTheme.whiteTextColor),
             ),
             const SizedBox(
               height: 12,
@@ -109,10 +109,10 @@ class ControlAcademy extends StatelessWidget {
               label: 'Day Number',
               prefix: Icons.numbers,
               context: context,
-              color: whiteTextColor,
-              textStyleColor: whiteTextColor,
-              labelColor: whiteTextColor,
-              focusColor: whiteTextColor,
+              color: AppTheme.whiteTextColor,
+              textStyleColor: AppTheme.whiteTextColor,
+              labelColor: AppTheme.whiteTextColor,
+              focusColor: AppTheme.whiteTextColor,
             ),
             const SizedBox(
               height: 12,
@@ -136,10 +136,10 @@ class ControlAcademy extends StatelessWidget {
                     label: 'From',
                     prefix: Icons.numbers,
                     context: context,
-                    color: whiteTextColor,
-                    textStyleColor: whiteTextColor,
-                    labelColor: whiteTextColor,
-                    focusColor: whiteTextColor,
+                    color: AppTheme.whiteTextColor,
+                    textStyleColor: AppTheme.whiteTextColor,
+                    labelColor: AppTheme.whiteTextColor,
+                    focusColor: AppTheme.whiteTextColor,
                   ),
                 ),
                 const SizedBox(
@@ -165,10 +165,10 @@ class ControlAcademy extends StatelessWidget {
                     label: 'To',
                     prefix: Icons.numbers,
                     context: context,
-                    color: whiteTextColor,
-                    textStyleColor: whiteTextColor,
-                    labelColor: whiteTextColor,
-                    focusColor: whiteTextColor,
+                    color: AppTheme.whiteTextColor,
+                    textStyleColor: AppTheme.whiteTextColor,
+                    labelColor: AppTheme.whiteTextColor,
+                    focusColor: AppTheme.whiteTextColor,
                   ),
                 ),
               ],
@@ -181,19 +181,19 @@ class ControlAcademy extends StatelessWidget {
               children: [
                 Text(
                   '1 : ${days[0]}',
-                  style: TextStyle(color: whiteTextColor),
+                  style: TextStyle(color: AppTheme.whiteTextColor),
                 ),
                 Text(
                   '2 : ${days[1]}',
-                  style: TextStyle(color: whiteTextColor),
+                  style: TextStyle(color: AppTheme.whiteTextColor),
                 ),
                 Text(
                   '3 : ${days[2]}',
-                  style: TextStyle(color: whiteTextColor),
+                  style: TextStyle(color: AppTheme.whiteTextColor),
                 ),
                 Text(
                   '4 : ${days[3]}',
-                  style: TextStyle(color: whiteTextColor),
+                  style: TextStyle(color: AppTheme.whiteTextColor),
                 ),
               ],
             ),
@@ -202,15 +202,15 @@ class ControlAcademy extends StatelessWidget {
               children: [
                 Text(
                   '5 : ${days[4]}',
-                  style: TextStyle(color: whiteTextColor),
+                  style: TextStyle(color: AppTheme.whiteTextColor),
                 ),
                 Text(
                   '6 : ${days[5]}',
-                  style: TextStyle(color: whiteTextColor),
+                  style: TextStyle(color: AppTheme.whiteTextColor),
                 ),
                 Text(
                   '7 : ${days[6]}',
-                  style: TextStyle(color: whiteTextColor),
+                  style: TextStyle(color: AppTheme.whiteTextColor),
                 ),
               ],
             ),
@@ -221,7 +221,7 @@ class ControlAcademy extends StatelessWidget {
               children: [
                 Expanded(
                   child: defaultButton(
-                    color: availableColor,
+                    color: AppTheme.availableColor,
                     onTap: () {
                       if (formKey.currentState!.validate()) {
                         addAcdemy(
@@ -242,7 +242,7 @@ class ControlAcademy extends StatelessWidget {
                 ),
                 Expanded(
                   child: defaultButton(
-                    color: bookedColor,
+                    color: AppTheme.bookedColor,
                     onTap: () {
                       if (formKey.currentState!.validate()) {
                         removeAcdemy(
