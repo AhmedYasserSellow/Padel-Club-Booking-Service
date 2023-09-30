@@ -5,7 +5,7 @@ import 'package:booking/core/utilities/theme/theme.dart';
 import 'package:booking/core/widgets/back_button.dart';
 import 'package:booking/core/widgets/text_form_field.dart';
 import 'package:booking/layouts/home/logic/home_cubit.dart';
-import 'package:booking/layouts/home/models/time_button_model.dart';
+import 'package:booking/layouts/home/models/booking_service_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 

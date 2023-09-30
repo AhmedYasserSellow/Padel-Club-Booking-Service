@@ -1,6 +1,6 @@
 import 'package:booking/core/utilities/services/service_locator.dart';
 import 'package:booking/core/widgets/loading_indicator.dart';
-import 'package:booking/layouts/home/models/time_button_model.dart';
+import 'package:booking/layouts/home/models/booking_service_model.dart';
 import 'package:booking/layouts/home/screens/booking%20screen/widgets/booking_calendar.dart';
 import 'package:booking/layouts/home/screens/booking%20screen/widgets/booking_list.dart';
 import 'package:booking/layouts/home/screens/booking%20screen/widgets/booking_states.dart';

@@ -1,5 +1,5 @@
 import 'package:booking/core/utilities/constants/constants.dart';
-import 'package:booking/layouts/home/models/time_button_model.dart';
+import 'package:booking/layouts/home/models/booking_service_model.dart';
 import 'package:booking/layouts/home/screens/booking%20screen/widgets/booking_state_dialog.dart';
 import 'package:booking/layouts/home/screens/booking%20screen/widgets/new_booking_dialog.dart';
 import 'package:flutter/material.dart';

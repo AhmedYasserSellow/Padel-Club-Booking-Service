@@ -2,7 +2,7 @@ import 'package:booking/core/utilities/constants/constants.dart';
 import 'package:booking/core/utilities/services/service_locator.dart';
 import 'package:booking/core/utilities/theme/theme.dart';
 import 'package:booking/layouts/home/screens/booking%20screen/widgets/time_button.dart';
-import 'package:booking/layouts/home/models/time_button_model.dart';
+import 'package:booking/layouts/home/models/booking_service_model.dart';
 import 'package:flutter/material.dart';
 
 class ButtonsList extends StatelessWidget {

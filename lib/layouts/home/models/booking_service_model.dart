@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-part 'time_firebase_model.dart';
+part 'firebase_data_model.dart';
 
 class BookingServiceModel {
   final int index;
