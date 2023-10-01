@@ -9,3 +9,5 @@ class LoginPageUpdate extends AuthState {}
 class ButtonLoadingState extends AuthState {}
 
 class PasswordState extends AuthState {}
+
+class BackState extends AuthState {}

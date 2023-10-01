@@ -42,4 +42,14 @@ class AuthCubit extends Cubit<AuthState> {
   Future logInForUser(BuildContext context) async {
     GetInstance.authRepoImpl.logInForUser(context);
   }
+
+  void backToSelectRole() {
+    loginPageState(0);
+    buttonIsLoading(false);
+    adminPhone.clear();
+    adminPassword.clear();
+    userName.clear();
+    userPhone.clear();
+    emit(BackState());
+  }
 }

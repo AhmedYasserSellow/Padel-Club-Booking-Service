@@ -20,4 +20,11 @@ abstract class HomeRepo {
     TextEditingController profileNameController,
     TextEditingController profilePhoneController,
   );
+
+  Future sendMessage(
+    TextEditingController controller,
+    bool manager,
+    String id,
+    ScrollController listController,
+  );
 }

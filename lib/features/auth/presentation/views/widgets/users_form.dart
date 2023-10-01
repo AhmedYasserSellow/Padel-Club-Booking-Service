@@ -22,9 +22,7 @@ class UserForm extends StatelessWidget {
                   IconButton(
                     icon: const BackButtonIcon(),
                     color: AppTheme.whiteTextColor,
-                    onPressed: () => AuthCubit.get(context)
-                      ..loginPageState(0)
-                      ..buttonIsLoading(false),
+                    onPressed: () => AuthCubit.get(context).backToSelectRole(),
                   ),
                 ],
               ),

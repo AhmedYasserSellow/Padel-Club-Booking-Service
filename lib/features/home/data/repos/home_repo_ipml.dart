@@ -186,4 +186,39 @@ class HomeRepoImpl extends HomeRepo {
       );
     }
   }
+
+  @override
+  Future sendMessage(
+    TextEditingController controller,
+    bool manager,
+    String id,
+    ScrollController listController,
+  ) async {
+    final prefs = await GetInstance.prefs;
+    String myName = prefs.getString(PrefsKeys.kName)!;
+    if (controller.text != '') {
+      GetInstance.store.collection('Chats').doc('0').collection(id).add({
+        'Message': controller.text,
+        'ID': manager ? '0' : id,
+        'Created at': DateTime.now(),
+      });
+      GetInstance.store.collection('App Users').doc(id).set(
+          {
+            'Last Message': DateTime.now(),
+            'Message': controller.text,
+          },
+          SetOptions(
+            merge: true,
+          ));
+      NotificationService.sendMessageNotification(
+        title: manager ? 'Players Service' : myName,
+        body: controller.text,
+        reciverID: manager ? id : '0',
+      );
+      controller.clear();
+      listController.jumpTo(
+        0,
+      );
+    }
+  }
 }

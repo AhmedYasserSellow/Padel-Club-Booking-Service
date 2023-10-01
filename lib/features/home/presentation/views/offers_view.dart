@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:padel_club/core/utilities/services/service_locator.dart';
+import 'package:padel_club/core/widgets/loading_indicator.dart';
 import 'package:padel_club/features/home/presentation/view_models/home_cubit/home_cubit.dart';
 import 'package:padel_club/features/home/presentation/views/widgets/offers_list_builder.dart';
 
@@ -22,9 +23,7 @@ class OffersScreen extends StatelessWidget {
               offers: snapshot.data!.docs,
             );
           } else {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
+            return const LoadingIndicator();
           }
         },
       );

@@ -12,7 +12,7 @@ class SplashCubit extends Cubit<SplashState> {
   bool loggedIn = false;
   bool onBoarding = true;
 
-  void loadState() async {
+  Future loadState() async {
     final prefs = await GetInstance.prefs;
     loggedIn = prefs.getBool(PrefsKeys.kIsLoggedIn) ?? false;
     onBoarding = prefs.getBool(PrefsKeys.kIsOnBoarding) ?? true;

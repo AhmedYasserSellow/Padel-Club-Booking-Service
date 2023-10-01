@@ -15,27 +15,29 @@ class SplashView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => SplashCubit()..loadState(),
-      child: BlocBuilder<SplashCubit, SplashState>(
-        builder: (context, state) {
-          SplashCubit cubit = SplashCubit.get(context);
-          return AnimatedSplashScreen(
-            splash: Image.asset(
-              HomeCubit.get(context).isLightMode
-                  ? Assets.kLogoLight
-                  : Assets.kLogoDark,
-            ),
-            splashIconSize: MediaQuery.of(context).size.width * 3 / 4,
-            duration: 1500,
-            nextScreen: cubit.onBoarding
-                ? const OnBoardingView()
-                : cubit.loggedIn
-                    ? const HomeView()
-                    : const AuthView(),
-            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        create: (context) => SplashCubit(),
+        child: Builder(builder: (context) {
+          return FutureBuilder(
+            future: SplashCubit.get(context).loadState(),
+            builder: (context, snapshot) {
+              SplashCubit cubit = SplashCubit.get(context);
+              return AnimatedSplashScreen(
+                splash: Image.asset(
+                  HomeCubit.get(context).isLightMode
+                      ? Assets.kLogoLight
+                      : Assets.kLogoDark,
+                ),
+                splashIconSize: MediaQuery.of(context).size.width * 3 / 4,
+                duration: 1500,
+                nextScreen: cubit.onBoarding
+                    ? const OnBoardingView()
+                    : cubit.loggedIn
+                        ? const HomeView()
+                        : const AuthView(),
+                backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+              );
+            },
           );
-        },
-      ),
-    );
+        }));
   }
 }

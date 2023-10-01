@@ -147,4 +147,14 @@ class HomeCubit extends Cubit<HomeState> {
         .updateProfile(context, profileNameController, profilePhoneController);
     loadState();
   }
+
+  Future sendMessage(
+    TextEditingController controller,
+    bool manager,
+    String id,
+    ScrollController listController,
+  ) async {
+    GetInstance.homeRepoImpl
+        .sendMessage(controller, manager, id, listController);
+  }
 }
