@@ -8,6 +8,7 @@ import 'package:padel_club/core/utilities/theme/theme.dart';
 import 'package:padel_club/core/widgets/no_internet_snackbar.dart';
 import 'package:padel_club/features/auth/data/repos/auth_repo.dart';
 import 'package:padel_club/features/auth/presentation/view_models/auth_cubit/auth_cubit.dart';
+import 'package:padel_club/features/home/presentation/view_models/home_cubit/home_cubit.dart';
 import 'package:padel_club/features/home/presentation/views/home_view.dart';
 
 class AuthRepoImpl extends AuthRepo {
@@ -91,6 +92,7 @@ class AuthRepoImpl extends AuthRepo {
                 context,
                 HomeView.id,
               );
+              HomeCubit.get(context).loadState();
               cubit.buttonIsLoading(false);
             }
           } else {
@@ -164,6 +166,7 @@ class AuthRepoImpl extends AuthRepo {
               context,
               HomeView.id,
             );
+            HomeCubit.get(context).loadState();
             cubit.buttonIsLoading(false);
           }
         } catch (e) {

@@ -145,5 +145,6 @@ class HomeCubit extends Cubit<HomeState> {
   ) async {
     GetInstance.homeRepoImpl
         .updateProfile(context, profileNameController, profilePhoneController);
+    loadState();
   }
 }

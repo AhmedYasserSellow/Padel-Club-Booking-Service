@@ -1,73 +1,46 @@
 import 'package:flutter/material.dart';
-import 'package:padel_club/core/utilities/constants/constants.dart';
-import 'package:padel_club/core/utilities/services/service_locator.dart';
+import 'package:padel_club/features/home/presentation/view_models/home_cubit/home_cubit.dart';
 import 'package:padel_club/features/home/presentation/views/widgets/change_theme_button.dart';
 import 'package:padel_club/features/home/presentation/views/widgets/log_out.dart';
 import 'package:padel_club/features/home/presentation/views/widgets/main_pages.dart';
 import 'package:padel_club/features/home/presentation/views/widgets/profile_info.dart';
 
-class HomeDrawerView extends StatefulWidget {
+class HomeDrawerView extends StatelessWidget {
   const HomeDrawerView({
     super.key,
   });
 
   @override
-  State<HomeDrawerView> createState() => _HomeDrawerViewState();
-}
-
-class _HomeDrawerViewState extends State<HomeDrawerView> {
-  String name = '';
-  String phone = '';
-  bool isManager = false;
-  String firebaseID = '';
-  Future loadState() async {
-    final prefs = await GetInstance.prefs;
-    isManager = prefs.getBool(PrefsKeys.kAdmin)!;
-    name = prefs.getString(PrefsKeys.kName)!;
-    phone = prefs.getString(PrefsKeys.kPhone)!;
-    firebaseID = prefs.getString(PrefsKeys.kFirebaseID)!;
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    loadState();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return StreamBuilder(
-        stream: Stream.fromFuture(loadState()),
-        builder: (context, snapshot) {
-          return SafeArea(
-            child: Drawer(
-              shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.horizontal(
-                  right: Radius.circular(12),
-                ),
+    HomeCubit cubit = HomeCubit.get(context);
+    return SafeArea(
+      child: Drawer(
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.horizontal(
+            right: Radius.circular(12),
+          ),
+        ),
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Column(
+            children: [
+              ProfileInfo(
+                name: cubit.name,
+                phone: cubit.phone,
+                isManager: cubit.manager,
               ),
-              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-              child: SingleChildScrollView(
-                physics: const BouncingScrollPhysics(),
-                child: Column(
-                  children: [
-                    ProfileInfo(
-                      name: name,
-                      phone: phone,
-                      isManager: isManager,
-                    ),
-                    MainPages(
-                      firebaseID: firebaseID,
-                      isManager: isManager,
-                      myName: name,
-                    ),
-                    const ThemeChangerButton(),
-                    const LogOut(),
-                  ],
-                ),
+              MainPages(
+                firebaseID: cubit.firebaseID,
+                isManager: cubit.manager,
+                myName: cubit.name,
               ),
-            ),
-          );
-        });
+              const ThemeChangerButton(),
+              const LogOut(),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }

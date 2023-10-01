@@ -16,13 +16,15 @@ class HomeRepoImpl extends HomeRepo {
     final prefs = await GetInstance.prefs;
     prefs.setBool(PrefsKeys.kIsLoggedIn, false);
     GetInstance.auth.signOut();
+    GetInstance.msg.unsubscribeFromTopic('notify');
+    GetInstance.msg
+        .unsubscribeFromTopic(prefs.getString(PrefsKeys.kFirebaseID)!);
+    GetInstance.msg.unsubscribeFromTopic('offers');
+    GetInstance.msg.unsubscribeFromTopic('newUsers');
+    GetInstance.msg.unsubscribeFromTopic('0');
+
     if (context.mounted) {
-      GetInstance.msg.unsubscribeFromTopic('notify');
-      GetInstance.msg
-          .unsubscribeFromTopic(prefs.getString(PrefsKeys.kFirebaseID)!);
-      GetInstance.msg.unsubscribeFromTopic('offers');
-      GetInstance.msg.unsubscribeFromTopic('newUsers');
-      GetInstance.msg.unsubscribeFromTopic('0');
+      HomeCubit.get(context).mainPagesIndex = 0;
       Navigator.pop(context);
       Navigator.pushReplacementNamed(
         context,

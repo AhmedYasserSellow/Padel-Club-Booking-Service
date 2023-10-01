@@ -45,8 +45,7 @@ class ChatView extends StatelessWidget {
                       centerTitle: true,
                       leading: BackButton(
                         onPressed: () {
-                          HomeCubit.get(context)
-                              .navigateToMainPages(context, 0);
+                          Navigator.pop(context);
                         },
                         color: HomeCubit.get(context).iconAndTextColor,
                       ),
