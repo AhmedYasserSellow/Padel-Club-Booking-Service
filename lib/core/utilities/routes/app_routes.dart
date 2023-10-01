@@ -1,30 +1,28 @@
-import 'package:booking/core/models/page_model.dart';
-import 'package:booking/core/utilities/constants/constants.dart';
-import 'package:booking/core/widgets/loading_indicator.dart';
-import 'package:booking/layouts/admin/admin_layout.dart';
-import 'package:booking/layouts/admin/screens/academy.dart';
-import 'package:booking/layouts/admin/screens/notification.dart';
-import 'package:booking/layouts/admin/screens/offers.dart';
-import 'package:booking/layouts/admin/screens/pin_times.dart';
-import 'package:booking/layouts/admin/screens/prices.dart';
-import 'package:booking/layouts/admin/screens/years.dart';
-import 'package:booking/layouts/auth/auth_layout.dart';
-import 'package:booking/layouts/home/home_layout.dart';
-import 'package:booking/layouts/home/screens/about%20us%20screen/about_us_screen.dart';
-import 'package:booking/layouts/home/screens/booking%20screen/booking_screen.dart';
-import 'package:booking/layouts/home/screens/chat%20screen/chat_screen.dart';
-import 'package:booking/layouts/home/screens/chat%20screen/widgets/manager_chat_screen.dart';
-import 'package:booking/layouts/home/screens/giveaway%20screen/give_away_screen.dart';
-import 'package:booking/layouts/home/screens/offers%20screen/offers_screen.dart';
-import 'package:booking/layouts/splash/splash_layout.dart';
-import 'package:booking/layouts/on%20boarding/widgets/on_boarding_info_item.dart';
 import 'package:flutter/material.dart';
+import 'package:padel_club/core/models/page_model.dart';
+import 'package:padel_club/features/admin/presetation/views/academy_view.dart';
+import 'package:padel_club/features/admin/presetation/views/admin_view.dart';
+import 'package:padel_club/features/admin/presetation/views/notification_view.dart';
+import 'package:padel_club/features/admin/presetation/views/offers_view.dart';
+import 'package:padel_club/features/admin/presetation/views/pin_times_view.dart';
+import 'package:padel_club/features/admin/presetation/views/prices_view.dart';
+import 'package:padel_club/features/admin/presetation/views/years_view.dart';
+import 'package:padel_club/features/auth/presentation/views/auth_view.dart';
+import 'package:padel_club/features/home/presentation/views/about_us_view.dart';
+import 'package:padel_club/features/home/presentation/views/booking_view.dart';
+import 'package:padel_club/features/home/presentation/views/chat_view.dart';
+import 'package:padel_club/features/home/presentation/views/give_away_screen.dart';
+import 'package:padel_club/features/home/presentation/views/home_view.dart';
+import 'package:padel_club/features/home/presentation/views/offers_view.dart';
+import 'package:padel_club/features/home/presentation/views/widgets/select_chat_view.dart';
+
+import 'package:padel_club/features/splash/presentation/views/splash_view.dart';
 
 Map<String, Widget Function(BuildContext)> appRoutes = {
-  SplashLayout.id: (context) => const SplashLayout(),
-  HomeLayout.id: (context) => const HomeLayout(),
-  AuthLayout.id: (context) => const AuthLayout(),
-  AdminLayout.id: (context) => const AdminLayout(),
+  SplashView.id: (context) => const SplashView(),
+  HomeView.id: (context) => const HomeView(),
+  AuthView.id: (context) => const AuthView(),
+  AdminView.id: (context) => const AdminView(),
 };
 List<PageModel> homePages({
   required bool manager,
@@ -35,10 +33,9 @@ List<PageModel> homePages({
       PageModel(
         icon: Icons.calendar_month,
         name: 'Booking',
-        mainWidget: BookingScreen(
+        mainWidget: BookingView(
           firebaseID: firebaseID,
         ),
-        shimmerWidget: const LoadingIndicator(),
       ),
       PageModel(
         icon: Icons.local_offer,
@@ -46,23 +43,21 @@ List<PageModel> homePages({
         mainWidget: const OffersScreen(
           removeFeature: false,
         ),
-        shimmerWidget: const LoadingIndicator(),
       ),
       PageModel(
         icon: Icons.card_giftcard,
         name: 'Giveaways',
         mainWidget: const GiveAwaysScreen(),
-        shimmerWidget: const LoadingIndicator(),
       ),
       manager
           ? PageModel(
               icon: Icons.chat,
               name: 'Chats',
-              mainWidget: ChatsScreen(
+              mainWidget: SelectChatView(
                 manager: manager,
                 myName: myName,
               ),
-              shimmerWidget: ChatsScreen(
+              shimmerWidget: SelectChatView(
                 manager: manager,
                 myName: myName,
               ),
@@ -70,12 +65,12 @@ List<PageModel> homePages({
           : PageModel(
               icon: Icons.chat,
               name: 'Chat',
-              mainWidget: ChatScreen(
+              mainWidget: ChatView(
                 name: 'Players Service',
                 id: firebaseID,
                 manager: manager,
               ),
-              shimmerWidget: ChatScreen(
+              shimmerWidget: ChatView(
                 name: 'Players Service',
                 id: firebaseID,
                 manager: manager,
@@ -84,8 +79,8 @@ List<PageModel> homePages({
       PageModel(
         icon: Icons.info,
         name: 'Contact Us',
-        mainWidget: const ContactUsScreen(),
-        shimmerWidget: const ContactUsScreen(),
+        mainWidget: const AboutUsView(),
+        shimmerWidget: const AboutUsView(),
       ),
     ];
 
@@ -93,58 +88,31 @@ List<PageModel> dashboardPages = [
   PageModel(
     icon: Icons.pin_drop,
     name: 'Pin',
-    mainWidget: PinTimes(),
+    mainWidget: const PinTimes(),
   ),
   PageModel(
     icon: Icons.sports_tennis,
     name: 'Academy',
-    mainWidget: ControlAcademy(),
+    mainWidget: const ControlAcademy(),
   ),
   PageModel(
     icon: Icons.local_offer,
     name: 'Offers',
-    mainWidget: ControlOffers(),
+    mainWidget: const ControlOffers(),
   ),
   PageModel(
     icon: Icons.calendar_month,
     name: 'Database Years',
-    mainWidget: AddYearsToDB(),
+    mainWidget: const AddYearsToDB(),
   ),
   PageModel(
     icon: Icons.price_change,
     name: 'Prices',
-    mainWidget: PricesScreen(),
+    mainWidget: const PricesScreen(),
   ),
   PageModel(
     icon: Icons.notifications,
     name: 'Notifications',
-    mainWidget: const NotificationScreen(),
+    mainWidget: const NotificationView(),
   ),
-];
-
-List<OnBoardingInfoItem> onBoardingPages = const [
-  OnBoardingInfoItem(
-    assetImage: Assets.kPitch,
-    title: 'Booking Service',
-    subtitle:
-        'Padel Club application provides you a booking service to our padel stadium so\n Enjoy Our Game',
-  ),
-  OnBoardingInfoItem(
-    title: 'Offers Service',
-    assetImage: Assets.kOffers,
-    subtitle:
-        'Also we provide you an offers screen to get notified with our new offers\nEnjoy Our Offers',
-  ),
-  OnBoardingInfoItem(
-    assetImage: Assets.kGiveAways,
-    subtitle:
-        'Also we provide you a giveaways screen to know our new giveaways\nEnjoy Our Gifts',
-    title: 'Giveaways Service',
-  ),
-  OnBoardingInfoItem(
-    assetImage: Assets.kChatService,
-    subtitle:
-        'Also we provide you a chat service so you can reach us at any time\nWelcome To Our Community',
-    title: 'Chat Service',
-  )
 ];

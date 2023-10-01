@@ -1,14 +1,14 @@
-import 'package:booking/core/utilities/constants/constants.dart';
-import 'package:booking/core/utilities/routes/app_routes.dart';
-import 'package:booking/core/utilities/services/notifications.dart';
-import 'package:booking/core/utilities/services/service_locator.dart';
-import 'package:booking/core/utilities/theme/theme.dart';
-import 'package:booking/layouts/home/logic/home_cubit.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'layouts/splash/splash_layout.dart';
+import 'package:padel_club/core/utilities/constants/constants.dart';
+import 'package:padel_club/core/utilities/routes/app_routes.dart';
+import 'package:padel_club/core/utilities/services/notifications.dart';
+import 'package:padel_club/core/utilities/services/service_locator.dart';
+import 'package:padel_club/core/utilities/theme/theme.dart';
+import 'package:padel_club/features/home/presentation/view_models/home_cubit/home_cubit.dart';
+import 'package:padel_club/features/splash/presentation/views/splash_view.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -53,7 +53,7 @@ class PadelClub extends StatelessWidget {
                 : AppTheme.darkTheme,
             debugShowCheckedModeBanner: false,
             routes: appRoutes,
-            initialRoute: SplashLayout.id,
+            initialRoute: SplashView.id,
           );
         },
       ),

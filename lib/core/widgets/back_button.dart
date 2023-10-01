@@ -1,5 +1,5 @@
-import 'package:booking/layouts/home/logic/home_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:padel_club/features/home/presentation/view_models/home_cubit/home_cubit.dart';
 
 class MyBackButton extends StatelessWidget {
   const MyBackButton({super.key});

@@ -1,5 +1,5 @@
-import 'package:booking/core/widgets/loading_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:padel_club/core/widgets/loading_indicator.dart';
 
 class PageModel {
   final String name;

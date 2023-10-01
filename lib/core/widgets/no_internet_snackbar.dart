@@ -1,5 +1,5 @@
-import 'package:booking/core/utilities/theme/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:padel_club/core/utilities/theme/theme.dart';
 
 void noInternetSnackBar(BuildContext context) {
   ScaffoldMessenger.of(context).showSnackBar(

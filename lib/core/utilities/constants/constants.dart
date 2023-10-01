@@ -1,7 +1,5 @@
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 
-int finalYear = DateTime.now().year + 1;
-
 String pending = 'Pending';
 String booked = 'Booked';
 String academy = 'Academy';
