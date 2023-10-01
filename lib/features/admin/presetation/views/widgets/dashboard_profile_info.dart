@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:padel_club/core/utilities/constants/constants.dart';
 import 'package:padel_club/core/utilities/theme/theme.dart';
-import 'package:padel_club/features/admin/presetation/views/widgets/drawer%20screen/widgets/dashboard_drawer_item.dart';
+import 'package:padel_club/features/admin/presetation/views/widgets/dashboard_drawer_item.dart';
 import 'package:padel_club/features/home/presentation/views/home_view.dart';
 
 class DashBoardProfileInfo extends StatelessWidget {

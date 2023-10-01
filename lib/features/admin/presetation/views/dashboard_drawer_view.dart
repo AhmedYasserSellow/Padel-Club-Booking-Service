@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:padel_club/core/utilities/theme/theme.dart';
-import 'package:padel_club/features/admin/presetation/views/widgets/drawer%20screen/widgets/dashboard_log_out.dart';
-import 'package:padel_club/features/admin/presetation/views/widgets/drawer%20screen/widgets/dashboard_pages.dart';
-import 'package:padel_club/features/admin/presetation/views/widgets/drawer%20screen/widgets/dashboard_profile_info.dart';
+import 'package:padel_club/features/admin/presetation/views/widgets/dashboard_log_out.dart';
+import 'package:padel_club/features/admin/presetation/views/widgets/dashboard_pages.dart';
+import 'package:padel_club/features/admin/presetation/views/widgets/dashboard_profile_info.dart';
 
 class DashBoardDrawerView extends StatelessWidget {
   const DashBoardDrawerView({

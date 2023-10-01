@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:padel_club/core/utilities/routes/app_routes.dart';
 import 'package:padel_club/core/utilities/theme/theme.dart';
 import 'package:padel_club/features/admin/presetation/view_model/admin_cubit/admin_cubit.dart';
-import 'package:padel_club/features/admin/presetation/views/widgets/drawer%20screen/widgets/dashboard_drawer_item.dart';
+import 'package:padel_club/features/admin/presetation/views/widgets/dashboard_drawer_item.dart';
 
 class DashboardPages extends StatelessWidget {
   const DashboardPages({super.key});
