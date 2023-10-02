@@ -12,7 +12,6 @@ import 'package:padel_club/features/chat/presentation/views/widgets/select_chat_
 import 'package:padel_club/features/contact%20us/presentation/views/contact_us_view.dart';
 import 'package:padel_club/features/booking/presentation/views/booking_view.dart';
 import 'package:padel_club/features/chat/presentation/views/chat_view.dart';
-import 'package:padel_club/features/giveaways/presentation/views/give_away_view.dart';
 import 'package:padel_club/features/home/presentation/views/home_view.dart';
 import 'package:padel_club/features/offers/presentation/views/offers_view.dart';
 import 'package:padel_club/features/splash/presentation/views/splash_view.dart';
@@ -40,11 +39,6 @@ List<PageModel> homePages({
         icon: Icons.local_offer,
         name: 'Offers',
         mainWidget: const OffersView(),
-      ),
-      PageModel(
-        icon: Icons.card_giftcard,
-        name: 'Giveaways',
-        mainWidget: const GiveAwaysScreen(),
       ),
       manager
           ? PageModel(

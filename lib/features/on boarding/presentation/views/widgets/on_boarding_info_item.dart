@@ -65,14 +65,6 @@ List<OnBoardingInfoItem> onBoardingPages = [
   ),
   OnBoardingInfoItem(
     onBoardingModel: OnBoardingModel(
-      assetImage: Assets.kGiveAways,
-      subtitle:
-          'Also we provide you a giveaways screen to know our new giveaways\nEnjoy Our Gifts',
-      title: 'Giveaways Service',
-    ),
-  ),
-  OnBoardingInfoItem(
-    onBoardingModel: OnBoardingModel(
       assetImage: Assets.kChatService,
       subtitle:
           'Also we provide you a chat service so you can reach us at any time\nWelcome To Our Community',
