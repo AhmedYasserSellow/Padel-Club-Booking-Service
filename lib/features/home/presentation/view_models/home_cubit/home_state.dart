@@ -12,6 +12,4 @@ class GetTheme extends HomeState {}
 
 class NameChanged extends HomeState {}
 
-class DayChanged extends HomeState {}
-
 class ChangeExpansion extends HomeState {}

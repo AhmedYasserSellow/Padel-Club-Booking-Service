@@ -8,14 +8,13 @@ import 'package:padel_club/features/admin/presetation/views/pin_times_view.dart'
 import 'package:padel_club/features/admin/presetation/views/prices_view.dart';
 import 'package:padel_club/features/admin/presetation/views/years_view.dart';
 import 'package:padel_club/features/auth/presentation/views/auth_view.dart';
-import 'package:padel_club/features/home/presentation/views/about_us_view.dart';
-import 'package:padel_club/features/home/presentation/views/booking_view.dart';
-import 'package:padel_club/features/home/presentation/views/chat_view.dart';
-import 'package:padel_club/features/home/presentation/views/give_away_screen.dart';
+import 'package:padel_club/features/chat/presentation/views/widgets/select_chat_view.dart';
+import 'package:padel_club/features/contact%20us/presentation/views/contact_us_view.dart';
+import 'package:padel_club/features/booking/presentation/views/booking_view.dart';
+import 'package:padel_club/features/chat/presentation/views/chat_view.dart';
+import 'package:padel_club/features/giveaways/presentation/views/give_away_view.dart';
 import 'package:padel_club/features/home/presentation/views/home_view.dart';
-import 'package:padel_club/features/home/presentation/views/offers_view.dart';
-import 'package:padel_club/features/home/presentation/views/widgets/select_chat_view.dart';
-
+import 'package:padel_club/features/offers/presentation/views/offers_view.dart';
 import 'package:padel_club/features/splash/presentation/views/splash_view.dart';
 
 Map<String, Widget Function(BuildContext)> appRoutes = {
@@ -40,9 +39,7 @@ List<PageModel> homePages({
       PageModel(
         icon: Icons.local_offer,
         name: 'Offers',
-        mainWidget: const OffersScreen(
-          removeFeature: false,
-        ),
+        mainWidget: const OffersView(),
       ),
       PageModel(
         icon: Icons.card_giftcard,

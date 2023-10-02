@@ -7,7 +7,7 @@ import 'package:padel_club/core/utilities/services/service_locator.dart';
 import 'package:padel_club/core/utilities/theme/theme.dart';
 import 'package:padel_club/features/admin/data/models/time_model.dart';
 import 'package:padel_club/features/admin/data/repos/admin_repo.dart';
-import 'package:padel_club/features/admin/presetation/view_model/cubit/offers_cubit.dart';
+import 'package:padel_club/features/admin/presetation/view_model/offers_cubit/offers_cubit.dart';
 import 'package:padel_club/features/admin/presetation/view_model/database_years_cubit/database_years_cubit.dart';
 import 'package:padel_club/features/admin/presetation/view_model/prices_cubit/prices_cubit.dart';
 

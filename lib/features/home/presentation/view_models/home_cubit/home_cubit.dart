@@ -4,7 +4,6 @@ import 'package:padel_club/core/utilities/constants/constants.dart';
 import 'package:padel_club/core/utilities/services/notifications.dart';
 import 'package:padel_club/core/utilities/services/service_locator.dart';
 import 'package:padel_club/core/utilities/theme/theme.dart';
-import 'package:padel_club/features/home/data/models/booking_service_model.dart';
 
 part 'home_state.dart';
 
@@ -14,10 +13,6 @@ class HomeCubit extends Cubit<HomeState> {
   static HomeCubit get(context) => BlocProvider.of(context);
   int mainPagesIndex = 0;
   bool isExpanded = false;
-  DateTime focusedDay = DateTime.now();
-  DateTime today = DateTime.now();
-  int finalYear = DateTime.now().year + 1;
-
   bool manager = false;
   String name = '';
   String phone = '';
@@ -33,7 +28,6 @@ class HomeCubit extends Cubit<HomeState> {
     firebaseID = prefs.getString(PrefsKeys.kFirebaseID)!;
   }
 
-//Navigate in Drawer for home layout
   void navigateToMainPages(BuildContext context, int index,
       {bool isDrawer = true}) {
     mainPagesIndex = index;
@@ -46,20 +40,11 @@ class HomeCubit extends Cubit<HomeState> {
     emit(NavigateToAnotherMainPage());
   }
 
-//Change Expansion
   void pagesExpnasionChanger(bool expanded) {
     isExpanded = expanded;
     emit(ChangeExpansion());
   }
 
-//Change selected day
-
-  void changeSelectedDay(DateTime day) {
-    focusedDay = day;
-    emit(DayChanged());
-  }
-
-//Profile Name Changer
   void changeName() async {
     emit(NameChanged());
   }
@@ -95,7 +80,6 @@ class HomeCubit extends Cubit<HomeState> {
     emit(GetTheme());
   }
 
-//Change Theme
   void changeTheme() async {
     final prefs = await GetInstance.prefs;
     if (isLightMode) {
@@ -118,25 +102,6 @@ class HomeCubit extends Cubit<HomeState> {
     GetInstance.homeRepoImpl.logOut(context);
   }
 
-  TextEditingController nameController = TextEditingController();
-  TextEditingController phoneNumberController = TextEditingController();
-
-  Future confirmBooking(
-      BuildContext context, BookingServiceModel bookingServiceModel) async {
-    GetInstance.homeRepoImpl.confirmBooking(context, bookingServiceModel);
-  }
-
-  Future cancelBooking(
-      BuildContext context, BookingServiceModel bookingServiceModel) async {
-    GetInstance.homeRepoImpl.cancelBooking(context, bookingServiceModel);
-  }
-
-  Future addBooking(BuildContext context,
-      BookingServiceModel bookingServiceModel, bool manager, myID) async {
-    GetInstance.homeRepoImpl.addNewBook(context, bookingServiceModel, manager,
-        nameController, phoneNumberController, myID);
-  }
-
   TextEditingController profileNameController = TextEditingController();
   TextEditingController profilePhoneController = TextEditingController();
 
@@ -146,15 +111,5 @@ class HomeCubit extends Cubit<HomeState> {
     GetInstance.homeRepoImpl
         .updateProfile(context, profileNameController, profilePhoneController);
     loadState();
-  }
-
-  Future sendMessage(
-    TextEditingController controller,
-    bool manager,
-    String id,
-    ScrollController listController,
-  ) async {
-    GetInstance.homeRepoImpl
-        .sendMessage(controller, manager, id, listController);
   }
 }

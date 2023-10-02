@@ -4,7 +4,7 @@ import 'package:padel_club/core/utilities/theme/theme.dart';
 import 'package:padel_club/core/widgets/default_button.dart';
 import 'package:padel_club/core/widgets/text_form_field.dart';
 import 'package:padel_club/features/admin/presetation/view_model/admin_cubit/admin_cubit.dart';
-import 'package:padel_club/features/admin/presetation/view_model/cubit/offers_cubit.dart';
+import 'package:padel_club/features/admin/presetation/view_model/offers_cubit/offers_cubit.dart';
 
 class ControlOffers extends StatelessWidget {
   const ControlOffers({super.key});
@@ -117,16 +117,6 @@ class ControlOffers extends StatelessWidget {
                   }
                 },
               ),
-              const SizedBox(
-                height: 12,
-              ),
-              defaultButton(
-                onTap: () {
-                  cubit.openOffersScreen(context);
-                },
-                text: 'Offers Screen',
-                color: AppTheme.whatsAppColor,
-              )
             ],
           ),
         );
