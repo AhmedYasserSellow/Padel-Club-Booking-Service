@@ -25,6 +25,7 @@ class ChatRepoImpl extends ChatRepo {
           {
             'Last Message': DateTime.now(),
             'Message': textController.text,
+            'sender ID': manager ? '0' : id,
           },
           SetOptions(
             merge: true,

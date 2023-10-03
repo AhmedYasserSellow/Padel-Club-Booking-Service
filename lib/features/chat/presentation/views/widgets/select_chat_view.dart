@@ -11,10 +11,11 @@ class SelectChatView extends StatelessWidget {
     super.key,
     required this.manager,
     required this.myName,
+    required this.firebaseID,
   });
   final bool manager;
   final String myName;
-
+  final String firebaseID;
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
@@ -33,6 +34,7 @@ class SelectChatView extends StatelessWidget {
             if (users.isNotEmpty) {
               return ListView.separated(
                 itemBuilder: (context, index) {
+                  String id = users[index]['sender ID'];
                   return ListTile(
                     leading: Icon(
                       Icons.account_circle,
@@ -40,7 +42,9 @@ class SelectChatView extends StatelessWidget {
                     ),
                     title: Text(users[index]['Name']),
                     subtitle: Text(
-                      users[index]['Message'],
+                      id == '0'
+                          ? 'you: ${users[index]['Message']}'
+                          : users[index]['Message'],
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),

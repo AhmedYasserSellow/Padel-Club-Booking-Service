@@ -15,10 +15,13 @@ Widget myTextFormField({
   bool isEnabled = true,
   Color focusColor = Colors.blue,
   Color labelColor = Colors.grey,
+  Color borderColor = Colors.white,
   Widget? suffix,
   int maxLines = 1,
+  Color cursorColor = Colors.white,
 }) {
   return TextFormField(
+    cursorColor: cursorColor,
     minLines: 1,
     maxLines: maxLines,
     enabled: isEnabled,
@@ -40,7 +43,9 @@ Widget myTextFormField({
       ),
       suffixIcon: suffix,
       suffixIconColor: AppTheme.whiteTextColor,
-      border: const OutlineInputBorder(),
+      enabledBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: borderColor.withOpacity(0.3), width: 2.0),
+      ),
     ),
   );
 }

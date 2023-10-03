@@ -100,7 +100,7 @@ class BookingRepoImpl extends BookingRepo {
       );
       GetInstance.store.collection('Chats').doc('0').collection(myID).add({
         'Message':
-            'I have send a book request\nDate : ${bookingServiceModel.firebaseModel.selectedDay}/${bookingServiceModel.firebaseModel.selectedMonth}/${bookingServiceModel.firebaseModel.selectedYear} \nTime : ${clock[bookingServiceModel.index]}',
+            'I have sent a booking request\nDate : ${bookingServiceModel.firebaseModel.selectedDay}/${bookingServiceModel.firebaseModel.selectedMonth}/${bookingServiceModel.firebaseModel.selectedYear} \nTime : ${clock[bookingServiceModel.index]}',
         'ID': myID,
         'Created at': DateTime.now(),
       });
@@ -108,7 +108,7 @@ class BookingRepoImpl extends BookingRepo {
           {
             'Last Message': DateTime.now(),
             'Message':
-                'I have send a book request\nDate : ${bookingServiceModel.firebaseModel.selectedDay}/${bookingServiceModel.firebaseModel.selectedMonth}/${bookingServiceModel.firebaseModel.selectedYear} \nTime : ${clock[bookingServiceModel.index]}',
+                'I have sent a booking request\nDate : ${bookingServiceModel.firebaseModel.selectedDay}/${bookingServiceModel.firebaseModel.selectedMonth}/${bookingServiceModel.firebaseModel.selectedYear} \nTime : ${clock[bookingServiceModel.index]}',
           },
           SetOptions(
             merge: true,

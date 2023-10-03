@@ -35,12 +35,18 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   Future logInForAdmin(BuildContext context, AsyncSnapshot snapshot) async {
-    GetInstance.authRepoImpl
-        .logInForAdmin(context, snapshot, adminPhone, adminPassword);
+    GetInstance.authRepoImpl.logInForAdmin(
+      context,
+      snapshot,
+      adminPhone,
+      adminPassword,
+    );
   }
 
   Future logInForUser(BuildContext context) async {
-    GetInstance.authRepoImpl.logInForUser(context);
+    GetInstance.authRepoImpl.logInForUser(
+      context,
+    );
   }
 
   void backToSelectRole() {
