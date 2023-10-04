@@ -19,7 +19,9 @@ class PadelClub extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (BuildContext context) => HomeCubit()..getAppTheme(),
+      create: (BuildContext context) => HomeCubit()
+        ..getAppTheme()
+        ..loadState(),
       child: BlocBuilder<HomeCubit, HomeState>(
         builder: (context, state) {
           return MaterialApp(

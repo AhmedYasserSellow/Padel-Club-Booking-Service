@@ -49,6 +49,10 @@ void addNewBookingDialog(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     myTextFormField(
+                      borderColor:
+                          Theme.of(context).brightness == Brightness.light
+                              ? Colors.black
+                              : Colors.white,
                       textStyleColor: HomeCubit.get(context).iconAndTextColor,
                       color: HomeCubit.get(context).iconAndTextColor,
                       context: context,
@@ -67,6 +71,10 @@ void addNewBookingDialog(
                       height: 24,
                     ),
                     myTextFormField(
+                      borderColor:
+                          Theme.of(context).brightness == Brightness.light
+                              ? Colors.black
+                              : Colors.white,
                       textStyleColor: HomeCubit.get(context).iconAndTextColor,
                       color: HomeCubit.get(context).iconAndTextColor,
                       limit: 11,

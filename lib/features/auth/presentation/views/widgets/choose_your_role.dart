@@ -11,7 +11,7 @@ class ChooseRole extends StatelessWidget {
     return Column(
       children: [
         Text(
-          'Are you a ... ?',
+          'Are you an ... ?',
           style: TextStyle(
             fontSize: 24,
             color: AppTheme.whiteTextColor,
@@ -35,7 +35,7 @@ class ChooseRole extends StatelessWidget {
             Role(
               index: 2,
               image: Assets.kManagerLight,
-              role: 'Manager',
+              role: 'Admin',
             ),
           ],
         )

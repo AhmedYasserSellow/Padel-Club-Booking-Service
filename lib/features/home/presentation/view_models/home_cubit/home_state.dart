@@ -4,6 +4,8 @@ abstract class HomeState {}
 
 class AppIntialState extends HomeState {}
 
+class StatusBarChanged extends HomeState {}
+
 class NavigateToAnotherMainPage extends HomeState {}
 
 class ChangeTheme extends HomeState {}

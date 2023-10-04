@@ -19,13 +19,14 @@ class HomeCubit extends Cubit<HomeState> {
   String firebaseID = '';
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
   Future loadState() async {
     NotificationService.enableFirebaseMessaging();
     final prefs = await GetInstance.prefs;
-    manager = prefs.getBool(PrefsKeys.kAdmin)!;
-    name = prefs.getString(PrefsKeys.kName)!;
-    phone = prefs.getString(PrefsKeys.kPhone)!;
-    firebaseID = prefs.getString(PrefsKeys.kFirebaseID)!;
+    manager = prefs.getBool(PrefsKeys.kAdmin) ?? false;
+    name = prefs.getString(PrefsKeys.kName) ?? '';
+    phone = prefs.getString(PrefsKeys.kPhone) ?? '';
+    firebaseID = prefs.getString(PrefsKeys.kFirebaseID) ?? '';
   }
 
   void navigateToMainPages(BuildContext context, int index,
@@ -78,6 +79,11 @@ class HomeCubit extends Cubit<HomeState> {
       modeIcon = Icons.dark_mode;
     }
     emit(GetTheme());
+  }
+
+  void setStatusBarUI(Brightness mode) {
+    AppTheme.setStatusBarUI(mode);
+    emit(StatusBarChanged());
   }
 
   void changeTheme() async {

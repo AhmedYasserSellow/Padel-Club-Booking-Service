@@ -14,7 +14,7 @@ class OnBoardingInfoItem extends StatelessWidget {
     return Column(
       children: [
         SizedBox(
-          height: MediaQuery.of(context).size.height / 7,
+          height: MediaQuery.of(context).size.height / 10,
         ),
         Image.asset(onBoardingModel.assetImage),
         const SizedBox(

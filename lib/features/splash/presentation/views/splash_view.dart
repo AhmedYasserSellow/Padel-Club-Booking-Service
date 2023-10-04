@@ -16,7 +16,13 @@ class SplashView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
         create: (context) => SplashCubit(),
-        child: Builder(builder: (context) {
+        child: BlocBuilder<HomeCubit, HomeState>(builder: (context, state) {
+          HomeCubit.get(context).setStatusBarUI(
+            HomeCubit.get(context).brightness == Brightness.light
+                ? Brightness.dark
+                : Brightness.light,
+          );
+
           return FutureBuilder(
             future: SplashCubit.get(context).loadState(),
             builder: (context, snapshot) {

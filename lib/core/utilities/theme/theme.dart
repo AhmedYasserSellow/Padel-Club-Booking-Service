@@ -1,6 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 abstract class AppTheme {
+  static Future setStatusBarUI(Brightness mode) async {
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+        statusBarIconBrightness: mode,
+        statusBarColor: Colors.transparent,
+        statusBarBrightness: mode,
+      ),
+    );
+  }
+
 //Booking
   static Color availableColor = const Color.fromRGBO(46, 204, 113, 1);
   static Color pendingColor = const Color.fromRGBO(241, 196, 15, 1);
