@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:padel_club/core/utilities/services/service_locator.dart';
 part 'admin_state.dart';
 
 class AdminCubit extends Cubit<AdminState> {
@@ -18,5 +19,9 @@ class AdminCubit extends Cubit<AdminState> {
   void pagesExpnasionChanger(bool expanded) {
     isExpanded = expanded;
     emit(ChangeExpansion());
+  }
+
+  Future logOut(BuildContext context) async {
+    GetInstance.adminRepoImpl.logOut(context);
   }
 }

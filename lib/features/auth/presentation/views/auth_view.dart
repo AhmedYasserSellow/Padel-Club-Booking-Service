@@ -16,7 +16,8 @@ class AuthView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
-        HomeCubit.get(context).setStatusBarUI(Brightness.light);
+        HomeCubit.get(context)
+            .setStatusBarUI(Brightness.light, Brightness.dark);
         return BlocProvider(
           create: (context) => AuthCubit(),
           child: BlocBuilder<AuthCubit, AuthState>(

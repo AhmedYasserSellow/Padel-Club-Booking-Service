@@ -10,6 +10,7 @@ import 'package:padel_club/features/admin/data/repos/admin_repo.dart';
 import 'package:padel_club/features/admin/presetation/view_model/offers_cubit/offers_cubit.dart';
 import 'package:padel_club/features/admin/presetation/view_model/database_years_cubit/database_years_cubit.dart';
 import 'package:padel_club/features/admin/presetation/view_model/prices_cubit/prices_cubit.dart';
+import 'package:padel_club/features/auth/presentation/views/auth_view.dart';
 
 class AdminRepoImpl extends AdminRepo {
   @override
@@ -227,5 +228,25 @@ class AdminRepoImpl extends AdminRepo {
         backgroundColor: AppTheme.racketFirstColor,
       ),
     );
+  }
+
+  @override
+  Future logOut(BuildContext context) async {
+    final prefs = await GetInstance.prefs;
+    prefs.setBool(PrefsKeys.kIsLoggedIn, false);
+    GetInstance.auth.signOut();
+    if (context.mounted) {
+      GetInstance.msg.unsubscribeFromTopic('notify');
+      GetInstance.msg
+          .unsubscribeFromTopic(prefs.getString(PrefsKeys.kFirebaseID)!);
+      GetInstance.msg.unsubscribeFromTopic('offers');
+      GetInstance.msg.unsubscribeFromTopic('newUsers');
+      GetInstance.msg.unsubscribeFromTopic('0');
+      Navigator.pop(context);
+      Navigator.pushReplacementNamed(
+        context,
+        AuthView.id,
+      );
+    }
   }
 }

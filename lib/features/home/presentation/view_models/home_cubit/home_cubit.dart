@@ -81,8 +81,8 @@ class HomeCubit extends Cubit<HomeState> {
     emit(GetTheme());
   }
 
-  void setStatusBarUI(Brightness mode) {
-    AppTheme.setStatusBarUI(mode);
+  void setStatusBarUI(Brightness androidIconMode, Brightness iosStatusBarMode) {
+    AppTheme.setStatusBarUI(androidIconMode, iosStatusBarMode);
     emit(StatusBarChanged());
   }
 

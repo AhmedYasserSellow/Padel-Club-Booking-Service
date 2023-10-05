@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 abstract class AppTheme {
-  static Future setStatusBarUI(Brightness mode) async {
+  static Future setStatusBarUI(
+      Brightness iconModeAndroid, Brightness statusBarModeIOS) async {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
-        statusBarIconBrightness: mode,
+        statusBarIconBrightness: iconModeAndroid,
         statusBarColor: Colors.transparent,
-        statusBarBrightness: mode,
+        statusBarBrightness: statusBarModeIOS,
       ),
     );
   }
@@ -16,7 +17,7 @@ abstract class AppTheme {
   static Color availableColor = const Color.fromRGBO(46, 204, 113, 1);
   static Color pendingColor = const Color.fromRGBO(241, 196, 15, 1);
   static Color bookedColor = const Color.fromRGBO(208, 57, 43, 1);
-  static Color academyColor = const Color.fromRGBO(27, 114, 192, 1);
+  static Color academyColor = racketFirstColor;
 
 //Gradient Background Colors
   static Color racketFirstColor = const Color.fromRGBO(27, 114, 192, 1);

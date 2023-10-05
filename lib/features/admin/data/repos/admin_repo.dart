@@ -31,4 +31,7 @@ abstract class AdminRepo {
   void addOffers(
     BuildContext context,
   );
+  Future logOut(
+    BuildContext context,
+  );
 }

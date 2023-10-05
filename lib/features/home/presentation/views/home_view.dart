@@ -14,7 +14,12 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    HomeCubit.get(context).setStatusBarUI(HomeCubit.get(context).brightness);
+    HomeCubit.get(context).setStatusBarUI(
+      HomeCubit.get(context).brightness == Brightness.light
+          ? Brightness.dark
+          : Brightness.light,
+      HomeCubit.get(context).brightness,
+    );
     return StreamBuilder(
         stream: connection.onStatusChange,
         builder: (context, ethernetSnapshot) {
