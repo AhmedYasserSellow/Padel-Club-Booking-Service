@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:padel_club/core/utilities/services/service_locator.dart';
 import 'package:padel_club/core/utilities/theme/theme.dart';
+import 'package:padel_club/core/widgets/loading_indicator.dart';
 import 'package:padel_club/features/admin/presetation/views/widgets/notification_list_tile.dart';
 
 class NotificationView extends StatelessWidget {
@@ -43,7 +44,7 @@ class NotificationView extends StatelessWidget {
             }
           } else {
             return const Center(
-              child: CircularProgressIndicator(),
+              child: LoadingIndicator(),
             );
           }
         });

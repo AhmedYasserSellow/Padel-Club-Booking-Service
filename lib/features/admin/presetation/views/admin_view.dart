@@ -59,22 +59,17 @@ class AdminView extends StatelessWidget {
                   backgroundColor: Colors.transparent,
                   elevation: 0,
                 ),
-                body: AdminCubit.get(context).dashboardPagesIndex ==
-                        dashboardPages.length - 1
-                    ? dashboardPages[
-                            AdminCubit.get(context).dashboardPagesIndex]
-                        .mainWidget
-                    : Center(
-                        child: SingleChildScrollView(
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 8, vertical: 16),
-                            child: dashboardPages[
-                                    AdminCubit.get(context).dashboardPagesIndex]
-                                .mainWidget,
-                          ),
-                        ),
-                      ),
+                body: Center(
+                  child: SingleChildScrollView(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 16),
+                      child: dashboardPages[
+                              AdminCubit.get(context).dashboardPagesIndex]
+                          .mainWidget,
+                    ),
+                  ),
+                ),
               ),
             );
           },

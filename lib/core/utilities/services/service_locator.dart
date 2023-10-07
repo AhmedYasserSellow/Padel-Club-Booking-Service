@@ -17,7 +17,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class GetInstance {
   static final getIt = GetIt.instance;
-  static setupFirebase() async {
+  static Future setupFirebase() async {
     WidgetsFlutterBinding.ensureInitialized();
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
@@ -29,7 +29,7 @@ abstract class GetInstance {
     );
   }
 
-  static registerInstances() {
+  static Future registerInstances() async {
     getIt.registerSingletonAsync<SharedPreferences>(
       () => SharedPreferences.getInstance(),
     );
@@ -43,7 +43,7 @@ abstract class GetInstance {
     getIt.registerSingleton<ChatRepoImpl>(ChatRepoImpl());
   }
 
-  static intializeNotofications() async {
+  static Future intializeNotofications() async {
     final prefs = await GetInstance.prefs;
     bool isShowed = prefs.getBool(PrefsKeys.kIsPremessionShowed) ?? false;
     if (isShowed == false) {

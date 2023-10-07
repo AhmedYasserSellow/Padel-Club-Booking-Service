@@ -175,10 +175,10 @@ class AdminRepoImpl extends AdminRepo {
   void changePrices(BuildContext context) {
     PricesCubit cubit = PricesCubit.get(context);
     GetInstance.store.collection('Control Panel').doc('Prices').set({
-      'Day': int.tryParse(cubit.dayPriceController.text),
-      'Night': int.tryParse(cubit.nightPriceController.text),
-      'Night End AM': int.tryParse(cubit.to.text),
-      'Night Start PM': int.tryParse(cubit.from.text),
+      'Day': cubit.dayPriceController.text.toInt(),
+      'Night': cubit.nightPriceController.text.toInt(),
+      'Night End AM': cubit.to.text.toInt(),
+      'Night Start PM': cubit.from.text.toInt(),
     });
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(

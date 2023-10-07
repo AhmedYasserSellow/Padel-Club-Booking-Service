@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:padel_club/core/utilities/services/service_locator.dart';
 import 'package:padel_club/core/utilities/theme/theme.dart';
 import 'package:padel_club/core/widgets/default_button.dart';
+import 'package:padel_club/core/widgets/loading_indicator.dart';
 import 'package:padel_club/core/widgets/text_form_field.dart';
 import 'package:padel_club/features/admin/presetation/view_model/prices_cubit/prices_cubit.dart';
 
@@ -172,7 +173,7 @@ class PricesScreen extends StatelessWidget {
                 );
               } else {
                 return const Center(
-                  child: CircularProgressIndicator(),
+                  child: LoadingIndicator(),
                 );
               }
             },

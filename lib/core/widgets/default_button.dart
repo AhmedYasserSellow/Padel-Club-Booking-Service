@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:padel_club/core/utilities/theme/theme.dart';
 
 Widget defaultButton({
-  required onTap,
   required String text,
   required Color color,
+  void Function()? onTap,
   Color buttonTextColor = const Color.fromRGBO(255, 255, 255, 1),
   double width = double.infinity,
   bool isLoading = false,
