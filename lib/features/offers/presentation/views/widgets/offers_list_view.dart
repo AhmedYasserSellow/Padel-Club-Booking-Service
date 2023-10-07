@@ -20,11 +20,14 @@ class OffersListView extends StatelessWidget {
         itemCount: offers.length,
         itemBuilder: (context, index) {
           return OffersListViewItem(
-              offerModel: OfferModel(
-            offerName: offers[index]['title'],
-            imageUrl: offers[index]['image'],
-            postUrl: offers[index]['Link'],
-          ));
+            offerModel: OfferModel(
+              id: offers[index]['id'],
+              offerName: offers[index]['title'],
+              imageUrl: offers[index]['image'],
+              facebookUrl: offers[index]['fb'],
+              instagramUrl: offers[index]['ig'],
+            ),
+          );
         },
       ),
     );

@@ -206,7 +206,8 @@ class AdminRepoImpl extends AdminRepo {
         .set({
       'title': cubit.offerTitleController.text,
       'image': cubit.offerControllerImage.text,
-      'Link': cubit.offerControllerLink.text,
+      'fb': cubit.offerControllerLinkForFacebook.text,
+      'ig': cubit.offerControllerLinkForInstagram.text,
       'id': cubit.offerIDController.text,
     });
     NotificationService.sendGlobalNotification(
@@ -214,7 +215,8 @@ class AdminRepoImpl extends AdminRepo {
       body: 'Open to see our new offer',
     );
     cubit.offerControllerImage.clear();
-    cubit.offerControllerLink.clear();
+    cubit.offerControllerLinkForFacebook.clear();
+    cubit.offerControllerLinkForInstagram.clear();
     cubit.offerIDController.clear();
     cubit.offerTitleController.clear();
     ScaffoldMessenger.of(context).showSnackBar(

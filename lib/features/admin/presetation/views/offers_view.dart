@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
 import 'package:padel_club/core/utilities/theme/theme.dart';
 import 'package:padel_club/core/widgets/default_button.dart';
 import 'package:padel_club/core/widgets/text_form_field.dart';
@@ -92,13 +93,30 @@ class ControlOffers extends StatelessWidget {
                 height: 12,
               ),
               myTextFormField(
-                controller: cubit.offerControllerLink,
+                controller: cubit.offerControllerLinkForFacebook,
                 type: TextInputType.url,
                 validate: (String? value) {
                   return null;
                 },
-                label: 'Post Url',
-                prefix: Icons.link_rounded,
+                label: 'Facebook Url',
+                prefix: FontAwesomeIcons.facebook,
+                context: context,
+                color: AppTheme.whiteTextColor,
+                textStyleColor: AppTheme.whiteTextColor,
+                focusColor: AppTheme.whiteTextColor,
+                labelColor: AppTheme.whiteTextColor,
+              ),
+              const SizedBox(
+                height: 12,
+              ),
+              myTextFormField(
+                controller: cubit.offerControllerLinkForInstagram,
+                type: TextInputType.url,
+                validate: (String? value) {
+                  return null;
+                },
+                label: 'Instagram Url',
+                prefix: FontAwesomeIcons.instagram,
                 context: context,
                 color: AppTheme.whiteTextColor,
                 textStyleColor: AppTheme.whiteTextColor,

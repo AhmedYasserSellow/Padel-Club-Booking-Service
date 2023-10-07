@@ -1,8 +1,8 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:padel_club/core/utilities/theme/theme.dart';
 import 'package:padel_club/features/offers/data/models/offers_model.dart';
-import 'package:url_launcher/url_launcher_string.dart';
+import 'package:padel_club/features/offers/presentation/views/widgets/offer_image.dart';
+import 'package:padel_club/features/offers/presentation/views/widgets/offers_details_view.dart';
 
 class OffersListViewItem extends StatelessWidget {
   const OffersListViewItem({
@@ -37,18 +37,21 @@ class OffersListViewItem extends StatelessWidget {
             height: 15,
           ),
           InkWell(
-            onTap: () {
-              if (offerModel.postUrl != '') {
-                launchUrlString(offerModel.postUrl);
-              }
-            },
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: CachedNetworkImage(
-                imageUrl: offerModel.imageUrl,
-              ),
-            ),
-          ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return OfferDetailsView(
+                        offerModel: offerModel,
+                      );
+                    },
+                  ),
+                );
+              },
+              child: OfferImage(
+                offerModel: offerModel,
+              )),
         ],
       ),
     );

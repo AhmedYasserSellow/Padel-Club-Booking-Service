@@ -11,7 +11,10 @@ class OffersCubit extends Cubit<OffersState> {
 
   final TextEditingController offerTitleController = TextEditingController();
   final TextEditingController offerControllerImage = TextEditingController();
-  final TextEditingController offerControllerLink = TextEditingController();
+  final TextEditingController offerControllerLinkForFacebook =
+      TextEditingController();
+  final TextEditingController offerControllerLinkForInstagram =
+      TextEditingController();
   final TextEditingController offerIDController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
