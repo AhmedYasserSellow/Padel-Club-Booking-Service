@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:padel_club/features/admin/presetation/view_model/admin_cubit/admin_cubit.dart';
-import 'package:padel_club/features/admin/presetation/views/widgets/dashboard_drawer_item.dart';
+import 'package:padel_club/features/admin/presetation/views/widgets/dashboard_list_tile_item.dart';
 
 class LogOutForDashboard extends StatelessWidget {
   const LogOutForDashboard({
@@ -9,8 +9,7 @@ class LogOutForDashboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DashBoardDrawerItem(
-      isSelected: false,
+    return DashboardListTileItem(
       onTap: () async {
         AdminCubit.get(context).logOut(context);
       },

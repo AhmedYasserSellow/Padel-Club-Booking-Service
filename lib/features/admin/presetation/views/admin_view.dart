@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:padel_club/core/utilities/routes/app_routes.dart';
 import 'package:padel_club/core/utilities/theme/theme.dart';
 import 'package:padel_club/features/admin/presetation/view_model/admin_cubit/admin_cubit.dart';
-import 'package:padel_club/features/admin/presetation/views/dashboard_drawer_view.dart';
+import 'package:padel_club/features/admin/presetation/views/widgets/admin_view_builder.dart';
+import 'package:padel_club/features/admin/presetation/views/widgets/appbar_icon.dart';
+import 'package:padel_club/features/admin/presetation/views/widgets/dashboard_pages_navigator.dart';
 
 class AdminView extends StatelessWidget {
   const AdminView({
@@ -33,24 +34,10 @@ class AdminView extends StatelessWidget {
                 ),
               ),
               child: Scaffold(
-                drawer: DashBoardDrawerView(
-                  name: args['name'],
-                  phone: args['phone'],
-                ),
-                key: AdminCubit.get(context).scaffoldKey,
                 backgroundColor: Colors.transparent,
                 appBar: AppBar(
                   systemOverlayStyle: SystemUiOverlayStyle.light,
-                  leading: IconButton(
-                    icon: const Icon(Icons.menu),
-                    color: AppTheme.whiteTextColor,
-                    onPressed: () {
-                      AdminCubit.get(context)
-                          .scaffoldKey
-                          .currentState!
-                          .openDrawer();
-                    },
-                  ),
+                  leading: const AppBarIcon(),
                   title: Text(
                     'Dashboard',
                     style: TextStyle(color: AppTheme.whiteTextColor),
@@ -59,17 +46,12 @@ class AdminView extends StatelessWidget {
                   backgroundColor: Colors.transparent,
                   elevation: 0,
                 ),
-                body: Center(
-                  child: SingleChildScrollView(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 8, vertical: 16),
-                      child: dashboardPages[
-                              AdminCubit.get(context).dashboardPagesIndex]
-                          .mainWidget,
-                    ),
-                  ),
-                ),
+                body: AdminCubit.get(context).dashboardPagesIndex == -1
+                    ? AdminHomeView(
+                        name: args['name'],
+                        phone: args['phone'],
+                      )
+                    : const DashboardPagesNavigator(),
               ),
             );
           },

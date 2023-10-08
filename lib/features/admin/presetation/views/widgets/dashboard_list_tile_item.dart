@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:padel_club/core/utilities/theme/theme.dart';
 
-class DashBoardDrawerItem extends StatelessWidget {
-  const DashBoardDrawerItem({
+class DashboardListTileItem extends StatelessWidget {
+  const DashboardListTileItem({
     super.key,
     required this.text,
     required this.icon,
     required this.onTap,
-    required this.isSelected,
   });
   final String text;
   final IconData icon;
   final void Function() onTap;
-  final bool isSelected;
+
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -20,10 +19,9 @@ class DashBoardDrawerItem extends StatelessWidget {
       titleTextStyle: TextStyle(
         color: AppTheme.whiteTextColor,
       ),
-      selected: isSelected,
       leading: Icon(
         icon,
-        color: isSelected ? Colors.black : AppTheme.whiteTextColor,
+        color: AppTheme.whiteTextColor,
       ),
       title: Text(
         text,

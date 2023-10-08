@@ -7,11 +7,9 @@ import 'package:padel_club/features/home/presentation/view_models/home_cubit/hom
 import 'package:padel_club/features/splash/presentation/views/splash_view.dart';
 
 void main() async {
-  await Future.wait([
-    GetInstance.setupFirebase(),
-    GetInstance.registerInstances(),
-    GetInstance.intializeNotofications(),
-  ]);
+  await GetInstance.setupFirebase();
+  await GetInstance.registerInstances();
+  await GetInstance.intializeNotofications();
 
   runApp(const PadelClub());
 }
